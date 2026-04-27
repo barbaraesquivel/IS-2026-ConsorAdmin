@@ -7,6 +7,7 @@ namespace DAL.Models;
 
 public partial class AppDbContext : DbContext
 {
+    public DbSet<Usuario> Usuarios { get; set; }
     public AppDbContext()
     {
     }

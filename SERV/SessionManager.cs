@@ -4,37 +4,39 @@ namespace SERV
     public class SessionManager
     {
         private static SessionManager instancia;
-        public static object _lock = new object();
+        private static readonly object _lock = new object();
 
-        public IUsuario Usuario { get; set; }
-        public DateTime fechaInicio { get; set; }
+        public IUsuario Usuario { get; private set; }
+        public DateTime FechaInicio { get; private set; }
+
+        private SessionManager() { }
 
         public static SessionManager ObtenerInstancia
         {
             get
             {
-                if (instancia == null) throw new Exception("Sesion no iniciada");
-
+                if (instancia == null) throw new Exception("Sesión no iniciada");
                 return instancia;
             }
         }
 
+        public static bool SesionActiva()
+        {
+            lock (_lock) { return instancia != null; }
+        }
 
         public static void Login(IUsuario usuario)
         {
             lock (_lock)
             {
-
-                if (instancia == null)
-                {
-                    instancia = new SessionManager();
-                    instancia.Usuario = usuario;
-                    instancia.fechaInicio = DateTime.Now;
-                }
-                else
-                {
+                if (instancia != null)
                     throw new Exception("Sesión ya iniciada");
-                }
+
+                instancia = new SessionManager
+                {
+                    Usuario = usuario,
+                    FechaInicio = DateTime.Now
+                };
             }
         }
 
@@ -42,19 +44,10 @@ namespace SERV
         {
             lock (_lock)
             {
-                if (instancia != null)
-                {
-                    instancia = null;
-                }
-                else
-                {
+                if (instancia == null)
                     throw new Exception("Sesión no iniciada");
-                }
+                instancia = null;
             }
-        }
-
-        private SessionManager()
-        {
         }
 
     }

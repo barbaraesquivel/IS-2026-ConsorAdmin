@@ -76,16 +76,18 @@
             btnIniciaSesion.TabIndex = 4;
             btnIniciaSesion.Text = "Iniciar Sesión";
             btnIniciaSesion.UseVisualStyleBackColor = true;
+            btnIniciaSesion.Click += btnIniciaSesion_Click;
             // 
             // linkRegistrarse
             // 
             linkRegistrarse.AutoSize = true;
-            linkRegistrarse.Location = new Point(266, 170);
+            linkRegistrarse.Location = new Point(248, 180);
             linkRegistrarse.Name = "linkRegistrarse";
-            linkRegistrarse.Size = new Size(59, 15);
+            linkRegistrarse.Size = new Size(78, 15);
             linkRegistrarse.TabIndex = 5;
             linkRegistrarse.TabStop = true;
-            linkRegistrarse.Text = "Registrate";
+            linkRegistrarse.Text = "Test, no tocar";
+            linkRegistrarse.LinkClicked += linkRegistrarse_LinkClicked;
             // 
             // Login
             // 

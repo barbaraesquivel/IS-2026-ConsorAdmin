@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ABSTRAC
 {
-    public interface IEntidad
+    public interface IUsuarioBLL
     {
-        public Guid Id { get; set; }
-        public bool Baja {  get; set; }
+        IUsuario Login(string usuario, string contraseña);
+
     }
 }

@@ -22,4 +22,8 @@
     <ProjectReference Include="..\SERV\SERV.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Acceso\" />
+  </ItemGroup>
+
 </Project>
