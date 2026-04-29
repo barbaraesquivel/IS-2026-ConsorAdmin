@@ -8,12 +8,27 @@ namespace ConsorAdmin
         {
             InitializeComponent();
         }
-
+        
         private void buttonInicio_Click(object sender, EventArgs e)
         {
             openChildForm(new formInicioC());
         }
+        private void buttonPagarExpensas_Click(object sender, EventArgs e)
+        {
+            openChildForm(new formPagarC());
 
+        }
+        private void buttonVerExpensas_Click(object sender, EventArgs e)
+        {
+            openChildForm(new formExpC());
+
+        }
+        private void buttonModificarPerfil_Click(object sender, EventArgs e)
+        {
+            openChildForm(new formPerfilC());
+        }
+
+        
         private Form activeForm = null;
         private void openChildForm(Form childForm)
         {
@@ -28,5 +43,6 @@ namespace ConsorAdmin
             childForm.BringToFront();
             childForm.Show();
         }
+        
     }
 }

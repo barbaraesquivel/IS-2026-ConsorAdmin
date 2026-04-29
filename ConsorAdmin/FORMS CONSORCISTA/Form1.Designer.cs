@@ -1,4 +1,6 @@
-﻿namespace ConsorAdmin
+﻿
+
+namespace ConsorAdmin
 {
     partial class Form1
     {
@@ -92,6 +94,7 @@
             buttonModificarPerfil.Text = "Modificar Perfil";
             buttonModificarPerfil.TextAlign = ContentAlignment.MiddleLeft;
             buttonModificarPerfil.UseVisualStyleBackColor = true;
+            buttonModificarPerfil.Click += this.buttonModificarPerfil_Click;
             // 
             // buttonVerExpensas
             // 
@@ -109,6 +112,7 @@
             buttonVerExpensas.Text = "Ver Expensas";
             buttonVerExpensas.TextAlign = ContentAlignment.MiddleLeft;
             buttonVerExpensas.UseVisualStyleBackColor = true;
+            buttonVerExpensas.Click += this.buttonVerExpensas_Click;
             // 
             // buttonPagarExpensas
             // 
@@ -126,6 +130,7 @@
             buttonPagarExpensas.Text = "Pagar Expensas";
             buttonPagarExpensas.TextAlign = ContentAlignment.MiddleLeft;
             buttonPagarExpensas.UseVisualStyleBackColor = true;
+            buttonPagarExpensas.Click += this.buttonPagarExpensas_Click;
             // 
             // buttonInicio
             // 
@@ -144,7 +149,7 @@
             buttonInicio.Text = "Inicio";
             buttonInicio.TextAlign = ContentAlignment.MiddleLeft;
             buttonInicio.UseVisualStyleBackColor = true;
-            buttonInicio.Click += buttonInicio_Click;
+            buttonInicio.Click += this.buttonInicio_Click;
             // 
             // panelSessionInfo
             // 
@@ -209,6 +214,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
+
+
 
         #endregion
 

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ConsorAdmin
 {
-    public partial class formInicioC : Form
+    public partial class formPerfilC : Form
     {
-        public formInicioC()
+        public formPerfilC()
         {
             InitializeComponent();
         }

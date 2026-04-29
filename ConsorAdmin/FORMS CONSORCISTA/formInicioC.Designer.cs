@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             groupBoxPagado = new GroupBox();
-            label2 = new Label();
-            label1 = new Label();
+            labelExpAbon = new Label();
+            labelTotal = new Label();
             groupBoxDeuda = new GroupBox();
-            label3 = new Label();
-            label4 = new Label();
+            labelExpVen = new Label();
+            labelDeuda = new Label();
             groupBoxProxexp = new GroupBox();
-            label5 = new Label();
-            label6 = new Label();
+            labelVenProx = new Label();
+            labelProx = new Label();
             groupBoxEstado = new GroupBox();
             dataGridExpensasHistorial = new DataGridView();
             groupBoxAtencion = new GroupBox();
             dataGridUltimasExp = new DataGridView();
             groupBox1 = new GroupBox();
             buttonPagar = new Button();
-            label7 = new Label();
-            label8 = new Label();
+            labelVenAtencion = new Label();
+            labelTotAtencion = new Label();
             panel3 = new Panel();
             panelGreen = new Panel();
             panel1 = new Panel();
@@ -63,123 +63,123 @@
             // 
             // groupBoxPagado
             // 
-            groupBoxPagado.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBoxPagado.Anchor = AnchorStyles.None;
             groupBoxPagado.BackColor = Color.FromArgb(17, 30, 53);
-            groupBoxPagado.Controls.Add(label2);
-            groupBoxPagado.Controls.Add(label1);
+            groupBoxPagado.Controls.Add(labelExpAbon);
+            groupBoxPagado.Controls.Add(labelTotal);
             groupBoxPagado.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBoxPagado.ForeColor = SystemColors.ControlLight;
-            groupBoxPagado.Location = new Point(27, 39);
+            groupBoxPagado.Location = new Point(64, 39);
             groupBoxPagado.Name = "groupBoxPagado";
             groupBoxPagado.Size = new Size(159, 63);
             groupBoxPagado.TabIndex = 0;
             groupBoxPagado.TabStop = false;
             groupBoxPagado.Text = "TOTAL PAGADO";
             // 
-            // label2
+            // labelExpAbon
             // 
-            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label2.AutoSize = true;
-            label2.Font = new Font("Unispace", 6.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(10, 45);
-            label2.Name = "label2";
-            label2.Size = new Size(119, 11);
-            label2.TabIndex = 1;
-            label2.Text = "X expensas abonadas";
+            labelExpAbon.Anchor = AnchorStyles.None;
+            labelExpAbon.AutoSize = true;
+            labelExpAbon.Font = new Font("Unispace", 6.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelExpAbon.Location = new Point(10, 45);
+            labelExpAbon.Name = "labelExpAbon";
+            labelExpAbon.Size = new Size(119, 11);
+            labelExpAbon.TabIndex = 1;
+            labelExpAbon.Text = "X expensas abonadas";
             // 
-            // label1
+            // labelTotal
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(7, 19);
-            label1.Name = "label1";
-            label1.Size = new Size(139, 19);
-            label1.TabIndex = 0;
-            label1.Text = "$000000000.00";
+            labelTotal.Anchor = AnchorStyles.None;
+            labelTotal.AutoSize = true;
+            labelTotal.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTotal.Location = new Point(7, 19);
+            labelTotal.Name = "labelTotal";
+            labelTotal.Size = new Size(139, 19);
+            labelTotal.TabIndex = 0;
+            labelTotal.Text = "$000000000.00";
             // 
             // groupBoxDeuda
             // 
-            groupBoxDeuda.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBoxDeuda.Anchor = AnchorStyles.None;
             groupBoxDeuda.BackColor = Color.FromArgb(17, 30, 53);
-            groupBoxDeuda.Controls.Add(label3);
-            groupBoxDeuda.Controls.Add(label4);
+            groupBoxDeuda.Controls.Add(labelExpVen);
+            groupBoxDeuda.Controls.Add(labelDeuda);
             groupBoxDeuda.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBoxDeuda.ForeColor = SystemColors.ControlLight;
-            groupBoxDeuda.Location = new Point(213, 39);
+            groupBoxDeuda.Location = new Point(250, 39);
             groupBoxDeuda.Name = "groupBoxDeuda";
             groupBoxDeuda.Size = new Size(159, 63);
             groupBoxDeuda.TabIndex = 1;
             groupBoxDeuda.TabStop = false;
             groupBoxDeuda.Text = "EN DEUDA";
             // 
-            // label3
+            // labelExpVen
             // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label3.AutoSize = true;
-            label3.Font = new Font("Unispace", 6.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(10, 45);
-            label3.Name = "label3";
-            label3.Size = new Size(77, 11);
-            label3.TabIndex = 3;
-            label3.Text = "X vencida(s)";
+            labelExpVen.Anchor = AnchorStyles.None;
+            labelExpVen.AutoSize = true;
+            labelExpVen.Font = new Font("Unispace", 6.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelExpVen.Location = new Point(10, 45);
+            labelExpVen.Name = "labelExpVen";
+            labelExpVen.Size = new Size(77, 11);
+            labelExpVen.TabIndex = 3;
+            labelExpVen.Text = "X vencida(s)";
             // 
-            // label4
+            // labelDeuda
             // 
-            label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label4.AutoSize = true;
-            label4.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(7, 19);
-            label4.Name = "label4";
-            label4.Size = new Size(139, 19);
-            label4.TabIndex = 2;
-            label4.Text = "$000000000.00";
+            labelDeuda.Anchor = AnchorStyles.None;
+            labelDeuda.AutoSize = true;
+            labelDeuda.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelDeuda.Location = new Point(7, 19);
+            labelDeuda.Name = "labelDeuda";
+            labelDeuda.Size = new Size(139, 19);
+            labelDeuda.TabIndex = 2;
+            labelDeuda.Text = "$000000000.00";
             // 
             // groupBoxProxexp
             // 
-            groupBoxProxexp.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBoxProxexp.Anchor = AnchorStyles.None;
             groupBoxProxexp.BackColor = Color.FromArgb(17, 30, 53);
-            groupBoxProxexp.Controls.Add(label5);
-            groupBoxProxexp.Controls.Add(label6);
+            groupBoxProxexp.Controls.Add(labelVenProx);
+            groupBoxProxexp.Controls.Add(labelProx);
             groupBoxProxexp.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBoxProxexp.ForeColor = SystemColors.ControlLight;
-            groupBoxProxexp.Location = new Point(399, 39);
+            groupBoxProxexp.Location = new Point(436, 39);
             groupBoxProxexp.Name = "groupBoxProxexp";
             groupBoxProxexp.Size = new Size(159, 63);
             groupBoxProxexp.TabIndex = 2;
             groupBoxProxexp.TabStop = false;
             groupBoxProxexp.Text = "PRÓXIMA EXPENSA";
             // 
-            // label5
+            // labelVenProx
             // 
-            label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label5.AutoSize = true;
-            label5.Font = new Font("Unispace", 6.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(10, 44);
-            label5.Name = "label5";
-            label5.Size = new Size(107, 11);
-            label5.TabIndex = 5;
-            label5.Text = "Vence: 10/03/2025";
+            labelVenProx.Anchor = AnchorStyles.None;
+            labelVenProx.AutoSize = true;
+            labelVenProx.Font = new Font("Unispace", 6.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelVenProx.Location = new Point(10, 44);
+            labelVenProx.Name = "labelVenProx";
+            labelVenProx.Size = new Size(107, 11);
+            labelVenProx.TabIndex = 5;
+            labelVenProx.Text = "Vence: 10/03/2025";
             // 
-            // label6
+            // labelProx
             // 
-            label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label6.AutoSize = true;
-            label6.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(7, 18);
-            label6.Name = "label6";
-            label6.Size = new Size(139, 19);
-            label6.TabIndex = 4;
-            label6.Text = "$000000000.00";
+            labelProx.Anchor = AnchorStyles.None;
+            labelProx.AutoSize = true;
+            labelProx.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelProx.Location = new Point(7, 18);
+            labelProx.Name = "labelProx";
+            labelProx.Size = new Size(139, 19);
+            labelProx.TabIndex = 4;
+            labelProx.Text = "$000000000.00";
             // 
             // groupBoxEstado
             // 
-            groupBoxEstado.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBoxEstado.Anchor = AnchorStyles.None;
             groupBoxEstado.BackColor = Color.FromArgb(17, 30, 53);
             groupBoxEstado.Controls.Add(dataGridExpensasHistorial);
             groupBoxEstado.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBoxEstado.ForeColor = SystemColors.ControlLight;
-            groupBoxEstado.Location = new Point(23, 152);
+            groupBoxEstado.Location = new Point(60, 152);
             groupBoxEstado.Name = "groupBoxEstado";
             groupBoxEstado.Size = new Size(264, 303);
             groupBoxEstado.TabIndex = 3;
@@ -197,14 +197,14 @@
             // 
             // groupBoxAtencion
             // 
-            groupBoxAtencion.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBoxAtencion.Anchor = AnchorStyles.None;
             groupBoxAtencion.BackColor = Color.FromArgb(17, 30, 53);
             groupBoxAtencion.Controls.Add(dataGridUltimasExp);
             groupBoxAtencion.Controls.Add(groupBox1);
             groupBoxAtencion.Controls.Add(panel3);
             groupBoxAtencion.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBoxAtencion.ForeColor = SystemColors.ControlLight;
-            groupBoxAtencion.Location = new Point(298, 152);
+            groupBoxAtencion.Location = new Point(335, 152);
             groupBoxAtencion.Name = "groupBoxAtencion";
             groupBoxAtencion.Size = new Size(264, 303);
             groupBoxAtencion.TabIndex = 4;
@@ -215,18 +215,18 @@
             // 
             dataGridUltimasExp.Anchor = AnchorStyles.None;
             dataGridUltimasExp.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridUltimasExp.Location = new Point(7, 149);
+            dataGridUltimasExp.Location = new Point(7, 128);
             dataGridUltimasExp.Name = "dataGridUltimasExp";
-            dataGridUltimasExp.Size = new Size(252, 148);
+            dataGridUltimasExp.Size = new Size(252, 169);
             dataGridUltimasExp.TabIndex = 9;
             // 
             // groupBox1
             // 
-            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.Anchor = AnchorStyles.None;
             groupBox1.BackColor = Color.FromArgb(17, 30, 53);
             groupBox1.Controls.Add(buttonPagar);
-            groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(labelVenAtencion);
+            groupBox1.Controls.Add(labelTotAtencion);
             groupBox1.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBox1.ForeColor = SystemColors.ControlLight;
             groupBox1.Location = new Point(7, 20);
@@ -249,31 +249,31 @@
             buttonPagar.Text = "Pagar Ahora";
             buttonPagar.UseVisualStyleBackColor = false;
             // 
-            // label7
+            // labelVenAtencion
             // 
-            label7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label7.AutoSize = true;
-            label7.Font = new Font("Unispace", 6.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(10, 45);
-            label7.Name = "label7";
-            label7.Size = new Size(221, 11);
-            label7.TabIndex = 3;
-            label7.Text = "Expensa Ene 2025 - Vencio 10/01/2025";
+            labelVenAtencion.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelVenAtencion.AutoSize = true;
+            labelVenAtencion.Font = new Font("Unispace", 6.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelVenAtencion.Location = new Point(10, 45);
+            labelVenAtencion.Name = "labelVenAtencion";
+            labelVenAtencion.Size = new Size(221, 11);
+            labelVenAtencion.TabIndex = 3;
+            labelVenAtencion.Text = "Expensa Ene 2025 - Vencio 10/01/2025";
             // 
-            // label8
+            // labelTotAtencion
             // 
-            label8.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label8.AutoSize = true;
-            label8.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(7, 19);
-            label8.Name = "label8";
-            label8.Size = new Size(139, 19);
-            label8.TabIndex = 2;
-            label8.Text = "$000000000.00";
+            labelTotAtencion.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelTotAtencion.AutoSize = true;
+            labelTotAtencion.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTotAtencion.Location = new Point(7, 19);
+            labelTotAtencion.Name = "labelTotAtencion";
+            labelTotAtencion.Size = new Size(139, 19);
+            labelTotAtencion.TabIndex = 2;
+            labelTotAtencion.Text = "$000000000.00";
             // 
             // panel3
             // 
-            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel3.Anchor = AnchorStyles.None;
             panel3.BackColor = Color.FromArgb(255, 83, 113);
             panel3.Location = new Point(3, 14);
             panel3.Name = "panel3";
@@ -282,27 +282,27 @@
             // 
             // panelGreen
             // 
-            panelGreen.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelGreen.Anchor = AnchorStyles.None;
             panelGreen.BackColor = Color.FromArgb(0, 220, 144);
-            panelGreen.Location = new Point(23, 33);
+            panelGreen.Location = new Point(60, 33);
             panelGreen.Name = "panelGreen";
             panelGreen.Size = new Size(167, 72);
             panelGreen.TabIndex = 5;
             // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = Color.FromArgb(255, 83, 113);
-            panel1.Location = new Point(209, 33);
+            panel1.Location = new Point(246, 33);
             panel1.Name = "panel1";
             panel1.Size = new Size(167, 72);
             panel1.TabIndex = 6;
             // 
             // panel2
             // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.Anchor = AnchorStyles.None;
             panel2.BackColor = Color.FromArgb(255, 189, 20);
-            panel2.Location = new Point(395, 33);
+            panel2.Location = new Point(432, 33);
             panel2.Name = "panel2";
             panel2.Size = new Size(167, 72);
             panel2.TabIndex = 7;
@@ -321,9 +321,9 @@
             groupBox2.Controls.Add(panel2);
             groupBox2.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBox2.ForeColor = SystemColors.ControlLight;
-            groupBox2.Location = new Point(44, 48);
+            groupBox2.Location = new Point(12, 48);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(585, 476);
+            groupBox2.Size = new Size(658, 476);
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             // 
@@ -334,8 +334,6 @@
             BackColor = Color.FromArgb(8, 14, 26);
             ClientSize = new Size(682, 597);
             Controls.Add(groupBox2);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            MaximizeBox = false;
             Name = "formInicioC";
             Text = "formInicioC";
             groupBoxPagado.ResumeLayout(false);
@@ -362,18 +360,18 @@
         private GroupBox groupBoxEstado;
         private GroupBox groupBoxAtencion;
         private Panel panelGreen;
-        private Label label1;
+        private Label labelTotal;
         private Panel panel1;
         private Panel panel2;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
+        private Label labelExpAbon;
+        private Label labelExpVen;
+        private Label labelDeuda;
+        private Label labelVenProx;
+        private Label labelProx;
         private DataGridView dataGridExpensasHistorial;
         private GroupBox groupBox1;
-        private Label label7;
-        private Label label8;
+        private Label labelVenAtencion;
+        private Label labelTotAtencion;
         private Panel panel3;
         private Button buttonPagar;
         private DataGridView dataGridUltimasExp;
