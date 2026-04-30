@@ -38,10 +38,15 @@ namespace ConsorAdmin
             buttonPagarExpensas = new Button();
             buttonInicio = new Button();
             panelSessionInfo = new Panel();
+            pictureBox2 = new PictureBox();
+            labelUsername = new Label();
+            labelSESION = new Label();
             panelChildForm = new Panel();
             pictureBox1 = new PictureBox();
-            label1 = new Label();
+            labelBienvenida = new Label();
             panelSideMenu.SuspendLayout();
+            panelSessionInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panelChildForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -94,7 +99,7 @@ namespace ConsorAdmin
             buttonModificarPerfil.Text = "Modificar Perfil";
             buttonModificarPerfil.TextAlign = ContentAlignment.MiddleLeft;
             buttonModificarPerfil.UseVisualStyleBackColor = true;
-            buttonModificarPerfil.Click += this.buttonModificarPerfil_Click;
+            buttonModificarPerfil.Click += buttonModificarPerfil_Click;
             // 
             // buttonVerExpensas
             // 
@@ -112,7 +117,7 @@ namespace ConsorAdmin
             buttonVerExpensas.Text = "Ver Expensas";
             buttonVerExpensas.TextAlign = ContentAlignment.MiddleLeft;
             buttonVerExpensas.UseVisualStyleBackColor = true;
-            buttonVerExpensas.Click += this.buttonVerExpensas_Click;
+            buttonVerExpensas.Click += buttonVerExpensas_Click;
             // 
             // buttonPagarExpensas
             // 
@@ -130,7 +135,7 @@ namespace ConsorAdmin
             buttonPagarExpensas.Text = "Pagar Expensas";
             buttonPagarExpensas.TextAlign = ContentAlignment.MiddleLeft;
             buttonPagarExpensas.UseVisualStyleBackColor = true;
-            buttonPagarExpensas.Click += this.buttonPagarExpensas_Click;
+            buttonPagarExpensas.Click += buttonPagarExpensas_Click;
             // 
             // buttonInicio
             // 
@@ -149,21 +154,56 @@ namespace ConsorAdmin
             buttonInicio.Text = "Inicio";
             buttonInicio.TextAlign = ContentAlignment.MiddleLeft;
             buttonInicio.UseVisualStyleBackColor = true;
-            buttonInicio.Click += this.buttonInicio_Click;
+            buttonInicio.Click += buttonInicio_Click;
             // 
             // panelSessionInfo
             // 
+            panelSessionInfo.Controls.Add(pictureBox2);
+            panelSessionInfo.Controls.Add(labelUsername);
+            panelSessionInfo.Controls.Add(labelSESION);
             panelSessionInfo.Dock = DockStyle.Top;
             panelSessionInfo.Location = new Point(0, 0);
             panelSessionInfo.Name = "panelSessionInfo";
             panelSessionInfo.Size = new Size(186, 124);
             panelSessionInfo.TabIndex = 1;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.White;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(6, 12);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(168, 52);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 2;
+            pictureBox2.TabStop = false;
+            // 
+            // labelUsername
+            // 
+            labelUsername.AutoSize = true;
+            labelUsername.ForeColor = SystemColors.ControlLight;
+            labelUsername.Location = new Point(12, 93);
+            labelUsername.Name = "labelUsername";
+            labelUsername.Size = new Size(71, 19);
+            labelUsername.TabIndex = 1;
+            labelUsername.Text = "Username";
+            // 
+            // labelSESION
+            // 
+            labelSESION.AutoSize = true;
+            labelSESION.Font = new Font("Unispace", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelSESION.ForeColor = SystemColors.ControlLight;
+            labelSESION.Location = new Point(12, 79);
+            labelSESION.Name = "labelSESION";
+            labelSESION.Size = new Size(111, 15);
+            labelSESION.TabIndex = 0;
+            labelSESION.Text = "SESION ACTIVA";
+            // 
             // panelChildForm
             // 
             panelChildForm.BackColor = Color.FromArgb(8, 14, 26);
             panelChildForm.Controls.Add(pictureBox1);
-            panelChildForm.Controls.Add(label1);
+            panelChildForm.Controls.Add(labelBienvenida);
             panelChildForm.Dock = DockStyle.Fill;
             panelChildForm.Location = new Point(186, 0);
             panelChildForm.Name = "panelChildForm";
@@ -172,7 +212,7 @@ namespace ConsorAdmin
             // 
             // pictureBox1
             // 
-            pictureBox1.Anchor = AnchorStyles.None;
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(86, 124);
             pictureBox1.Name = "pictureBox1";
@@ -181,18 +221,18 @@ namespace ConsorAdmin
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
-            // label1
+            // labelBienvenida
             // 
-            label1.Anchor = AnchorStyles.None;
-            label1.AutoSize = true;
-            label1.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ControlLight;
-            label1.Location = new Point(241, 83);
-            label1.Name = "label1";
-            label1.Size = new Size(219, 38);
-            label1.TabIndex = 0;
-            label1.Text = "Bienvenido usuari@ a \r\nConsorAdmin";
-            label1.TextAlign = ContentAlignment.TopCenter;
+            labelBienvenida.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelBienvenida.AutoSize = true;
+            labelBienvenida.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelBienvenida.ForeColor = SystemColors.ControlLight;
+            labelBienvenida.Location = new Point(241, 83);
+            labelBienvenida.Name = "labelBienvenida";
+            labelBienvenida.Size = new Size(219, 38);
+            labelBienvenida.TabIndex = 0;
+            labelBienvenida.Text = "Bienvenido usuari@ a \r\nConsorAdmin";
+            labelBienvenida.TextAlign = ContentAlignment.TopCenter;
             // 
             // Form1
             // 
@@ -204,11 +244,13 @@ namespace ConsorAdmin
             Controls.Add(panelSideMenu);
             Font = new Font("Segoe UI", 10F);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            MaximizeBox = false;
             MinimumSize = new Size(900, 675);
             Name = "Form1";
             Text = "Form1";
             panelSideMenu.ResumeLayout(false);
+            panelSessionInfo.ResumeLayout(false);
+            panelSessionInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panelChildForm.ResumeLayout(false);
             panelChildForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -227,7 +269,10 @@ namespace ConsorAdmin
         private Button buttonVerExpensas;
         private Button buttonLogout;
         private Panel panelChildForm;
-        private Label label1;
+        private Label labelBienvenida;
         private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private Label labelUsername;
+        private Label labelSESION;
     }
 }
