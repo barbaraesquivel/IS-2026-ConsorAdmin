@@ -1,6 +1,6 @@
-﻿namespace ConsorAdmin
+﻿namespace ConsorAdmin.FORMS_PROOVEDOR
 {
-    partial class formExpC
+    partial class formVerP
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             groupBox2 = new GroupBox();
-            buttonGuardar = new Button();
-            buttonImprimir = new Button();
+            buttonEditar = new Button();
             groupBoxExpensas = new GroupBox();
             dataGridExpensas = new DataGridView();
             groupBox2.SuspendLayout();
@@ -41,8 +40,7 @@
             // groupBox2
             // 
             groupBox2.BackColor = Color.FromArgb(8, 14, 26);
-            groupBox2.Controls.Add(buttonGuardar);
-            groupBox2.Controls.Add(buttonImprimir);
+            groupBox2.Controls.Add(buttonEditar);
             groupBox2.Controls.Add(groupBoxExpensas);
             groupBox2.Dock = DockStyle.Fill;
             groupBox2.Font = new Font("Unispace", 9F, FontStyle.Bold);
@@ -50,40 +48,24 @@
             groupBox2.Location = new Point(0, 0);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(682, 597);
-            groupBox2.TabIndex = 7;
+            groupBox2.TabIndex = 8;
             groupBox2.TabStop = false;
             // 
-            // buttonGuardar
+            // buttonEditar
             // 
-            buttonGuardar.Anchor = AnchorStyles.None;
-            buttonGuardar.BackColor = Color.Transparent;
-            buttonGuardar.FlatAppearance.BorderColor = Color.FromArgb(30, 58, 95);
-            buttonGuardar.FlatAppearance.MouseDownBackColor = SystemColors.Highlight;
-            buttonGuardar.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
-            buttonGuardar.FlatStyle = FlatStyle.Flat;
-            buttonGuardar.ForeColor = SystemColors.ControlLight;
-            buttonGuardar.Location = new Point(276, 421);
-            buttonGuardar.Name = "buttonGuardar";
-            buttonGuardar.Size = new Size(202, 36);
-            buttonGuardar.TabIndex = 15;
-            buttonGuardar.Text = "Guardar en PDF";
-            buttonGuardar.UseVisualStyleBackColor = false;
-            // 
-            // buttonImprimir
-            // 
-            buttonImprimir.Anchor = AnchorStyles.None;
-            buttonImprimir.BackColor = Color.FromArgb(39, 133, 243);
-            buttonImprimir.FlatAppearance.BorderSize = 0;
-            buttonImprimir.FlatAppearance.MouseDownBackColor = Color.FromArgb(28, 105, 193);
-            buttonImprimir.FlatAppearance.MouseOverBackColor = Color.FromArgb(28, 105, 193);
-            buttonImprimir.FlatStyle = FlatStyle.Flat;
-            buttonImprimir.ForeColor = SystemColors.ControlLight;
-            buttonImprimir.Location = new Point(44, 421);
-            buttonImprimir.Name = "buttonImprimir";
-            buttonImprimir.Size = new Size(202, 36);
-            buttonImprimir.TabIndex = 14;
-            buttonImprimir.Text = "Imprimir Expensa Seleccionada(s)";
-            buttonImprimir.UseVisualStyleBackColor = false;
+            buttonEditar.Anchor = AnchorStyles.None;
+            buttonEditar.BackColor = Color.FromArgb(39, 133, 243);
+            buttonEditar.FlatAppearance.BorderSize = 0;
+            buttonEditar.FlatAppearance.MouseDownBackColor = Color.FromArgb(28, 105, 193);
+            buttonEditar.FlatAppearance.MouseOverBackColor = Color.FromArgb(28, 105, 193);
+            buttonEditar.FlatStyle = FlatStyle.Flat;
+            buttonEditar.ForeColor = SystemColors.ControlLight;
+            buttonEditar.Location = new Point(42, 465);
+            buttonEditar.Name = "buttonEditar";
+            buttonEditar.Size = new Size(591, 36);
+            buttonEditar.TabIndex = 14;
+            buttonEditar.Text = "Editar Expensa Seleccionada";
+            buttonEditar.UseVisualStyleBackColor = false;
             // 
             // groupBoxExpensas
             // 
@@ -92,9 +74,9 @@
             groupBoxExpensas.Controls.Add(dataGridExpensas);
             groupBoxExpensas.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBoxExpensas.ForeColor = SystemColors.ControlLight;
-            groupBoxExpensas.Location = new Point(14, 95);
+            groupBoxExpensas.Location = new Point(12, 51);
             groupBoxExpensas.Name = "groupBoxExpensas";
-            groupBoxExpensas.Size = new Size(655, 303);
+            groupBoxExpensas.Size = new Size(655, 408);
             groupBoxExpensas.TabIndex = 5;
             groupBoxExpensas.TabStop = false;
             // 
@@ -102,20 +84,20 @@
             // 
             dataGridExpensas.Anchor = AnchorStyles.None;
             dataGridExpensas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridExpensas.Location = new Point(30, 16);
+            dataGridExpensas.Location = new Point(30, 13);
             dataGridExpensas.Name = "dataGridExpensas";
-            dataGridExpensas.Size = new Size(591, 276);
+            dataGridExpensas.Size = new Size(591, 389);
             dataGridExpensas.TabIndex = 0;
             // 
-            // formExpC
+            // formVerP
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(8, 14, 26);
             ClientSize = new Size(682, 597);
             Controls.Add(groupBox2);
-            Name = "formExpC";
-            Text = "formExpC";
+            Name = "formVerP";
+            Text = "formVerP";
             groupBox2.ResumeLayout(false);
             groupBoxExpensas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridExpensas).EndInit();
@@ -125,9 +107,8 @@
         #endregion
 
         private GroupBox groupBox2;
+        private Button buttonEditar;
         private GroupBox groupBoxExpensas;
         private DataGridView dataGridExpensas;
-        private Button buttonImprimir;
-        private Button buttonGuardar;
     }
 }

@@ -34,19 +34,21 @@
             labelUsername = new Label();
             labelSESION = new Label();
             panelChildForm = new Panel();
-            pictureBox1 = new PictureBox();
-            labelBienvenida = new Label();
             panelSideMenu = new Panel();
             buttonLogout = new Button();
             buttonModificarPerfil = new Button();
             buttonVerServicios = new Button();
             buttonCargar = new Button();
             buttonInicio = new Button();
+            groupBox1 = new GroupBox();
+            pictureBox1 = new PictureBox();
+            labelBienvenida = new Label();
             panelSessionInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panelChildForm.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelSideMenu.SuspendLayout();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panelSessionInfo
@@ -95,37 +97,12 @@
             // panelChildForm
             // 
             panelChildForm.BackColor = Color.FromArgb(8, 14, 26);
-            panelChildForm.Controls.Add(pictureBox1);
-            panelChildForm.Controls.Add(labelBienvenida);
+            panelChildForm.Controls.Add(groupBox1);
             panelChildForm.Dock = DockStyle.Fill;
             panelChildForm.Location = new Point(186, 0);
             panelChildForm.Name = "panelChildForm";
             panelChildForm.Size = new Size(698, 636);
             panelChildForm.TabIndex = 3;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(87, 117);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(532, 404);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
-            // 
-            // labelBienvenida
-            // 
-            labelBienvenida.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelBienvenida.AutoSize = true;
-            labelBienvenida.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelBienvenida.ForeColor = SystemColors.ControlLight;
-            labelBienvenida.Location = new Point(242, 76);
-            labelBienvenida.Name = "labelBienvenida";
-            labelBienvenida.Size = new Size(219, 38);
-            labelBienvenida.TabIndex = 0;
-            labelBienvenida.Text = "Bienvenido usuari@ a \r\nConsorAdmin";
-            labelBienvenida.TextAlign = ContentAlignment.TopCenter;
             // 
             // panelSideMenu
             // 
@@ -175,6 +152,7 @@
             buttonModificarPerfil.Text = "Modificar Perfil";
             buttonModificarPerfil.TextAlign = ContentAlignment.MiddleLeft;
             buttonModificarPerfil.UseVisualStyleBackColor = true;
+            buttonModificarPerfil.Click += buttonModificarPerfil_Click;
             // 
             // buttonVerServicios
             // 
@@ -192,6 +170,7 @@
             buttonVerServicios.Text = "Ver Servicios";
             buttonVerServicios.TextAlign = ContentAlignment.MiddleLeft;
             buttonVerServicios.UseVisualStyleBackColor = true;
+            buttonVerServicios.Click += buttonVerServicios_Click;
             // 
             // buttonCargar
             // 
@@ -209,6 +188,7 @@
             buttonCargar.Text = "Cargar Servicio";
             buttonCargar.TextAlign = ContentAlignment.MiddleLeft;
             buttonCargar.UseVisualStyleBackColor = true;
+            buttonCargar.Click += buttonCargar_Click;
             // 
             // buttonInicio
             // 
@@ -227,6 +207,42 @@
             buttonInicio.Text = "Inicio";
             buttonInicio.TextAlign = ContentAlignment.MiddleLeft;
             buttonInicio.UseVisualStyleBackColor = true;
+            buttonInicio.Click += buttonInicio_Click;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(pictureBox1);
+            groupBox1.Controls.Add(labelBienvenida);
+            groupBox1.Dock = DockStyle.Fill;
+            groupBox1.Location = new Point(0, 0);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(698, 636);
+            groupBox1.TabIndex = 3;
+            groupBox1.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.None;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(79, 140);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(544, 397);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            // 
+            // labelBienvenida
+            // 
+            labelBienvenida.Anchor = AnchorStyles.None;
+            labelBienvenida.AutoSize = true;
+            labelBienvenida.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelBienvenida.ForeColor = SystemColors.ControlLight;
+            labelBienvenida.Location = new Point(234, 99);
+            labelBienvenida.Name = "labelBienvenida";
+            labelBienvenida.Size = new Size(219, 38);
+            labelBienvenida.TabIndex = 0;
+            labelBienvenida.Text = "Bienvenido usuari@ a \r\nConsorAdmin";
+            labelBienvenida.TextAlign = ContentAlignment.TopCenter;
             // 
             // Form1P
             // 
@@ -241,9 +257,10 @@
             panelSessionInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panelChildForm.ResumeLayout(false);
-            panelChildForm.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panelSideMenu.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -254,13 +271,14 @@
         private Label labelUsername;
         private Label labelSESION;
         private Panel panelChildForm;
-        private PictureBox pictureBox1;
-        private Label labelBienvenida;
         private Panel panelSideMenu;
         private Button buttonLogout;
         private Button buttonModificarPerfil;
         private Button buttonVerServicios;
         private Button buttonCargar;
         private Button buttonInicio;
+        private GroupBox groupBox1;
+        private PictureBox pictureBox1;
+        private Label labelBienvenida;
     }
 }

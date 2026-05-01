@@ -180,13 +180,13 @@
             // 
             // groupBox2
             // 
-            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox2.BackColor = Color.FromArgb(8, 14, 26);
+            groupBox2.Dock = DockStyle.Fill;
             groupBox2.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBox2.ForeColor = SystemColors.ControlLight;
-            groupBox2.Location = new Point(7, 33);
+            groupBox2.Location = new Point(0, 0);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(667, 476);
+            groupBox2.Size = new Size(682, 597);
             groupBox2.TabIndex = 6;
             groupBox2.TabStop = false;
             // 

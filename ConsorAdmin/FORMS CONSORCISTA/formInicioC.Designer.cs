@@ -69,7 +69,7 @@
             groupBoxPagado.Controls.Add(labelTotal);
             groupBoxPagado.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBoxPagado.ForeColor = SystemColors.ControlLight;
-            groupBoxPagado.Location = new Point(64, 39);
+            groupBoxPagado.Location = new Point(76, 100);
             groupBoxPagado.Name = "groupBoxPagado";
             groupBoxPagado.Size = new Size(159, 63);
             groupBoxPagado.TabIndex = 0;
@@ -106,7 +106,7 @@
             groupBoxDeuda.Controls.Add(labelDeuda);
             groupBoxDeuda.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBoxDeuda.ForeColor = SystemColors.ControlLight;
-            groupBoxDeuda.Location = new Point(250, 39);
+            groupBoxDeuda.Location = new Point(262, 100);
             groupBoxDeuda.Name = "groupBoxDeuda";
             groupBoxDeuda.Size = new Size(159, 63);
             groupBoxDeuda.TabIndex = 1;
@@ -143,7 +143,7 @@
             groupBoxProxexp.Controls.Add(labelProx);
             groupBoxProxexp.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBoxProxexp.ForeColor = SystemColors.ControlLight;
-            groupBoxProxexp.Location = new Point(436, 39);
+            groupBoxProxexp.Location = new Point(448, 100);
             groupBoxProxexp.Name = "groupBoxProxexp";
             groupBoxProxexp.Size = new Size(159, 63);
             groupBoxProxexp.TabIndex = 2;
@@ -179,7 +179,7 @@
             groupBoxEstado.Controls.Add(dataGridExpensasHistorial);
             groupBoxEstado.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBoxEstado.ForeColor = SystemColors.ControlLight;
-            groupBoxEstado.Location = new Point(60, 152);
+            groupBoxEstado.Location = new Point(72, 213);
             groupBoxEstado.Name = "groupBoxEstado";
             groupBoxEstado.Size = new Size(264, 303);
             groupBoxEstado.TabIndex = 3;
@@ -204,7 +204,7 @@
             groupBoxAtencion.Controls.Add(panel3);
             groupBoxAtencion.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBoxAtencion.ForeColor = SystemColors.ControlLight;
-            groupBoxAtencion.Location = new Point(335, 152);
+            groupBoxAtencion.Location = new Point(347, 213);
             groupBoxAtencion.Name = "groupBoxAtencion";
             groupBoxAtencion.Size = new Size(264, 303);
             groupBoxAtencion.TabIndex = 4;
@@ -284,7 +284,7 @@
             // 
             panelGreen.Anchor = AnchorStyles.None;
             panelGreen.BackColor = Color.FromArgb(0, 220, 144);
-            panelGreen.Location = new Point(60, 33);
+            panelGreen.Location = new Point(72, 94);
             panelGreen.Name = "panelGreen";
             panelGreen.Size = new Size(167, 72);
             panelGreen.TabIndex = 5;
@@ -293,7 +293,7 @@
             // 
             panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = Color.FromArgb(255, 83, 113);
-            panel1.Location = new Point(246, 33);
+            panel1.Location = new Point(258, 94);
             panel1.Name = "panel1";
             panel1.Size = new Size(167, 72);
             panel1.TabIndex = 6;
@@ -302,14 +302,13 @@
             // 
             panel2.Anchor = AnchorStyles.None;
             panel2.BackColor = Color.FromArgb(255, 189, 20);
-            panel2.Location = new Point(432, 33);
+            panel2.Location = new Point(444, 94);
             panel2.Name = "panel2";
             panel2.Size = new Size(167, 72);
             panel2.TabIndex = 7;
             // 
             // groupBox2
             // 
-            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox2.BackColor = Color.FromArgb(8, 14, 26);
             groupBox2.Controls.Add(groupBoxPagado);
             groupBox2.Controls.Add(panelGreen);
@@ -319,11 +318,12 @@
             groupBox2.Controls.Add(groupBoxProxexp);
             groupBox2.Controls.Add(panel1);
             groupBox2.Controls.Add(panel2);
+            groupBox2.Dock = DockStyle.Fill;
             groupBox2.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBox2.ForeColor = SystemColors.ControlLight;
-            groupBox2.Location = new Point(12, 48);
+            groupBox2.Location = new Point(0, 0);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(658, 476);
+            groupBox2.Size = new Size(682, 597);
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             // 
