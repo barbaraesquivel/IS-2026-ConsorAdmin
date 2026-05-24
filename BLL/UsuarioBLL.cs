@@ -3,6 +3,7 @@ using System.Security.Cryptography;
 using BE;
 using DAL.Repositorio;
 using System.Text;
+using SERV;
 
 namespace BLL
 {
@@ -35,6 +36,13 @@ namespace BLL
                 throw new Exception("El usuario se encuentra bloqueado. Contacte al administrador.");
 
             return usuario;
+        }
+
+        public void Logout()
+        {
+
+            try { SessionManager.Logout(); }
+            catch { throw new Exception(""); }
         }
 
         public static string Hashear(string texto)

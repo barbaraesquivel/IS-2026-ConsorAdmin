@@ -84,6 +84,7 @@ namespace ConsorAdmin
             buttonLogout.Text = "Cerrar Sesión";
             buttonLogout.TextAlign = ContentAlignment.MiddleLeft;
             buttonLogout.UseVisualStyleBackColor = true;
+            buttonLogout.Click += buttonLogout_Click;
             // 
             // buttonModificarPerfil
             // 
@@ -193,11 +194,11 @@ namespace ConsorAdmin
             // labelSESION
             // 
             labelSESION.AutoSize = true;
-            labelSESION.Font = new Font("Unispace", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelSESION.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelSESION.ForeColor = SystemColors.ControlLight;
             labelSESION.Location = new Point(12, 79);
             labelSESION.Name = "labelSESION";
-            labelSESION.Size = new Size(111, 15);
+            labelSESION.Size = new Size(121, 16);
             labelSESION.TabIndex = 0;
             labelSESION.Text = "SESION ACTIVA";
             // 
@@ -237,11 +238,11 @@ namespace ConsorAdmin
             // 
             labelBienvenida.Anchor = AnchorStyles.None;
             labelBienvenida.AutoSize = true;
-            labelBienvenida.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelBienvenida.Font = new Font("Microsoft Sans Serif", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelBienvenida.ForeColor = SystemColors.ControlLight;
             labelBienvenida.Location = new Point(234, 99);
             labelBienvenida.Name = "labelBienvenida";
-            labelBienvenida.Size = new Size(219, 38);
+            labelBienvenida.Size = new Size(188, 40);
             labelBienvenida.TabIndex = 0;
             labelBienvenida.Text = "Bienvenido usuari@ a \r\nConsorAdmin";
             labelBienvenida.TextAlign = ContentAlignment.TopCenter;
@@ -258,6 +259,7 @@ namespace ConsorAdmin
             MinimumSize = new Size(900, 675);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             panelSideMenu.ResumeLayout(false);
             panelSessionInfo.ResumeLayout(false);
             panelSessionInfo.PerformLayout();

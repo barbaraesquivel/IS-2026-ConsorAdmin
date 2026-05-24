@@ -21,19 +21,25 @@ namespace ConsorAdmin
             InitializeComponent();
             _usuarioBLL = new UsuarioBLL();
         }
+        Form1 formulario;
 
         private void btnIniciaSesion_Click(object sender, EventArgs e)
         {
             try
             {
+                
+                
                 IUsuario usuario = _usuarioBLL.Login(
                     txtUser.Text.Trim(),
                     txtContraseña.Text);
 
                 SessionManager.Login(usuario);
 
-                this.DialogResult = DialogResult.OK;
+  
                 this.Close();
+                
+
+
             }
             catch (Exception ex)
             {

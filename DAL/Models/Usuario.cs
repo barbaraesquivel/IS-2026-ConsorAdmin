@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Models
 {
-    [Table("Usuarios")]
+    [Table("USUARIO")]
     public class Usuario
     {
         [Key]
