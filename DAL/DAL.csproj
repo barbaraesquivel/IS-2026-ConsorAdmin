@@ -7,9 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Acceso\**" />
+    <EmbeddedResource Remove="Acceso\**" />
+    <None Remove="Acceso\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
@@ -20,10 +26,6 @@
     <ProjectReference Include="..\ABSTRAC\ABSTRAC.csproj" />
     <ProjectReference Include="..\BE\BE.csproj" />
     <ProjectReference Include="..\SERV\SERV.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Acceso\" />
   </ItemGroup>
 
 </Project>

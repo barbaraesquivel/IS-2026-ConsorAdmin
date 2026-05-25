@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             txtUser = new TextBox();
             txtContraseña = new TextBox();
             label1 = new Label();
             label2 = new Label();
             btnIniciaSesion = new Button();
             linkRegistrarse = new LinkLabel();
+            timer1 = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // txtUser
@@ -83,7 +85,7 @@
             linkRegistrarse.AutoSize = true;
             linkRegistrarse.Location = new Point(248, 180);
             linkRegistrarse.Name = "linkRegistrarse";
-            linkRegistrarse.Size = new Size(78, 15);
+            linkRegistrarse.Size = new Size(77, 15);
             linkRegistrarse.TabIndex = 5;
             linkRegistrarse.TabStop = true;
             linkRegistrarse.Text = "Test, no tocar";
@@ -103,6 +105,7 @@
             Controls.Add(txtUser);
             Name = "Login";
             Text = "Inicio de Sesión";
+            FormClosing += Login_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -115,5 +118,6 @@
         private Label label2;
         private Button btnIniciaSesion;
         private LinkLabel linkRegistrarse;
+        private System.Windows.Forms.Timer timer1;
     }
 }

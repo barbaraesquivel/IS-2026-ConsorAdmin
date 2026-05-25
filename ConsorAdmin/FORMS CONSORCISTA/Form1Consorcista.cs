@@ -5,14 +5,12 @@ using System.Security.Policy;
 
 namespace ConsorAdmin
 {
-    public partial class Form1 : Form
+    public partial class Form1Consorcista : Form
     {
         Login formlogin;
-        public Form1()
+        public Form1Consorcista()
         {
             InitializeComponent();
-             
-
         }
 
         private void buttonInicio_Click(object sender, EventArgs e)
@@ -54,27 +52,40 @@ namespace ConsorAdmin
         {
             try
             {
+                this.Close();
 
-             
-
+                /*
                 _usuarioBLL.Logout();
-                this.Form1_Load(sender, e);
-
+                this.Form1_Load(sender, e);*/
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error de cierre de sesion",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
             }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            /*
+            this.Hide();
+
+            using (Login formlogin = new Login())
+            {
+                if (formlogin.ShowDialog() == DialogResult.OK)
+                {
+                    this.Show();
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            }*/
+            /*
             this.Hide();
             formlogin = new Login();
             formlogin.ShowDialog();
-            this.Show();
+            this.Show();*/
         }
     }
 }

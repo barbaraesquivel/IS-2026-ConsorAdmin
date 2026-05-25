@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace DAL.Repositorio
 {
-    public class UsuarioRepositorio :IUsuarioRepositorio
+    public class UsuarioRepositorio : IUsuarioRepositorio
     {
         public UsuarioBE ObtenerPorCredenciales(string nombreUsuario, string passwordHash)
         {
             using var ctx = new AppDbContext();
             var model = ctx.Usuarios
-                .FirstOrDefault(u => u.NombreUsuario == nombreUsuario
+                .FirstOrDefault(u => u.Usuario1 == nombreUsuario
                                   && u.Contraseña == passwordHash);
             return UsuarioMapper.ToBE(model);
         }
@@ -23,7 +23,7 @@ namespace DAL.Repositorio
         {
             using var ctx = new AppDbContext();
             var model = ctx.Usuarios
-                .FirstOrDefault(u => u.NombreUsuario == nombreUsuario);
+                .FirstOrDefault(u => u.Usuario1 == nombreUsuario);
             return UsuarioMapper.ToBE(model);
         }
 

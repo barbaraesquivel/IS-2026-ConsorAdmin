@@ -2,7 +2,7 @@
 
 namespace ConsorAdmin
 {
-    partial class Form1
+    partial class Form1Consorcista
     {
         /// <summary>
         ///  Required designer variable.
@@ -30,7 +30,7 @@ namespace ConsorAdmin
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1Consorcista));
             panelSideMenu = new Panel();
             buttonLogout = new Button();
             buttonModificarPerfil = new Button();
@@ -42,15 +42,15 @@ namespace ConsorAdmin
             labelUsername = new Label();
             labelSESION = new Label();
             panelChildForm = new Panel();
-            groupBox1 = new GroupBox();
-            pictureBox1 = new PictureBox();
             labelBienvenida = new Label();
+            pictureBox1 = new PictureBox();
+            groupBox1 = new GroupBox();
             panelSideMenu.SuspendLayout();
             panelSessionInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panelChildForm.SuspendLayout();
-            groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // panelSideMenu
@@ -212,28 +212,6 @@ namespace ConsorAdmin
             panelChildForm.Size = new Size(698, 636);
             panelChildForm.TabIndex = 1;
             // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(pictureBox1);
-            groupBox1.Controls.Add(labelBienvenida);
-            groupBox1.Dock = DockStyle.Fill;
-            groupBox1.Location = new Point(0, 0);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(698, 636);
-            groupBox1.TabIndex = 2;
-            groupBox1.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Anchor = AnchorStyles.None;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(79, 140);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(544, 397);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
-            // 
             // labelBienvenida
             // 
             labelBienvenida.Anchor = AnchorStyles.None;
@@ -247,7 +225,29 @@ namespace ConsorAdmin
             labelBienvenida.Text = "Bienvenido usuari@ a \r\nConsorAdmin";
             labelBienvenida.TextAlign = ContentAlignment.TopCenter;
             // 
-            // Form1
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.None;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(79, 140);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(544, 397);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(pictureBox1);
+            groupBox1.Controls.Add(labelBienvenida);
+            groupBox1.Dock = DockStyle.Fill;
+            groupBox1.Location = new Point(0, 0);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(698, 636);
+            groupBox1.TabIndex = 2;
+            groupBox1.TabStop = false;
+            // 
+            // Form1Consorcista
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -257,7 +257,7 @@ namespace ConsorAdmin
             Controls.Add(panelSideMenu);
             Font = new Font("Segoe UI", 10F);
             MinimumSize = new Size(900, 675);
-            Name = "Form1";
+            Name = "Form1Consorcista";
             Text = "Form1";
             Load += Form1_Load;
             panelSideMenu.ResumeLayout(false);
@@ -265,9 +265,9 @@ namespace ConsorAdmin
             panelSessionInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panelChildForm.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -283,11 +283,11 @@ namespace ConsorAdmin
         private Button buttonVerExpensas;
         private Button buttonLogout;
         private Panel panelChildForm;
-        private Label labelBienvenida;
-        private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private Label labelUsername;
         private Label labelSESION;
         private GroupBox groupBox1;
+        private PictureBox pictureBox1;
+        private Label labelBienvenida;
     }
 }

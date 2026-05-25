@@ -17,7 +17,7 @@ namespace DAL.Repositorio
             return new UsuarioBE
             {
                 Id = model.Id,
-                Usuario = model.NombreUsuario,
+                Usuario = model.Usuario1,
                 Contraseña = model.Contraseña,
                 Bloqueado = model.Bloqueado,
                 Baja = model.Baja
@@ -31,7 +31,7 @@ namespace DAL.Repositorio
             return new Usuario
             {
                 Id = be.Id,
-                NombreUsuario = be.Usuario,
+                Usuario1 = be.Usuario,
                 Contraseña = be.Contraseña,
                 Bloqueado = be.Bloqueado,
                 Baja = be.Baja

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,13 +11,36 @@ using System.Windows.Forms;
 
 namespace ConsorAdmin.FORMS_PROOVEDOR
 {
-    public partial class Form1P : Form
+    public partial class Form1Proovedor : Form
     {
-        public Form1P()
+        Login formlogin;
+
+        public Form1Proovedor()
         {
             InitializeComponent();
         }
+        UsuarioBLL _usuarioBLL = new UsuarioBLL();
 
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _usuarioBLL.Logout();
+                this.Form1Proovedor_Load(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error de cierre de sesion",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void Form1Proovedor_Load(object sender, EventArgs e)
+        {
+            this.Hide();
+            formlogin = new Login();
+            formlogin.ShowDialog();
+            this.Show();
+        }
         private void buttonInicio_Click(object sender, EventArgs e)
         {
             openChildForm(new formInicioP());
@@ -24,17 +48,17 @@ namespace ConsorAdmin.FORMS_PROOVEDOR
 
         private void buttonCargar_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new formCargarP());
         }
 
         private void buttonVerServicios_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new formVerP());
         }
 
         private void buttonModificarPerfil_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new formPerfilP());
         }
 
         private Form activeForm = null;
@@ -51,5 +75,6 @@ namespace ConsorAdmin.FORMS_PROOVEDOR
             childForm.BringToFront();
             childForm.Show();
         }
+
     }
 }
