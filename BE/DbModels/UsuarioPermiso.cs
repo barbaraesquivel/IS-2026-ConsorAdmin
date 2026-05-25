@@ -9,7 +9,7 @@ public partial class UsuarioPermiso
 
     public string IdUsuario { get; set; }
 
-    public string? IdPermiso { get; set; }
+    public Guid? IdPermiso { get; set; }
 
 
     public virtual Permiso? IdPermisoNavigation { get; set; } = null!;

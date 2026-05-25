@@ -35,7 +35,7 @@ namespace DAL.Repositorio
         {
             return new UnidadConsorcistum()
             {
-                IdUnidadConsorcista = unidad_ConsorcistaBE.Id_Unidad,
+                IdUnidadConsorcista = unidad_ConsorcistaBE.Id_Unidad_Consorcista,
                 TipoVinculo = unidad_ConsorcistaBE.TipoVinculo,
 
                 IdConsorcista = unidad_ConsorcistaBE.consorcistaBE?.Id_Consorcista,

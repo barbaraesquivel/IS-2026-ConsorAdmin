@@ -7,7 +7,7 @@ public partial class Expensa
 {
     public Guid IdExpensa { get; set; }
 
-    public int IdUnidad { get; set; }
+    public string IdUnidad { get; set; } = null!;
 
     public string Periodo { get; set; } = null!;
 

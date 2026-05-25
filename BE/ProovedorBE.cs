@@ -13,5 +13,6 @@ namespace BE
         public string Cuit {  get; set; }
         public string Rubro { get; set; }
         public UsuarioBE usuarioBE { get; set; }
+        public List<ServicioBE> servicios { get; set; }
     }
 }

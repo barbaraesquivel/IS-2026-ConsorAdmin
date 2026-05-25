@@ -15,6 +15,7 @@ namespace BE
         public DateTime Vencimiento { get; set; }
         public string Estado { get; set; }
         public UnidadBE unidadBE { get; set; }
+        public List<PagoBE> pagos { get; set; }
 
     }
 }

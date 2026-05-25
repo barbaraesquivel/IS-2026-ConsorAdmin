@@ -37,5 +37,8 @@ namespace DAL.Repositorio
                 Baja = be.Baja
             };
         }
+
+        public static UsuarioBE Map(Usuario model) => ToBE(model);
+        public static Usuario Map(UsuarioBE be) => ToModel(be);
     }
 }

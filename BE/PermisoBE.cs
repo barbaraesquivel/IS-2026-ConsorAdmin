@@ -12,6 +12,7 @@ namespace BE
         public string Codigo { get; set; }
         public string Nombre { get; set; }
         public string Tipo { get; set; }
+        public List<UsuarioPermisoBE> usuarioPermisos { get; set; }
 
     }
 }

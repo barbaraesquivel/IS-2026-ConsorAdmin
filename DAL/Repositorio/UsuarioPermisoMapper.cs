@@ -18,7 +18,7 @@ namespace DAL.Repositorio
                 Id_Usuario_Permiso = usuarioPermiso.IdUsuarioPermiso,
 
 
-                Id_Permiso = usuarioPermiso.IdPermiso,
+                Id_Permiso = usuarioPermiso.IdPermiso?.ToString(),
                 Id_Usuario = usuarioPermiso.IdUsuario.ToString(),
                 
 
@@ -38,8 +38,9 @@ namespace DAL.Repositorio
             return new UsuarioPermiso()
             {
                 IdUsuarioPermiso = usuarioPermisoBE.Id_Usuario_Permiso.ToString(),
-                IdPermiso = usuarioPermisoBE.permisoBE?.Id_Permiso.ToString(),
-                IdUsuario = usuarioPermisoBE.usuarioBE?.Id.ToString()
+                IdPermiso = usuarioPermisoBE.permisoBE?.Id_Permiso
+                    ?? (usuarioPermisoBE.Id_Permiso != null ? Guid.Parse(usuarioPermisoBE.Id_Permiso) : (Guid?)null),
+                IdUsuario = usuarioPermisoBE.usuarioBE?.Id.ToString() ?? usuarioPermisoBE.Id_Usuario
 
             };
         }
