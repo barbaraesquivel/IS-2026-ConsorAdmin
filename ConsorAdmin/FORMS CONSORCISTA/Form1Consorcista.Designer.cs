@@ -42,15 +42,15 @@ namespace ConsorAdmin
             labelUsername = new Label();
             labelSESION = new Label();
             panelChildForm = new Panel();
-            labelBienvenida = new Label();
-            pictureBox1 = new PictureBox();
             groupBox1 = new GroupBox();
+            pictureBox1 = new PictureBox();
+            labelBienvenida = new Label();
             panelSideMenu.SuspendLayout();
             panelSessionInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panelChildForm.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panelSideMenu
@@ -81,7 +81,7 @@ namespace ConsorAdmin
             buttonLogout.Padding = new Padding(20, 0, 0, 0);
             buttonLogout.Size = new Size(186, 40);
             buttonLogout.TabIndex = 6;
-            buttonLogout.Text = "Cerrar Sesión";
+            buttonLogout.Text = "Salir";
             buttonLogout.TextAlign = ContentAlignment.MiddleLeft;
             buttonLogout.UseVisualStyleBackColor = true;
             buttonLogout.Click += buttonLogout_Click;
@@ -212,18 +212,16 @@ namespace ConsorAdmin
             panelChildForm.Size = new Size(698, 636);
             panelChildForm.TabIndex = 1;
             // 
-            // labelBienvenida
+            // groupBox1
             // 
-            labelBienvenida.Anchor = AnchorStyles.None;
-            labelBienvenida.AutoSize = true;
-            labelBienvenida.Font = new Font("Microsoft Sans Serif", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelBienvenida.ForeColor = SystemColors.ControlLight;
-            labelBienvenida.Location = new Point(234, 99);
-            labelBienvenida.Name = "labelBienvenida";
-            labelBienvenida.Size = new Size(188, 40);
-            labelBienvenida.TabIndex = 0;
-            labelBienvenida.Text = "Bienvenido usuari@ a \r\nConsorAdmin";
-            labelBienvenida.TextAlign = ContentAlignment.TopCenter;
+            groupBox1.Controls.Add(pictureBox1);
+            groupBox1.Controls.Add(labelBienvenida);
+            groupBox1.Dock = DockStyle.Fill;
+            groupBox1.Location = new Point(0, 0);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(698, 636);
+            groupBox1.TabIndex = 2;
+            groupBox1.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -236,16 +234,18 @@ namespace ConsorAdmin
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
-            // groupBox1
+            // labelBienvenida
             // 
-            groupBox1.Controls.Add(pictureBox1);
-            groupBox1.Controls.Add(labelBienvenida);
-            groupBox1.Dock = DockStyle.Fill;
-            groupBox1.Location = new Point(0, 0);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(698, 636);
-            groupBox1.TabIndex = 2;
-            groupBox1.TabStop = false;
+            labelBienvenida.Anchor = AnchorStyles.None;
+            labelBienvenida.AutoSize = true;
+            labelBienvenida.Font = new Font("Microsoft Sans Serif", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelBienvenida.ForeColor = SystemColors.ControlLight;
+            labelBienvenida.Location = new Point(234, 99);
+            labelBienvenida.Name = "labelBienvenida";
+            labelBienvenida.Size = new Size(188, 40);
+            labelBienvenida.TabIndex = 0;
+            labelBienvenida.Text = "Bienvenido usuari@ a \r\nConsorAdmin";
+            labelBienvenida.TextAlign = ContentAlignment.TopCenter;
             // 
             // Form1Consorcista
             // 
@@ -265,9 +265,9 @@ namespace ConsorAdmin
             panelSessionInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panelChildForm.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 

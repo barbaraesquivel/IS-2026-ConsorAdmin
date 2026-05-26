@@ -12,7 +12,19 @@ namespace ConsorAdmin
         {
             InitializeComponent();
         }
+        private void Form1Consorcista_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Cerrar y liberar el formulario activo si existe
+            if (activeForm != null)
+            {
+                activeForm.Close();
+                activeForm.Dispose();
+                activeForm = null;
+            }
 
+            // Limpiar el panel de controles
+            panelChildForm.Controls.Clear();
+        }
         private void buttonInicio_Click(object sender, EventArgs e)
         {
             openChildForm(new formInicioC());
@@ -37,7 +49,11 @@ namespace ConsorAdmin
         private void openChildForm(Form childForm)
         {
             if (activeForm != null)
+            {
                 activeForm.Close();
+                activeForm.Dispose();
+            }
+
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -47,7 +63,6 @@ namespace ConsorAdmin
             childForm.BringToFront();
             childForm.Show();
         }
-        UsuarioBLL _usuarioBLL = new UsuarioBLL();
         private void buttonLogout_Click(object sender, EventArgs e)
         {
             try

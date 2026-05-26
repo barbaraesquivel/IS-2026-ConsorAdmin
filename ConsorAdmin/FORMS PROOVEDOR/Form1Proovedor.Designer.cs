@@ -167,7 +167,7 @@
             buttonLogout.Padding = new Padding(20, 0, 0, 0);
             buttonLogout.Size = new Size(186, 40);
             buttonLogout.TabIndex = 6;
-            buttonLogout.Text = "Cerrar Sesión";
+            buttonLogout.Text = "Salir";
             buttonLogout.TextAlign = ContentAlignment.MiddleLeft;
             buttonLogout.UseVisualStyleBackColor = true;
             buttonLogout.Click += buttonLogout_Click;

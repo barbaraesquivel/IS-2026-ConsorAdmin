@@ -1,6 +1,6 @@
-﻿namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
+﻿namespace ConsorAdmin.FORMS_ADMIN
 {
-    partial class FormHistorialG
+    partial class formHistoriaA
     {
         /// <summary>
         /// Required designer variable.
@@ -52,7 +52,7 @@
             groupBox2.Location = new Point(0, 0);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(682, 597);
-            groupBox2.TabIndex = 8;
+            groupBox2.TabIndex = 9;
             groupBox2.TabStop = false;
             // 
             // dataGridViewExpensas
@@ -74,9 +74,9 @@
             buttonLimpiar.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             buttonLimpiar.FlatStyle = FlatStyle.Flat;
             buttonLimpiar.ForeColor = SystemColors.ControlLight;
-            buttonLimpiar.Location = new Point(355, 64);
+            buttonLimpiar.Location = new Point(386, 64);
             buttonLimpiar.Name = "buttonLimpiar";
-            buttonLimpiar.Size = new Size(119, 22);
+            buttonLimpiar.Size = new Size(129, 22);
             buttonLimpiar.TabIndex = 36;
             buttonLimpiar.Text = "Limpiar Vista";
             buttonLimpiar.UseVisualStyleBackColor = false;
@@ -90,9 +90,9 @@
             buttonBuscar.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             buttonBuscar.FlatStyle = FlatStyle.Flat;
             buttonBuscar.ForeColor = SystemColors.ControlLight;
-            buttonBuscar.Location = new Point(505, 63);
+            buttonBuscar.Location = new Point(536, 63);
             buttonBuscar.Name = "buttonBuscar";
-            buttonBuscar.Size = new Size(120, 23);
+            buttonBuscar.Size = new Size(121, 23);
             buttonBuscar.TabIndex = 35;
             buttonBuscar.Text = "Buscar";
             buttonBuscar.UseVisualStyleBackColor = false;
@@ -116,16 +116,15 @@
             label1.TabIndex = 0;
             label1.Text = "Buscar por codigo:";
             // 
-            // FormHistorialG
+            // formHistoriaA
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(8, 14, 26);
             ClientSize = new Size(682, 597);
             Controls.Add(groupBox2);
-            Margin = new Padding(3, 2, 3, 2);
-            Name = "FormHistorialG";
-            Text = "FormHistorialG";
+            Name = "formHistoriaA";
+            Text = "formHistoriaA";
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewExpensas).EndInit();
@@ -135,10 +134,10 @@
         #endregion
 
         private GroupBox groupBox2;
-        private Label label1;
-        private ComboBox comboBoxEdificios;
+        private DataGridView dataGridViewExpensas;
         private Button buttonLimpiar;
         private Button buttonBuscar;
-        private DataGridView dataGridViewExpensas;
+        private ComboBox comboBoxEdificios;
+        private Label label1;
     }
 }

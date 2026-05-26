@@ -22,20 +22,15 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
 
         private void Form1Gestor_Load(object sender, EventArgs e)
         {
-            this.Hide();
-            formlogin = new Login();
-            formlogin.ShowDialog();
-            buttonCargarExpensas.Visible = false;
-            this.Show();
+            
         }
 
-        UsuarioBLL _usuarioBLL = new UsuarioBLL();
         private void buttonLogout_Click(object sender, EventArgs e)
         {
             try
             {
-                _usuarioBLL.Logout();
-                this.Form1Gestor_Load(sender, e);
+                this.Close();
+
             }
             catch (Exception ex)
             {
@@ -77,7 +72,11 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
         private void openChildForm(Form childForm)
         {
             if (activeForm != null)
+            {
                 activeForm.Close();
+                activeForm.Dispose();
+            }
+
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;

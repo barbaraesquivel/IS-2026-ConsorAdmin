@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ConsorAdmin.FORMS_PROOVEDOR
+namespace ConsorAdmin.FORMS_ADMIN
 {
-    public partial class formVerP : Form
+    public partial class formAsignarGestorA : Form
     {
-        public formVerP()
+        public formAsignarGestorA()
         {
             InitializeComponent();
-        }
-
-        private void buttonEditar_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -88,7 +88,7 @@ namespace ConsorAdmin
         }
         
         private void linkRegistrarse_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {/*
+        {
             try
             {
                 
@@ -123,7 +123,7 @@ namespace ConsorAdmin
                 MessageBox.Show($"Error al crear admin:\n{ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-             */
+             
         }
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)

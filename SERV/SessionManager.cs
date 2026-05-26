@@ -20,6 +20,7 @@ namespace SERV
             }
         }
 
+
         public static bool SesionActiva()
         {
             lock (_lock) { return instancia != null; }

@@ -16,8 +16,26 @@ namespace ConsorAdmin
             // see https://aka.ms/applicationconfiguration.
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new FormPrincipal());
-            
+
+            while (true)
+            {
+                using (Login login = new Login())
+                {
+                    if (login.ShowDialog() != DialogResult.OK)
+                        break;
+                }
+
+                var usuario = SessionManager.ObtenerInstancia.Usuario;
+
+                // Aquí podrías validar roles para mostrar un menú diferente,
+                // pero como todos usan FormPrincipal (intermedia) no hace falta.
+                FormPrincipal formPrincipal = new FormPrincipal();
+                Application.Run(formPrincipal);
+
+                if (SessionManager.SesionActiva())
+                    SessionManager.Logout();
+            }
+            /*
             while (true)
             {
                 using (Login login = new Login())
@@ -31,7 +49,7 @@ namespace ConsorAdmin
 
                 Form formPrincipal = null;
 
-                if (Convert.ToString(usuario.Id) == "fb88b9f2-e5a7-4cb9-b73a-d49c313dbc83")
+                if (Convert.ToString(usuario.Id) == "c6e418f5-2381-4c5e-8926-1e5592b04b68")
                 {
                     formPrincipal = new FormPrincipal();
                 }
@@ -84,8 +102,10 @@ namespace ConsorAdmin
                         "Error",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
-                } */
+                } 
+                
             }
+            */
         }
     }
 }
