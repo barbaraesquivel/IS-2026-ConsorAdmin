@@ -10,6 +10,7 @@ namespace DAL.Repositorio
 {
     public class PermisoMapper
     {
+        
         // EF → Entity
         public static PermisoBE Map(Permiso permiso)
         {
@@ -39,5 +40,6 @@ namespace DAL.Repositorio
                     .ToList()
             };
         }
+        
     }
 }

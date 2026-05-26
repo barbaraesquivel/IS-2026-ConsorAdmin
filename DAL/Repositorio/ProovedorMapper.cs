@@ -10,6 +10,7 @@ namespace DAL.Repositorio
 {
     public class ProovedorMapper
     {
+        
         // EF → Entity
         public static ProovedorBE Map(Proveedor proveedor)
         {
@@ -45,5 +46,6 @@ namespace DAL.Repositorio
                     .ToList()
             };
         }
+        
     }
 }

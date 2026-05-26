@@ -16,7 +16,8 @@ namespace ConsorAdmin
             // see https://aka.ms/applicationconfiguration.
 
             ApplicationConfiguration.Initialize();
-
+            Application.Run(new FormPrincipal());
+            
             while (true)
             {
                 using (Login login = new Login())
@@ -30,18 +31,17 @@ namespace ConsorAdmin
 
                 Form formPrincipal = null;
 
-                // CONSORCISTA
                 if (Convert.ToString(usuario.Id) == "fb88b9f2-e5a7-4cb9-b73a-d49c313dbc83")
                 {
-                    formPrincipal = new Form1Consorcista();
+                    formPrincipal = new FormPrincipal();
                 }
 
                 // ADMIN
-                /*else if (Convert.ToString(usuario.Id) == "GUID-ADMIN")
+                else if (Convert.ToString(usuario.Id) == "GUID-ADMIN")
                 {
-                    formPrincipal = new FormAdmin();
-                }*/
-
+                    formPrincipal = new FormPrincipal();
+                }
+            
                 // Si no coincide ningún usuario
                 if (formPrincipal == null)
                 {
@@ -60,7 +60,7 @@ namespace ConsorAdmin
 
                 // Cuando el form se cierra:
                 SessionManager.Logout();
-
+           
 
                 /*
                 try

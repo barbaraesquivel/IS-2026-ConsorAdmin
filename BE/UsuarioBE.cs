@@ -9,8 +9,11 @@ namespace BE
         public bool Bloqueado { get; set ; }
         public Guid Id { get; set ; }
         public bool Baja { get; set; }
+        public ConsorcistaBE consorcistaBE { get; set; }
+        public ProovedorBE proovedorBE { get; set; }
+        public List<LogBitacoraBE> logBitacoras { get; set; }
+        public List<UsuarioPermisoBE> usuarioPermisos { get; set; }
 
-     
 
     }
 }

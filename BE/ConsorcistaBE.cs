@@ -8,7 +8,7 @@ namespace BE
 {
     public class ConsorcistaBE
     {
-        public string Id_Consorcista { get; set; }
+        public Guid Id_Consorcista { get; set; }
         public string? Id_Usuario { get; set; }
         public string Dni {  get; set; }
         public string Telefono { get; set; }

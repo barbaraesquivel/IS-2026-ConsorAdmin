@@ -13,7 +13,7 @@ namespace BLL
 
         public UsuarioBLL()
         {
-            _usuarioRepo = new UsuarioRepositorio();
+            //_usuarioRepo = new UsuarioRepositorio();
         }
 
         public IUsuario Login(string nombreUsuario, string password)

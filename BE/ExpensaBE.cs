@@ -9,7 +9,7 @@ namespace BE
     public class ExpensaBE
     {
         public Guid Id_Expensa { get; set; }
-        public string? Id_Unidad { get; set; }
+        public int Id_Unidad { get; set; }
         public string Periodo { get; set; }
         public decimal Monto { get; set; }
         public DateTime Vencimiento { get; set; }

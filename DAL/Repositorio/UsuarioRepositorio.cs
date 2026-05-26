@@ -10,27 +10,28 @@ namespace DAL.Repositorio
 {
     public class UsuarioRepositorio : IUsuarioRepositorio
     {
+        
         public UsuarioBE ObtenerPorCredenciales(string nombreUsuario, string passwordHash)
         {
             using var ctx = new AppDbContext();
             var model = ctx.Usuarios
-                .FirstOrDefault(u => u.Usuario1 == nombreUsuario
-                                  && u.Contraseña == passwordHash);
-            return UsuarioMapper.ToBE(model);
+                .FirstOrDefault(u => u.Username == nombreUsuario
+                                  && u.PasswordHash == passwordHash);
+            return UsuarioMapper.Map(model);
         }
 
         public UsuarioBE ObtenerPorNombre(string nombreUsuario)
         {
             using var ctx = new AppDbContext();
             var model = ctx.Usuarios
-                .FirstOrDefault(u => u.Usuario1 == nombreUsuario);
-            return UsuarioMapper.ToBE(model);
+                .FirstOrDefault(u => u.Username == nombreUsuario);
+            return UsuarioMapper.Map(model);
         }
 
         public void Crear(UsuarioBE usuario)
         {
             using var ctx = new AppDbContext();
-            var model = UsuarioMapper.ToModel(usuario);
+            var model = UsuarioMapper.Map(usuario);
             ctx.Usuarios.Add(model);
             ctx.SaveChanges();
         }
@@ -38,9 +39,10 @@ namespace DAL.Repositorio
         public void Actualizar(UsuarioBE usuario)
         {
             using var ctx = new AppDbContext();
-            var model = UsuarioMapper.ToModel(usuario);
+            var model = UsuarioMapper.Map(usuario);
             ctx.Usuarios.Update(model);
             ctx.SaveChanges();
         }
+        
     }
 }

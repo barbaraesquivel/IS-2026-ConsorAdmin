@@ -25,6 +25,7 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
             this.Hide();
             formlogin = new Login();
             formlogin.ShowDialog();
+            buttonCargarExpensas.Visible = false;
             this.Show();
         }
 

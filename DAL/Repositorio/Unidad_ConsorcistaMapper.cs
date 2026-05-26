@@ -10,11 +10,12 @@ namespace DAL.Repositorio
 {
     public class Unidad_ConsorcistaMapper
     {
+        
         public static Unidad_ConsorcistaBE Map(UnidadConsorcistum unidadConsorcista)
         {
             return new Unidad_ConsorcistaBE()
             {
-                Id_Unidad_Consorcista = unidadConsorcista.IdUnidadConsorcista.ToString(),
+                Id_Unidad_Consorcista = unidadConsorcista.IdUnidadConsorcista,
                 Id_Unidad = unidadConsorcista.IdUnidad.ToString(),
                 Id_Consorcista = unidadConsorcista.IdConsorcista.ToString(),
                 TipoVinculo = unidadConsorcista.TipoVinculo,
@@ -38,10 +39,11 @@ namespace DAL.Repositorio
                 IdUnidadConsorcista = unidad_ConsorcistaBE.Id_Unidad_Consorcista,
                 TipoVinculo = unidad_ConsorcistaBE.TipoVinculo,
 
-                IdConsorcista = unidad_ConsorcistaBE.consorcistaBE?.Id_Consorcista,
-                IdUnidad = unidad_ConsorcistaBE.unidadBE?.Id_Unidad
+                IdConsorcista = unidad_ConsorcistaBE.consorcistaBE.Id_Consorcista,
+                IdUnidad = unidad_ConsorcistaBE.unidadBE.Id_Unidad
 
             };
         }
+        
     }
 }

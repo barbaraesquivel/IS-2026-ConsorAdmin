@@ -10,12 +10,13 @@ namespace DAL.Repositorio
 {
     public class ConsorcistaMapper
     {
+        
         // EF → Entity
         public static ConsorcistaBE Map(Consorcistum consorcista)
         {
             return new ConsorcistaBE()
             {
-                Id_Consorcista = consorcista.IdConsorcista.ToString(),
+                Id_Consorcista = consorcista.IdConsorcista,
                 Id_Usuario = consorcista.IdUsuario.ToString(),
                 Dni = consorcista.Dni,
                 Telefono = consorcista.Telefono,
@@ -34,7 +35,7 @@ namespace DAL.Repositorio
         {
             return new Consorcistum()
             {
-                IdConsorcista = Guid.Parse(consorcistaBE.Id_Consorcista),
+                IdConsorcista = (consorcistaBE.Id_Consorcista),
                 IdUsuario = consorcistaBE.Usuario != null
                     ? consorcistaBE.Usuario.Id
                     : Guid.Parse(consorcistaBE.Id_Usuario!),
@@ -45,5 +46,6 @@ namespace DAL.Repositorio
                     .ToList()
             };
         }
+        
     }
 }

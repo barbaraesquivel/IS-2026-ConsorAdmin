@@ -10,6 +10,7 @@ namespace DAL.Repositorio
 {
     public class ConsorcioMapper
     {
+        
         public static ConsorcioBE Map(Consorcio consorcio)
         {
             return new ConsorcioBE()
@@ -47,5 +48,6 @@ namespace DAL.Repositorio
                             .ToList()
             };
         }
+        
     }
 }

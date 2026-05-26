@@ -10,6 +10,7 @@ namespace DAL.Repositorio
 {
     public class ExpensaMapper
     {
+        
         // EF → Entity
         public static ExpensaBE Map(Expensa expensa)
         {
@@ -47,5 +48,6 @@ namespace DAL.Repositorio
                     .ToList()
             };
         }
+        
     }
 }

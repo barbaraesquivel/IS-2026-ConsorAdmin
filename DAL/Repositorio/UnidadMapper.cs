@@ -10,11 +10,12 @@ namespace DAL.Repositorio
 {
     public class UnidadMapper
     {
+        
         public static UnidadBE Map(Unidad unidad)
         {
             return new UnidadBE()
             {
-                Id_Unidad = unidad.IdUnidad.ToString(),
+                Id_Unidad = unidad.IdUnidad,
                 Piso = unidad.Piso,
                 Depto = unidad.Depto,
                 Superficie = unidad.Superficie,

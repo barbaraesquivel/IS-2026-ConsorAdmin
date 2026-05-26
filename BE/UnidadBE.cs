@@ -8,7 +8,7 @@ namespace BE
 {
     public class UnidadBE
     {
-        public string Id_Unidad { get; set; }
+        public int Id_Unidad { get; set; }
         public string Id_Consorcio { get; set; }
         public string Piso {  get; set; }
         public string Depto { get; set; }

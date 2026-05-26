@@ -10,6 +10,7 @@ namespace DAL.Repositorio
 {
     public class LogBitacoraMapper
     {
+        
         // EF → Entity
         public static LogBitacoraBE Map(LogBitacora logBitacora)
         {
@@ -43,5 +44,6 @@ namespace DAL.Repositorio
                 Detalle = logBitacoraBE.Detalle
             };
         }
+        
     }
 }

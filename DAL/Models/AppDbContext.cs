@@ -306,15 +306,30 @@ public partial class AppDbContext : DbContext
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK_Usuarios");
+            entity.HasKey(e => e.IdUsuario);
 
             entity.ToTable("USUARIO");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
-            entity.Property(e => e.Contraseña).HasMaxLength(255);
-            entity.Property(e => e.Usuario1)
+            entity.HasIndex(e => e.Username, "UQ_USUARIO_username").IsUnique();
+
+            entity.Property(e => e.IdUsuario)
+                .HasDefaultValueSql("(newid())")
+                .HasColumnName("id_usuario");
+            entity.Property(e => e.Activo)
+                .HasDefaultValue(true)
+                .HasColumnName("activo");
+            entity.Property(e => e.PasswordHash)
+                .HasMaxLength(255)
+                .HasColumnName("password_hash");
+            entity.Property(e => e.Bloqueado)
                 .HasMaxLength(50)
-                .HasColumnName("Usuario");
+                .HasColumnName("Bloqueado");
+            entity.Property(e => e.TipoUsuario)
+                .HasMaxLength(50)
+                .HasColumnName("tipo_usuario");
+            entity.Property(e => e.Username)
+                .HasMaxLength(100)
+                .HasColumnName("username");
         });
 
         modelBuilder.Entity<UsuarioPermiso>(entity =>

@@ -5,7 +5,7 @@ namespace DAL.Models;
 
 public partial class Unidad
 {
-    public string IdUnidad { get; set; }
+    public int IdUnidad { get; set; }
 
     public string IdConsorcio { get; set; } = null!;
 

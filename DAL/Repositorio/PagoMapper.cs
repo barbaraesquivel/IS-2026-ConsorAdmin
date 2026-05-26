@@ -10,6 +10,7 @@ namespace DAL.Repositorio
 {
     public class PagoMapper
     {
+        
         // EF → Entity
         public static PagoBE Map(Pago pago)
         {
@@ -43,5 +44,6 @@ namespace DAL.Repositorio
                 NroComprobante = pagoBE.NroComprobante
             };
         }
+        
     }
 }

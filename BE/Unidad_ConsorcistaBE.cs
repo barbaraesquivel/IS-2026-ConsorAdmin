@@ -8,7 +8,7 @@ namespace BE
 {
     public class Unidad_ConsorcistaBE
     {
-        public string Id_Unidad_Consorcista {  get; set; }
+        public int Id_Unidad_Consorcista {  get; set; }
         public string Id_Unidad { get; set; }
         public string Id_Consorcista { get; set; }
         public string TipoVinculo { get; set; }

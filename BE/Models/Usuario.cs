@@ -5,15 +5,17 @@ namespace DAL.Models;
 
 public partial class Usuario
 {
-    public Guid Id { get; set; }
+    public Guid IdUsuario { get; set; }
 
-    public string Usuario1 { get; set; } = null!;
+    public string Username { get; set; } = null!;
 
-    public string Contraseña { get; set; } = null!;
+    public string PasswordHash { get; set; } = null!;
+
+    public string TipoUsuario { get; set; } = null!;
 
     public bool Bloqueado { get; set; }
 
-    public bool Baja { get; set; }
+    public bool Activo { get; set; }
 
     public virtual Consorcistum? Consorcistum { get; set; }
 

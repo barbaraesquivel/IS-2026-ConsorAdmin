@@ -5,11 +5,11 @@ namespace DAL.Models;
 
 public partial class UnidadConsorcistum
 {
-    public string IdUnidadConsorcista { get; set; }
+    public int IdUnidadConsorcista { get; set; }
 
-    public string IdUnidad { get; set; }
+    public int IdUnidad { get; set; }
 
-    public string IdConsorcista { get; set; }
+    public Guid IdConsorcista { get; set; }
 
     public string TipoVinculo { get; set; } = null!;
 

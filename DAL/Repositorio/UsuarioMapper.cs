@@ -8,37 +8,55 @@ using System.Threading.Tasks;
 
 namespace DAL.Repositorio
 {
-    public static class UsuarioMapper
+    public class UsuarioMapper
     {
-        public static UsuarioBE ToBE(Usuario model)
+        // EF → Entity
+        public static UsuarioBE Map(Usuario usuario)
         {
-            if (model == null) return null;
+            if (usuario == null) return null;
 
-            return new UsuarioBE
+            return new UsuarioBE()
             {
-                Id = model.Id,
-                Usuario = model.Usuario1,
-                Contraseña = model.Contraseña,
-                Bloqueado = model.Bloqueado,
-                Baja = model.Baja
+                Id = usuario.IdUsuario,
+                Usuario = usuario.Username,
+                Contraseña = usuario.PasswordHash,
+                Bloqueado = usuario.Bloqueado,
+                Baja = usuario.Activo,
+
+                consorcistaBE = usuario.Consorcistum != null
+                    ? ConsorcistaMapper.Map(usuario.Consorcistum)
+                    : null,
+                proovedorBE = usuario.Proveedor != null
+                    ? ProovedorMapper.Map(usuario.Proveedor)
+                    : null,
+                logBitacoras = usuario.LogBitacoras
+                    .Select(LogBitacoraMapper.Map)
+                    .ToList(),
+                usuarioPermisos = usuario.UsuarioPermisos
+                    .Select(UsuarioPermisoMapper.Map)
+                    .ToList()
             };
         }
 
-        public static Usuario ToModel(UsuarioBE be)
+        // Entity → EF
+        public static Usuario Map(UsuarioBE usuarioBE)
         {
-            if (be == null) return null;
+            if (usuarioBE == null) return null;
 
-            return new Usuario
+            return new Usuario()
             {
-                Id = be.Id,
-                Usuario1 = be.Usuario,
-                Contraseña = be.Contraseña,
-                Bloqueado = be.Bloqueado,
-                Baja = be.Baja
+                IdUsuario = usuarioBE.Id,
+                Username = usuarioBE.Usuario,
+                PasswordHash = usuarioBE.Contraseña,
+                Bloqueado = usuarioBE.Bloqueado,
+                Activo = usuarioBE.Baja,
+                LogBitacoras = usuarioBE.logBitacoras
+                    .Select(LogBitacoraMapper.Map)
+                    .ToList(),
+                UsuarioPermisos = usuarioBE.usuarioPermisos
+                    .Select(UsuarioPermisoMapper.Map)
+                    .ToList()
             };
         }
-
-        public static UsuarioBE Map(Usuario model) => ToBE(model);
-        public static Usuario Map(UsuarioBE be) => ToModel(be);
     }
 }
