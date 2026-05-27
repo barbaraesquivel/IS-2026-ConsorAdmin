@@ -19,9 +19,7 @@ namespace DAL.Repositorio
                     ? PermisoMapper.Map(usuarioPermiso.IdPermisoNavigation)
                     : null,
 
-                usuarioBE = usuarioPermiso.IdUsuarioNavigation != null
-                    ? UsuarioMapper.Map(usuarioPermiso.IdUsuarioNavigation)
-                    : null
+                usuarioBE = null   // no llamar UsuarioMapper: evita ciclo UsuarioPermiso ↔ Usuario
             };
         }
 

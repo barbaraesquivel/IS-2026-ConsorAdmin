@@ -54,6 +54,7 @@ namespace DAL
                     .Include(c => c.Unidads)
                     .Include(c => c.Servicios)
                     .Include(c => c.GestorConsorcios)
+                        .ThenInclude(gc => gc.IdUsuarioNavigation)
                     .Select(c => ConsorcioMapper.Map(c))
                     .ToList();
             }
@@ -70,6 +71,7 @@ namespace DAL
                     .Include(c => c.Unidads)
                     .Include(c => c.Servicios)
                     .Include(c => c.GestorConsorcios)
+                        .ThenInclude(gc => gc.IdUsuarioNavigation)
                     .FirstOrDefault(c => c.IdConsorcio == idConsorcio);
                 return ConsorcioMapper.Map(model);
             }
@@ -148,7 +150,8 @@ namespace DAL
             try
             {
                 using var ctx = new AppDbContext();
-                var model = ConsorcioMapper.Map(consorcioBE);
+                var model = ctx.Consorcios.FirstOrDefault(c => c.IdConsorcio == consorcioBE.Id_Consorcio);
+                if (model == null) throw new Exception("Consorcio no encontrado.");
                 ctx.Consorcios.Remove(model);
                 ctx.SaveChanges();
             }

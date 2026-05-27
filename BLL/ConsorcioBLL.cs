@@ -92,14 +92,13 @@ namespace BLL
             catch { throw; }
         }
 
-        public void Eliminar (ConsorcioBE consorcioBE)
+        public void Eliminar(ConsorcioBE consorcioBE)
         {
             try
             {
-                if(consorcioBE == null)
-                {
+                if (consorcioBE == null)
                     throw new Exception("Error al eliminar.");
-                }
+                _consorcioDAL.Eliminar(consorcioBE);
             }
             catch { throw; }
         }

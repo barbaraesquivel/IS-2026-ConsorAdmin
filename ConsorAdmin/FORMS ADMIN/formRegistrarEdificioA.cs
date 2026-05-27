@@ -141,20 +141,13 @@ namespace ConsorAdmin.FORMS_ADMIN
                     CantUnidades = cantUnidades
                 };
 
-
-                // Nuevo consorcio: generar ID
                 if (_consorcioBLL.ObtenerPorId(consorcioBE.Id_Consorcio) != null)
-                {
                     throw new Exception("Codigo de edificio ya cargado en otro.");
 
-                }
                 _consorcioBLL.Crear(consorcioBE);
-                gestorConsorcios.CrearGestor(comboBoxGestor.SelectedValue.ToString(), consorcioBE.Id_Consorcio);
 
                 MessageBox.Show("Consorcio creado correctamente.", "Éxito",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
 
                 LimpiarFormulario();
                 CargarGrilla();
@@ -169,26 +162,24 @@ namespace ConsorAdmin.FORMS_ADMIN
         {
             try
             {
+                if (_consorcioSeleccionado == null)
+                    throw new Exception("Seleccione un consorcio para modificar.");
+
                 if (!int.TryParse(textBoxCantModificar.Text.Trim(), out int cantUnidades))
                     throw new Exception("La cantidad de unidades debe ser un número entero.");
 
                 var consorcioBE = new ConsorcioBE
                 {
+                    Id_Consorcio = _consorcioSeleccionado.Id_Consorcio,
                     Nombre = textBoxNombreModificar.Text.Trim(),
                     Direccion = textBoxDireccionModificar.Text.Trim(),
                     CantUnidades = cantUnidades
                 };
 
-
-
-
-                // Editar existente
-                consorcioBE.Id_Consorcio = _consorcioSeleccionado.Id_Consorcio;
                 _consorcioBLL.Actualizar(consorcioBE);
-                gestorConsorcios.CrearGestor(comboBoxGestorModificar.SelectedValue.ToString(), consorcioBE.Id_Consorcio);
+
                 MessageBox.Show("Consorcio actualizado correctamente.", "Éxito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-
 
                 LimpiarFormulario();
                 CargarGrilla();
@@ -203,21 +194,25 @@ namespace ConsorAdmin.FORMS_ADMIN
         {
             try
             {
-                if(comboBoxEdificioEliminar.SelectedItem is not ConsorcioBE consorcioBE)
+                if (comboBoxEdificioEliminar.SelectedItem is not ConsorcioBE)
                 {
-                    MessageBox.Show("Seleccione un edificio correcto.");
+                    MessageBox.Show("Seleccione un edificio correcto.", "Advertencia",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
 
-                consorcioBE = _consorcioBLL.ObtenerPorId(comboBoxEdificioEliminar.SelectedValue.ToString());
-                foreach(var unidad in unidadBLL.ObtenerPorConsorcio(consorcioBE.Id_Consorcio))
-                {
+                var consorcioBE = _consorcioBLL.ObtenerPorId(comboBoxEdificioEliminar.SelectedValue.ToString());
+                if (consorcioBE == null)
+                    throw new Exception("Consorcio no encontrado.");
+
+                foreach (var unidad in unidadBLL.ObtenerPorConsorcio(consorcioBE.Id_Consorcio))
                     unidadBLL.Eliminar(unidad);
-                }
+
                 foreach (var gestor in gestorConsorcios.ObtenerPorConsorcio(consorcioBE.Id_Consorcio))
-                {
                     gestorConsorcios.Eliminar(gestor);
-                }
+
                 _consorcioBLL.Eliminar(consorcioBE);
+
                 MessageBox.Show("Consorcio eliminado correctamente.", "Éxito",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
 

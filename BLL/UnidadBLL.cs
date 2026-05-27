@@ -11,6 +11,7 @@ namespace BLL
     public class UnidadBLL
     {
         private readonly UnidadDAL _unidadDAL = new UnidadDAL();
+        private readonly ConsorcioDAL _consorcioDAL = new ConsorcioDAL();
 
         // CU07 - Obtener todas las unidades
         public List<UnidadBE> ObtenerTodas()
@@ -45,21 +46,27 @@ namespace BLL
             catch { throw; }
         }
 
-        // CU07 - Crear nueva unidad
-        public void Crear(UnidadBE unidadBE)
+        // CU07 - Crear nueva unidad; retorna el ID asignado por la base de datos
+        public int Crear(UnidadBE unidadBE)
         {
             try
             {
                 ValidarUnidad(unidadBE);
 
-                // FA1: piso+depto duplicado
                 if (_unidadDAL.ExistePisoDepto(unidadBE.Id_Consorcio, unidadBE.Piso, unidadBE.Depto))
-                    throw new Exception("La unidad ya existe en este consorcio.");
+                    throw new UnidadDuplicadaException("La unidad ya existe en este consorcio (mismo piso y departamento).");
 
+                var consorcio = _consorcioDAL.ObtenerPorId(unidadBE.Id_Consorcio);
+                if (consorcio != null)
+                {
+                    int cantExistentes = _unidadDAL.ContarPorConsorcio(unidadBE.Id_Consorcio);
+                    if (cantExistentes >= consorcio.CantUnidades)
+                        throw new Exception(
+                            $"El consorcio ya alcanzó el máximo de {consorcio.CantUnidades} unidad(es) permitida(s). " +
+                            "Modifique la capacidad del consorcio antes de agregar más.");
+                }
 
-                ValidarInactivacion(unidadBE.Id_Unidad);
-
-                _unidadDAL.Crear(unidadBE);
+                return _unidadDAL.Crear(unidadBE);
             }
             catch { throw; }
         }
@@ -72,7 +79,7 @@ namespace BLL
                 ValidarUnidad(unidadBE);
 
                 if (_unidadDAL.ExistePisoDepto(unidadBE.Id_Consorcio, unidadBE.Piso, unidadBE.Depto, unidadBE.Id_Unidad))
-                    throw new Exception("La unidad ya existe en este consorcio.");
+                    throw new UnidadDuplicadaException("La unidad ya existe en este consorcio (mismo piso y departamento).");
 
                 _unidadDAL.Actualizar(unidadBE);
             }
@@ -83,15 +90,15 @@ namespace BLL
         {
             try
             {
-                if(unidadBE is not UnidadBE)
-                {
-                    throw new Exception("Error en cargar la unidad.");
-                }
+                if (unidadBE == null)
+                    throw new ValidacionException("Error al cargar la unidad.");
+
+                if (_unidadDAL.TieneExpensasPendientes(unidadBE.Id_Unidad))
+                    throw new ValidacionException("No se puede eliminar: la unidad tiene expensas pendientes o vencidas.");
 
                 _unidadDAL.Eliminar(unidadBE);
             }
             catch { throw; }
-
         }
 
         // CU07 FA3 - Validar si se puede inactivar
@@ -108,12 +115,11 @@ namespace BLL
         private void ValidarUnidad(UnidadBE u)
         {
             if (string.IsNullOrWhiteSpace(u.Piso))
-                throw new ArgumentException("El piso es obligatorio.");
+                throw new ValidacionException("El piso es obligatorio.");
             if (string.IsNullOrWhiteSpace(u.Depto))
-                throw new ArgumentException("El departamento es obligatorio.");
-            // FA2: superficie inválida
-            if (u.Superficie.HasValue && u.Superficie <= 0)
-                throw new ArgumentException("La superficie debe ser mayor a cero.");
+                throw new ValidacionException("El departamento es obligatorio.");
+            if (!u.Superficie.HasValue || u.Superficie <= 0)
+                throw new ValidacionException("La superficie es obligatoria y debe ser mayor a cero.");
         }
     }
 }

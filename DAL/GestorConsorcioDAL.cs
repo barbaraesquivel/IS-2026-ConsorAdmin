@@ -20,11 +20,8 @@ namespace DAL
                 using var ctx = new AppDbContext();
 
                 return ctx.GestorConsorcios
-                    .Include(u => u.IdGestorConsorcio)
-                    .Include(u => u.IdConsorcio)
-                    .Include(u => u.IdUsuario)
                     .Include(u => u.IdConsorcioNavigation)
-                    .Include(u => u.FechaAsignacion)
+                    .Include(u => u.IdUsuarioNavigation)
                     .Select(u => GestorConsorcioMapper.Map(u))
                     .ToList();
             }
@@ -54,7 +51,8 @@ namespace DAL
             try
             {
                 using var ctx = new AppDbContext();
-                var model = GestorConsorcioMapper.Map(gestorConsorcioBE);
+                var model = ctx.GestorConsorcios.FirstOrDefault(g => g.IdGestorConsorcio == gestorConsorcioBE.Id_GestorConsorcio);
+                if (model == null) throw new Exception("Gestor no encontrado.");
                 ctx.GestorConsorcios.Remove(model);
                 ctx.SaveChanges();
             }

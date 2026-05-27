@@ -45,8 +45,8 @@ namespace DAL
             catch { throw; }
         }
 
-        // CU07 - Crear unidad
-        public void Crear(UnidadBE unidadBE)
+        // CU07 - Crear unidad; retorna el ID asignado por la base de datos
+        public int Crear(UnidadBE unidadBE)
         {
             try
             {
@@ -54,6 +54,17 @@ namespace DAL
                 var model = UnidadMapper.Map(unidadBE);
                 ctx.Unidads.Add(model);
                 ctx.SaveChanges();
+                return model.IdUnidad;
+            }
+            catch { throw; }
+        }
+
+        public int ContarPorConsorcio(string idConsorcio)
+        {
+            try
+            {
+                using var ctx = new AppDbContext();
+                return ctx.Unidads.Count(u => u.IdConsorcio == idConsorcio);
             }
             catch { throw; }
         }
@@ -125,6 +136,9 @@ namespace DAL
 
                 return ctx.Unidads
                     .Include(u => u.IdConsorcioNavigation)
+                    .Include(u => u.UnidadConsorcista)
+                        .ThenInclude(uc => uc.IdConsorcistaNavigation)
+                            .ThenInclude(c => c.IdUsuarioNavigation)
                     .Select(u => UnidadMapper.Map(u))
                     .ToList();
             }

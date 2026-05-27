@@ -20,9 +20,7 @@ namespace DAL.Repositorio
                 Codigo = permiso.Codigo,
                 Nombre = permiso.Nombre,
                 Tipo = permiso.Tipo,
-                usuarioPermisos = permiso.UsuarioPermisos
-                    .Select(UsuarioPermisoMapper.Map)
-                    .ToList()
+                usuarioPermisos = new List<UsuarioPermisoBE>()  // no llamar UsuarioPermisoMapper: evita ciclo Permiso ↔ UsuarioPermiso
             };
         }
 

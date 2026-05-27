@@ -34,10 +34,10 @@ namespace BLL
             try
             {
                 if (string.IsNullOrWhiteSpace(tipoVinculo))
-                    throw new ArgumentException("El tipo de vinculo es obligatorio.");
+                    throw new ValidacionException("El tipo de vínculo es obligatorio.");
 
                 if (ExisteAsociacion(idUnidad, idConsorcista))
-                    throw new Exception("El consorcista ya esta asociado a esta unidad.");
+                    throw new RelacionDuplicadaException("El consorcista ya está asociado a esta unidad.");
 
                 var asociacion = new Unidad_ConsorcistaBE
                 {

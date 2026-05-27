@@ -15,8 +15,11 @@ namespace SERV
         {
             get
             {
-                if (instancia == null) throw new Exception("Sesión no iniciada");
-                return instancia;
+                lock (_lock)
+                {
+                    if (instancia == null) throw new Exception("Sesión no iniciada");
+                    return instancia;
+                }
             }
         }
 

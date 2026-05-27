@@ -14,7 +14,11 @@ namespace BE
         public override bool Contiene(int idPermiso)
         {
             if (Id_Permiso == idPermiso) return true;
-            return Hijos.Any(h => h.Contiene(idPermiso));
+            foreach (var hijo in Hijos)
+            {
+                if (hijo.Contiene(idPermiso)) return true;
+            }
+            return false;
         }
     }
 }

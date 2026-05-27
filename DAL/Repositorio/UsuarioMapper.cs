@@ -22,9 +22,7 @@ namespace DAL.Repositorio
                 Baja = !usuario.Activo,
 
                 
-                consorcistaBE = usuario.Consorcistum != null
-                    ? ConsorcistaMapper.Map(usuario.Consorcistum)
-                    : null,
+                consorcistaBE = null!,  // no llamar ConsorcistaMapper: evita ciclo Usuario ↔ Consorcista
                 proovedorBE = usuario.Proveedor != null
                     ? ProovedorMapper.Map(usuario.Proveedor)
                     : null,

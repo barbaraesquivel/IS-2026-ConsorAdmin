@@ -13,6 +13,8 @@ namespace DAL.Repositorio
         {
             using var ctx = new AppDbContext();
             var model = ctx.Usuarios
+                .Include(u => u.UsuarioPermisos)
+                    .ThenInclude(up => up.IdPermisoNavigation)
                 .FirstOrDefault(u => u.Username == nombreUsuario
                                   && u.PasswordHash == passwordHash);
             return UsuarioMapper.Map(model);
@@ -22,6 +24,8 @@ namespace DAL.Repositorio
         {
             using var ctx = new AppDbContext();
             var model = ctx.Usuarios
+                .Include(u => u.UsuarioPermisos)
+                    .ThenInclude(up => up.IdPermisoNavigation)
                 .FirstOrDefault(u => u.Username == nombreUsuario);
             return UsuarioMapper.Map(model);
         }

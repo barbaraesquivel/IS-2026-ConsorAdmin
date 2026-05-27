@@ -13,21 +13,34 @@ namespace DAL.Repositorio
         
         public static Unidad_ConsorcistaBE Map(UnidadConsorcistum unidadConsorcista)
         {
+            // No llamamos a UnidadMapper ni a ConsorcistaMapper para evitar ciclos:
+            //   UC → Unidad → UC  (ciclo 1)
+            //   UC → Consorcista → UC  (ciclo 2)
+            // Construimos un ConsorcistaBE mínimo con solo los datos de display.
+            ConsorcistaBE minimalConsorcista = null;
+            if (unidadConsorcista.IdConsorcistaNavigation != null)
+            {
+                var c = unidadConsorcista.IdConsorcistaNavigation;
+                minimalConsorcista = new ConsorcistaBE
+                {
+                    Id_Consorcista = c.IdConsorcista,
+                    Dni = c.Dni,
+                    Telefono = c.Telefono,
+                    Id_Usuario = c.IdUsuario.ToString(),
+                    Usuario = c.IdUsuarioNavigation != null
+                        ? new UsuarioBE { Id = c.IdUsuarioNavigation.IdUsuario, Usuario = c.IdUsuarioNavigation.Username }
+                        : null
+                };
+            }
+
             return new Unidad_ConsorcistaBE()
             {
                 Id_Unidad_Consorcista = unidadConsorcista.IdUnidadConsorcista,
                 Id_Unidad = unidadConsorcista.IdUnidad.ToString(),
                 Id_Consorcista = unidadConsorcista.IdConsorcista.ToString(),
                 TipoVinculo = unidadConsorcista.TipoVinculo,
-
-                unidadBE = unidadConsorcista.IdUnidadNavigation != null
-                    ? UnidadMapper.Map(unidadConsorcista.IdUnidadNavigation)
-                    : null,
-                consorcistaBE = unidadConsorcista.IdConsorcistaNavigation != null
-                    ? ConsorcistaMapper.Map(unidadConsorcista.IdConsorcistaNavigation)
-                    : null
-
-
+                unidadBE = null,
+                consorcistaBE = minimalConsorcista
             };
         }
 
@@ -38,10 +51,8 @@ namespace DAL.Repositorio
             {
                 IdUnidadConsorcista = unidad_ConsorcistaBE.Id_Unidad_Consorcista,
                 TipoVinculo = unidad_ConsorcistaBE.TipoVinculo,
-
-                IdConsorcista = unidad_ConsorcistaBE.consorcistaBE.Id_Consorcista,
-                IdUnidad = unidad_ConsorcistaBE.unidadBE.Id_Unidad
-
+                IdConsorcista = Guid.Parse(unidad_ConsorcistaBE.Id_Consorcista),
+                IdUnidad = int.Parse(unidad_ConsorcistaBE.Id_Unidad)
             };
         }
         

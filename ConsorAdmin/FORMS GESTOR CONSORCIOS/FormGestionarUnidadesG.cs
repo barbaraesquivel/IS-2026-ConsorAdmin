@@ -1,14 +1,8 @@
-﻿using BE;
+using BE;
 using BLL;
-using DAL;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
@@ -17,33 +11,41 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
     {
         private readonly ConsorcioBLL _consorcioBLL = new ConsorcioBLL();
         private readonly UnidadBLL _unidadBLL = new UnidadBLL();
-        private readonly ConsorcistaBLL consorcistaBLL = new ConsorcistaBLL();
+        private readonly ConsorcistaBLL _consorcistaBLL = new ConsorcistaBLL();
         private readonly UnidadConsorcistaBLL _ucBLL = new UnidadConsorcistaBLL();
 
         public FormGestionarUnidadesG()
         {
             InitializeComponent();
+            comboBoxUnidadModificar.SelectedIndexChanged += comboBoxUnidadModificar_SelectedIndexChanged;
         }
+
         private void FormGestionarUnidadesG_Load(object sender, EventArgs e)
         {
-            CargarGrilla();
-            LimpiarFormularioUnidad();
+            try
+            {
+                CargarCombos();
+                CargarGrilla();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+        // ── AGREGAR UNIDAD ───────────────────────────────────────────────────
         private void buttonGuardarUnidad_Click(object sender, EventArgs e)
         {
             try
             {
                 if (comboBoxEdificioAgregar.SelectedItem is not ConsorcioBE consorcio)
-                    throw new Exception("Debe seleccionar un consorcio.");
-                if (textBoxPisoModificar.Text == null || textBoxDptoModificar == null )
-                {
-                    throw new Exception("Debe llenar los campos.");
-                }
+                    throw new ValidacionException("Debe seleccionar un consorcio.");
+
                 decimal? superficie = null;
                 if (!string.IsNullOrWhiteSpace(textBoxSuperficieAgregar.Text))
                 {
                     if (!decimal.TryParse(textBoxSuperficieAgregar.Text.Trim(), out decimal sup))
-                        throw new Exception("La superficie debe ser un número válido.");
+                        throw new ValidacionException("La superficie debe ser un número válido.");
                     superficie = sup;
                 }
 
@@ -55,186 +57,241 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
                     Id_Consorcio = consorcio.Id_Consorcio
                 };
 
+                int nuevoId = _unidadBLL.Crear(unidadBE);
 
-                _unidadBLL.Crear(unidadBE);
-                MessageBox.Show("Unidad creada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (comboBoxConsorcistaAgregar.SelectedItem is ConsorcistaBE consorcista
+                    && comboBoxTipoVinculo.SelectedItem != null)
+                {
+                    _ucBLL.Asociar(nuevoId, consorcista.Id_Consorcista.ToString(),
+                        comboBoxTipoVinculo.SelectedItem.ToString());
+                }
 
+                MessageBox.Show("Unidad creada correctamente.", "Éxito",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
-                Unidad_ConsorcistaBE unidad_ConsorcistaBE = new Unidad_ConsorcistaBE();
-                unidad_ConsorcistaBE.Id_Unidad = Convert.ToString(unidadBE.Id_Unidad);
-                unidad_ConsorcistaBE.Id_Consorcista = Convert.ToString(comboBoxConsorcista.SelectedValue);
-                unidad_ConsorcistaBE.TipoVinculo = comboBoxTipoVinculoModificar.SelectedItem.ToString();
-
-                _ucBLL.Asociar(unidadBE.Id_Unidad, unidad_ConsorcistaBE.Id_Consorcista, unidad_ConsorcistaBE.TipoVinculo);
-
-
-                LimpiarFormularioUnidad();
+                LimpiarCamposAgregar();
+                CargarCombos();
                 CargarGrilla();
-
+            }
+            catch (ValidacionException ex)
+            {
+                MessageBox.Show(ex.Message, "Datos inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (UnidadDuplicadaException ex)
+            {
+                MessageBox.Show(ex.Message, "Unidad duplicada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error al guardar unidad", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "Error al guardar unidad", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
-        private void LimpiarFormularioUnidad()
+        // ── MODIFICAR UNIDAD ─────────────────────────────────────────────────
+        private void comboBoxUnidadModificar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            textBoxPisoAgregar.Text = string.Empty;
-            textBoxDptoAgregar.Text = string.Empty;
-            textBoxSuperficieAgregar.Text = string.Empty;
+            if (comboBoxUnidadModificar.SelectedItem is not UnidadBE unidad) return;
 
-            textBoxPisoModificar.Text = string.Empty;
-            textBoxSuperficieModificar.Text = string.Empty;
-            textBoxDptoAgregar.Text = string.Empty;
-            if (dataGridUnidades != null)
-                dataGridUnidades.DataSource = null;
-            dataGridUnidades.DataSource = null;
-            dataGridUnidades.DataSource = _unidadBLL.ObtenerTodas();
+            textBoxPisoModificar.Text = unidad.Piso;
+            textBoxDptoModificar.Text = unidad.Depto;
+            textBoxSuperficieModificar.Text = unidad.Superficie.HasValue
+                ? unidad.Superficie.Value.ToString("F2")
+                : "";
+
+            foreach (var item in comboBoxEdificioModificar.Items)
+            {
+                if (item is ConsorcioBE c && c.Id_Consorcio == unidad.Id_Consorcio)
+                {
+                    comboBoxEdificioModificar.SelectedItem = c;
+                    break;
+                }
+            }
         }
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
             try
             {
-                if (comboBoxEdificioAgregar.SelectedItem is not ConsorcioBE consorcio)
-                    throw new Exception("Debe seleccionar un consorcio.");
-                if (textBoxPisoModificar.Text == null || textBoxDptoModificar == null)
-                {
-                    throw new Exception("Debe llenar los campos.");
-                }
+                if (comboBoxUnidadModificar.SelectedItem is not UnidadBE unidadSeleccionada)
+                    throw new ValidacionException("Seleccione una unidad válida.");
+
+                if (comboBoxEdificioModificar.SelectedItem is not ConsorcioBE consorcio)
+                    throw new ValidacionException("Debe seleccionar un consorcio.");
+
                 decimal? superficie = null;
-                if (!string.IsNullOrWhiteSpace(textBoxSuperficieAgregar.Text))
+                if (!string.IsNullOrWhiteSpace(textBoxSuperficieModificar.Text))
                 {
-                    if (!decimal.TryParse(textBoxSuperficieAgregar.Text.Trim(), out decimal sup))
-                        throw new Exception("La superficie debe ser un número válido.");
+                    if (!decimal.TryParse(textBoxSuperficieModificar.Text.Trim(), out decimal sup))
+                        throw new ValidacionException("La superficie debe ser un número válido.");
                     superficie = sup;
                 }
-                if (comboBoxUnidadModificar.SelectedItem is not UnidadBE unidadBE)
-                {
-                    throw new Exception("Seleccione una Unidad válida.");
 
-                }
-
-                unidadBE = new UnidadBE()
+                var unidadBE = new UnidadBE
                 {
-                    Id_Unidad = Convert.ToInt32(comboBoxUnidadModificar.SelectedValue),
+                    Id_Unidad = unidadSeleccionada.Id_Unidad,
+                    Piso = textBoxPisoModificar.Text.Trim(),
+                    Depto = textBoxDptoModificar.Text.Trim(),
                     Superficie = superficie,
-                    Piso = textBoxPisoModificar.Text,
-                    Depto = textBoxDptoModificar.Text,
-                    Id_Consorcio = consorcio.Id_Consorcio,
+                    Id_Consorcio = consorcio.Id_Consorcio
                 };
 
                 _unidadBLL.Actualizar(unidadBE);
+
+                if (comboBoxConsorcista.SelectedItem is ConsorcistaBE consorcista
+                    && comboBoxTipoVinculoModificar.SelectedItem != null)
+                {
+                    _ucBLL.Asociar(unidadBE.Id_Unidad, consorcista.Id_Consorcista.ToString(),
+                        comboBoxTipoVinculoModificar.SelectedItem.ToString());
+                }
+
                 MessageBox.Show("Unidad actualizada correctamente.", "Éxito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                Unidad_ConsorcistaBE unidad_ConsorcistaBE = new Unidad_ConsorcistaBE();
-                unidad_ConsorcistaBE.Id_Unidad = Convert.ToString(unidadBE.Id_Unidad);
-                unidad_ConsorcistaBE.Id_Consorcista = Convert.ToString(comboBoxConsorcista.SelectedValue);
-                unidad_ConsorcistaBE.TipoVinculo = comboBoxTipoVinculoModificar.SelectedItem.ToString();
-
-                _ucBLL.Asociar(unidadBE.Id_Unidad, unidad_ConsorcistaBE.Id_Consorcista, unidad_ConsorcistaBE.TipoVinculo);
-
-                LimpiarFormularioUnidad();
+                CargarCombos();
                 CargarGrilla();
-
+            }
+            catch (ValidacionException ex)
+            {
+                MessageBox.Show(ex.Message, "Datos inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (UnidadDuplicadaException ex)
+            {
+                MessageBox.Show(ex.Message, "Unidad duplicada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (RelacionDuplicadaException ex)
+            {
+                MessageBox.Show(ex.Message, "Relación duplicada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error al guardar unidad", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "Error al guardar unidad", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        // ── ELIMINAR UNIDAD ──────────────────────────────────────────────────
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
             try
             {
-                if (comboBoxUnidadEliminar.SelectedItem is not UnidadBE unidadBE)
-                {
-                    throw new Exception("Unidad invalida.");
-                }
-                unidadBE = _unidadBLL.ObtenerPorId(Convert.ToInt32(comboBoxUnidadEliminar.SelectedValue.ToString()));
-                
-                _unidadBLL.Eliminar(unidadBE);
+                if (comboBoxUnidadEliminar.SelectedItem is not UnidadBE unidadSel)
+                    throw new ValidacionException("Seleccione una unidad válida.");
 
-                Unidad_ConsorcistaBE unidad_ConsorcistaBE = _ucBLL.ObtenerPorUnidad(unidadBE.Id_Unidad).FirstOrDefault();
-                _ucBLL.Eliminar(unidad_ConsorcistaBE);
+                var confirmacion = MessageBox.Show(
+                    $"¿Está seguro de que desea eliminar la unidad Piso {unidadSel.Piso} Dpto {unidadSel.Depto}?",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (confirmacion != DialogResult.Yes) return;
+
+                var unidadBE = _unidadBLL.ObtenerPorId(unidadSel.Id_Unidad);
+                if (unidadBE == null)
+                    throw new Exception("Unidad no encontrada.");
+
+                foreach (var uc in _ucBLL.ObtenerPorUnidad(unidadBE.Id_Unidad))
+                    _ucBLL.Eliminar(uc);
+
+                _unidadBLL.Eliminar(unidadBE);
 
                 MessageBox.Show("Unidad eliminada correctamente.", "Éxito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                LimpiarFormularioUnidad();
+                CargarCombos();
                 CargarGrilla();
-
+            }
+            catch (ValidacionException ex)
+            {
+                MessageBox.Show(ex.Message, "Datos inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // ── CARGA DE COMBOS Y GRILLA ─────────────────────────────────────────
+        private void CargarCombos()
+        {
+            var unidades = _unidadBLL.ObtenerTodas();
+
+            comboBoxUnidadModificar.DataSource = null;
+            comboBoxUnidadModificar.DataSource = new List<UnidadBE>(unidades);
+            comboBoxUnidadModificar.DisplayMember = "Descripcion";
+            comboBoxUnidadModificar.ValueMember = "Id_Unidad";
+            comboBoxUnidadModificar.SelectedIndex = -1;
+
+            comboBoxUnidadEliminar.DataSource = null;
+            comboBoxUnidadEliminar.DataSource = new List<UnidadBE>(unidades);
+            comboBoxUnidadEliminar.DisplayMember = "Descripcion";
+            comboBoxUnidadEliminar.ValueMember = "Id_Unidad";
+            comboBoxUnidadEliminar.SelectedIndex = -1;
+
+            var consorcistas = _consorcistaBLL.ObtenerTodos();
+
+            comboBoxConsorcistaAgregar.DataSource = null;
+            comboBoxConsorcistaAgregar.DataSource = new List<ConsorcistaBE>(consorcistas);
+            comboBoxConsorcistaAgregar.DisplayMember = "Descripcion";
+            comboBoxConsorcistaAgregar.ValueMember = "Id_Consorcista";
+            comboBoxConsorcistaAgregar.SelectedIndex = -1;
+
+            comboBoxConsorcista.DataSource = null;
+            comboBoxConsorcista.DataSource = new List<ConsorcistaBE>(consorcistas);
+            comboBoxConsorcista.DisplayMember = "Descripcion";
+            comboBoxConsorcista.ValueMember = "Id_Consorcista";
+            comboBoxConsorcista.SelectedIndex = -1;
+
+            var consorcios = _consorcioBLL.ObtenerConsorcios();
+
+            comboBoxEdificioAgregar.DataSource = null;
+            comboBoxEdificioAgregar.DataSource = new List<ConsorcioBE>(consorcios);
+            comboBoxEdificioAgregar.DisplayMember = "Nombre";
+            comboBoxEdificioAgregar.ValueMember = "Id_Consorcio";
+            comboBoxEdificioAgregar.SelectedIndex = -1;
+
+            comboBoxEdificioModificar.DataSource = null;
+            comboBoxEdificioModificar.DataSource = new List<ConsorcioBE>(consorcios);
+            comboBoxEdificioModificar.DisplayMember = "Nombre";
+            comboBoxEdificioModificar.ValueMember = "Id_Consorcio";
+            comboBoxEdificioModificar.SelectedIndex = -1;
+
+            comboBoxTipoVinculo.Items.Clear();
+            comboBoxTipoVinculo.Items.Add("Propietario");
+            comboBoxTipoVinculo.Items.Add("Inquilino");
+
+            comboBoxTipoVinculoModificar.Items.Clear();
+            comboBoxTipoVinculoModificar.Items.Add("Propietario");
+            comboBoxTipoVinculoModificar.Items.Add("Inquilino");
+        }
+
         private void CargarGrilla()
         {
-            try
+            var unidades = _unidadBLL.ObtenerTodas();
+            var filas = unidades.Select(u => new
             {
-                var unidades = _unidadBLL.ObtenerTodas();
-                comboBoxUnidadModificar.DataSource = null;
-                comboBoxUnidadModificar.DataSource = unidades;
+                ID = u.Id_Unidad,
+                Consorcio = u.Id_Consorcio,
+                Piso = u.Piso,
+                Dpto = u.Depto,
+                Superficie = u.Superficie.HasValue ? u.Superficie.Value.ToString("F2") : "-",
+                Consorcistas = u.unidadConsorcista != null && u.unidadConsorcista.Count > 0
+                    ? string.Join(", ", u.unidadConsorcista
+                        .Where(uc => uc.consorcistaBE != null)
+                        .Select(uc => $"{uc.consorcistaBE.Usuario?.Usuario ?? "?"} ({uc.TipoVinculo})"))
+                    : "(sin consorcistas)"
+            }).ToList();
 
-                comboBoxUnidadModificar.DisplayMember = "Descripcion";
-                comboBoxUnidadModificar.ValueMember = "Id_Unidad";
+            dataGridUnidades.DataSource = null;
+            dataGridUnidades.DataSource = filas;
+        }
 
-                var unidades1 = _unidadBLL.ObtenerTodas();
-                comboBoxUnidadEliminar.DataSource = null;
-
-                comboBoxUnidadEliminar.DataSource = unidades1;
-                comboBoxUnidadEliminar.DisplayMember = "Descripcion";
-                comboBoxUnidadEliminar.ValueMember = "Id_Unidad";
-
-                var consorcistas = consorcistaBLL.ObtenerTodos();
-                comboBoxConsorcistaAgregar.DataSource = null;
-                comboBoxConsorcistaAgregar.DataSource = consorcistas;
-                comboBoxConsorcistaAgregar.DisplayMember = "Descripcion";
-                comboBoxConsorcistaAgregar.ValueMember = "Id_Consorcista";
-
-                var consorcistas1 = consorcistaBLL.ObtenerTodos();
-                comboBoxConsorcista.DataSource = null;
-                comboBoxConsorcista.DataSource = consorcistas1;
-                comboBoxConsorcista.DisplayMember = "Descripcion";
-                comboBoxConsorcista.ValueMember = "Id_Consorcista";
-
-                // Cargar consorcios en combo superior
-                var consorcios = _consorcioBLL.ObtenerConsorcios();
-                comboBoxEdificioAgregar.DataSource = null;
-                comboBoxEdificioAgregar.DataSource = consorcios;
-                comboBoxEdificioAgregar.DisplayMember = "Nombre";
-                comboBoxEdificioAgregar.ValueMember = "Id_Consorcio";
-                comboBoxEdificioAgregar.SelectedIndex = -1;
-
-                var consorcios1 = _consorcioBLL.ObtenerConsorcios();
-                comboBoxEdificioModificar.DataSource = null;
-                comboBoxEdificioModificar.DataSource = consorcios;
-                comboBoxEdificioModificar.DisplayMember = "Nombre";
-                comboBoxEdificioModificar.ValueMember = "Id_Consorcio";
-                comboBoxEdificioModificar.SelectedIndex = -1;
-
-                // Cargar tipos de vinculo para CU08
-                comboBoxTipoVinculo.Items.Clear();
-                comboBoxTipoVinculo.Items.Add("Propietario");
-                comboBoxTipoVinculo.Items.Add("Inquilino");
-
-                comboBoxTipoVinculoModificar.Items.Clear();
-                comboBoxTipoVinculoModificar.Items.Add("Propietario");
-                comboBoxTipoVinculoModificar.Items.Add("Inquilino");
-
-                LimpiarFormularioUnidad();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+        private void LimpiarCamposAgregar()
+        {
+            comboBoxEdificioAgregar.SelectedIndex = -1;
+            textBoxPisoAgregar.Clear();
+            textBoxDptoAgregar.Clear();
+            textBoxSuperficieAgregar.Clear();
+            comboBoxConsorcistaAgregar.SelectedIndex = -1;
+            comboBoxTipoVinculo.SelectedIndex = -1;
         }
     }
 }

@@ -11,6 +11,10 @@ namespace DAL.Repositorio
     public class GestorConsorcioMapper
     {
         // EF → BE
+        // No llamamos a UsuarioMapper ni ConsorcioMapper para evitar recursión infinita:
+        //   Consorcio → GestorConsorcio → Consorcio  (ciclo 1)
+        //   GestorConsorcio → Usuario → GestorConsorcio  (ciclo 2)
+        // Se construye un UsuarioBE mínimo con solo los datos necesarios para mostrar.
         public static GestorConsorcioBE Map(GestorConsorcio gc)
         {
             if (gc == null) return null;
@@ -21,8 +25,14 @@ namespace DAL.Repositorio
                 Id_Consorcio = gc.IdConsorcio,
                 FechaAsignacion = gc.FechaAsignacion.ToDateTime(TimeOnly.MinValue),
 
-                usuarioBE = gc.IdUsuarioNavigation != null ? UsuarioMapper.Map(gc.IdUsuarioNavigation) : null,
-                consorcioBE = gc.IdConsorcioNavigation != null ? ConsorcioMapper.Map(gc.IdConsorcioNavigation) : null
+                usuarioBE = gc.IdUsuarioNavigation != null
+                    ? new UsuarioBE
+                    {
+                        Id = gc.IdUsuarioNavigation.IdUsuario,
+                        Usuario = gc.IdUsuarioNavigation.Username
+                    }
+                    : null,
+                consorcioBE = null
             };
         }
 

@@ -28,9 +28,7 @@ namespace DAL.Repositorio
                             .Select(Unidad_ConsorcistaMapper.Map)
                             .ToList(),
 
-                consorcioBE = unidad.IdConsorcioNavigation != null
-                    ? ConsorcioMapper.Map(unidad.IdConsorcioNavigation)
-                    : null
+                consorcioBE = null  // no llamar ConsorcioMapper: evita ciclo Unidad ↔ Consorcio
 
             };
         }
@@ -44,15 +42,13 @@ namespace DAL.Repositorio
                 Piso = unidadBE.Piso,
                 Depto = unidadBE.Depto,
                 Superficie = unidadBE.Superficie,
-
-                IdConsorcio = unidadBE.consorcioBE?.Id_Consorcio,
-                Expensas = unidadBE.expensas
+                IdConsorcio = unidadBE.Id_Consorcio,
+                Expensas = unidadBE.expensas?
                             .Select(ExpensaMapper.Map)
-                            .ToList(),
-                UnidadConsorcista = unidadBE.unidadConsorcista
+                            .ToList() ?? new List<Expensa>(),
+                UnidadConsorcista = unidadBE.unidadConsorcista?
                                     .Select(Unidad_ConsorcistaMapper.Map)
-                                    .ToList(),
-
+                                    .ToList() ?? new List<UnidadConsorcistum>(),
             };
         }
     }

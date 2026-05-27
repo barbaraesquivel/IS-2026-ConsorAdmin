@@ -28,8 +28,12 @@ namespace BLL
                         throw new Exception("Gestor ya Asociado");
                     }
                 }
-                GestorConsorcioBE gestorConsorcioBE = new GestorConsorcioBE();
-                gestorConsorcioBE.FechaAsignacion = DateTime.Now;
+                var gestorConsorcioBE = new GestorConsorcioBE
+                {
+                    Id_Usuario = Guid.Parse(idUsuario),
+                    Id_Consorcio = idConsorcio,
+                    FechaAsignacion = DateTime.Now
+                };
 
                 gestorConsorcioDAL.Crear(gestorConsorcioBE);
             }
