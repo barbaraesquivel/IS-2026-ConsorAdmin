@@ -11,11 +11,13 @@ namespace ConsorAdmin.FORMS_ADMIN
         private readonly IPermisoBLL _permisoBLL = new PermisoBLL();
         private readonly UsuarioBLL _usuarioBLL = new UsuarioBLL();
         private Form activeForm = null;
+        private Size tamañoOriginal;
 
         public Form1Admin()
         {
             InitializeComponent();
             this.Load += Form1Admin_Load;
+            tamañoOriginal = this.Size;
         }
 
         private void Form1Admin_Load(object sender, EventArgs e)
@@ -28,8 +30,8 @@ namespace ConsorAdmin.FORMS_ADMIN
                 // Botones con patente definida
                 PermisoUIHelper.AplicarPermisos(idUsuario, _permisoBLL,
                     (buttonGestionUsuarios, CodigosPermiso.GestionarUsuarios),  // US001
-                    (buttonPermisos,        CodigosPermiso.AsignarRoles),       // US002
-                    (buttonHistoria,        CodigosPermiso.ConsultarBitacora)   // BT001
+                    (buttonPermisos, CodigosPermiso.AsignarRoles),       // US002
+                    (buttonHistoria, CodigosPermiso.ConsultarBitacora)   // BT001
                 );
 
                 // Botones huérfanos — siempre visibles, sin patente asignada aún
@@ -116,11 +118,30 @@ namespace ConsorAdmin.FORMS_ADMIN
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
+            childForm.Dock = DockStyle.None;
+            childForm.Location = new Point(0, 0);
+
+            int diferenciaAncho = childForm.Width - panelChildForm.Width;
+
+            if (diferenciaAncho > 0)
+            {
+                this.Width = tamañoOriginal.Width + diferenciaAncho;
+            }
+            else
+            {
+                this.Size = tamañoOriginal;
+            }
+
             panelChildForm.Controls.Add(childForm);
             panelChildForm.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+        }
+
+        private void buttonGestionarEdificios_Click(object sender, EventArgs e)
+        {
+            openChildForm(new formRegistrarEdificioA());
+
         }
     }
 }

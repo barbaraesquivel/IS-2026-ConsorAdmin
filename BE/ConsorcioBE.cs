@@ -14,6 +14,7 @@ namespace BE
         public int CantUnidades { get; set; }
 
         public List<ServicioBE> Servicios { get; set; }
+        public List<GestorConsorcioBE> gestorConsorcios { get; set; }
         public List<UnidadBE> Unidades { get; set; }
 
     }

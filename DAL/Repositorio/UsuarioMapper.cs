@@ -21,6 +21,7 @@ namespace DAL.Repositorio
                 // Activo=true en BD significa usuario activo → Baja debe ser false
                 Baja = !usuario.Activo,
 
+                
                 consorcistaBE = usuario.Consorcistum != null
                     ? ConsorcistaMapper.Map(usuario.Consorcistum)
                     : null,
@@ -32,6 +33,9 @@ namespace DAL.Repositorio
                     .ToList(),
                 usuarioPermisos = usuario.UsuarioPermisos
                     .Select(UsuarioPermisoMapper.Map)
+                    .ToList(),
+                gestorConsorcioBEs = usuario.GestorConsorcios
+                    .Select(GestorConsorcioMapper.Map)
                     .ToList()
             };
         }
@@ -53,7 +57,10 @@ namespace DAL.Repositorio
                     .ToList() ?? new List<LogBitacora>(),
                 UsuarioPermisos = usuarioBE.usuarioPermisos?
                     .Select(UsuarioPermisoMapper.Map)
-                    .ToList() ?? new List<UsuarioPermiso>()
+                    .ToList() ?? new List<UsuarioPermiso>(),
+                GestorConsorcios = usuarioBE.gestorConsorcioBEs
+                    .Select(GestorConsorcioMapper.Map)
+                    .ToList()
             };
         }
     }

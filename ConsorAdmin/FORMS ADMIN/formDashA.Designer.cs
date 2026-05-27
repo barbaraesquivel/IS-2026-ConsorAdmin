@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             groupBox2 = new GroupBox();
+            groupBox1 = new GroupBox();
+            label2 = new Label();
+            panel1 = new Panel();
             groupBox3 = new GroupBox();
             labelServicios = new Label();
             labelDeudas = new Label();
@@ -43,11 +46,8 @@
             groupBoxProxexp = new GroupBox();
             labelAcobrar = new Label();
             panel2 = new Panel();
-            groupBox1 = new GroupBox();
-            label1 = new Label();
-            label2 = new Label();
-            panel1 = new Panel();
             groupBox2.SuspendLayout();
+            groupBox1.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBoxRecaudado.SuspendLayout();
             groupBoxUltimas.SuspendLayout();
@@ -55,7 +55,6 @@
             groupBoxEdificios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridEdificios).BeginInit();
             groupBoxProxexp.SuspendLayout();
-            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox2
@@ -79,6 +78,40 @@
             groupBox2.Size = new Size(682, 597);
             groupBox2.TabIndex = 7;
             groupBox2.TabStop = false;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Anchor = AnchorStyles.None;
+            groupBox1.BackColor = Color.FromArgb(17, 30, 53);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBox1.ForeColor = SystemColors.ControlLight;
+            groupBox1.Location = new Point(361, 142);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(159, 63);
+            groupBox1.TabIndex = 10;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "TOTAL EXPENSAS";
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.None;
+            label2.AutoSize = true;
+            label2.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(4, 16);
+            label2.Name = "label2";
+            label2.Size = new Size(19, 19);
+            label2.TabIndex = 4;
+            label2.Text = "X";
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.None;
+            panel1.BackColor = Color.FromArgb(0, 212, 255);
+            panel1.Location = new Point(357, 136);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(167, 72);
+            panel1.TabIndex = 11;
             // 
             // groupBox3
             // 
@@ -196,7 +229,7 @@
             groupBoxEdificios.Size = new Size(264, 303);
             groupBoxEdificios.TabIndex = 3;
             groupBoxEdificios.TabStop = false;
-            groupBoxEdificios.Text = "MIS EDIFICIOS";
+            groupBoxEdificios.Text = "EDIFICIOS";
             // 
             // dataGridEdificios
             // 
@@ -242,52 +275,6 @@
             panel2.Size = new Size(167, 72);
             panel2.TabIndex = 7;
             // 
-            // groupBox1
-            // 
-            groupBox1.Anchor = AnchorStyles.None;
-            groupBox1.BackColor = Color.FromArgb(17, 30, 53);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBox1.ForeColor = SystemColors.ControlLight;
-            groupBox1.Location = new Point(361, 142);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(159, 63);
-            groupBox1.TabIndex = 10;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "TOTAL EXPENSAS";
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.None;
-            label1.AutoSize = true;
-            label1.Font = new Font("Unispace", 6.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(6, 44);
-            label1.Name = "label1";
-            label1.Size = new Size(125, 11);
-            label1.TabIndex = 5;
-            label1.Text = "Consorcistas morosos";
-            // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.None;
-            label2.AutoSize = true;
-            label2.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(4, 16);
-            label2.Name = "label2";
-            label2.Size = new Size(19, 19);
-            label2.TabIndex = 4;
-            label2.Text = "X";
-            // 
-            // panel1
-            // 
-            panel1.Anchor = AnchorStyles.None;
-            panel1.BackColor = Color.FromArgb(0, 212, 255);
-            panel1.Location = new Point(357, 136);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(167, 72);
-            panel1.TabIndex = 11;
-            // 
             // formDashA
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -298,6 +285,8 @@
             Name = "formDashA";
             Text = "formDashA";
             groupBox2.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             groupBoxRecaudado.ResumeLayout(false);
@@ -308,8 +297,6 @@
             ((System.ComponentModel.ISupportInitialize)dataGridEdificios).EndInit();
             groupBoxProxexp.ResumeLayout(false);
             groupBoxProxexp.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -331,7 +318,6 @@
         private Label labelAcobrar;
         private Panel panel2;
         private GroupBox groupBox1;
-        private Label label1;
         private Label label2;
         private Panel panel1;
     }

@@ -13,6 +13,8 @@ public partial class Consorcio
 
     public int CantUnidades { get; set; }
 
+    public virtual ICollection<GestorConsorcio> GestorConsorcios { get; set; } = new List<GestorConsorcio>();
+
     public virtual ICollection<Servicio> Servicios { get; set; } = new List<Servicio>();
 
     public virtual ICollection<Unidad> Unidads { get; set; } = new List<Unidad>();

@@ -1,4 +1,5 @@
 ﻿using ABSTRAC;
+using DAL.Models;
 
 namespace BE
 {
@@ -11,6 +12,7 @@ namespace BE
         public bool Baja { get; set; }
         public ConsorcistaBE consorcistaBE { get; set; }
         public ProovedorBE proovedorBE { get; set; }
+        public List<GestorConsorcioBE> gestorConsorcioBEs { get; set; }
         public List<LogBitacoraBE> logBitacoras { get; set; }
         public List<UsuarioPermisoBE> usuarioPermisos { get; set; }
 

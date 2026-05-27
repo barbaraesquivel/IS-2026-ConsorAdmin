@@ -10,9 +10,12 @@ namespace DAL.Repositorio
 {
     public class ConsorcioMapper
     {
-        
+
+        // EF → Entity
         public static ConsorcioBE Map(Consorcio consorcio)
         {
+            if (consorcio == null) return null;
+
             return new ConsorcioBE()
             {
                 Id_Consorcio = consorcio.IdConsorcio,
@@ -20,34 +23,49 @@ namespace DAL.Repositorio
                 Direccion = consorcio.Direccion,
                 CantUnidades = consorcio.CantUnidades,
 
-                Servicios = consorcio.Servicios
+                Servicios = consorcio.Servicios?
                             .Select(ServicioMapper.Map)
-                            .ToList(),
-                Unidades = consorcio.Unidads
-                            .Select(UnidadMapper.Map)
-                            .ToList()
+                            .ToList() ?? new List<ServicioBE>(),
 
+                Unidades = consorcio.Unidads?
+                            .Select(UnidadMapper.Map)
+                            .ToList() ?? new List<UnidadBE>(),
+
+                gestorConsorcios = consorcio.GestorConsorcios?
+                    .Select(GestorConsorcioMapper.Map)
+                    .ToList() ?? new List<GestorConsorcioBE>()
             };
         }
 
         // Entity → EF
         public static Consorcio Map(ConsorcioBE consorcioBE)
         {
+            if (consorcioBE == null) return null;
+
             return new Consorcio()
             {
-                IdConsorcio = consorcioBE.Id_Consorcio,
+                // Si no viene Id (operación de creación), generar uno nuevo
+                IdConsorcio = string.IsNullOrWhiteSpace(consorcioBE.Id_Consorcio)
+                    ? Guid.NewGuid().ToString()
+                    : consorcioBE.Id_Consorcio,
+
                 CantUnidades = consorcioBE.CantUnidades,
                 Nombre = consorcioBE.Nombre,
                 Direccion = consorcioBE.Direccion,
 
-                Servicios = consorcioBE.Servicios
+                Servicios = consorcioBE.Servicios?
                             .Select(ServicioMapper.Map)
-                            .ToList(),
-                Unidads = consorcioBE.Unidades
+                            .ToList() ?? new List<Servicio>(),
+
+                Unidads = consorcioBE.Unidades?
                             .Select(UnidadMapper.Map)
-                            .ToList()
+                            .ToList() ?? new List<Unidad>(),
+
+                GestorConsorcios = consorcioBE.gestorConsorcios?
+                    .Select(GestorConsorcioMapper.Map)
+                    .ToList() ?? new List<GestorConsorcio>()
             };
         }
-        
+
     }
 }

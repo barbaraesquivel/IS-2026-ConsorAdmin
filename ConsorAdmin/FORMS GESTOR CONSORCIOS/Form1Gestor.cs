@@ -1,4 +1,5 @@
 ﻿using BLL;
+using ConsorAdmin.FORMS_ADMIN;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,16 +14,17 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
 {
     public partial class Form1Gestor : Form
     {
-        Login formlogin;
-
+        private Size tamañoOriginal;
         public Form1Gestor()
         {
             InitializeComponent();
+            tamañoOriginal = this.Size;
+
         }
 
         private void Form1Gestor_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
@@ -67,6 +69,11 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
             openChildForm(new FormRecauG());
 
         }
+        private void buttonGestionarUnidades_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FormGestionarUnidadesG());
+
+        }
 
         private Form activeForm = null;
         private void openChildForm(Form childForm)
@@ -80,11 +87,26 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
+            childForm.Dock = DockStyle.None;
+            childForm.Location = new Point(0, 0);
+
+            int diferenciaAncho = childForm.Width - panelChildForm.Width;
+
+            if (diferenciaAncho > 0)
+            {
+                this.Width = tamañoOriginal.Width + diferenciaAncho;
+            }
+            else
+            {
+                this.Size = tamañoOriginal;
+            }
+
             panelChildForm.Controls.Add(childForm);
             panelChildForm.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
         }
+
+
     }
 }

@@ -74,9 +74,9 @@
             buttonLimpiar.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             buttonLimpiar.FlatStyle = FlatStyle.Flat;
             buttonLimpiar.ForeColor = SystemColors.ControlLight;
-            buttonLimpiar.Location = new Point(355, 64);
+            buttonLimpiar.Location = new Point(352, 58);
             buttonLimpiar.Name = "buttonLimpiar";
-            buttonLimpiar.Size = new Size(119, 22);
+            buttonLimpiar.Size = new Size(123, 35);
             buttonLimpiar.TabIndex = 36;
             buttonLimpiar.Text = "Limpiar Vista";
             buttonLimpiar.UseVisualStyleBackColor = false;
@@ -90,9 +90,9 @@
             buttonBuscar.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             buttonBuscar.FlatStyle = FlatStyle.Flat;
             buttonBuscar.ForeColor = SystemColors.ControlLight;
-            buttonBuscar.Location = new Point(505, 63);
+            buttonBuscar.Location = new Point(502, 57);
             buttonBuscar.Name = "buttonBuscar";
-            buttonBuscar.Size = new Size(120, 23);
+            buttonBuscar.Size = new Size(123, 35);
             buttonBuscar.TabIndex = 35;
             buttonBuscar.Text = "Buscar";
             buttonBuscar.UseVisualStyleBackColor = false;
@@ -112,9 +112,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(52, 47);
             label1.Name = "label1";
-            label1.Size = new Size(133, 14);
+            label1.Size = new Size(224, 14);
             label1.TabIndex = 0;
-            label1.Text = "Buscar por codigo:";
+            label1.Text = "Buscar por nombre de Consorcio:";
             // 
             // FormHistorialG
             // 

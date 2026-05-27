@@ -8,6 +8,7 @@ namespace DAL.Repositorio
 {
     public class PermisoRepositorio
     {
+
         public List<ComponentePermisoBE> ObtenerArbolCompleto()
         {
             using var ctx = new AppDbContext();

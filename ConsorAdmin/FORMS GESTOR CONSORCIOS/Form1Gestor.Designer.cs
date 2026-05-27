@@ -38,6 +38,7 @@
             buttonCargarExpensas = new Button();
             buttonInicio = new Button();
             panelSideMenu = new Panel();
+            buttonGestionarUnidades = new Button();
             buttonRecaudacion = new Button();
             buttonLogout = new Button();
             panelChildForm = new Panel();
@@ -171,6 +172,7 @@
             // panelSideMenu
             // 
             panelSideMenu.BackColor = Color.FromArgb(13, 22, 40);
+            panelSideMenu.Controls.Add(buttonGestionarUnidades);
             panelSideMenu.Controls.Add(buttonRecaudacion);
             panelSideMenu.Controls.Add(buttonLogout);
             panelSideMenu.Controls.Add(buttonHistorial);
@@ -183,6 +185,24 @@
             panelSideMenu.Name = "panelSideMenu";
             panelSideMenu.Size = new Size(186, 636);
             panelSideMenu.TabIndex = 3;
+            // 
+            // buttonGestionarUnidades
+            // 
+            buttonGestionarUnidades.Dock = DockStyle.Top;
+            buttonGestionarUnidades.FlatAppearance.BorderSize = 0;
+            buttonGestionarUnidades.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
+            buttonGestionarUnidades.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
+            buttonGestionarUnidades.FlatStyle = FlatStyle.Flat;
+            buttonGestionarUnidades.ForeColor = SystemColors.ControlLight;
+            buttonGestionarUnidades.Location = new Point(0, 324);
+            buttonGestionarUnidades.Name = "buttonGestionarUnidades";
+            buttonGestionarUnidades.Padding = new Padding(20, 0, 0, 0);
+            buttonGestionarUnidades.Size = new Size(186, 40);
+            buttonGestionarUnidades.TabIndex = 8;
+            buttonGestionarUnidades.Text = "Gestionar Unidades";
+            buttonGestionarUnidades.TextAlign = ContentAlignment.MiddleLeft;
+            buttonGestionarUnidades.UseVisualStyleBackColor = true;
+            buttonGestionarUnidades.Click += buttonGestionarUnidades_Click;
             // 
             // buttonRecaudacion
             // 
@@ -215,7 +235,7 @@
             buttonLogout.Padding = new Padding(20, 0, 0, 0);
             buttonLogout.Size = new Size(186, 40);
             buttonLogout.TabIndex = 6;
-            buttonLogout.Text = "Cerrar Sesión";
+            buttonLogout.Text = "Salir";
             buttonLogout.TextAlign = ContentAlignment.MiddleLeft;
             buttonLogout.UseVisualStyleBackColor = true;
             buttonLogout.Click += buttonLogout_Click;
@@ -305,5 +325,6 @@
         private GroupBox groupBox1;
         private PictureBox pictureBox1;
         private Label labelBienvenida;
+        private Button buttonGestionarUnidades;
     }
 }

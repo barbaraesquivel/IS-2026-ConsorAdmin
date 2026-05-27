@@ -15,7 +15,14 @@ namespace BE
         public decimal? Superficie { get; set; }
         public List<ExpensaBE> expensas {  get; set; }
         public List<Unidad_ConsorcistaBE> unidadConsorcista { get; set; }
-
         public ConsorcioBE consorcioBE { get; set; }
+
+        public string Descripcion
+        {
+            get
+            {
+                return $"{Id_Consorcio} - Piso {Piso} Depto {Depto}";
+            }
+        }
     }
 }

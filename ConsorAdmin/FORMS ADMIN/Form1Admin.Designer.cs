@@ -47,6 +47,7 @@
             pictureBox1 = new PictureBox();
             labelBienvenida = new Label();
             panelChildForm = new Panel();
+            buttonGestionarEdificios = new Button();
             panelSideMenu.SuspendLayout();
             panelSessionInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -59,6 +60,7 @@
             // 
             panelSideMenu.AutoScroll = true;
             panelSideMenu.BackColor = Color.FromArgb(13, 22, 40);
+            panelSideMenu.Controls.Add(buttonGestionarEdificios);
             panelSideMenu.Controls.Add(buttonHistoria);
             panelSideMenu.Controls.Add(buttonCargarExp);
             panelSideMenu.Controls.Add(buttonListaConsorcios);
@@ -324,6 +326,24 @@
             panelChildForm.Size = new Size(698, 636);
             panelChildForm.TabIndex = 5;
             // 
+            // buttonGestionarEdificios
+            // 
+            buttonGestionarEdificios.Dock = DockStyle.Top;
+            buttonGestionarEdificios.FlatAppearance.BorderSize = 0;
+            buttonGestionarEdificios.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
+            buttonGestionarEdificios.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
+            buttonGestionarEdificios.FlatStyle = FlatStyle.Flat;
+            buttonGestionarEdificios.ForeColor = SystemColors.ControlLight;
+            buttonGestionarEdificios.Location = new Point(0, 404);
+            buttonGestionarEdificios.Name = "buttonGestionarEdificios";
+            buttonGestionarEdificios.Padding = new Padding(20, 0, 0, 0);
+            buttonGestionarEdificios.Size = new Size(186, 40);
+            buttonGestionarEdificios.TabIndex = 11;
+            buttonGestionarEdificios.Text = "Gestionar Edificios";
+            buttonGestionarEdificios.TextAlign = ContentAlignment.MiddleLeft;
+            buttonGestionarEdificios.UseVisualStyleBackColor = true;
+            buttonGestionarEdificios.Click += buttonGestionarEdificios_Click;
+            // 
             // Form1Admin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -367,5 +387,6 @@
         private Label labelSistema;
         private Button buttonListaConsorcios;
         private Button buttonAsignarG;
+        private Button buttonGestionarEdificios;
     }
 }

@@ -26,6 +26,7 @@ namespace DAL.Repositorio
             return UsuarioMapper.Map(model);
         }
 
+
         public List<UsuarioBE> ObtenerTodos()
         {
             using var ctx = new AppDbContext();

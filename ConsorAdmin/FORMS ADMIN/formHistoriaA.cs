@@ -110,24 +110,32 @@ namespace ConsorAdmin.FORMS_ADMIN
 
         private void MostrarEnGrilla(List<LogBitacoraBE> datos)
         {
-            var tabla = datos.Select(l => new
+            try
             {
-                FechaHora = l.FechaHora.ToString("dd/MM/yyyy HH:mm:ss"),
-                Usuario   = l.usuarioBE?.Usuario ?? l.Id_Usuario.ToString(),
-                Modulo    = l.Modulo,
-                Accion    = l.Accion,
-                Detalle   = l.Detalle ?? string.Empty
-            }).ToList();
+                var tabla = datos.Select(l => new
+                {
+                    FechaHora = l.FechaHora.ToString("dd/MM/yyyy HH:mm:ss"),
+                    Usuario = l.usuarioBE?.Usuario ?? l.Id_Usuario.ToString(),
+                    Modulo = l.Modulo,
+                    Accion = l.Accion,
+                    Detalle = l.Detalle ?? string.Empty
+                }).ToList();
 
-            dgvBitacora.DataSource = tabla;
-            dgvBitacora.AutoResizeColumns();
-            lblTotalRegistros.Text = $"Total: {datos.Count} registros";
+                dgvBitacora.DataSource = tabla;
+                dgvBitacora.AutoResizeColumns();
+                lblTotalRegistros.Text = $"Total: {datos.Count} registros";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         // ── Limpiar ───────────────────────────────────────────────────────────
 
         private void BtnLimpiarFiltros_Click(object sender, EventArgs e)
         {
+
             cmbUsuario.SelectedIndex = 0;
             dtpFechaDesde.Checked = false;
             dtpFechaHasta.Checked = false;
@@ -142,6 +150,7 @@ namespace ConsorAdmin.FORMS_ADMIN
 
         private void BtnExportar_Click(object sender, EventArgs e)
         {
+
             if (_resultados == null || _resultados.Count == 0)
             {
                 MessageBox.Show("No hay datos para exportar.", "Exportar",

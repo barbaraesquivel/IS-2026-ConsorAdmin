@@ -34,23 +34,19 @@
             label13 = new Label();
             textBoxCodigoModificar = new TextBox();
             label11 = new Label();
-            textBox2 = new TextBox();
+            textBoxDireccionModificar = new TextBox();
             label10 = new Label();
             buttonGuardarCambios = new Button();
-            textBox1 = new TextBox();
-            textBoxCantUnidad = new TextBox();
+            textBoxNombreModificar = new TextBox();
+            textBoxCantModificar = new TextBox();
             label5 = new Label();
             label6 = new Label();
-            comboBoxLocalidadModificar = new ComboBox();
-            label7 = new Label();
-            comboBox2 = new ComboBox();
+            comboBoxEdificioModificar = new ComboBox();
             label8 = new Label();
             groupBoxEstado = new GroupBox();
             label12 = new Label();
             comboBoxGestor = new ComboBox();
-            comboBoxLocalidad = new ComboBox();
             textBoxCodigo = new TextBox();
-            label9 = new Label();
             textBoxDireccion = new TextBox();
             buttonGuardar = new Button();
             textBoxNombre = new TextBox();
@@ -59,14 +55,20 @@
             label4 = new Label();
             label2 = new Label();
             label1 = new Label();
+            groupBox3 = new GroupBox();
+            buttonDarBaja = new Button();
+            comboBoxEdificioEliminar = new ComboBox();
+            label17 = new Label();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBoxEstado.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox2
             // 
             groupBox2.BackColor = Color.FromArgb(8, 14, 26);
+            groupBox2.Controls.Add(groupBox3);
             groupBox2.Controls.Add(groupBox1);
             groupBox2.Controls.Add(groupBoxEstado);
             groupBox2.Dock = DockStyle.Fill;
@@ -86,22 +88,20 @@
             groupBox1.Controls.Add(label13);
             groupBox1.Controls.Add(textBoxCodigoModificar);
             groupBox1.Controls.Add(label11);
-            groupBox1.Controls.Add(textBox2);
+            groupBox1.Controls.Add(textBoxDireccionModificar);
             groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(buttonGuardarCambios);
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(textBoxCantUnidad);
+            groupBox1.Controls.Add(textBoxNombreModificar);
+            groupBox1.Controls.Add(textBoxCantModificar);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(comboBoxLocalidadModificar);
-            groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(comboBox2);
+            groupBox1.Controls.Add(comboBoxEdificioModificar);
             groupBox1.Controls.Add(label8);
             groupBox1.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBox1.ForeColor = SystemColors.ControlLight;
-            groupBox1.Location = new Point(36, 266);
+            groupBox1.Location = new Point(36, 255);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(601, 319);
+            groupBox1.Size = new Size(601, 243);
             groupBox1.TabIndex = 21;
             groupBox1.TabStop = false;
             groupBox1.Text = "MODIFICAR EDIFICIOS";
@@ -111,7 +111,7 @@
             comboBoxGestorModificar.BackColor = Color.FromArgb(13, 22, 40);
             comboBoxGestorModificar.ForeColor = SystemColors.ControlLight;
             comboBoxGestorModificar.FormattingEnabled = true;
-            comboBoxGestorModificar.Location = new Point(24, 224);
+            comboBoxGestorModificar.Location = new Point(319, 171);
             comboBoxGestorModificar.Name = "comboBoxGestorModificar";
             comboBoxGestorModificar.Size = new Size(209, 22);
             comboBoxGestorModificar.TabIndex = 27;
@@ -119,7 +119,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(24, 207);
+            label13.Location = new Point(319, 154);
             label13.Name = "label13";
             label13.Size = new Size(112, 14);
             label13.TabIndex = 26;
@@ -129,7 +129,7 @@
             // 
             textBoxCodigoModificar.BackColor = Color.FromArgb(13, 22, 40);
             textBoxCodigoModificar.ForeColor = SystemColors.ControlLight;
-            textBoxCodigoModificar.Location = new Point(320, 171);
+            textBoxCodigoModificar.Location = new Point(320, 108);
             textBoxCodigoModificar.Name = "textBoxCodigoModificar";
             textBoxCodigoModificar.Size = new Size(208, 22);
             textBoxCodigoModificar.TabIndex = 25;
@@ -137,20 +137,20 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(319, 154);
+            label11.Location = new Point(319, 91);
             label11.Name = "label11";
             label11.Size = new Size(56, 14);
             label11.TabIndex = 24;
             label11.Text = "Codigo:";
             // 
-            // textBox2
+            // textBoxDireccionModificar
             // 
-            textBox2.BackColor = Color.FromArgb(13, 22, 40);
-            textBox2.ForeColor = SystemColors.ControlLight;
-            textBox2.Location = new Point(25, 108);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(208, 22);
-            textBox2.TabIndex = 23;
+            textBoxDireccionModificar.BackColor = Color.FromArgb(13, 22, 40);
+            textBoxDireccionModificar.ForeColor = SystemColors.ControlLight;
+            textBoxDireccionModificar.Location = new Point(25, 108);
+            textBoxDireccionModificar.Name = "textBoxDireccionModificar";
+            textBoxDireccionModificar.Size = new Size(208, 22);
+            textBoxDireccionModificar.TabIndex = 23;
             // 
             // label10
             // 
@@ -170,30 +170,31 @@
             buttonGuardarCambios.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
             buttonGuardarCambios.FlatStyle = FlatStyle.Flat;
             buttonGuardarCambios.ForeColor = SystemColors.ControlLight;
-            buttonGuardarCambios.Location = new Point(130, 266);
+            buttonGuardarCambios.Location = new Point(126, 199);
             buttonGuardarCambios.Name = "buttonGuardarCambios";
             buttonGuardarCambios.Size = new Size(338, 36);
             buttonGuardarCambios.TabIndex = 20;
             buttonGuardarCambios.Text = "Guardar Cambios";
             buttonGuardarCambios.UseVisualStyleBackColor = false;
+            buttonGuardarCambios.Click += buttonGuardarCambios_Click;
             // 
-            // textBox1
+            // textBoxNombreModificar
             // 
-            textBox1.BackColor = Color.FromArgb(13, 22, 40);
-            textBox1.ForeColor = SystemColors.ControlLight;
-            textBox1.Location = new Point(320, 49);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(208, 22);
-            textBox1.TabIndex = 19;
+            textBoxNombreModificar.BackColor = Color.FromArgb(13, 22, 40);
+            textBoxNombreModificar.ForeColor = SystemColors.ControlLight;
+            textBoxNombreModificar.Location = new Point(320, 49);
+            textBoxNombreModificar.Name = "textBoxNombreModificar";
+            textBoxNombreModificar.Size = new Size(208, 22);
+            textBoxNombreModificar.TabIndex = 19;
             // 
-            // textBoxCantUnidad
+            // textBoxCantModificar
             // 
-            textBoxCantUnidad.BackColor = Color.FromArgb(13, 22, 40);
-            textBoxCantUnidad.ForeColor = SystemColors.ControlLight;
-            textBoxCantUnidad.Location = new Point(25, 171);
-            textBoxCantUnidad.Name = "textBoxCantUnidad";
-            textBoxCantUnidad.Size = new Size(208, 22);
-            textBoxCantUnidad.TabIndex = 18;
+            textBoxCantModificar.BackColor = Color.FromArgb(13, 22, 40);
+            textBoxCantModificar.ForeColor = SystemColors.ControlLight;
+            textBoxCantModificar.Location = new Point(25, 171);
+            textBoxCantModificar.Name = "textBoxCantModificar";
+            textBoxCantModificar.Size = new Size(208, 22);
+            textBoxCantModificar.TabIndex = 18;
             // 
             // label5
             // 
@@ -213,34 +214,16 @@
             label6.TabIndex = 15;
             label6.Text = "Nombre:";
             // 
-            // comboBoxLocalidadModificar
+            // comboBoxEdificioModificar
             // 
-            comboBoxLocalidadModificar.BackColor = Color.FromArgb(13, 22, 40);
-            comboBoxLocalidadModificar.ForeColor = SystemColors.ControlLight;
-            comboBoxLocalidadModificar.FormattingEnabled = true;
-            comboBoxLocalidadModificar.Location = new Point(319, 108);
-            comboBoxLocalidadModificar.Name = "comboBoxLocalidadModificar";
-            comboBoxLocalidadModificar.Size = new Size(209, 22);
-            comboBoxLocalidadModificar.TabIndex = 14;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(319, 91);
-            label7.Name = "label7";
-            label7.Size = new Size(77, 14);
-            label7.TabIndex = 13;
-            label7.Text = "Localidad:";
-            // 
-            // comboBox2
-            // 
-            comboBox2.BackColor = Color.FromArgb(13, 22, 40);
-            comboBox2.ForeColor = SystemColors.ControlLight;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(24, 49);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(209, 22);
-            comboBox2.TabIndex = 12;
+            comboBoxEdificioModificar.BackColor = Color.FromArgb(13, 22, 40);
+            comboBoxEdificioModificar.ForeColor = SystemColors.ControlLight;
+            comboBoxEdificioModificar.FormattingEnabled = true;
+            comboBoxEdificioModificar.Location = new Point(24, 49);
+            comboBoxEdificioModificar.Name = "comboBoxEdificioModificar";
+            comboBoxEdificioModificar.Size = new Size(209, 22);
+            comboBoxEdificioModificar.TabIndex = 12;
+            comboBoxEdificioModificar.SelectedIndexChanged += comboBoxEdificioModificar_SelectedIndexChanged;
             // 
             // label8
             // 
@@ -257,9 +240,7 @@
             groupBoxEstado.BackColor = Color.FromArgb(17, 30, 53);
             groupBoxEstado.Controls.Add(label12);
             groupBoxEstado.Controls.Add(comboBoxGestor);
-            groupBoxEstado.Controls.Add(comboBoxLocalidad);
             groupBoxEstado.Controls.Add(textBoxCodigo);
-            groupBoxEstado.Controls.Add(label9);
             groupBoxEstado.Controls.Add(textBoxDireccion);
             groupBoxEstado.Controls.Add(buttonGuardar);
             groupBoxEstado.Controls.Add(textBoxNombre);
@@ -270,7 +251,7 @@
             groupBoxEstado.Controls.Add(label1);
             groupBoxEstado.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBoxEstado.ForeColor = SystemColors.ControlLight;
-            groupBoxEstado.Location = new Point(36, 21);
+            groupBoxEstado.Location = new Point(36, 10);
             groupBoxEstado.Name = "groupBoxEstado";
             groupBoxEstado.Size = new Size(601, 229);
             groupBoxEstado.TabIndex = 3;
@@ -280,7 +261,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(318, 135);
+            label12.Location = new Point(319, 84);
             label12.Name = "label12";
             label12.Size = new Size(112, 14);
             label12.TabIndex = 24;
@@ -291,20 +272,10 @@
             comboBoxGestor.BackColor = Color.FromArgb(13, 22, 40);
             comboBoxGestor.ForeColor = SystemColors.ControlLight;
             comboBoxGestor.FormattingEnabled = true;
-            comboBoxGestor.Location = new Point(318, 152);
+            comboBoxGestor.Location = new Point(319, 101);
             comboBoxGestor.Name = "comboBoxGestor";
             comboBoxGestor.Size = new Size(209, 22);
             comboBoxGestor.TabIndex = 23;
-            // 
-            // comboBoxLocalidad
-            // 
-            comboBoxLocalidad.BackColor = Color.FromArgb(13, 22, 40);
-            comboBoxLocalidad.ForeColor = SystemColors.ControlLight;
-            comboBoxLocalidad.FormattingEnabled = true;
-            comboBoxLocalidad.Location = new Point(24, 101);
-            comboBoxLocalidad.Name = "comboBoxLocalidad";
-            comboBoxLocalidad.Size = new Size(209, 22);
-            comboBoxLocalidad.TabIndex = 22;
             // 
             // textBoxCodigo
             // 
@@ -315,20 +286,11 @@
             textBoxCodigo.Size = new Size(208, 22);
             textBoxCodigo.TabIndex = 22;
             // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(24, 84);
-            label9.Name = "label9";
-            label9.Size = new Size(77, 14);
-            label9.TabIndex = 21;
-            label9.Text = "Localidad:";
-            // 
             // textBoxDireccion
             // 
             textBoxDireccion.BackColor = Color.FromArgb(13, 22, 40);
             textBoxDireccion.ForeColor = SystemColors.ControlLight;
-            textBoxDireccion.Location = new Point(319, 101);
+            textBoxDireccion.Location = new Point(25, 101);
             textBoxDireccion.Name = "textBoxDireccion";
             textBoxDireccion.Size = new Size(208, 22);
             textBoxDireccion.TabIndex = 21;
@@ -348,6 +310,7 @@
             buttonGuardar.TabIndex = 20;
             buttonGuardar.Text = "Registrar Edificio";
             buttonGuardar.UseVisualStyleBackColor = false;
+            buttonGuardar.Click += buttonGuardar_Click;
             // 
             // textBoxNombre
             // 
@@ -388,7 +351,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(319, 84);
+            label2.Location = new Point(25, 84);
             label2.Name = "label2";
             label2.Size = new Size(77, 14);
             label2.TabIndex = 13;
@@ -403,6 +366,58 @@
             label1.TabIndex = 0;
             label1.Text = "Codigo Edificio:";
             // 
+            // groupBox3
+            // 
+            groupBox3.Anchor = AnchorStyles.None;
+            groupBox3.BackColor = Color.FromArgb(17, 30, 53);
+            groupBox3.Controls.Add(buttonDarBaja);
+            groupBox3.Controls.Add(comboBoxEdificioEliminar);
+            groupBox3.Controls.Add(label17);
+            groupBox3.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBox3.ForeColor = SystemColors.ControlLight;
+            groupBox3.Location = new Point(36, 503);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(601, 82);
+            groupBox3.TabIndex = 22;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "ELIMINAR EDIFICIOS";
+            // 
+            // buttonDarBaja
+            // 
+            buttonDarBaja.Anchor = AnchorStyles.None;
+            buttonDarBaja.BackColor = Color.FromArgb(0, 187, 118);
+            buttonDarBaja.FlatAppearance.BorderSize = 0;
+            buttonDarBaja.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
+            buttonDarBaja.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
+            buttonDarBaja.FlatStyle = FlatStyle.Flat;
+            buttonDarBaja.ForeColor = SystemColors.ControlLight;
+            buttonDarBaja.Location = new Point(270, 29);
+            buttonDarBaja.Name = "buttonDarBaja";
+            buttonDarBaja.Size = new Size(290, 36);
+            buttonDarBaja.TabIndex = 20;
+            buttonDarBaja.Text = "Eliminar Edificio";
+            buttonDarBaja.UseVisualStyleBackColor = false;
+            buttonDarBaja.Click += buttonDarBaja_Click;
+            // 
+            // comboBoxEdificioEliminar
+            // 
+            comboBoxEdificioEliminar.BackColor = Color.FromArgb(13, 22, 40);
+            comboBoxEdificioEliminar.ForeColor = SystemColors.ControlLight;
+            comboBoxEdificioEliminar.FormattingEnabled = true;
+            comboBoxEdificioEliminar.Location = new Point(20, 37);
+            comboBoxEdificioEliminar.Name = "comboBoxEdificioEliminar";
+            comboBoxEdificioEliminar.Size = new Size(209, 22);
+            comboBoxEdificioEliminar.TabIndex = 12;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(20, 20);
+            label17.Name = "label17";
+            label17.Size = new Size(70, 14);
+            label17.TabIndex = 0;
+            label17.Text = "Edificio:";
+            // 
             // formRegistrarEdificioA
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -413,11 +428,14 @@
             ForeColor = SystemColors.ControlText;
             Name = "formRegistrarEdificioA";
             Text = "formRegistrarEdificioA";
+            Load += formRegistrarEdificioA_Load;
             groupBox2.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBoxEstado.ResumeLayout(false);
             groupBoxEstado.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -426,13 +444,11 @@
         private GroupBox groupBox2;
         private GroupBox groupBox1;
         private Button buttonGuardarCambios;
-        private TextBox textBox1;
-        private TextBox textBoxCantUnidad;
+        private TextBox textBoxNombreModificar;
+        private TextBox textBoxCantModificar;
         private Label label5;
         private Label label6;
-        private ComboBox comboBoxLocalidadModificar;
-        private Label label7;
-        private ComboBox comboBox2;
+        private ComboBox comboBoxEdificioModificar;
         private Label label8;
         private GroupBox groupBoxEstado;
         private Button buttonGuardar;
@@ -442,9 +458,7 @@
         private Label label4;
         private Label label1;
         private TextBox textBoxCodigo;
-        private ComboBox comboBoxLocalidad;
-        private Label label9;
-        private TextBox textBox2;
+        private TextBox textBoxDireccionModificar;
         private Label label10;
         private TextBox textBoxDireccion;
         private Label label2;
@@ -454,5 +468,9 @@
         private Label label13;
         private Label label12;
         private ComboBox comboBoxGestor;
+        private GroupBox groupBox3;
+        private Button buttonDarBaja;
+        private ComboBox comboBoxEdificioEliminar;
+        private Label label17;
     }
 }

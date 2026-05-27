@@ -18,6 +18,7 @@ public partial class Usuario
     public bool Activo { get; set; }
 
     public virtual Consorcistum? Consorcistum { get; set; }
+    public virtual ICollection<GestorConsorcio> GestorConsorcios { get; set; } = new List<GestorConsorcio>();
 
     public virtual ICollection<LogBitacora> LogBitacoras { get; set; } = new List<LogBitacora>();
 

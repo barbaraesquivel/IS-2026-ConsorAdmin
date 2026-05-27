@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             groupBox2 = new GroupBox();
             groupBox1 = new GroupBox();
             dataGridViewEdificios = new DataGridView();
             groupBoxEstado = new GroupBox();
+            textBoxDireccion = new TextBox();
             buttonGuardar = new Button();
             textBoxNombre = new TextBox();
             textBoxCantUnid = new TextBox();
@@ -40,7 +42,6 @@
             label2 = new Label();
             comboBoxEdificios = new ComboBox();
             label1 = new Label();
-            textBoxDireccion = new TextBox();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewEdificios).BeginInit();
@@ -78,6 +79,14 @@
             // dataGridViewEdificios
             // 
             dataGridViewEdificios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlLight;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridViewEdificios.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewEdificios.Location = new Point(7, 21);
             dataGridViewEdificios.Name = "dataGridViewEdificios";
             dataGridViewEdificios.Size = new Size(587, 277);
@@ -105,6 +114,15 @@
             groupBoxEstado.TabStop = false;
             groupBoxEstado.Text = "EDITAR EDIFICIOS";
             // 
+            // textBoxDireccion
+            // 
+            textBoxDireccion.BackColor = Color.FromArgb(13, 22, 40);
+            textBoxDireccion.ForeColor = SystemColors.ControlLight;
+            textBoxDireccion.Location = new Point(319, 49);
+            textBoxDireccion.Name = "textBoxDireccion";
+            textBoxDireccion.Size = new Size(208, 22);
+            textBoxDireccion.TabIndex = 21;
+            // 
             // buttonGuardar
             // 
             buttonGuardar.Anchor = AnchorStyles.None;
@@ -120,6 +138,7 @@
             buttonGuardar.TabIndex = 20;
             buttonGuardar.Text = "Guardar Cambios";
             buttonGuardar.UseVisualStyleBackColor = false;
+            buttonGuardar.Click += buttonGuardar_Click;
             // 
             // textBoxNombre
             // 
@@ -185,15 +204,6 @@
             label1.TabIndex = 0;
             label1.Text = "Edificio:";
             // 
-            // textBoxDireccion
-            // 
-            textBoxDireccion.BackColor = Color.FromArgb(13, 22, 40);
-            textBoxDireccion.ForeColor = SystemColors.ControlLight;
-            textBoxDireccion.Location = new Point(319, 49);
-            textBoxDireccion.Name = "textBoxDireccion";
-            textBoxDireccion.Size = new Size(208, 22);
-            textBoxDireccion.TabIndex = 21;
-            // 
             // FormEdificiosG
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -203,6 +213,7 @@
             Controls.Add(groupBox2);
             Name = "FormEdificiosG";
             Text = "FormEdificiosG";
+            Load += FormEdificiosG_Load;
             groupBox2.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewEdificios).EndInit();

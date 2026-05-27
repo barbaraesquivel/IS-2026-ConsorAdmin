@@ -21,6 +21,8 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<Expensa> Expensas { get; set; }
 
+    public virtual DbSet<GestorConsorcio> GestorConsorcios { get; set; }
+
     public virtual DbSet<LogBitacora> LogBitacoras { get; set; }
 
     public virtual DbSet<Pago> Pagos { get; set; }
@@ -44,6 +46,7 @@ public partial class AppDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer(DBConfigurations.getDbConectionString());
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Consorcio>(entity =>
@@ -117,6 +120,34 @@ public partial class AppDbContext : DbContext
                 .HasConstraintName("FK_EXPENSA_UNIDAD");
         });
 
+        modelBuilder.Entity<GestorConsorcio>(entity =>
+        {
+            entity.HasKey(e => e.IdGestorConsorcio);
+
+            entity.ToTable("GESTOR_CONSORCIO");
+
+            entity.HasIndex(e => new { e.IdUsuario, e.IdConsorcio }, "UQ_GESTOR_CONSORCIO").IsUnique();
+
+            entity.Property(e => e.IdGestorConsorcio).HasColumnName("id_gestor_consorcio");
+            entity.Property(e => e.FechaAsignacion)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnName("fecha_asignacion");
+            entity.Property(e => e.IdConsorcio)
+                .HasMaxLength(20)
+                .HasColumnName("id_consorcio");
+            entity.Property(e => e.IdUsuario).HasColumnName("id_usuario");
+
+            entity.HasOne(d => d.IdConsorcioNavigation).WithMany(p => p.GestorConsorcios)
+                .HasForeignKey(d => d.IdConsorcio)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_GC_CONSORCIO");
+
+            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.GestorConsorcios)
+                .HasForeignKey(d => d.IdUsuario)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_GC_USUARIO");
+        });
+
         modelBuilder.Entity<LogBitacora>(entity =>
         {
             entity.HasKey(e => e.IdLog);
@@ -188,6 +219,26 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Tipo)
                 .HasMaxLength(20)
                 .HasColumnName("tipo");
+        });
+
+        modelBuilder.Entity<PermisoPermiso>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToTable("PERMISO_PERMISO");
+
+            entity.HasIndex(e => new { e.IdPadre, e.IdHijo }, "UQ_PP").IsUnique();
+
+            entity.Property(e => e.IdHijo).HasColumnName("id_hijo");
+            entity.Property(e => e.IdPadre).HasColumnName("id_padre");
+
+            entity.HasOne(d => d.IdHijoNavigation).WithMany()
+                .HasForeignKey(d => d.IdHijo)
+                .HasConstraintName("PERMISO_PERMISO_PERMISO_FK_1");
+
+            entity.HasOne(d => d.IdPadreNavigation).WithMany()
+                .HasForeignKey(d => d.IdPadre)
+                .HasConstraintName("PERMISO_PERMISO_PERMISO_FK");
         });
 
         modelBuilder.Entity<Proveedor>(entity =>
@@ -323,9 +374,6 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.PasswordHash)
                 .HasMaxLength(255)
                 .HasColumnName("password_hash");
-            entity.Property(e => e.Bloqueado)
-                .HasMaxLength(50)
-                .HasColumnName("Bloqueado");
             entity.Property(e => e.TipoUsuario)
                 .HasMaxLength(50)
                 .HasColumnName("tipo_usuario");
@@ -353,28 +401,6 @@ public partial class AppDbContext : DbContext
                 .HasForeignKey(d => d.IdUsuario)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_UP_USUARIO");
-        });
-
-        modelBuilder.Entity<PermisoPermiso>(entity =>
-        {
-            entity.HasKey(e => new { e.IdPadre, e.IdHijo });
-
-            entity.ToTable("PERMISO_PERMISO");
-
-            entity.Property(e => e.IdPadre).HasColumnName("id_padre");
-            entity.Property(e => e.IdHijo).HasColumnName("id_hijo");
-
-            entity.HasOne(d => d.IdPadreNavigation)
-                .WithMany()
-                .HasForeignKey(d => d.IdPadre)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_PP_PADRE");
-
-            entity.HasOne(d => d.IdHijoNavigation)
-                .WithMany()
-                .HasForeignKey(d => d.IdHijo)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_PP_HIJO");
         });
 
         OnModelCreatingPartial(modelBuilder);
