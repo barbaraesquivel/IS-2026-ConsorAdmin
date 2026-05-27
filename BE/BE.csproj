@@ -10,4 +10,8 @@
     <ProjectReference Include="..\ABSTRAC\ABSTRAC.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Composite\" />
+  </ItemGroup>
+
 </Project>

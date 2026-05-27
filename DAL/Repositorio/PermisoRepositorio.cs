@@ -1,5 +1,6 @@
 using BE;
 using DAL.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,7 @@ namespace DAL.Repositorio
             {
                 if (nodos.TryGetValue(rel.IdPadre, out var padre) && nodos.TryGetValue(rel.IdHijo, out var hijo))
                 {
-                    padre.Agregar(hijo);
+                    padre.AgregarPermiso(hijo);
                     tienenPadre.Add(rel.IdHijo);
                 }
             }
@@ -49,6 +50,22 @@ namespace DAL.Repositorio
                 .Where(up => up.IdUsuario == idUsuario)
                 .Select(up => up.IdPermiso)
                 .ToList();
+        }
+
+        public int CrearPermiso(string codigo, string nombre, string tipo)
+        {
+            using var ctx = new AppDbContext();
+            var p = new Permiso { Codigo = codigo, Nombre = nombre, Tipo = tipo };
+            ctx.Permisos.Add(p);
+            ctx.SaveChanges();
+            return p.IdPermiso;
+        }
+
+        public void AgregarHijo(int idPadre, int idHijo)
+        {
+            using var ctx = new AppDbContext();
+            ctx.Database.ExecuteSqlRaw(
+                "INSERT INTO PERMISO_PERMISO (id_padre, id_hijo) VALUES ({0}, {1})", idPadre, idHijo);
         }
     }
 }

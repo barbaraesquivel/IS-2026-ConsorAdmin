@@ -1,6 +1,6 @@
 ﻿namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
 {
-    partial class FormEdificiosG
+    partial class FormReporteConsorcioG
     {
         /// <summary>
         /// Required designer variable.

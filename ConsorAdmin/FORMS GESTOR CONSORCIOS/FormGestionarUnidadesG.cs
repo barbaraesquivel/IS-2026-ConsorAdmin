@@ -59,12 +59,7 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
 
                 int nuevoId = _unidadBLL.Crear(unidadBE);
 
-                if (comboBoxConsorcistaAgregar.SelectedItem is ConsorcistaBE consorcista
-                    && comboBoxTipoVinculo.SelectedItem != null)
-                {
-                    _ucBLL.Asociar(nuevoId, consorcista.Id_Consorcista.ToString(),
-                        comboBoxTipoVinculo.SelectedItem.ToString());
-                }
+               
 
                 MessageBox.Show("Unidad creada correctamente.", "Éxito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -137,12 +132,6 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
 
                 _unidadBLL.Actualizar(unidadBE);
 
-                if (comboBoxConsorcista.SelectedItem is ConsorcistaBE consorcista
-                    && comboBoxTipoVinculoModificar.SelectedItem != null)
-                {
-                    _ucBLL.Asociar(unidadBE.Id_Unidad, consorcista.Id_Consorcista.ToString(),
-                        comboBoxTipoVinculoModificar.SelectedItem.ToString());
-                }
 
                 MessageBox.Show("Unidad actualizada correctamente.", "Éxito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -228,17 +217,7 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
 
             var consorcistas = _consorcistaBLL.ObtenerTodos();
 
-            comboBoxConsorcistaAgregar.DataSource = null;
-            comboBoxConsorcistaAgregar.DataSource = new List<ConsorcistaBE>(consorcistas);
-            comboBoxConsorcistaAgregar.DisplayMember = "Descripcion";
-            comboBoxConsorcistaAgregar.ValueMember = "Id_Consorcista";
-            comboBoxConsorcistaAgregar.SelectedIndex = -1;
-
-            comboBoxConsorcista.DataSource = null;
-            comboBoxConsorcista.DataSource = new List<ConsorcistaBE>(consorcistas);
-            comboBoxConsorcista.DisplayMember = "Descripcion";
-            comboBoxConsorcista.ValueMember = "Id_Consorcista";
-            comboBoxConsorcista.SelectedIndex = -1;
+     
 
             var consorcios = _consorcioBLL.ObtenerConsorcios();
 
@@ -290,7 +269,6 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
             textBoxPisoAgregar.Clear();
             textBoxDptoAgregar.Clear();
             textBoxSuperficieAgregar.Clear();
-            comboBoxConsorcistaAgregar.SelectedIndex = -1;
             comboBoxTipoVinculo.SelectedIndex = -1;
         }
     }

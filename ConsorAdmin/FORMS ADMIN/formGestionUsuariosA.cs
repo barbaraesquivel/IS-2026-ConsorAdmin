@@ -134,8 +134,8 @@ namespace ConsorAdmin.FORMS_ADMIN
                 Checked = activos.Contains(comp.Id_Permiso)
             };
 
-            foreach (var hijo in comp.ObtenerHijos())
-                nodo.Nodes.Add(CrearNodo(hijo, activos));
+            foreach (var hijo in comp.ObtenerHijos)
+                nodo.Nodes.Add(CrearNodo((ComponentePermisoBE)hijo, activos));
 
             return nodo;
         }

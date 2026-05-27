@@ -1,6 +1,6 @@
 namespace ConsorAdmin.FORMS_ADMIN
 {
-    partial class formHistoriaA
+    partial class formBitacoraA
     {
         private System.ComponentModel.IContainer components = null;
 

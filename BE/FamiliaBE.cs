@@ -1,22 +1,58 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace BE
 {
-    public class FamiliaBE : ComponentePermisoBE
+    public class FamiliaBE : ComponentePermisoBE, IPermiso
     {
-        public List<ComponentePermisoBE> Hijos { get; set; } = new();
+        private IList<IPermiso> _hijos;
+        public FamiliaBE() { _hijos = new List<IPermiso>(); }
 
-        public override void Agregar(ComponentePermisoBE hijo) => Hijos.Add(hijo);
-        public override void Quitar(ComponentePermisoBE hijo) => Hijos.Remove(hijo);
-        public override List<ComponentePermisoBE> ObtenerHijos() => Hijos;
-
-        public override bool Contiene(int idPermiso)
+        public override void AgregarPermiso(IPermiso p)
         {
-            if (Id_Permiso == idPermiso) return true;
-            foreach (var hijo in Hijos)
+            bool tiene = false;
+            tiene = ValidarFlia(p);
+            if (!tiene)
+                _hijos.Add(p);
+            else
+                throw new Exception("ya existe esta patente en esta familia");
+
+            bool ValidarFlia(IPermiso p2)
             {
-                if (hijo.Contiene(idPermiso)) return true;
+                tiene = this.TieneHijo(p2);
+                if (p2.ObtenerHijos.Count > 0 && !tiene)
+                {
+                    foreach (IPermiso hi in p2.ObtenerHijos)
+                    {
+                        tiene = ValidarFlia(hi);
+                        if (tiene) return true;
+                    }
+                }
+                return tiene;
+            }
+        }
+
+        public override IList<IPermiso> ObtenerHijos => _hijos.ToArray();
+
+        public override void QuitarPermiso(IPermiso p)
+        {
+            if (this.TieneHijo(p)) _hijos.Remove(p);
+        }
+
+        public override void VaciarHijos() => _hijos = new List<IPermiso>();
+
+        public bool TieneHijo(IPermiso hijo)
+        {
+            if (this.Id_Permiso == hijo.Id_Permiso) return true;
+            if (this.ObtenerHijos.Count > 0)
+            {
+                foreach (IPermiso p in this.ObtenerHijos)
+                {
+                    if (p.Id_Permiso == hijo.Id_Permiso) return true;
+                    if (p.ObtenerHijos.Count > 0)
+                        if (((FamiliaBE)p).TieneHijo(hijo)) return true;
+                }
             }
             return false;
         }

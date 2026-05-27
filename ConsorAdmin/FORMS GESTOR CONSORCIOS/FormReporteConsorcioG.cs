@@ -13,12 +13,12 @@ using System.Windows.Forms;
 
 namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
 {
-    public partial class FormEdificiosG : Form
+    public partial class FormReporteConsorcioG : Form
     {
         private readonly ConsorcioBLL _consorcioBLL = new ConsorcioBLL();
         private ConsorcioBE _consorcioSeleccionado = null;
         
-        public FormEdificiosG()
+        public FormReporteConsorcioG()
         {
             InitializeComponent();
         }

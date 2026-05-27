@@ -88,11 +88,11 @@
             // labelSESION
             // 
             labelSESION.AutoSize = true;
-            labelSESION.Font = new Font("Unispace", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelSESION.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelSESION.ForeColor = SystemColors.ControlLight;
             labelSESION.Location = new Point(12, 79);
             labelSESION.Name = "labelSESION";
-            labelSESION.Size = new Size(111, 15);
+            labelSESION.Size = new Size(121, 16);
             labelSESION.TabIndex = 0;
             labelSESION.Text = "SESION ACTIVA";
             // 
@@ -127,7 +127,7 @@
             buttonVerEdificios.Padding = new Padding(20, 0, 0, 0);
             buttonVerEdificios.Size = new Size(186, 40);
             buttonVerEdificios.TabIndex = 4;
-            buttonVerEdificios.Text = "Mis Edificios";
+            buttonVerEdificios.Text = "Reporte consorcios";
             buttonVerEdificios.TextAlign = ContentAlignment.MiddleLeft;
             buttonVerEdificios.UseVisualStyleBackColor = true;
             buttonVerEdificios.Click += buttonVerEdificios_Click;
@@ -145,7 +145,7 @@
             buttonCargarExpensas.Padding = new Padding(20, 0, 0, 0);
             buttonCargarExpensas.Size = new Size(186, 40);
             buttonCargarExpensas.TabIndex = 3;
-            buttonCargarExpensas.Text = "Cargar Expensas";
+            buttonCargarExpensas.Text = "Liquidar Expensas";
             buttonCargarExpensas.TextAlign = ContentAlignment.MiddleLeft;
             buttonCargarExpensas.UseVisualStyleBackColor = true;
             buttonCargarExpensas.Click += buttonCargarExpensas_Click;
@@ -199,7 +199,7 @@
             buttonGestionarUnidades.Padding = new Padding(20, 0, 0, 0);
             buttonGestionarUnidades.Size = new Size(186, 40);
             buttonGestionarUnidades.TabIndex = 8;
-            buttonGestionarUnidades.Text = "Gestionar Unidades";
+            buttonGestionarUnidades.Text = "Gestionar consorcios y unidades";
             buttonGestionarUnidades.TextAlign = ContentAlignment.MiddleLeft;
             buttonGestionarUnidades.UseVisualStyleBackColor = true;
             buttonGestionarUnidades.Click += buttonGestionarUnidades_Click;
@@ -217,7 +217,7 @@
             buttonRecaudacion.Padding = new Padding(20, 0, 0, 0);
             buttonRecaudacion.Size = new Size(186, 40);
             buttonRecaudacion.TabIndex = 7;
-            buttonRecaudacion.Text = "Recaudación";
+            buttonRecaudacion.Text = "Ver recaudación";
             buttonRecaudacion.TextAlign = ContentAlignment.MiddleLeft;
             buttonRecaudacion.UseVisualStyleBackColor = true;
             buttonRecaudacion.Click += buttonRecaudacion_Click;

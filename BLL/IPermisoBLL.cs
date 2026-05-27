@@ -14,5 +14,9 @@ namespace BLL
 
         // True si el usuario tiene al menos una patente de la familia indicada
         bool TieneAlgunaPatenteDeFamilia(Guid idUsuario, string codigoFamilia);
+
+        List<ComponentePermisoBE> ObtenerArbolCompleto();
+        void CrearFamilia(string codigo, string nombre);
+        void AgregarPatenteAFamilia(int idFamilia, int idPatente);
     }
 }

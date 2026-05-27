@@ -91,7 +91,7 @@ namespace ConsorAdmin.FORMS_ADMIN
 
         private void buttonHistoria_Click(object sender, EventArgs e)
         {
-            openChildForm(new formHistoriaA());
+            openChildForm(new formBitacoraA());
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)

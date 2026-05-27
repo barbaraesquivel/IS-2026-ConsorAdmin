@@ -45,45 +45,64 @@ namespace BLL
             return patentesHijas.Any(p => TienePatente(idUsuario, p.Codigo));
         }
 
+        public List<ComponentePermisoBE> ObtenerArbolCompleto() => _repo.ObtenerArbolCompleto();
+
+        public void CrearFamilia(string codigo, string nombre)
+        {
+            if (string.IsNullOrWhiteSpace(codigo) || string.IsNullOrWhiteSpace(nombre))
+                throw new Exception("Código y nombre son obligatorios.");
+            _repo.CrearPermiso(codigo.Trim(), nombre.Trim(), "F");
+        }
+
+        public void AgregarPatenteAFamilia(int idFamilia, int idPatente)
+        {
+            var arbol = _repo.ObtenerArbolCompleto();
+            var familia = BuscarPorId(arbol, idFamilia) as FamiliaBE;
+            if (familia == null) throw new Exception("Familia no encontrada.");
+            var patente = BuscarPorId(arbol, idPatente);
+            if (patente == null) throw new Exception("Patente no encontrada.");
+            familia.AgregarPermiso(patente);
+            _repo.AgregarHijo(idFamilia, idPatente);
+        }
+
         // ── Helpers privados ────────────────────────────────────────────────
 
-        private ComponentePermisoBE BuscarPorId(List<ComponentePermisoBE> nodos, int id)
+        private ComponentePermisoBE BuscarPorId(IEnumerable<IPermiso> nodos, int id)
         {
             foreach (var nodo in nodos)
             {
-                if (nodo.Id_Permiso == id) return nodo;
-                var encontrado = BuscarPorId(nodo.ObtenerHijos(), id);
+                if (nodo.Id_Permiso == id) return (ComponentePermisoBE)nodo;
+                var encontrado = BuscarPorId(nodo.ObtenerHijos, id);
                 if (encontrado != null) return encontrado;
             }
             return null;
         }
 
-        private ComponentePermisoBE BuscarPorCodigo(List<ComponentePermisoBE> nodos, string codigo)
+        private ComponentePermisoBE BuscarPorCodigo(IEnumerable<IPermiso> nodos, string codigo)
         {
             foreach (var nodo in nodos)
             {
-                if (nodo.Codigo == codigo) return nodo;
-                var encontrado = BuscarPorCodigo(nodo.ObtenerHijos(), codigo);
+                if (nodo is ComponentePermisoBE be && be.Codigo == codigo) return be;
+                var encontrado = BuscarPorCodigo(nodo.ObtenerHijos, codigo);
                 if (encontrado != null) return encontrado;
             }
             return null;
         }
 
-        private bool ContienePatenteCodigo(List<ComponentePermisoBE> nodos, string codigo)
+        private bool ContienePatenteCodigo(IEnumerable<IPermiso> nodos, string codigo)
         {
             foreach (var nodo in nodos)
             {
-                if (nodo is PatenteBE && nodo.Codigo == codigo) return true;
-                if (ContienePatenteCodigo(nodo.ObtenerHijos(), codigo)) return true;
+                if (nodo is PatenteBE p && p.Codigo == codigo) return true;
+                if (ContienePatenteCodigo(nodo.ObtenerHijos, codigo)) return true;
             }
             return false;
         }
 
-        // Recorre recursivamente y recoge todas las PatenteBE del subárbol
-        private List<PatenteBE> ObtenerPatentesHijas(ComponentePermisoBE nodo)
+        private List<PatenteBE> ObtenerPatentesHijas(IPermiso nodo)
         {
             var resultado = new List<PatenteBE>();
-            foreach (var hijo in nodo.ObtenerHijos())
+            foreach (var hijo in nodo.ObtenerHijos)
             {
                 if (hijo is PatenteBE p)
                     resultado.Add(p);

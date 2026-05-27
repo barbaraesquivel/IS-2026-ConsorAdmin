@@ -1,7 +1,12 @@
+using System.Collections.Generic;
+
 namespace BE
 {
-    // Hoja del Composite. Tipo = "P". No agrega comportamiento extra.
-    public class PatenteBE : ComponentePermisoBE
+    public class PatenteBE : ComponentePermisoBE, IPermiso
     {
+        public override void AgregarPermiso(IPermiso p) { }
+        public override IList<IPermiso> ObtenerHijos => new List<IPermiso>();
+        public override void QuitarPermiso(IPermiso p) { }
+        public override void VaciarHijos() { }
     }
 }

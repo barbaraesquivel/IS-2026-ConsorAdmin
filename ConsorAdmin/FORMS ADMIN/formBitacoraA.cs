@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace ConsorAdmin.FORMS_ADMIN
 {
-    public partial class formHistoriaA : Form
+    public partial class formBitacoraA : Form
     {
         private readonly ILogBitacoraBLL _bll    = new LogBitacoraBLL();
         private readonly IPermisoBLL _permisoBLL = new PermisoBLL();
@@ -16,7 +16,7 @@ namespace ConsorAdmin.FORMS_ADMIN
         // Resultados actuales (para exportar)
         private List<LogBitacoraBE> _resultados = new();
 
-        public formHistoriaA()
+        public formBitacoraA()
         {
             InitializeComponent();
             this.Load += FormHistoriaA_Load;

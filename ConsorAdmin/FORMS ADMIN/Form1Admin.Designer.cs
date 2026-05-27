@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1Admin));
             panelSideMenu = new Panel();
+            buttonGestionarEdificios = new Button();
             buttonHistoria = new Button();
             buttonCargarExp = new Button();
             buttonListaConsorcios = new Button();
@@ -47,7 +48,6 @@
             pictureBox1 = new PictureBox();
             labelBienvenida = new Label();
             panelChildForm = new Panel();
-            buttonGestionarEdificios = new Button();
             panelSideMenu.SuspendLayout();
             panelSessionInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -77,6 +77,24 @@
             panelSideMenu.Size = new Size(186, 636);
             panelSideMenu.TabIndex = 3;
             // 
+            // buttonGestionarEdificios
+            // 
+            buttonGestionarEdificios.Dock = DockStyle.Top;
+            buttonGestionarEdificios.FlatAppearance.BorderSize = 0;
+            buttonGestionarEdificios.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
+            buttonGestionarEdificios.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
+            buttonGestionarEdificios.FlatStyle = FlatStyle.Flat;
+            buttonGestionarEdificios.ForeColor = SystemColors.ControlLight;
+            buttonGestionarEdificios.Location = new Point(0, 404);
+            buttonGestionarEdificios.Name = "buttonGestionarEdificios";
+            buttonGestionarEdificios.Padding = new Padding(20, 0, 0, 0);
+            buttonGestionarEdificios.Size = new Size(186, 40);
+            buttonGestionarEdificios.TabIndex = 11;
+            buttonGestionarEdificios.Text = "Gestionar consorcios y unidades";
+            buttonGestionarEdificios.TextAlign = ContentAlignment.MiddleLeft;
+            buttonGestionarEdificios.UseVisualStyleBackColor = true;
+            buttonGestionarEdificios.Click += buttonGestionarEdificios_Click;
+            // 
             // buttonHistoria
             // 
             buttonHistoria.Dock = DockStyle.Top;
@@ -90,7 +108,7 @@
             buttonHistoria.Padding = new Padding(20, 0, 0, 0);
             buttonHistoria.Size = new Size(186, 40);
             buttonHistoria.TabIndex = 10;
-            buttonHistoria.Text = "Historia Global";
+            buttonHistoria.Text = "Consultar bitacora";
             buttonHistoria.TextAlign = ContentAlignment.MiddleLeft;
             buttonHistoria.UseVisualStyleBackColor = true;
             buttonHistoria.Click += buttonHistoria_Click;
@@ -197,7 +215,7 @@
             buttonPermisos.Padding = new Padding(20, 0, 0, 0);
             buttonPermisos.Size = new Size(186, 40);
             buttonPermisos.TabIndex = 4;
-            buttonPermisos.Text = "Permisos";
+            buttonPermisos.Text = "Crear permisos";
             buttonPermisos.TextAlign = ContentAlignment.MiddleLeft;
             buttonPermisos.UseVisualStyleBackColor = true;
             buttonPermisos.Click += buttonPermisos_Click;
@@ -234,7 +252,7 @@
             buttonDashboard.Padding = new Padding(20, 0, 0, 0);
             buttonDashboard.Size = new Size(186, 40);
             buttonDashboard.TabIndex = 2;
-            buttonDashboard.Text = "Dashboard General";
+            buttonDashboard.Text = "Reporte globales";
             buttonDashboard.TextAlign = ContentAlignment.MiddleLeft;
             buttonDashboard.UseVisualStyleBackColor = true;
             buttonDashboard.Click += buttonDashboard_Click;
@@ -325,24 +343,6 @@
             panelChildForm.Name = "panelChildForm";
             panelChildForm.Size = new Size(698, 636);
             panelChildForm.TabIndex = 5;
-            // 
-            // buttonGestionarEdificios
-            // 
-            buttonGestionarEdificios.Dock = DockStyle.Top;
-            buttonGestionarEdificios.FlatAppearance.BorderSize = 0;
-            buttonGestionarEdificios.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonGestionarEdificios.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonGestionarEdificios.FlatStyle = FlatStyle.Flat;
-            buttonGestionarEdificios.ForeColor = SystemColors.ControlLight;
-            buttonGestionarEdificios.Location = new Point(0, 404);
-            buttonGestionarEdificios.Name = "buttonGestionarEdificios";
-            buttonGestionarEdificios.Padding = new Padding(20, 0, 0, 0);
-            buttonGestionarEdificios.Size = new Size(186, 40);
-            buttonGestionarEdificios.TabIndex = 11;
-            buttonGestionarEdificios.Text = "Gestionar Edificios";
-            buttonGestionarEdificios.TextAlign = ContentAlignment.MiddleLeft;
-            buttonGestionarEdificios.UseVisualStyleBackColor = true;
-            buttonGestionarEdificios.Click += buttonGestionarEdificios_Click;
             // 
             // Form1Admin
             // 

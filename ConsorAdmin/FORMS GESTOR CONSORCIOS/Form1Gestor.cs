@@ -54,7 +54,7 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
 
         private void buttonVerEdificios_Click(object sender, EventArgs e)
         {
-            openChildForm(new FormEdificiosG());
+            openChildForm(new FormReporteConsorcioG());
 
         }
 
