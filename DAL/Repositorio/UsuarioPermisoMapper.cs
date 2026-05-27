@@ -1,27 +1,19 @@
-﻿using BE;
+using BE;
 using DAL.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.Repositorio
 {
     public static class UsuarioPermisoMapper
     {
-        
-        // EF → Entity
+        // EF → BE
         public static UsuarioPermisoBE Map(UsuarioPermiso usuarioPermiso)
         {
             return new UsuarioPermisoBE()
             {
-                Id_Usuario_Permiso = usuarioPermiso.IdUsuarioPermiso,
-
-
+                Id_Usuario_Permiso = usuarioPermiso.IdUsuarioPermiso.ToString(),
                 Id_Permiso = usuarioPermiso.IdPermiso.ToString(),
                 Id_Usuario = usuarioPermiso.IdUsuario.ToString(),
-                
 
                 permisoBE = usuarioPermiso.IdPermisoNavigation != null
                     ? PermisoMapper.Map(usuarioPermiso.IdPermisoNavigation)
@@ -33,16 +25,15 @@ namespace DAL.Repositorio
             };
         }
 
-        // Entity → EF
+        // BE → EF (IdUsuarioPermiso not set — IDENTITY column, DB generates it)
         public static UsuarioPermiso Map(UsuarioPermisoBE usuarioPermisoBE)
         {
             return new UsuarioPermiso()
             {
-                IdUsuarioPermiso = usuarioPermisoBE.Id_Usuario_Permiso.ToString(),
-                IdPermiso = usuarioPermisoBE.permisoBE.Id_Permiso,
-                   
+                IdPermiso = usuarioPermisoBE.permisoBE != null
+                    ? usuarioPermisoBE.permisoBE.Id_Permiso
+                    : int.Parse(usuarioPermisoBE.Id_Permiso ?? "0"),
                 IdUsuario = Guid.Parse(usuarioPermisoBE.usuarioBE?.Id.ToString() ?? usuarioPermisoBE.Id_Usuario)
-
             };
         }
     }

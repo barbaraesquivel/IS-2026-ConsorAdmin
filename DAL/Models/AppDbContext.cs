@@ -27,6 +27,8 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<Permiso> Permisos { get; set; }
 
+    public virtual DbSet<PermisoPermiso> PermisoPermisos { get; set; }
+
     public virtual DbSet<Proveedor> Proveedors { get; set; }
 
     public virtual DbSet<Servicio> Servicios { get; set; }
@@ -351,6 +353,28 @@ public partial class AppDbContext : DbContext
                 .HasForeignKey(d => d.IdUsuario)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_UP_USUARIO");
+        });
+
+        modelBuilder.Entity<PermisoPermiso>(entity =>
+        {
+            entity.HasKey(e => new { e.IdPadre, e.IdHijo });
+
+            entity.ToTable("PERMISO_PERMISO");
+
+            entity.Property(e => e.IdPadre).HasColumnName("id_padre");
+            entity.Property(e => e.IdHijo).HasColumnName("id_hijo");
+
+            entity.HasOne(d => d.IdPadreNavigation)
+                .WithMany()
+                .HasForeignKey(d => d.IdPadre)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_PP_PADRE");
+
+            entity.HasOne(d => d.IdHijoNavigation)
+                .WithMany()
+                .HasForeignKey(d => d.IdHijo)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_PP_HIJO");
         });
 
         OnModelCreatingPartial(modelBuilder);

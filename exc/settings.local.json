@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(cd \"c:\\\\Users\\\\esqui\\\\OneDrive\\\\Documents\\\\Prueba Mappers IS\\\\v2\\\\IS-2026-ConsorAdmin\\\\ConsorAdmin\"; dotnet build ConsorAdmin.sln --nologo -v q 2>&1 | Where-Object { $_ -match \"error|Error|warning CS\" } | Select-Object -First 30)",
+      "Bash(dotnet build *)"
+    ]
+  }
+}

@@ -1,15 +1,15 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace DAL.Models;
 
 public partial class UsuarioPermiso
 {
-    public string IdUsuarioPermiso { get; set; }
+    public int IdUsuarioPermiso { get; set; }
 
     public Guid IdUsuario { get; set; }
 
-    public Guid IdPermiso { get; set; }
+    public int IdPermiso { get; set; }
 
     public virtual Permiso IdPermisoNavigation { get; set; } = null!;
 

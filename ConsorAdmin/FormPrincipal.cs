@@ -1,4 +1,3 @@
-﻿using ABSTRAC;
 using BE;
 using BLL;
 using ConsorAdmin.FORMS_ADMIN;
@@ -6,19 +5,15 @@ using ConsorAdmin.FORMS_GESTOR_CONSORCIOS;
 using ConsorAdmin.FORMS_PROOVEDOR;
 using SERV;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ConsorAdmin
 {
     public partial class FormPrincipal : Form
     {
+        private readonly UsuarioBLL _usuarioBLL = new UsuarioBLL();
+        private readonly IPermisoBLL _permisoBLL = new PermisoBLL();
+
         public FormPrincipal()
         {
             InitializeComponent();
@@ -26,27 +21,36 @@ namespace ConsorAdmin
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-
-            MostrarBotonesSegunPermisos();
+            try
+            {
+                MostrarBotonesSegunPermisos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar permisos: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private UsuarioBLL _usuarioBLL = new UsuarioBLL();
         private void MostrarBotonesSegunPermisos()
         {
-            // Obtener usuario actual
-            IUsuario usuario = SessionManager.ObtenerInstancia.Usuario;
+            var idUsuario = SessionManager.ObtenerInstancia.Usuario.Id;
 
-            // Lógica de ejemplo: supongamos que el usuario tiene una lista de permisos (strings)
-            // o una propiedad "Rol". Ajustala según tu modelo real.
-            var permisos = usuario.Usuario;  // List<string> o algo similar
+            buttonAdmin.Visible       = _permisoBLL.TieneAlgunaPatenteDeFamilia(idUsuario, CodigosPermiso.FamiliaAdmin);
+            buttonGestor.Visible      = _permisoBLL.TieneAlgunaPatenteDeFamilia(idUsuario, CodigosPermiso.FamiliaGestor);
+            buttonConsorcista.Visible = _permisoBLL.TieneAlgunaPatenteDeFamilia(idUsuario, CodigosPermiso.FamiliaConsorcista);
+            buttonProovedor.Visible   = _permisoBLL.TieneAlgunaPatenteDeFamilia(idUsuario, CodigosPermiso.FamiliaProveedor);
 
-            //buttonAdmin.Visible = permisos.Contains("Admin");
-            //buttonGestor.Visible = permisos.Contains("Gestor");
-            //buttonConsorcista.Visible = permisos.Contains("Consorcista");
-            //buttonProovedor.Visible = permisos.Contains("Proveedor");
-
-            // Opcional: si ningún botón visible, podrías mostrar un mensaje y cerrar sesión.
+            if (!buttonAdmin.Visible && !buttonGestor.Visible &&
+                !buttonConsorcista.Visible && !buttonProovedor.Visible)
+            {
+                MessageBox.Show("No tiene perfiles asignados. Contacte al administrador.",
+                    "Sin perfiles", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                SessionManager.Logout();
+                this.Close();
+            }
         }
+
         private void buttonAdmin_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -87,12 +91,10 @@ namespace ConsorAdmin
             this.Show();
         }
 
-
         private void buttonLogout_Click(object sender, EventArgs e)
         {
             try
             {
-                // Preguntar si está seguro
                 if (MessageBox.Show("¿Desea cerrar sesión?", "Salir",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
@@ -100,8 +102,7 @@ namespace ConsorAdmin
                     this.Close();
                 }
             }
-
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

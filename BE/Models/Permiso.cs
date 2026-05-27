@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace DAL.Models;
 
 public partial class Permiso
 {
-    public Guid IdPermiso { get; set; }
+    public int IdPermiso { get; set; }
 
     public string Codigo { get; set; } = null!;
 

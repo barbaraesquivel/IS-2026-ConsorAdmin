@@ -1,10 +1,7 @@
-﻿using BE;
+using BE;
 using DAL.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.Repositorio
 {
@@ -21,7 +18,8 @@ namespace DAL.Repositorio
                 Usuario = usuario.Username,
                 Contraseña = usuario.PasswordHash,
                 Bloqueado = usuario.Bloqueado,
-                Baja = usuario.Activo,
+                // Activo=true en BD significa usuario activo → Baja debe ser false
+                Baja = !usuario.Activo,
 
                 consorcistaBE = usuario.Consorcistum != null
                     ? ConsorcistaMapper.Map(usuario.Consorcistum)
@@ -49,13 +47,13 @@ namespace DAL.Repositorio
                 Username = usuarioBE.Usuario,
                 PasswordHash = usuarioBE.Contraseña,
                 Bloqueado = usuarioBE.Bloqueado,
-                Activo = usuarioBE.Baja,
-                LogBitacoras = usuarioBE.logBitacoras
+                Activo = !usuarioBE.Baja,
+                LogBitacoras = usuarioBE.logBitacoras?
                     .Select(LogBitacoraMapper.Map)
-                    .ToList(),
-                UsuarioPermisos = usuarioBE.usuarioPermisos
+                    .ToList() ?? new List<LogBitacora>(),
+                UsuarioPermisos = usuarioBE.usuarioPermisos?
                     .Select(UsuarioPermisoMapper.Map)
-                    .ToList()
+                    .ToList() ?? new List<UsuarioPermiso>()
             };
         }
     }
