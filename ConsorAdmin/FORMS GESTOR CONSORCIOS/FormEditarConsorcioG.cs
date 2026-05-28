@@ -13,12 +13,12 @@ using System.Windows.Forms;
 
 namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
 {
-    public partial class FormReporteConsorcioG : Form
+    public partial class FormEditarConsorcioG : Form
     {
         private readonly ConsorcioBLL _consorcioBLL = new ConsorcioBLL();
         private ConsorcioBE _consorcioSeleccionado = null;
         
-        public FormReporteConsorcioG()
+        public FormEditarConsorcioG()
         {
             InitializeComponent();
         }
@@ -117,10 +117,10 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
         private void LimpiarFormulario()
         {
             _consorcioSeleccionado = null;
-            textBoxNombre.Text = string.Empty;
-            textBoxDireccion.Text = string.Empty;
-            textBoxCantUnid.Text = string.Empty;
             comboBoxEdificios.SelectedIndex = -1;
+            textBoxNombre.Text = "";
+            textBoxDireccion.Text = "";
+            textBoxCantUnid.Text = "";
         }
     }
 

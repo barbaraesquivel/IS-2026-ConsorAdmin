@@ -30,13 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1Admin));
             panelSideMenu = new Panel();
+            buttonGestionarUnidades = new Button();
             buttonGestionarEdificios = new Button();
             buttonHistoria = new Button();
-            buttonCargarExp = new Button();
-            buttonListaConsorcios = new Button();
-            buttonAsignarG = new Button();
+            buttonEdificiosPorG = new Button();
             buttonLogout = new Button();
-            buttonRegistrarConsorcio = new Button();
             buttonPermisos = new Button();
             buttonGestionUsuarios = new Button();
             buttonDashboard = new Button();
@@ -60,13 +58,11 @@
             // 
             panelSideMenu.AutoScroll = true;
             panelSideMenu.BackColor = Color.FromArgb(13, 22, 40);
+            panelSideMenu.Controls.Add(buttonGestionarUnidades);
             panelSideMenu.Controls.Add(buttonGestionarEdificios);
             panelSideMenu.Controls.Add(buttonHistoria);
-            panelSideMenu.Controls.Add(buttonCargarExp);
-            panelSideMenu.Controls.Add(buttonListaConsorcios);
-            panelSideMenu.Controls.Add(buttonAsignarG);
+            panelSideMenu.Controls.Add(buttonEdificiosPorG);
             panelSideMenu.Controls.Add(buttonLogout);
-            panelSideMenu.Controls.Add(buttonRegistrarConsorcio);
             panelSideMenu.Controls.Add(buttonPermisos);
             panelSideMenu.Controls.Add(buttonGestionUsuarios);
             panelSideMenu.Controls.Add(buttonDashboard);
@@ -77,6 +73,24 @@
             panelSideMenu.Size = new Size(186, 636);
             panelSideMenu.TabIndex = 3;
             // 
+            // buttonGestionarUnidades
+            // 
+            buttonGestionarUnidades.Dock = DockStyle.Top;
+            buttonGestionarUnidades.FlatAppearance.BorderSize = 0;
+            buttonGestionarUnidades.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
+            buttonGestionarUnidades.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
+            buttonGestionarUnidades.FlatStyle = FlatStyle.Flat;
+            buttonGestionarUnidades.ForeColor = SystemColors.ControlLight;
+            buttonGestionarUnidades.Location = new Point(0, 364);
+            buttonGestionarUnidades.Name = "buttonGestionarUnidades";
+            buttonGestionarUnidades.Padding = new Padding(20, 0, 0, 0);
+            buttonGestionarUnidades.Size = new Size(186, 40);
+            buttonGestionarUnidades.TabIndex = 12;
+            buttonGestionarUnidades.Text = "Gestionar unidades";
+            buttonGestionarUnidades.TextAlign = ContentAlignment.MiddleLeft;
+            buttonGestionarUnidades.UseVisualStyleBackColor = true;
+            buttonGestionarUnidades.Click += buttonGestionarUnidades_Click;
+            // 
             // buttonGestionarEdificios
             // 
             buttonGestionarEdificios.Dock = DockStyle.Top;
@@ -85,12 +99,12 @@
             buttonGestionarEdificios.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
             buttonGestionarEdificios.FlatStyle = FlatStyle.Flat;
             buttonGestionarEdificios.ForeColor = SystemColors.ControlLight;
-            buttonGestionarEdificios.Location = new Point(0, 404);
+            buttonGestionarEdificios.Location = new Point(0, 324);
             buttonGestionarEdificios.Name = "buttonGestionarEdificios";
             buttonGestionarEdificios.Padding = new Padding(20, 0, 0, 0);
             buttonGestionarEdificios.Size = new Size(186, 40);
             buttonGestionarEdificios.TabIndex = 11;
-            buttonGestionarEdificios.Text = "Gestionar consorcios y unidades";
+            buttonGestionarEdificios.Text = "Gestionar consorcios";
             buttonGestionarEdificios.TextAlign = ContentAlignment.MiddleLeft;
             buttonGestionarEdificios.UseVisualStyleBackColor = true;
             buttonGestionarEdificios.Click += buttonGestionarEdificios_Click;
@@ -103,7 +117,7 @@
             buttonHistoria.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
             buttonHistoria.FlatStyle = FlatStyle.Flat;
             buttonHistoria.ForeColor = SystemColors.ControlLight;
-            buttonHistoria.Location = new Point(0, 364);
+            buttonHistoria.Location = new Point(0, 284);
             buttonHistoria.Name = "buttonHistoria";
             buttonHistoria.Padding = new Padding(20, 0, 0, 0);
             buttonHistoria.Size = new Size(186, 40);
@@ -113,60 +127,24 @@
             buttonHistoria.UseVisualStyleBackColor = true;
             buttonHistoria.Click += buttonHistoria_Click;
             // 
-            // buttonCargarExp
+            // buttonEdificiosPorG
             // 
-            buttonCargarExp.Dock = DockStyle.Top;
-            buttonCargarExp.FlatAppearance.BorderSize = 0;
-            buttonCargarExp.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonCargarExp.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonCargarExp.FlatStyle = FlatStyle.Flat;
-            buttonCargarExp.ForeColor = SystemColors.ControlLight;
-            buttonCargarExp.Location = new Point(0, 324);
-            buttonCargarExp.Name = "buttonCargarExp";
-            buttonCargarExp.Padding = new Padding(20, 0, 0, 0);
-            buttonCargarExp.Size = new Size(186, 40);
-            buttonCargarExp.TabIndex = 9;
-            buttonCargarExp.Text = "Cargar Expensa";
-            buttonCargarExp.TextAlign = ContentAlignment.MiddleLeft;
-            buttonCargarExp.UseVisualStyleBackColor = true;
-            buttonCargarExp.Click += buttonCargarExp_Click;
-            // 
-            // buttonListaConsorcios
-            // 
-            buttonListaConsorcios.Dock = DockStyle.Top;
-            buttonListaConsorcios.FlatAppearance.BorderSize = 0;
-            buttonListaConsorcios.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonListaConsorcios.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonListaConsorcios.FlatStyle = FlatStyle.Flat;
-            buttonListaConsorcios.ForeColor = SystemColors.ControlLight;
-            buttonListaConsorcios.Location = new Point(0, 284);
-            buttonListaConsorcios.Name = "buttonListaConsorcios";
-            buttonListaConsorcios.Padding = new Padding(20, 0, 0, 0);
-            buttonListaConsorcios.Size = new Size(186, 40);
-            buttonListaConsorcios.TabIndex = 8;
-            buttonListaConsorcios.Text = "Lista de Consorcios";
-            buttonListaConsorcios.TextAlign = ContentAlignment.MiddleLeft;
-            buttonListaConsorcios.UseVisualStyleBackColor = true;
-            buttonListaConsorcios.Click += buttonListaConsorcios_Click;
-            // 
-            // buttonAsignarG
-            // 
-            buttonAsignarG.Dock = DockStyle.Top;
-            buttonAsignarG.FlatAppearance.BorderSize = 0;
-            buttonAsignarG.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonAsignarG.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonAsignarG.FlatStyle = FlatStyle.Flat;
-            buttonAsignarG.ForeColor = SystemColors.ControlLight;
-            buttonAsignarG.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonAsignarG.Location = new Point(0, 244);
-            buttonAsignarG.Name = "buttonAsignarG";
-            buttonAsignarG.Padding = new Padding(20, 0, 0, 0);
-            buttonAsignarG.Size = new Size(186, 40);
-            buttonAsignarG.TabIndex = 7;
-            buttonAsignarG.Text = "Asignar Gestores";
-            buttonAsignarG.TextAlign = ContentAlignment.MiddleLeft;
-            buttonAsignarG.UseVisualStyleBackColor = true;
-            buttonAsignarG.Click += buttonAsignarG_Click;
+            buttonEdificiosPorG.Dock = DockStyle.Top;
+            buttonEdificiosPorG.FlatAppearance.BorderSize = 0;
+            buttonEdificiosPorG.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
+            buttonEdificiosPorG.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
+            buttonEdificiosPorG.FlatStyle = FlatStyle.Flat;
+            buttonEdificiosPorG.ForeColor = SystemColors.ControlLight;
+            buttonEdificiosPorG.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonEdificiosPorG.Location = new Point(0, 244);
+            buttonEdificiosPorG.Name = "buttonEdificiosPorG";
+            buttonEdificiosPorG.Padding = new Padding(20, 0, 0, 0);
+            buttonEdificiosPorG.Size = new Size(186, 40);
+            buttonEdificiosPorG.TabIndex = 7;
+            buttonEdificiosPorG.Text = "Edificios por Gestor";
+            buttonEdificiosPorG.TextAlign = ContentAlignment.MiddleLeft;
+            buttonEdificiosPorG.UseVisualStyleBackColor = true;
+            buttonEdificiosPorG.Click += buttonAsignarG_Click;
             // 
             // buttonLogout
             // 
@@ -186,22 +164,6 @@
             buttonLogout.UseVisualStyleBackColor = true;
             buttonLogout.Click += buttonLogout_Click;
             // 
-            // buttonRegistrarConsorcio
-            // 
-            buttonRegistrarConsorcio.FlatAppearance.BorderSize = 0;
-            buttonRegistrarConsorcio.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonRegistrarConsorcio.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonRegistrarConsorcio.FlatStyle = FlatStyle.Flat;
-            buttonRegistrarConsorcio.ForeColor = SystemColors.ControlLight;
-            buttonRegistrarConsorcio.Location = new Point(0, 299);
-            buttonRegistrarConsorcio.Name = "buttonRegistrarConsorcio";
-            buttonRegistrarConsorcio.Padding = new Padding(20, 0, 0, 0);
-            buttonRegistrarConsorcio.Size = new Size(186, 40);
-            buttonRegistrarConsorcio.TabIndex = 5;
-            buttonRegistrarConsorcio.Text = "Registrar Consorcio";
-            buttonRegistrarConsorcio.TextAlign = ContentAlignment.MiddleLeft;
-            buttonRegistrarConsorcio.UseVisualStyleBackColor = true;
-            // 
             // buttonPermisos
             // 
             buttonPermisos.Dock = DockStyle.Top;
@@ -215,7 +177,7 @@
             buttonPermisos.Padding = new Padding(20, 0, 0, 0);
             buttonPermisos.Size = new Size(186, 40);
             buttonPermisos.TabIndex = 4;
-            buttonPermisos.Text = "Crear permisos";
+            buttonPermisos.Text = "Gestionar permisos";
             buttonPermisos.TextAlign = ContentAlignment.MiddleLeft;
             buttonPermisos.UseVisualStyleBackColor = true;
             buttonPermisos.Click += buttonPermisos_Click;
@@ -370,7 +332,6 @@
 
         private Panel panelSideMenu;
         private Button buttonLogout;
-        private Button buttonRegistrarConsorcio;
         private Button buttonPermisos;
         private Button buttonGestionUsuarios;
         private Button buttonDashboard;
@@ -383,10 +344,9 @@
         private Label labelBienvenida;
         private Panel panelChildForm;
         private Button buttonHistoria;
-        private Button buttonCargarExp;
         private Label labelSistema;
-        private Button buttonListaConsorcios;
-        private Button buttonAsignarG;
+        private Button buttonEdificiosPorG;
         private Button buttonGestionarEdificios;
+        private Button buttonGestionarUnidades;
     }
 }

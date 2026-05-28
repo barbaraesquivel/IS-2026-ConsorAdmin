@@ -36,9 +36,8 @@
             buttonHistorial = new Button();
             buttonVerEdificios = new Button();
             buttonCargarExpensas = new Button();
-            buttonInicio = new Button();
+            buttonReportes = new Button();
             panelSideMenu = new Panel();
-            buttonGestionarUnidades = new Button();
             buttonRecaudacion = new Button();
             buttonLogout = new Button();
             panelChildForm = new Panel();
@@ -127,7 +126,7 @@
             buttonVerEdificios.Padding = new Padding(20, 0, 0, 0);
             buttonVerEdificios.Size = new Size(186, 40);
             buttonVerEdificios.TabIndex = 4;
-            buttonVerEdificios.Text = "Reporte consorcios";
+            buttonVerEdificios.Text = "Gestionar Consorcio";
             buttonVerEdificios.TextAlign = ContentAlignment.MiddleLeft;
             buttonVerEdificios.UseVisualStyleBackColor = true;
             buttonVerEdificios.Click += buttonVerEdificios_Click;
@@ -150,59 +149,40 @@
             buttonCargarExpensas.UseVisualStyleBackColor = true;
             buttonCargarExpensas.Click += buttonCargarExpensas_Click;
             // 
-            // buttonInicio
+            // buttonReportes
             // 
-            buttonInicio.Dock = DockStyle.Top;
-            buttonInicio.FlatAppearance.BorderSize = 0;
-            buttonInicio.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonInicio.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonInicio.FlatStyle = FlatStyle.Flat;
-            buttonInicio.ForeColor = SystemColors.ControlLight;
-            buttonInicio.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonInicio.Location = new Point(0, 124);
-            buttonInicio.Name = "buttonInicio";
-            buttonInicio.Padding = new Padding(20, 0, 0, 0);
-            buttonInicio.Size = new Size(186, 40);
-            buttonInicio.TabIndex = 2;
-            buttonInicio.Text = "Inicio";
-            buttonInicio.TextAlign = ContentAlignment.MiddleLeft;
-            buttonInicio.UseVisualStyleBackColor = true;
-            buttonInicio.Click += buttonInicio_Click;
+            buttonReportes.Dock = DockStyle.Top;
+            buttonReportes.FlatAppearance.BorderSize = 0;
+            buttonReportes.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
+            buttonReportes.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
+            buttonReportes.FlatStyle = FlatStyle.Flat;
+            buttonReportes.ForeColor = SystemColors.ControlLight;
+            buttonReportes.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonReportes.Location = new Point(0, 124);
+            buttonReportes.Name = "buttonReportes";
+            buttonReportes.Padding = new Padding(20, 0, 0, 0);
+            buttonReportes.Size = new Size(186, 40);
+            buttonReportes.TabIndex = 2;
+            buttonReportes.Text = "Reportes por Consorcios";
+            buttonReportes.TextAlign = ContentAlignment.MiddleLeft;
+            buttonReportes.UseVisualStyleBackColor = true;
+            buttonReportes.Click += buttonInicio_Click;
             // 
             // panelSideMenu
             // 
             panelSideMenu.BackColor = Color.FromArgb(13, 22, 40);
-            panelSideMenu.Controls.Add(buttonGestionarUnidades);
             panelSideMenu.Controls.Add(buttonRecaudacion);
             panelSideMenu.Controls.Add(buttonLogout);
             panelSideMenu.Controls.Add(buttonHistorial);
             panelSideMenu.Controls.Add(buttonVerEdificios);
             panelSideMenu.Controls.Add(buttonCargarExpensas);
-            panelSideMenu.Controls.Add(buttonInicio);
+            panelSideMenu.Controls.Add(buttonReportes);
             panelSideMenu.Controls.Add(panelSessionInfo);
             panelSideMenu.Dock = DockStyle.Left;
             panelSideMenu.Location = new Point(0, 0);
             panelSideMenu.Name = "panelSideMenu";
             panelSideMenu.Size = new Size(186, 636);
             panelSideMenu.TabIndex = 3;
-            // 
-            // buttonGestionarUnidades
-            // 
-            buttonGestionarUnidades.Dock = DockStyle.Top;
-            buttonGestionarUnidades.FlatAppearance.BorderSize = 0;
-            buttonGestionarUnidades.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonGestionarUnidades.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonGestionarUnidades.FlatStyle = FlatStyle.Flat;
-            buttonGestionarUnidades.ForeColor = SystemColors.ControlLight;
-            buttonGestionarUnidades.Location = new Point(0, 324);
-            buttonGestionarUnidades.Name = "buttonGestionarUnidades";
-            buttonGestionarUnidades.Padding = new Padding(20, 0, 0, 0);
-            buttonGestionarUnidades.Size = new Size(186, 40);
-            buttonGestionarUnidades.TabIndex = 8;
-            buttonGestionarUnidades.Text = "Gestionar consorcios y unidades";
-            buttonGestionarUnidades.TextAlign = ContentAlignment.MiddleLeft;
-            buttonGestionarUnidades.UseVisualStyleBackColor = true;
-            buttonGestionarUnidades.Click += buttonGestionarUnidades_Click;
             // 
             // buttonRecaudacion
             // 
@@ -317,7 +297,7 @@
         private Button buttonHistorial;
         private Button buttonVerEdificios;
         private Button buttonCargarExpensas;
-        private Button buttonInicio;
+        private Button buttonReportes;
         private Panel panelSideMenu;
         private Button buttonLogout;
         private Button buttonRecaudacion;
@@ -325,6 +305,5 @@
         private GroupBox groupBox1;
         private PictureBox pictureBox1;
         private Label labelBienvenida;
-        private Button buttonGestionarUnidades;
     }
 }

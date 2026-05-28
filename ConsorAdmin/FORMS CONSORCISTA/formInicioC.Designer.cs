@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             groupBoxPagado = new GroupBox();
             labelExpAbon = new Label();
             labelTotal = new Label();
@@ -190,6 +192,14 @@
             // 
             dataGridExpensasHistorial.Anchor = AnchorStyles.None;
             dataGridExpensasHistorial.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridExpensasHistorial.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridExpensasHistorial.Location = new Point(10, 21);
             dataGridExpensasHistorial.Name = "dataGridExpensasHistorial";
             dataGridExpensasHistorial.Size = new Size(249, 276);
@@ -215,6 +225,14 @@
             // 
             dataGridUltimasExp.Anchor = AnchorStyles.None;
             dataGridUltimasExp.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridUltimasExp.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridUltimasExp.Location = new Point(7, 128);
             dataGridUltimasExp.Name = "dataGridUltimasExp";
             dataGridUltimasExp.Size = new Size(252, 169);

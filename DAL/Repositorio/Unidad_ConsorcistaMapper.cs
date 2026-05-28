@@ -36,7 +36,7 @@ namespace DAL.Repositorio
             return new Unidad_ConsorcistaBE()
             {
                 Id_Unidad_Consorcista = unidadConsorcista.IdUnidadConsorcista,
-                Id_Unidad = unidadConsorcista.IdUnidad.ToString(),
+                Id_Unidad = unidadConsorcista.IdUnidad,
                 Id_Consorcista = unidadConsorcista.IdConsorcista.ToString(),
                 TipoVinculo = unidadConsorcista.TipoVinculo,
                 unidadBE = null,
@@ -52,7 +52,7 @@ namespace DAL.Repositorio
                 IdUnidadConsorcista = unidad_ConsorcistaBE.Id_Unidad_Consorcista,
                 TipoVinculo = unidad_ConsorcistaBE.TipoVinculo,
                 IdConsorcista = Guid.Parse(unidad_ConsorcistaBE.Id_Consorcista),
-                IdUnidad = int.Parse(unidad_ConsorcistaBE.Id_Unidad)
+                IdUnidad = (unidad_ConsorcistaBE.Id_Unidad)
             };
         }
         

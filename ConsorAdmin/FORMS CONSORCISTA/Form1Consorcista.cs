@@ -1,58 +1,83 @@
-using ABSTRAC;
+using BE;
 using BLL;
 using SERV;
-using System.Security.Policy;
+using System;
+using System.Windows.Forms;
 
 namespace ConsorAdmin
 {
     public partial class Form1Consorcista : Form
     {
-        Login formlogin;
+        private readonly IPermisoBLL _permisoBLL = new PermisoBLL();
+        private Form activeForm = null;
+
         public Form1Consorcista()
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                var idUsuario = SessionManager.ObtenerInstancia.Usuario.Id;
+                ConfigurarBotonesSegunPermisos(idUsuario);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar permisos: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Familia Consorcista (GE300) tiene: EX001, EX002
+        /// EX001 = Consultar expensas ? ver expensas
+        /// EX002 = Pagar expensa      ? pagar
+        /// </summary>
+        private void ConfigurarBotonesSegunPermisos(Guid idUsuario)
+        {
+            buttonInicio.Visible = _permisoBLL.TieneAlgunaPatenteDeFamilia(idUsuario, CodigosPermiso.FamiliaConsorcista);
+            buttonVerExpensas.Visible = _permisoBLL.TienePatente(idUsuario, CodigosPermiso.ConsultarExpensas);
+            buttonPagarExpensas.Visible = _permisoBLL.TienePatente(idUsuario, CodigosPermiso.PagarExpensa);
+        }
+
         private void Form1Consorcista_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // Cerrar y liberar el formulario activo si existe
-            if (activeForm != null)
-            {
-                activeForm.Close();
-                activeForm.Dispose();
-                activeForm = null;
-            }
-
-            // Limpiar el panel de controles
+            activeForm?.Close();
+            activeForm?.Dispose();
+            activeForm = null;
             panelChildForm.Controls.Clear();
         }
+
         private void buttonInicio_Click(object sender, EventArgs e)
         {
-            openChildForm(new formInicioC());
+            try { openChildForm(new formInicioC()); }
+            catch (Exception ex) { MostrarError(ex); }
         }
+
         private void buttonPagarExpensas_Click(object sender, EventArgs e)
         {
-            openChildForm(new formPagarC());
-
+            try { openChildForm(new formPagarC()); }
+            catch (Exception ex) { MostrarError(ex); }
         }
+
         private void buttonVerExpensas_Click(object sender, EventArgs e)
         {
-            openChildForm(new formExpC());
-
+            try { openChildForm(new formExpC()); }
+            catch (Exception ex) { MostrarError(ex); }
         }
-        private void buttonModificarPerfil_Click(object sender, EventArgs e)
+
+        private void buttonLogout_Click(object sender, EventArgs e)
         {
-            openChildForm(new formPerfilC());
+            try { this.Close(); }
+            catch (Exception ex) { MostrarError(ex); }
         }
 
-
-        private Form activeForm = null;
         private void openChildForm(Form childForm)
         {
-            if (activeForm != null)
-            {
-                activeForm.Close();
-                activeForm.Dispose();
-            }
+            activeForm?.Close();
+            activeForm?.Dispose();
 
             activeForm = childForm;
             childForm.TopLevel = false;
@@ -63,44 +88,10 @@ namespace ConsorAdmin
             childForm.BringToFront();
             childForm.Show();
         }
-        private void buttonLogout_Click(object sender, EventArgs e)
+
+        private void MostrarError(Exception ex)
         {
-            try
-            {
-                this.Close();
-
-                /*
-                _usuarioBLL.Logout();
-                this.Form1_Load(sender, e);*/
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error de cierre de sesion",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            /*
-            this.Hide();
-
-            using (Login formlogin = new Login())
-            {
-                if (formlogin.ShowDialog() == DialogResult.OK)
-                {
-                    this.Show();
-                }
-                else
-                {
-                    Application.Exit();
-                }
-            }*/
-            /*
-            this.Hide();
-            formlogin = new Login();
-            formlogin.ShowDialog();
-            this.Show();*/
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

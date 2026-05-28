@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ConsorAdmin
+namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
 {
-    public partial class formPerfilC : Form
+    public partial class FormReportesG : Form
     {
-        public formPerfilC()
+        public FormReportesG()
         {
             InitializeComponent();
         }

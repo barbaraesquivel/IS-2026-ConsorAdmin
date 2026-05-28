@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             groupBox2 = new GroupBox();
-            buttonEditar = new Button();
-            groupBoxExpensas = new GroupBox();
-            dataGridExpensas = new DataGridView();
             groupBox1 = new GroupBox();
+            comboBoxExpensas = new ComboBox();
+            label11 = new Label();
             panel1 = new Panel();
             label10 = new Label();
+            buttonEditar = new Button();
             label9 = new Label();
             comboBoxEstado = new ComboBox();
             label8 = new Label();
@@ -54,13 +55,13 @@
             label1 = new Label();
             buttonGuardar = new Button();
             buttonImprimir = new Button();
-            comboBoxExpensas = new ComboBox();
-            label11 = new Label();
+            groupBoxExpensas = new GroupBox();
+            dataGridExpensas = new DataGridView();
             groupBox2.SuspendLayout();
-            groupBoxExpensas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridExpensas).BeginInit();
             groupBox1.SuspendLayout();
             panel1.SuspendLayout();
+            groupBoxExpensas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridExpensas).BeginInit();
             SuspendLayout();
             // 
             // groupBox2
@@ -76,46 +77,6 @@
             groupBox2.Size = new Size(682, 597);
             groupBox2.TabIndex = 8;
             groupBox2.TabStop = false;
-            // 
-            // buttonEditar
-            // 
-            buttonEditar.Anchor = AnchorStyles.None;
-            buttonEditar.BackColor = Color.FromArgb(39, 133, 243);
-            buttonEditar.FlatAppearance.BorderSize = 0;
-            buttonEditar.FlatAppearance.MouseDownBackColor = Color.FromArgb(28, 105, 193);
-            buttonEditar.FlatAppearance.MouseOverBackColor = Color.FromArgb(28, 105, 193);
-            buttonEditar.FlatStyle = FlatStyle.Flat;
-            buttonEditar.ForeColor = SystemColors.ControlLight;
-            buttonEditar.Location = new Point(39, 373);
-            buttonEditar.Name = "buttonEditar";
-            buttonEditar.Size = new Size(591, 28);
-            buttonEditar.TabIndex = 14;
-            buttonEditar.Text = "Editar Expensa";
-            buttonEditar.UseVisualStyleBackColor = false;
-            buttonEditar.Click += buttonEditar_Click;
-            // 
-            // groupBoxExpensas
-            // 
-            groupBoxExpensas.Anchor = AnchorStyles.None;
-            groupBoxExpensas.BackColor = Color.FromArgb(17, 30, 53);
-            groupBoxExpensas.Controls.Add(dataGridExpensas);
-            groupBoxExpensas.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBoxExpensas.ForeColor = SystemColors.ControlLight;
-            groupBoxExpensas.Location = new Point(12, 427);
-            groupBoxExpensas.Name = "groupBoxExpensas";
-            groupBoxExpensas.Size = new Size(655, 158);
-            groupBoxExpensas.TabIndex = 5;
-            groupBoxExpensas.TabStop = false;
-            groupBoxExpensas.Text = "EXPENSAS";
-            // 
-            // dataGridExpensas
-            // 
-            dataGridExpensas.Anchor = AnchorStyles.None;
-            dataGridExpensas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridExpensas.Location = new Point(30, 21);
-            dataGridExpensas.Name = "dataGridExpensas";
-            dataGridExpensas.Size = new Size(591, 131);
-            dataGridExpensas.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -153,6 +114,25 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Modificar Servicio Prestado";
             // 
+            // comboBoxExpensas
+            // 
+            comboBoxExpensas.BackColor = Color.FromArgb(13, 22, 40);
+            comboBoxExpensas.ForeColor = SystemColors.ControlLight;
+            comboBoxExpensas.FormattingEnabled = true;
+            comboBoxExpensas.Location = new Point(115, 15);
+            comboBoxExpensas.Name = "comboBoxExpensas";
+            comboBoxExpensas.Size = new Size(231, 22);
+            comboBoxExpensas.TabIndex = 35;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(39, 18);
+            label11.Name = "label11";
+            label11.Size = new Size(63, 14);
+            label11.TabIndex = 34;
+            label11.Text = "Expensa:";
+            // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(16, 44, 59);
@@ -174,6 +154,23 @@
             label10.Size = new Size(79, 15);
             label10.TabIndex = 34;
             label10.Text = "$1.234,56";
+            // 
+            // buttonEditar
+            // 
+            buttonEditar.Anchor = AnchorStyles.None;
+            buttonEditar.BackColor = Color.FromArgb(39, 133, 243);
+            buttonEditar.FlatAppearance.BorderSize = 0;
+            buttonEditar.FlatAppearance.MouseDownBackColor = Color.FromArgb(28, 105, 193);
+            buttonEditar.FlatAppearance.MouseOverBackColor = Color.FromArgb(28, 105, 193);
+            buttonEditar.FlatStyle = FlatStyle.Flat;
+            buttonEditar.ForeColor = SystemColors.ControlLight;
+            buttonEditar.Location = new Point(39, 373);
+            buttonEditar.Name = "buttonEditar";
+            buttonEditar.Size = new Size(591, 28);
+            buttonEditar.TabIndex = 14;
+            buttonEditar.Text = "Editar Expensa";
+            buttonEditar.UseVisualStyleBackColor = false;
+            buttonEditar.Click += buttonEditar_Click;
             // 
             // label9
             // 
@@ -363,24 +360,36 @@
             buttonImprimir.Text = "Cargar Servicio";
             buttonImprimir.UseVisualStyleBackColor = false;
             // 
-            // comboBoxExpensas
+            // groupBoxExpensas
             // 
-            comboBoxExpensas.BackColor = Color.FromArgb(13, 22, 40);
-            comboBoxExpensas.ForeColor = SystemColors.ControlLight;
-            comboBoxExpensas.FormattingEnabled = true;
-            comboBoxExpensas.Location = new Point(115, 15);
-            comboBoxExpensas.Name = "comboBoxExpensas";
-            comboBoxExpensas.Size = new Size(231, 22);
-            comboBoxExpensas.TabIndex = 35;
+            groupBoxExpensas.Anchor = AnchorStyles.None;
+            groupBoxExpensas.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxExpensas.Controls.Add(dataGridExpensas);
+            groupBoxExpensas.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxExpensas.ForeColor = SystemColors.ControlLight;
+            groupBoxExpensas.Location = new Point(12, 427);
+            groupBoxExpensas.Name = "groupBoxExpensas";
+            groupBoxExpensas.Size = new Size(655, 158);
+            groupBoxExpensas.TabIndex = 5;
+            groupBoxExpensas.TabStop = false;
+            groupBoxExpensas.Text = "EXPENSAS";
             // 
-            // label11
+            // dataGridExpensas
             // 
-            label11.AutoSize = true;
-            label11.Location = new Point(39, 18);
-            label11.Name = "label11";
-            label11.Size = new Size(63, 14);
-            label11.TabIndex = 34;
-            label11.Text = "Expensa:";
+            dataGridExpensas.Anchor = AnchorStyles.None;
+            dataGridExpensas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridExpensas.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridExpensas.Location = new Point(30, 21);
+            dataGridExpensas.Name = "dataGridExpensas";
+            dataGridExpensas.Size = new Size(591, 131);
+            dataGridExpensas.TabIndex = 0;
             // 
             // formVerP
             // 
@@ -392,12 +401,12 @@
             Name = "formVerP";
             Text = "formVerP";
             groupBox2.ResumeLayout(false);
-            groupBoxExpensas.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridExpensas).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            groupBoxExpensas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridExpensas).EndInit();
             ResumeLayout(false);
         }
 

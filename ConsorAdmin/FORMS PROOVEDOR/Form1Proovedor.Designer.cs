@@ -39,7 +39,6 @@
             labelBienvenida = new Label();
             panelSideMenu = new Panel();
             buttonLogout = new Button();
-            buttonModificarPerfil = new Button();
             buttonVerServicios = new Button();
             buttonCargar = new Button();
             buttonInicio = new Button();
@@ -143,7 +142,6 @@
             // 
             panelSideMenu.BackColor = Color.FromArgb(13, 22, 40);
             panelSideMenu.Controls.Add(buttonLogout);
-            panelSideMenu.Controls.Add(buttonModificarPerfil);
             panelSideMenu.Controls.Add(buttonVerServicios);
             panelSideMenu.Controls.Add(buttonCargar);
             panelSideMenu.Controls.Add(buttonInicio);
@@ -171,24 +169,6 @@
             buttonLogout.TextAlign = ContentAlignment.MiddleLeft;
             buttonLogout.UseVisualStyleBackColor = true;
             buttonLogout.Click += buttonLogout_Click;
-            // 
-            // buttonModificarPerfil
-            // 
-            buttonModificarPerfil.Dock = DockStyle.Top;
-            buttonModificarPerfil.FlatAppearance.BorderSize = 0;
-            buttonModificarPerfil.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonModificarPerfil.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonModificarPerfil.FlatStyle = FlatStyle.Flat;
-            buttonModificarPerfil.ForeColor = SystemColors.ControlLight;
-            buttonModificarPerfil.Location = new Point(0, 244);
-            buttonModificarPerfil.Name = "buttonModificarPerfil";
-            buttonModificarPerfil.Padding = new Padding(20, 0, 0, 0);
-            buttonModificarPerfil.Size = new Size(186, 40);
-            buttonModificarPerfil.TabIndex = 5;
-            buttonModificarPerfil.Text = "Modificar Perfil";
-            buttonModificarPerfil.TextAlign = ContentAlignment.MiddleLeft;
-            buttonModificarPerfil.UseVisualStyleBackColor = true;
-            buttonModificarPerfil.Click += buttonModificarPerfil_Click;
             // 
             // buttonVerServicios
             // 
@@ -275,7 +255,6 @@
         private Panel panelChildForm;
         private Panel panelSideMenu;
         private Button buttonLogout;
-        private Button buttonModificarPerfil;
         private Button buttonVerServicios;
         private Button buttonCargar;
         private Button buttonInicio;

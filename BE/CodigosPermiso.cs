@@ -1,3 +1,4 @@
+
 namespace BE
 {
     public static class CodigosPermiso
@@ -5,6 +6,8 @@ namespace BE
         // Patentes
         public const string GestionarUsuarios = "US001";
         public const string AsignarRoles      = "US002";
+        public const string GestionarConsorcios = "US003";
+        public const string GestionarUnidades = "US004";
         public const string ConsultarBitacora = "BT001";
         public const string ConsultarExpensas = "EX001";
         public const string PagarExpensa      = "EX002";
@@ -13,6 +16,7 @@ namespace BE
         public const string AdjuntarFactura   = "SV002";
         public const string AprobarServicio   = "SV003";
         public const string GenerarReportes   = "RP001";
+
 
         // Familias
         public const string FamiliaAdmin       = "GE100";

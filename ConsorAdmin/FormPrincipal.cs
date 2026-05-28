@@ -36,17 +36,19 @@ namespace ConsorAdmin
         {
             var idUsuario = SessionManager.ObtenerInstancia.Usuario.Id;
 
-            buttonAdmin.Visible       = _permisoBLL.TieneAlgunaPatenteDeFamilia(idUsuario, CodigosPermiso.FamiliaAdmin);
-            buttonGestor.Visible      = _permisoBLL.TieneAlgunaPatenteDeFamilia(idUsuario, CodigosPermiso.FamiliaGestor);
+            // Cada botón aparece solo si el usuario tiene ALGUNA patente de esa familia
+            // O si tiene la familia completa asignada directamente
+            buttonAdmin.Visible = _permisoBLL.TieneAlgunaPatenteDeFamilia(idUsuario, CodigosPermiso.FamiliaAdmin);
+            buttonGestor.Visible = _permisoBLL.TieneAlgunaPatenteDeFamilia(idUsuario, CodigosPermiso.FamiliaGestor);
             buttonConsorcista.Visible = _permisoBLL.TieneAlgunaPatenteDeFamilia(idUsuario, CodigosPermiso.FamiliaConsorcista);
-            buttonProovedor.Visible   = _permisoBLL.TieneAlgunaPatenteDeFamilia(idUsuario, CodigosPermiso.FamiliaProveedor);
+            buttonProovedor.Visible = _permisoBLL.TieneAlgunaPatenteDeFamilia(idUsuario, CodigosPermiso.FamiliaProveedor);
 
             if (!buttonAdmin.Visible && !buttonGestor.Visible &&
                 !buttonConsorcista.Visible && !buttonProovedor.Visible)
             {
                 MessageBox.Show("No tiene perfiles asignados. Contacte al administrador.",
                     "Sin perfiles", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                SessionManager.Logout();
+                _usuarioBLL.Logout();
                 this.Close();
             }
         }

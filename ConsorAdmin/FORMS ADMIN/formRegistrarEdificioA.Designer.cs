@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             groupBox2 = new GroupBox();
+            groupBox3 = new GroupBox();
+            buttonDarBaja = new Button();
+            comboBoxEdificioEliminar = new ComboBox();
+            label17 = new Label();
             groupBox1 = new GroupBox();
             comboBoxGestorModificar = new ComboBox();
             label13 = new Label();
@@ -55,14 +59,10 @@
             label4 = new Label();
             label2 = new Label();
             label1 = new Label();
-            groupBox3 = new GroupBox();
-            buttonDarBaja = new Button();
-            comboBoxEdificioEliminar = new ComboBox();
-            label17 = new Label();
             groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBoxEstado.SuspendLayout();
-            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox2
@@ -79,6 +79,58 @@
             groupBox2.Size = new Size(682, 597);
             groupBox2.TabIndex = 8;
             groupBox2.TabStop = false;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Anchor = AnchorStyles.None;
+            groupBox3.BackColor = Color.FromArgb(17, 30, 53);
+            groupBox3.Controls.Add(buttonDarBaja);
+            groupBox3.Controls.Add(comboBoxEdificioEliminar);
+            groupBox3.Controls.Add(label17);
+            groupBox3.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBox3.ForeColor = SystemColors.ControlLight;
+            groupBox3.Location = new Point(37, 503);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(604, 82);
+            groupBox3.TabIndex = 22;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "ELIMINAR EDIFICIOS";
+            // 
+            // buttonDarBaja
+            // 
+            buttonDarBaja.Anchor = AnchorStyles.None;
+            buttonDarBaja.BackColor = Color.FromArgb(0, 187, 118);
+            buttonDarBaja.FlatAppearance.BorderSize = 0;
+            buttonDarBaja.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
+            buttonDarBaja.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
+            buttonDarBaja.FlatStyle = FlatStyle.Flat;
+            buttonDarBaja.ForeColor = SystemColors.ControlLight;
+            buttonDarBaja.Location = new Point(272, 29);
+            buttonDarBaja.Name = "buttonDarBaja";
+            buttonDarBaja.Size = new Size(290, 36);
+            buttonDarBaja.TabIndex = 20;
+            buttonDarBaja.Text = "Eliminar Edificio";
+            buttonDarBaja.UseVisualStyleBackColor = false;
+            buttonDarBaja.Click += buttonDarBaja_Click;
+            // 
+            // comboBoxEdificioEliminar
+            // 
+            comboBoxEdificioEliminar.BackColor = Color.FromArgb(13, 22, 40);
+            comboBoxEdificioEliminar.ForeColor = SystemColors.ControlLight;
+            comboBoxEdificioEliminar.FormattingEnabled = true;
+            comboBoxEdificioEliminar.Location = new Point(20, 37);
+            comboBoxEdificioEliminar.Name = "comboBoxEdificioEliminar";
+            comboBoxEdificioEliminar.Size = new Size(209, 22);
+            comboBoxEdificioEliminar.TabIndex = 12;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(20, 20);
+            label17.Name = "label17";
+            label17.Size = new Size(70, 14);
+            label17.TabIndex = 0;
+            label17.Text = "Edificio:";
             // 
             // groupBox1
             // 
@@ -99,9 +151,9 @@
             groupBox1.Controls.Add(label8);
             groupBox1.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBox1.ForeColor = SystemColors.ControlLight;
-            groupBox1.Location = new Point(36, 255);
+            groupBox1.Location = new Point(37, 257);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(601, 243);
+            groupBox1.Size = new Size(604, 243);
             groupBox1.TabIndex = 21;
             groupBox1.TabStop = false;
             groupBox1.Text = "MODIFICAR EDIFICIOS";
@@ -170,7 +222,7 @@
             buttonGuardarCambios.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
             buttonGuardarCambios.FlatStyle = FlatStyle.Flat;
             buttonGuardarCambios.ForeColor = SystemColors.ControlLight;
-            buttonGuardarCambios.Location = new Point(126, 199);
+            buttonGuardarCambios.Location = new Point(128, 199);
             buttonGuardarCambios.Name = "buttonGuardarCambios";
             buttonGuardarCambios.Size = new Size(338, 36);
             buttonGuardarCambios.TabIndex = 20;
@@ -251,9 +303,9 @@
             groupBoxEstado.Controls.Add(label1);
             groupBoxEstado.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBoxEstado.ForeColor = SystemColors.ControlLight;
-            groupBoxEstado.Location = new Point(36, 10);
+            groupBoxEstado.Location = new Point(37, 12);
             groupBoxEstado.Name = "groupBoxEstado";
-            groupBoxEstado.Size = new Size(601, 229);
+            groupBoxEstado.Size = new Size(604, 229);
             groupBoxEstado.TabIndex = 3;
             groupBoxEstado.TabStop = false;
             groupBoxEstado.Text = "REGISTRAR EDIFICIOS";
@@ -304,7 +356,7 @@
             buttonGuardar.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
             buttonGuardar.FlatStyle = FlatStyle.Flat;
             buttonGuardar.ForeColor = SystemColors.ControlLight;
-            buttonGuardar.Location = new Point(25, 187);
+            buttonGuardar.Location = new Point(27, 187);
             buttonGuardar.Name = "buttonGuardar";
             buttonGuardar.Size = new Size(502, 36);
             buttonGuardar.TabIndex = 20;
@@ -366,58 +418,6 @@
             label1.TabIndex = 0;
             label1.Text = "Codigo Edificio:";
             // 
-            // groupBox3
-            // 
-            groupBox3.Anchor = AnchorStyles.None;
-            groupBox3.BackColor = Color.FromArgb(17, 30, 53);
-            groupBox3.Controls.Add(buttonDarBaja);
-            groupBox3.Controls.Add(comboBoxEdificioEliminar);
-            groupBox3.Controls.Add(label17);
-            groupBox3.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBox3.ForeColor = SystemColors.ControlLight;
-            groupBox3.Location = new Point(36, 503);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(601, 82);
-            groupBox3.TabIndex = 22;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "ELIMINAR EDIFICIOS";
-            // 
-            // buttonDarBaja
-            // 
-            buttonDarBaja.Anchor = AnchorStyles.None;
-            buttonDarBaja.BackColor = Color.FromArgb(0, 187, 118);
-            buttonDarBaja.FlatAppearance.BorderSize = 0;
-            buttonDarBaja.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
-            buttonDarBaja.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
-            buttonDarBaja.FlatStyle = FlatStyle.Flat;
-            buttonDarBaja.ForeColor = SystemColors.ControlLight;
-            buttonDarBaja.Location = new Point(270, 29);
-            buttonDarBaja.Name = "buttonDarBaja";
-            buttonDarBaja.Size = new Size(290, 36);
-            buttonDarBaja.TabIndex = 20;
-            buttonDarBaja.Text = "Eliminar Edificio";
-            buttonDarBaja.UseVisualStyleBackColor = false;
-            buttonDarBaja.Click += buttonDarBaja_Click;
-            // 
-            // comboBoxEdificioEliminar
-            // 
-            comboBoxEdificioEliminar.BackColor = Color.FromArgb(13, 22, 40);
-            comboBoxEdificioEliminar.ForeColor = SystemColors.ControlLight;
-            comboBoxEdificioEliminar.FormattingEnabled = true;
-            comboBoxEdificioEliminar.Location = new Point(20, 37);
-            comboBoxEdificioEliminar.Name = "comboBoxEdificioEliminar";
-            comboBoxEdificioEliminar.Size = new Size(209, 22);
-            comboBoxEdificioEliminar.TabIndex = 12;
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Location = new Point(20, 20);
-            label17.Name = "label17";
-            label17.Size = new Size(70, 14);
-            label17.TabIndex = 0;
-            label17.Text = "Edificio:";
-            // 
             // formRegistrarEdificioA
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -430,12 +430,12 @@
             Text = "formRegistrarEdificioA";
             Load += formRegistrarEdificioA_Load;
             groupBox2.ResumeLayout(false);
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBoxEstado.ResumeLayout(false);
             groupBoxEstado.PerformLayout();
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
             ResumeLayout(false);
         }
 

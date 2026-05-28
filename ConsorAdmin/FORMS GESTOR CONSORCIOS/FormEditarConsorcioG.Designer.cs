@@ -1,6 +1,6 @@
 ﻿namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
 {
-    partial class FormReporteConsorcioG
+    partial class FormEditarConsorcioG
     {
         /// <summary>
         /// Required designer variable.
@@ -82,7 +82,7 @@
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Window;
             dataGridViewCellStyle1.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlLight;
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
@@ -194,6 +194,7 @@
             comboBoxEdificios.Name = "comboBoxEdificios";
             comboBoxEdificios.Size = new Size(209, 22);
             comboBoxEdificios.TabIndex = 12;
+            comboBoxEdificios.SelectedIndexChanged += comboBoxEdificios_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -204,14 +205,14 @@
             label1.TabIndex = 0;
             label1.Text = "Edificio:";
             // 
-            // FormEdificiosG
+            // FormEditarConsorcioG
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(8, 14, 26);
             ClientSize = new Size(682, 597);
             Controls.Add(groupBox2);
-            Name = "FormEdificiosG";
+            Name = "FormEditarConsorcioG";
             Text = "FormEdificiosG";
             Load += FormEdificiosG_Load;
             groupBox2.ResumeLayout(false);

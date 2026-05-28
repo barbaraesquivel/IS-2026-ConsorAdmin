@@ -41,7 +41,7 @@ namespace BLL
 
                 var asociacion = new Unidad_ConsorcistaBE
                 {
-                    Id_Unidad = idUnidad.ToString(),
+                    Id_Unidad = idUnidad,
                     Id_Consorcista = idConsorcista.ToString(),
                     TipoVinculo = tipoVinculo
                 };

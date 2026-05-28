@@ -33,7 +33,6 @@ namespace ConsorAdmin
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1Consorcista));
             panelSideMenu = new Panel();
             buttonLogout = new Button();
-            buttonModificarPerfil = new Button();
             buttonVerExpensas = new Button();
             buttonPagarExpensas = new Button();
             buttonInicio = new Button();
@@ -57,7 +56,6 @@ namespace ConsorAdmin
             // 
             panelSideMenu.BackColor = Color.FromArgb(13, 22, 40);
             panelSideMenu.Controls.Add(buttonLogout);
-            panelSideMenu.Controls.Add(buttonModificarPerfil);
             panelSideMenu.Controls.Add(buttonVerExpensas);
             panelSideMenu.Controls.Add(buttonPagarExpensas);
             panelSideMenu.Controls.Add(buttonInicio);
@@ -85,24 +83,6 @@ namespace ConsorAdmin
             buttonLogout.TextAlign = ContentAlignment.MiddleLeft;
             buttonLogout.UseVisualStyleBackColor = true;
             buttonLogout.Click += buttonLogout_Click;
-            // 
-            // buttonModificarPerfil
-            // 
-            buttonModificarPerfil.Dock = DockStyle.Top;
-            buttonModificarPerfil.FlatAppearance.BorderSize = 0;
-            buttonModificarPerfil.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonModificarPerfil.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonModificarPerfil.FlatStyle = FlatStyle.Flat;
-            buttonModificarPerfil.ForeColor = SystemColors.ControlLight;
-            buttonModificarPerfil.Location = new Point(0, 244);
-            buttonModificarPerfil.Name = "buttonModificarPerfil";
-            buttonModificarPerfil.Padding = new Padding(20, 0, 0, 0);
-            buttonModificarPerfil.Size = new Size(186, 40);
-            buttonModificarPerfil.TabIndex = 5;
-            buttonModificarPerfil.Text = "Modificar Perfil";
-            buttonModificarPerfil.TextAlign = ContentAlignment.MiddleLeft;
-            buttonModificarPerfil.UseVisualStyleBackColor = true;
-            buttonModificarPerfil.Click += buttonModificarPerfil_Click;
             // 
             // buttonVerExpensas
             // 
@@ -279,7 +259,6 @@ namespace ConsorAdmin
         private Panel panelSessionInfo;
         private Button buttonInicio;
         private Button buttonPagarExpensas;
-        private Button buttonModificarPerfil;
         private Button buttonVerExpensas;
         private Button buttonLogout;
         private Panel panelChildForm;

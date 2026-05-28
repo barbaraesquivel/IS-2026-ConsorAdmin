@@ -1,36 +1,36 @@
-using BE;
+﻿using BE;
 using BLL;
+using DAL;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
+namespace ConsorAdmin.FORMS_ADMIN
 {
-    public partial class FormGestionarUnidadesG : Form
+    public partial class formGestionarUnidadA : Form
     {
+
         private readonly ConsorcioBLL _consorcioBLL = new ConsorcioBLL();
         private readonly UnidadBLL _unidadBLL = new UnidadBLL();
         private readonly ConsorcistaBLL _consorcistaBLL = new ConsorcistaBLL();
         private readonly UnidadConsorcistaBLL _ucBLL = new UnidadConsorcistaBLL();
 
-        public FormGestionarUnidadesG()
+        public formGestionarUnidadA()
         {
             InitializeComponent();
             comboBoxUnidadModificar.SelectedIndexChanged += comboBoxUnidadModificar_SelectedIndexChanged;
         }
 
-        private void FormGestionarUnidadesG_Load(object sender, EventArgs e)
+        private void formGestionarUnidadA_Load(object sender, EventArgs e)
         {
-            try
-            {
                 CargarCombos();
                 CargarGrilla();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         // ── AGREGAR UNIDAD ───────────────────────────────────────────────────
@@ -48,21 +48,41 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
                         throw new ValidacionException("La superficie debe ser un número válido.");
                     superficie = sup;
                 }
+                if (comboBoxConsorcista.SelectedItem is not ConsorcistaBE consorcistaBE )
+                {
+                    throw new Exception("Debe seleccionar un Consorcista.");
+
+                }
+                if (comboBoxGestoAgregar.SelectedItem is not GestorConsorcioBE gestorBE)
+                {
+                    throw new Exception("Debe seleccionar un Gestor.");
+
+                }
 
                 var unidadBE = new UnidadBE
                 {
                     Piso = textBoxPisoAgregar.Text.Trim(),
                     Depto = textBoxDptoAgregar.Text.Trim(),
                     Superficie = superficie,
-                    Id_Consorcio = consorcio.Id_Consorcio
+                    Id_Consorcio = consorcio.Id_Consorcio,
+
                 };
 
                 int nuevoId = _unidadBLL.Crear(unidadBE);
 
-               
+                if((_ucBLL.ExisteAsociacion(nuevoId, comboBoxConsorcista.SelectedValue.ToString())) == true)
+                {
+                    throw new Exception("Ya existe una asociacion.");
+
+                }
+
+
+                _ucBLL.Asociar(nuevoId, comboBoxConsorcista.SelectedValue.ToString(), comboBoxTipoVinculo.SelectedItem.ToString());
 
                 MessageBox.Show("Unidad creada correctamente.", "Éxito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
 
                 LimpiarCamposAgregar();
                 CargarCombos();
@@ -215,9 +235,19 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
             comboBoxUnidadEliminar.ValueMember = "Id_Unidad";
             comboBoxUnidadEliminar.SelectedIndex = -1;
 
-            var consorcistas = _consorcistaBLL.ObtenerTodos();
 
-     
+            var consorcistas = _consorcistaBLL.ObtenerTodos();
+            comboBoxConsorcista.DataSource = null;
+            comboBoxConsorcista.DataSource = consorcistas;
+            comboBoxConsorcista.DisplayMember = "Descripcion";
+            comboBoxConsorcista.ValueMember = "Id_Consorcista";
+
+            var consorcistas1 = _consorcistaBLL.ObtenerTodos();
+            comboBoxConsorcistaModificar.DataSource = null;
+            comboBoxConsorcistaModificar.DataSource = consorcistas1;
+            comboBoxConsorcistaModificar.DisplayMember = "Descripcion";
+            comboBoxConsorcistaModificar.ValueMember = "Id_Consorcista";
+
 
             var consorcios = _consorcioBLL.ObtenerConsorcios();
 
@@ -232,6 +262,8 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
             comboBoxEdificioModificar.DisplayMember = "Nombre";
             comboBoxEdificioModificar.ValueMember = "Id_Consorcio";
             comboBoxEdificioModificar.SelectedIndex = -1;
+
+
 
             comboBoxTipoVinculo.Items.Clear();
             comboBoxTipoVinculo.Items.Add("Propietario");
@@ -271,5 +303,11 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
             textBoxSuperficieAgregar.Clear();
             comboBoxTipoVinculo.SelectedIndex = -1;
         }
+
+        private void formGestionarUnidadA_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+

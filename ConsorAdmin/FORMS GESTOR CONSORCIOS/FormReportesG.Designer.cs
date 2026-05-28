@@ -1,6 +1,6 @@
 ﻿namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
 {
-    partial class FormInicioG
+    partial class FormReportesG
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             groupBox2 = new GroupBox();
             groupBox3 = new GroupBox();
+            labelServicios = new Label();
             labelDeudas = new Label();
             panel4 = new Panel();
             groupBoxRecaudado = new GroupBox();
@@ -42,7 +45,6 @@
             groupBoxProxexp = new GroupBox();
             labelAcobrar = new Label();
             panel2 = new Panel();
-            labelServicios = new Label();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBoxRecaudado.SuspendLayout();
@@ -68,10 +70,8 @@
             groupBox2.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBox2.ForeColor = SystemColors.ControlLight;
             groupBox2.Location = new Point(0, 0);
-            groupBox2.Margin = new Padding(3, 4, 3, 4);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(3, 4, 3, 4);
-            groupBox2.Size = new Size(779, 796);
+            groupBox2.Size = new Size(682, 597);
             groupBox2.TabIndex = 6;
             groupBox2.TabStop = false;
             // 
@@ -83,23 +83,32 @@
             groupBox3.Controls.Add(labelDeudas);
             groupBox3.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBox3.ForeColor = SystemColors.ControlLight;
-            groupBox3.Location = new Point(493, 108);
-            groupBox3.Margin = new Padding(3, 4, 3, 4);
+            groupBox3.Location = new Point(431, 81);
             groupBox3.Name = "groupBox3";
-            groupBox3.Padding = new Padding(3, 4, 3, 4);
-            groupBox3.Size = new Size(182, 84);
+            groupBox3.Size = new Size(159, 63);
             groupBox3.TabIndex = 8;
             groupBox3.TabStop = false;
             groupBox3.Text = "DEUDAS";
+            // 
+            // labelServicios
+            // 
+            labelServicios.Anchor = AnchorStyles.None;
+            labelServicios.AutoSize = true;
+            labelServicios.Font = new Font("Unispace", 6.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelServicios.Location = new Point(5, 40);
+            labelServicios.Name = "labelServicios";
+            labelServicios.Size = new Size(125, 11);
+            labelServicios.TabIndex = 5;
+            labelServicios.Text = "Consorcistas morosos";
             // 
             // labelDeudas
             // 
             labelDeudas.Anchor = AnchorStyles.None;
             labelDeudas.AutoSize = true;
             labelDeudas.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelDeudas.Location = new Point(3, 16);
+            labelDeudas.Location = new Point(3, 12);
             labelDeudas.Name = "labelDeudas";
-            labelDeudas.Size = new Size(22, 24);
+            labelDeudas.Size = new Size(19, 19);
             labelDeudas.TabIndex = 4;
             labelDeudas.Text = "X";
             // 
@@ -107,10 +116,9 @@
             // 
             panel4.Anchor = AnchorStyles.None;
             panel4.BackColor = Color.FromArgb(255, 83, 113);
-            panel4.Location = new Point(488, 100);
-            panel4.Margin = new Padding(3, 4, 3, 4);
+            panel4.Location = new Point(427, 75);
             panel4.Name = "panel4";
-            panel4.Size = new Size(191, 96);
+            panel4.Size = new Size(167, 72);
             panel4.TabIndex = 9;
             // 
             // groupBoxRecaudado
@@ -120,11 +128,9 @@
             groupBoxRecaudado.Controls.Add(labelCobrado);
             groupBoxRecaudado.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBoxRecaudado.ForeColor = SystemColors.ControlLight;
-            groupBoxRecaudado.Location = new Point(96, 108);
-            groupBoxRecaudado.Margin = new Padding(3, 4, 3, 4);
+            groupBoxRecaudado.Location = new Point(84, 81);
             groupBoxRecaudado.Name = "groupBoxRecaudado";
-            groupBoxRecaudado.Padding = new Padding(3, 4, 3, 4);
-            groupBoxRecaudado.Size = new Size(182, 84);
+            groupBoxRecaudado.Size = new Size(159, 63);
             groupBoxRecaudado.TabIndex = 0;
             groupBoxRecaudado.TabStop = false;
             groupBoxRecaudado.Text = "RECAUDADO";
@@ -134,9 +140,9 @@
             labelCobrado.Anchor = AnchorStyles.None;
             labelCobrado.AutoSize = true;
             labelCobrado.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelCobrado.Location = new Point(3, 16);
+            labelCobrado.Location = new Point(3, 12);
             labelCobrado.Name = "labelCobrado";
-            labelCobrado.Size = new Size(166, 24);
+            labelCobrado.Size = new Size(139, 19);
             labelCobrado.TabIndex = 0;
             labelCobrado.Text = "$000000000.00";
             // 
@@ -144,10 +150,9 @@
             // 
             panelGreen.Anchor = AnchorStyles.None;
             panelGreen.BackColor = Color.FromArgb(0, 220, 144);
-            panelGreen.Location = new Point(91, 100);
-            panelGreen.Margin = new Padding(3, 4, 3, 4);
+            panelGreen.Location = new Point(80, 75);
             panelGreen.Name = "panelGreen";
-            panelGreen.Size = new Size(191, 96);
+            panelGreen.Size = new Size(167, 72);
             panelGreen.TabIndex = 5;
             // 
             // groupBoxUltimas
@@ -157,11 +162,9 @@
             groupBoxUltimas.Controls.Add(dataGridExpensas);
             groupBoxUltimas.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBoxUltimas.ForeColor = SystemColors.ControlLight;
-            groupBoxUltimas.Location = new Point(392, 273);
-            groupBoxUltimas.Margin = new Padding(3, 4, 3, 4);
+            groupBoxUltimas.Location = new Point(343, 205);
             groupBoxUltimas.Name = "groupBoxUltimas";
-            groupBoxUltimas.Padding = new Padding(3, 4, 3, 4);
-            groupBoxUltimas.Size = new Size(302, 404);
+            groupBoxUltimas.Size = new Size(264, 303);
             groupBoxUltimas.TabIndex = 4;
             groupBoxUltimas.TabStop = false;
             groupBoxUltimas.Text = "ULTIMAS EXPENSAS";
@@ -170,11 +173,18 @@
             // 
             dataGridExpensas.Anchor = AnchorStyles.None;
             dataGridExpensas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridExpensas.Location = new Point(6, 28);
-            dataGridExpensas.Margin = new Padding(3, 4, 3, 4);
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridExpensas.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridExpensas.Location = new Point(5, 21);
             dataGridExpensas.Name = "dataGridExpensas";
             dataGridExpensas.RowHeadersWidth = 51;
-            dataGridExpensas.Size = new Size(288, 369);
+            dataGridExpensas.Size = new Size(252, 277);
             dataGridExpensas.TabIndex = 9;
             // 
             // groupBoxEdificios
@@ -184,11 +194,9 @@
             groupBoxEdificios.Controls.Add(dataGridEdificios);
             groupBoxEdificios.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBoxEdificios.ForeColor = SystemColors.ControlLight;
-            groupBoxEdificios.Location = new Point(78, 273);
-            groupBoxEdificios.Margin = new Padding(3, 4, 3, 4);
+            groupBoxEdificios.Location = new Point(68, 205);
             groupBoxEdificios.Name = "groupBoxEdificios";
-            groupBoxEdificios.Padding = new Padding(3, 4, 3, 4);
-            groupBoxEdificios.Size = new Size(302, 404);
+            groupBoxEdificios.Size = new Size(264, 303);
             groupBoxEdificios.TabIndex = 3;
             groupBoxEdificios.TabStop = false;
             groupBoxEdificios.Text = "MIS EDIFICIOS";
@@ -197,11 +205,18 @@
             // 
             dataGridEdificios.Anchor = AnchorStyles.None;
             dataGridEdificios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridEdificios.Location = new Point(9, 28);
-            dataGridEdificios.Margin = new Padding(3, 4, 3, 4);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridEdificios.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridEdificios.Location = new Point(8, 21);
             dataGridEdificios.Name = "dataGridEdificios";
             dataGridEdificios.RowHeadersWidth = 51;
-            dataGridEdificios.Size = new Size(285, 368);
+            dataGridEdificios.Size = new Size(249, 276);
             dataGridEdificios.TabIndex = 0;
             // 
             // groupBoxProxexp
@@ -211,11 +226,9 @@
             groupBoxProxexp.Controls.Add(labelAcobrar);
             groupBoxProxexp.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBoxProxexp.ForeColor = SystemColors.ControlLight;
-            groupBoxProxexp.Location = new Point(294, 108);
-            groupBoxProxexp.Margin = new Padding(3, 4, 3, 4);
+            groupBoxProxexp.Location = new Point(257, 81);
             groupBoxProxexp.Name = "groupBoxProxexp";
-            groupBoxProxexp.Padding = new Padding(3, 4, 3, 4);
-            groupBoxProxexp.Size = new Size(182, 84);
+            groupBoxProxexp.Size = new Size(159, 63);
             groupBoxProxexp.TabIndex = 2;
             groupBoxProxexp.TabStop = false;
             groupBoxProxexp.Text = "POR VENCER";
@@ -225,9 +238,9 @@
             labelAcobrar.Anchor = AnchorStyles.None;
             labelAcobrar.AutoSize = true;
             labelAcobrar.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelAcobrar.Location = new Point(6, 16);
+            labelAcobrar.Location = new Point(5, 12);
             labelAcobrar.Name = "labelAcobrar";
-            labelAcobrar.Size = new Size(22, 24);
+            labelAcobrar.Size = new Size(19, 19);
             labelAcobrar.TabIndex = 4;
             labelAcobrar.Text = "X";
             // 
@@ -235,31 +248,20 @@
             // 
             panel2.Anchor = AnchorStyles.None;
             panel2.BackColor = Color.FromArgb(255, 189, 20);
-            panel2.Location = new Point(290, 100);
-            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.Location = new Point(254, 75);
             panel2.Name = "panel2";
-            panel2.Size = new Size(191, 96);
+            panel2.Size = new Size(167, 72);
             panel2.TabIndex = 7;
             // 
-            // labelServicios
+            // FormReportesG
             // 
-            labelServicios.Anchor = AnchorStyles.None;
-            labelServicios.AutoSize = true;
-            labelServicios.Font = new Font("Unispace", 6.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelServicios.Location = new Point(6, 54);
-            labelServicios.Name = "labelServicios";
-            labelServicios.Size = new Size(147, 14);
-            labelServicios.TabIndex = 5;
-            labelServicios.Text = "Consorcistas morosos";
-            // 
-            // FormInicioG
-            // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(8, 14, 26);
-            ClientSize = new Size(779, 796);
+            ClientSize = new Size(682, 597);
             Controls.Add(groupBox2);
-            Name = "FormInicioG";
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "FormReportesG";
             Text = "FormInicioG";
             groupBox2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);

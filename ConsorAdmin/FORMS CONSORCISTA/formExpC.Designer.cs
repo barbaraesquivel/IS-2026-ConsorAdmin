@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             groupBox2 = new GroupBox();
             buttonGuardar = new Button();
             buttonImprimir = new Button();
@@ -102,6 +103,14 @@
             // 
             dataGridExpensas.Anchor = AnchorStyles.None;
             dataGridExpensas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridExpensas.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridExpensas.Location = new Point(30, 16);
             dataGridExpensas.Name = "dataGridExpensas";
             dataGridExpensas.Size = new Size(591, 276);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             groupBoxExpensas = new GroupBox();
             dataGridExpensas = new DataGridView();
             groupBoxPago = new GroupBox();
@@ -64,6 +65,14 @@
             // 
             dataGridExpensas.Anchor = AnchorStyles.None;
             dataGridExpensas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridExpensas.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridExpensas.Location = new Point(8, 21);
             dataGridExpensas.Name = "dataGridExpensas";
             dataGridExpensas.Size = new Size(249, 276);

@@ -37,6 +37,8 @@ namespace BLL
 
         public bool TieneAlgunaPatenteDeFamilia(Guid idUsuario, string codigoFamilia)
         {
+            var arbolUsuario = ObtenerArbolDeUsuario(idUsuario);
+
             var arbolCompleto = _repo.ObtenerArbolCompleto();
             var familia = BuscarPorCodigo(arbolCompleto, codigoFamilia);
             if (familia == null) return false;

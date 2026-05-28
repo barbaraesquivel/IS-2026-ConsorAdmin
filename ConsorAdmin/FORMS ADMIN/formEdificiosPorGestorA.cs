@@ -7,18 +7,18 @@ using System.Windows.Forms;
 
 namespace ConsorAdmin.FORMS_ADMIN
 {
-    public partial class formAsignarGestorA : Form
+    public partial class formEdificiosPorGestorA : Form
     {
         private readonly ConsorcioBLL _consorcioBLL = new ConsorcioBLL();
         private readonly GestorConsorcioBLL _gestorBLL = new GestorConsorcioBLL();
         private readonly UsuarioBLL _usuarioBLL = new UsuarioBLL();
         private readonly PermisoBLL _permisoBLL = new PermisoBLL();
 
-        public formAsignarGestorA()
+        public formEdificiosPorGestorA()
         {
             InitializeComponent();
             this.Load += formAsignarGestorA_Load;
-            buttonEliminar.Click += buttonAsignar_Click;
+            buttonVerEdificios.Click += buttonAsignar_Click;
         }
 
         private void formAsignarGestorA_Load(object sender, EventArgs e)
@@ -36,13 +36,14 @@ namespace ConsorAdmin.FORMS_ADMIN
 
         private void CargarCombos()
         {
+            /*
             var consorcios = _consorcioBLL.ObtenerTodos();
             comboBoxEdificio.DataSource = null;
             comboBoxEdificio.DataSource = consorcios;
             comboBoxEdificio.DisplayMember = "Nombre";
             comboBoxEdificio.ValueMember = "Id_Consorcio";
             comboBoxEdificio.SelectedIndex = -1;
-
+            */
             var gestores = new List<UsuarioBE>();
             foreach (var user in _usuarioBLL.ObtenerTodos())
             {
@@ -77,13 +78,14 @@ namespace ConsorAdmin.FORMS_ADMIN
         {
             try
             {
+                /*
                 if (comboBoxEdificio.SelectedItem is not ConsorcioBE consorcio)
                     throw new Exception("Seleccione un edificio.");
                 if (comboBoxGestor.SelectedItem is not UsuarioBE gestor)
                     throw new Exception("Seleccione un gestor.");
 
                 _gestorBLL.CrearGestor(gestor.Id.ToString(), consorcio.Id_Consorcio);
-
+                */
                 MessageBox.Show("Gestor asignado correctamente.", "Éxito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
