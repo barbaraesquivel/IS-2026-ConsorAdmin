@@ -55,7 +55,6 @@ namespace ConsorAdmin
                     btnIniciaSesion.Enabled = false;
                     txtUser.Enabled = false;
                     txtContraseña.Enabled = false;
-                    linkRegistrarse.Enabled = false;
 
                     timer1.Interval = 1000;
 
@@ -82,47 +81,13 @@ namespace ConsorAdmin
                 btnIniciaSesion.Enabled = true;
                 txtUser.Enabled = true;
                 txtContraseña.Enabled = true;
-                linkRegistrarse.Enabled = true;
                 intentosFallidos = 0; // Reinicia los intentos fallidos
             }
         }
         
         private void linkRegistrarse_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            try
-            {
-                
-                var repo = new DAL.Repositorio.UsuarioRepositorio();
-
-                // Verificamos que no exista ya
-                if (repo.ObtenerPorNombre("admin") != null)
-                {
-                    MessageBox.Show("El usuario 'admin' ya existe.", "Aviso");
-                    return;
-                }
-
-                var nuevoAdmin = new BE.UsuarioBE
-                {
-                    Id = Guid.NewGuid(),
-                    Usuario = "admin",
-                    Contraseña = BLL.UsuarioBLL.Hashear("admin1234"),
-                    Bloqueado = false,
-                    Baja = false
-                };
-
-                repo.Crear(nuevoAdmin);
-
-                MessageBox.Show(
-                    "Usuario admin creado correctamente.\n\nUsuario: admin\nContraseña: admin1234",
-                    "Listo",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al crear admin:\n{ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+           
              
         }
 

@@ -34,8 +34,8 @@
             label1 = new Label();
             label2 = new Label();
             btnIniciaSesion = new Button();
-            linkRegistrarse = new LinkLabel();
             timer1 = new System.Windows.Forms.Timer(components);
+            label3 = new Label();
             SuspendLayout();
             // 
             // txtUser
@@ -80,16 +80,15 @@
             btnIniciaSesion.UseVisualStyleBackColor = true;
             btnIniciaSesion.Click += btnIniciaSesion_Click;
             // 
-            // linkRegistrarse
+            // label3
             // 
-            linkRegistrarse.AutoSize = true;
-            linkRegistrarse.Location = new Point(248, 180);
-            linkRegistrarse.Name = "linkRegistrarse";
-            linkRegistrarse.Size = new Size(77, 15);
-            linkRegistrarse.TabIndex = 5;
-            linkRegistrarse.TabStop = true;
-            linkRegistrarse.Text = "Test, no tocar";
-            linkRegistrarse.LinkClicked += linkRegistrarse_LinkClicked;
+            label3.AutoSize = true;
+            label3.ForeColor = SystemColors.InfoText;
+            label3.Location = new Point(12, 150);
+            label3.Name = "label3";
+            label3.Size = new Size(125, 30);
+            label3.TabIndex = 5;
+            label3.Text = "Usuario: admin\r\nContraseña: admin123";
             // 
             // Login
             // 
@@ -97,7 +96,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(192, 192, 255);
             ClientSize = new Size(350, 204);
-            Controls.Add(linkRegistrarse);
+            Controls.Add(label3);
             Controls.Add(btnIniciaSesion);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -117,7 +116,7 @@
         private Label label1;
         private Label label2;
         private Button btnIniciaSesion;
-        private LinkLabel linkRegistrarse;
         private System.Windows.Forms.Timer timer1;
+        private Label label3;
     }
 }
