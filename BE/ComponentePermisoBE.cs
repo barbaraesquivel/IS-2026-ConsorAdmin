@@ -8,6 +8,7 @@ namespace BE
         public string Codigo { get; set; }
         public string Nombre { get; set; }
         public string Tipo { get; set; }
+        public int? NivelJerarquia { get; set; }
         public abstract void AgregarPermiso(IPermiso p);
         public abstract void QuitarPermiso(IPermiso p);
         public abstract void VaciarHijos();

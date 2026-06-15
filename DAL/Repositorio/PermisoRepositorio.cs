@@ -21,7 +21,7 @@ namespace DAL.Repositorio
             foreach (var p in permisos)
             {
                 ComponentePermisoBE nodo = p.Tipo == "F"
-                    ? new FamiliaBE { Id_Permiso = p.IdPermiso, Codigo = p.Codigo, Nombre = p.Nombre, Tipo = p.Tipo }
+                    ? new FamiliaBE { Id_Permiso = p.IdPermiso, Codigo = p.Codigo, Nombre = p.Nombre, Tipo = p.Tipo, NivelJerarquia = p.NivelJerarquia }
                     : new PatenteBE { Id_Permiso = p.IdPermiso, Codigo = p.Codigo, Nombre = p.Nombre, Tipo = p.Tipo };
                 nodos[p.IdPermiso] = nodo;
             }
@@ -52,10 +52,18 @@ namespace DAL.Repositorio
                 .ToList();
         }
 
-        public int CrearPermiso(string codigo, string nombre, string tipo)
+        public int ObtenerMaxNivelJerarquiaFamilias()
         {
             using var ctx = new AppDbContext();
-            var p = new Permiso { Codigo = codigo, Nombre = nombre, Tipo = tipo };
+            return ctx.Permisos
+                .Where(p => p.Tipo == "F")
+                .Max(p => (int?)p.NivelJerarquia) ?? 0;
+        }
+
+        public int CrearPermiso(string codigo, string nombre, string tipo, int? nivelJerarquia = null)
+        {
+            using var ctx = new AppDbContext();
+            var p = new Permiso { Codigo = codigo, Nombre = nombre, Tipo = tipo, NivelJerarquia = nivelJerarquia };
             ctx.Permisos.Add(p);
             ctx.SaveChanges();
             return p.IdPermiso;

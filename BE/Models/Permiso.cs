@@ -13,5 +13,7 @@ public partial class Permiso
 
     public string Tipo { get; set; } = null!;
 
+    public int? NivelJerarquia { get; set; }
+
     public virtual ICollection<UsuarioPermiso> UsuarioPermisos { get; set; } = new List<UsuarioPermiso>();
 }

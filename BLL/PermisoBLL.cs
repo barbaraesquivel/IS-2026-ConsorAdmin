@@ -51,7 +51,10 @@ namespace BLL
         {
             if (string.IsNullOrWhiteSpace(codigo) || string.IsNullOrWhiteSpace(nombre))
                 throw new Exception("Código y nombre son obligatorios.");
-            _repo.CrearPermiso(codigo.Trim(), nombre.Trim(), "F");
+            int nivelNuevo = _repo.ObtenerMaxNivelJerarquiaFamilias() + 1;
+            if (nivelNuevo < 1)
+                throw new Exception("No se pudo determinar el nivel jerárquico de la nueva familia.");
+            _repo.CrearPermiso(codigo.Trim(), nombre.Trim(), "F", nivelNuevo);
         }
 
         public void AgregarPatenteAFamilia(int idFamilia, int idPatente)
@@ -63,6 +66,28 @@ namespace BLL
             if (patente == null) throw new Exception("Patente no encontrada.");
             familia.AgregarPermiso(patente);
             _repo.AgregarHijo(idFamilia, idPatente);
+        }
+
+        public bool PuedeContener(FamiliaBE contenedor, FamiliaBE aAgregar)
+        {
+            return aAgregar.Codigo != CodigosPermiso.FamiliaAdmin;
+        }
+
+        public void AgregarFamiliaAFamilia(int idContenedor, int idAgregar)
+        {
+            var arbol = _repo.ObtenerArbolCompleto();
+            var contenedor = BuscarPorId(arbol, idContenedor) as FamiliaBE;
+            if (contenedor == null) throw new Exception("Familia contenedora no encontrada.");
+            var aAgregar = BuscarPorId(arbol, idAgregar) as FamiliaBE;
+            if (aAgregar == null) throw new Exception("Familia a agregar no encontrada.");
+
+            if (!PuedeContener(contenedor, aAgregar))
+                throw new Exception(
+                    $"El Perfil Administrador global ({CodigosPermiso.FamiliaAdmin}) " +
+                    $"no puede ser asignado dentro de ninguna otra familia.");
+
+            contenedor.AgregarPermiso(aAgregar);
+            _repo.AgregarHijo(idContenedor, idAgregar);
         }
 
         // ── Helpers privados ────────────────────────────────────────────────

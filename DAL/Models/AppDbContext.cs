@@ -219,6 +219,9 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Tipo)
                 .HasMaxLength(20)
                 .HasColumnName("tipo");
+            entity.Property(e => e.NivelJerarquia)
+                .IsRequired(false)
+                .HasColumnName("nivel_jerarquia");
         });
 
         modelBuilder.Entity<PermisoPermiso>(entity =>

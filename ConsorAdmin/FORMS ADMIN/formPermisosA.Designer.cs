@@ -27,10 +27,17 @@ namespace ConsorAdmin.FORMS_ADMIN
             labelPatente = new Label();
             comboBoxPatentes = new ComboBox();
             buttonAgregar = new Button();
+            groupBoxFamiliaEnFamilia = new GroupBox();
+            labelContenedor = new Label();
+            comboBoxContenedor = new ComboBox();
+            labelFamiliaAgregar = new Label();
+            comboBoxFamiliaAgregar = new ComboBox();
+            buttonAgregarFamilia = new Button();
             labelArbol = new Label();
             treeViewPermisos = new TreeView();
             groupBoxFamilia.SuspendLayout();
             groupBoxAsignar.SuspendLayout();
+            groupBoxFamiliaEnFamilia.SuspendLayout();
             SuspendLayout();
             //
             // groupBoxFamilia
@@ -177,6 +184,79 @@ namespace ConsorAdmin.FORMS_ADMIN
             buttonAgregar.UseVisualStyleBackColor = false;
             buttonAgregar.Click += buttonAgregar_Click;
             //
+            // groupBoxFamiliaEnFamilia
+            //
+            groupBoxFamiliaEnFamilia.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxFamiliaEnFamilia.Controls.Add(buttonAgregarFamilia);
+            groupBoxFamiliaEnFamilia.Controls.Add(comboBoxFamiliaAgregar);
+            groupBoxFamiliaEnFamilia.Controls.Add(labelFamiliaAgregar);
+            groupBoxFamiliaEnFamilia.Controls.Add(comboBoxContenedor);
+            groupBoxFamiliaEnFamilia.Controls.Add(labelContenedor);
+            groupBoxFamiliaEnFamilia.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxFamiliaEnFamilia.ForeColor = SystemColors.ControlLight;
+            groupBoxFamiliaEnFamilia.Location = new Point(12, 304);
+            groupBoxFamiliaEnFamilia.Name = "groupBoxFamiliaEnFamilia";
+            groupBoxFamiliaEnFamilia.Size = new Size(295, 130);
+            groupBoxFamiliaEnFamilia.TabIndex = 2;
+            groupBoxFamiliaEnFamilia.TabStop = false;
+            groupBoxFamiliaEnFamilia.Text = "Agregar Familia a Familia";
+            //
+            // labelContenedor
+            //
+            labelContenedor.AutoSize = true;
+            labelContenedor.ForeColor = SystemColors.ControlLight;
+            labelContenedor.Location = new Point(8, 30);
+            labelContenedor.Name = "labelContenedor";
+            labelContenedor.Size = new Size(70, 14);
+            labelContenedor.TabIndex = 0;
+            labelContenedor.Text = "Contenedor:";
+            //
+            // comboBoxContenedor
+            //
+            comboBoxContenedor.BackColor = Color.FromArgb(13, 22, 40);
+            comboBoxContenedor.ForeColor = SystemColors.ControlLight;
+            comboBoxContenedor.FormattingEnabled = true;
+            comboBoxContenedor.Location = new Point(120, 27);
+            comboBoxContenedor.Name = "comboBoxContenedor";
+            comboBoxContenedor.Size = new Size(160, 22);
+            comboBoxContenedor.TabIndex = 1;
+            //
+            // labelFamiliaAgregar
+            //
+            labelFamiliaAgregar.AutoSize = true;
+            labelFamiliaAgregar.ForeColor = SystemColors.ControlLight;
+            labelFamiliaAgregar.Location = new Point(8, 60);
+            labelFamiliaAgregar.Name = "labelFamiliaAgregar";
+            labelFamiliaAgregar.Size = new Size(74, 14);
+            labelFamiliaAgregar.TabIndex = 2;
+            labelFamiliaAgregar.Text = "A agregar:";
+            //
+            // comboBoxFamiliaAgregar
+            //
+            comboBoxFamiliaAgregar.BackColor = Color.FromArgb(13, 22, 40);
+            comboBoxFamiliaAgregar.ForeColor = SystemColors.ControlLight;
+            comboBoxFamiliaAgregar.FormattingEnabled = true;
+            comboBoxFamiliaAgregar.Location = new Point(120, 57);
+            comboBoxFamiliaAgregar.Name = "comboBoxFamiliaAgregar";
+            comboBoxFamiliaAgregar.Size = new Size(160, 22);
+            comboBoxFamiliaAgregar.TabIndex = 3;
+            //
+            // buttonAgregarFamilia
+            //
+            buttonAgregarFamilia.BackColor = Color.FromArgb(0, 187, 118);
+            buttonAgregarFamilia.FlatAppearance.BorderSize = 0;
+            buttonAgregarFamilia.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
+            buttonAgregarFamilia.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
+            buttonAgregarFamilia.FlatStyle = FlatStyle.Flat;
+            buttonAgregarFamilia.ForeColor = SystemColors.ControlLight;
+            buttonAgregarFamilia.Location = new Point(8, 90);
+            buttonAgregarFamilia.Name = "buttonAgregarFamilia";
+            buttonAgregarFamilia.Size = new Size(272, 28);
+            buttonAgregarFamilia.TabIndex = 4;
+            buttonAgregarFamilia.Text = "Agregar familia a familia";
+            buttonAgregarFamilia.UseVisualStyleBackColor = false;
+            buttonAgregarFamilia.Click += buttonAgregarFamilia_Click;
+            //
             // labelArbol
             //
             labelArbol.AutoSize = true;
@@ -202,9 +282,10 @@ namespace ConsorAdmin.FORMS_ADMIN
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(8, 14, 26);
-            ClientSize = new Size(672, 490);
+            ClientSize = new Size(672, 452);
             Controls.Add(treeViewPermisos);
             Controls.Add(labelArbol);
+            Controls.Add(groupBoxFamiliaEnFamilia);
             Controls.Add(groupBoxAsignar);
             Controls.Add(groupBoxFamilia);
             Name = "formPermisosA";
@@ -213,6 +294,8 @@ namespace ConsorAdmin.FORMS_ADMIN
             groupBoxFamilia.PerformLayout();
             groupBoxAsignar.ResumeLayout(false);
             groupBoxAsignar.PerformLayout();
+            groupBoxFamiliaEnFamilia.ResumeLayout(false);
+            groupBoxFamiliaEnFamilia.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -231,6 +314,12 @@ namespace ConsorAdmin.FORMS_ADMIN
         private Label labelPatente;
         private ComboBox comboBoxPatentes;
         private Button buttonAgregar;
+        private GroupBox groupBoxFamiliaEnFamilia;
+        private Label labelContenedor;
+        private ComboBox comboBoxContenedor;
+        private Label labelFamiliaAgregar;
+        private ComboBox comboBoxFamiliaAgregar;
+        private Button buttonAgregarFamilia;
         private Label labelArbol;
         private TreeView treeViewPermisos;
     }

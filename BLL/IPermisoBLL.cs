@@ -18,5 +18,10 @@ namespace BLL
         List<ComponentePermisoBE> ObtenerArbolCompleto();
         void CrearFamilia(string codigo, string nombre);
         void AgregarPatenteAFamilia(int idFamilia, int idPatente);
+
+        // Valida si la familia 'aAgregar' puede ser contenida dentro de 'contenedor' según jerarquía.
+        // Retorna true si el nivel de 'aAgregar' es igual o menor (número igual o mayor) al de 'contenedor'.
+        bool PuedeContener(FamiliaBE contenedor, FamiliaBE aAgregar);
+        void AgregarFamiliaAFamilia(int idContenedor, int idAgregar);
     }
 }

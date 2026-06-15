@@ -57,17 +57,29 @@ namespace ConsorAdmin.FORMS_ADMIN
             var todos = new List<ComponentePermisoBE>();
             Flatten(arbol, todos);
 
+            var familias = todos.Where(p => p.Tipo == "F").ToList();
+            var patentes = todos.Where(p => p.Tipo == "P").ToList();
+
             comboBoxFamilias.Items.Clear();
             comboBoxPatentes.Items.Clear();
+            comboBoxContenedor.Items.Clear();
+            comboBoxFamiliaAgregar.Items.Clear();
 
-            foreach (var p in todos.Where(p => p.Tipo == "F"))
-                comboBoxFamilias.Items.Add(new ComboItem { Display = p.Nombre, Value = p });
+            foreach (var p in familias)
+            {
+                var item = new ComboItem { Display = $"{p.Codigo} - {p.Nombre}", Value = p };
+                comboBoxFamilias.Items.Add(item);
+                comboBoxContenedor.Items.Add(item);
+                comboBoxFamiliaAgregar.Items.Add(new ComboItem { Display = $"{p.Codigo} - {p.Nombre}", Value = p });
+            }
 
-            foreach (var p in todos.Where(p => p.Tipo == "P"))
+            foreach (var p in patentes)
                 comboBoxPatentes.Items.Add(new ComboItem { Display = p.Nombre, Value = p });
 
             comboBoxFamilias.DisplayMember = "Display";
             comboBoxPatentes.DisplayMember = "Display";
+            comboBoxContenedor.DisplayMember = "Display";
+            comboBoxFamiliaAgregar.DisplayMember = "Display";
         }
 
         private void Flatten(IEnumerable<IPermiso> nodos, List<ComponentePermisoBE> resultado)
@@ -113,6 +125,30 @@ namespace ConsorAdmin.FORMS_ADMIN
                 _bll.AgregarPatenteAFamilia(f.Id_Permiso, p.Id_Permiso);
                 CargarDatos();
                 MessageBox.Show("Patente agregada a la familia.", "Éxito",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void buttonAgregarFamilia_Click(object sender, EventArgs e)
+        {
+            if (comboBoxContenedor.SelectedItem is not ComboItem contenedor ||
+                comboBoxFamiliaAgregar.SelectedItem is not ComboItem aAgregar)
+            {
+                MessageBox.Show("Seleccione la familia contenedora y la familia a agregar.", "Atención",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            try
+            {
+                var c = (ComponentePermisoBE)contenedor.Value;
+                var a = (ComponentePermisoBE)aAgregar.Value;
+                _bll.AgregarFamiliaAFamilia(c.Id_Permiso, a.Id_Permiso);
+                CargarDatos();
+                MessageBox.Show("Familia agregada dentro de la familia contenedora.", "Éxito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
