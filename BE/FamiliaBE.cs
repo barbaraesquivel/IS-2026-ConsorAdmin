@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace BE
 {
+    // Composite: puede contener otros IPermiso (familias y patentes)
     public class FamiliaBE : ComponentePermisoBE, IPermiso
     {
         private IList<IPermiso> _hijos;
@@ -11,26 +12,9 @@ namespace BE
 
         public override void AgregarPermiso(IPermiso p)
         {
-            bool tiene = false;
-            tiene = ValidarFlia(p);
-            if (!tiene)
-                _hijos.Add(p);
-            else
-                throw new Exception("ya existe esta patente en esta familia");
-
-            bool ValidarFlia(IPermiso p2)
-            {
-                tiene = this.TieneHijo(p2);
-                if (p2.ObtenerHijos.Count > 0 && !tiene)
-                {
-                    foreach (IPermiso hi in p2.ObtenerHijos)
-                    {
-                        tiene = ValidarFlia(hi);
-                        if (tiene) return true;
-                    }
-                }
-                return tiene;
-            }
+            if (_hijos.Any(h => h.Id_Permiso == p.Id_Permiso))
+                throw new Exception("Este elemento ya es hijo directo de esta familia.");
+            _hijos.Add(p);
         }
 
         public override IList<IPermiso> ObtenerHijos => _hijos.ToArray();

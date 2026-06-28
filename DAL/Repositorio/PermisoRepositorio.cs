@@ -21,7 +21,7 @@ namespace DAL.Repositorio
             foreach (var p in permisos)
             {
                 ComponentePermisoBE nodo = p.Tipo == "F"
-                    ? new FamiliaBE { Id_Permiso = p.IdPermiso, Codigo = p.Codigo, Nombre = p.Nombre, Tipo = p.Tipo, NivelJerarquia = p.NivelJerarquia }
+                    ? new FamiliaBE { Id_Permiso = p.IdPermiso, Codigo = p.Codigo, Nombre = p.Nombre, Tipo = p.Tipo }
                     : new PatenteBE { Id_Permiso = p.IdPermiso, Codigo = p.Codigo, Nombre = p.Nombre, Tipo = p.Tipo };
                 nodos[p.IdPermiso] = nodo;
             }
@@ -36,8 +36,10 @@ namespace DAL.Repositorio
                 }
             }
 
+            // Raíces del árbol: todas las familias [F] (con o sin padre) +
+            // las patentes [P] que no están dentro de ninguna familia.
             return nodos.Values
-                .Where(n => !tienenPadre.Contains(n.Id_Permiso))
+                .Where(n => n.Tipo == "F" || !tienenPadre.Contains(n.Id_Permiso))
                 .OrderBy(n => n.Tipo)
                 .ThenBy(n => n.Codigo)
                 .ToList();
@@ -52,21 +54,50 @@ namespace DAL.Repositorio
                 .ToList();
         }
 
-        public int ObtenerMaxNivelJerarquiaFamilias()
+        public int CrearPermiso(string codigo, string nombre, string tipo)
+        {
+            using var ctx = new AppDbContext();
+            var p = new Permiso { Codigo = codigo, Nombre = nombre, Tipo = tipo };
+            ctx.Permisos.Add(p);
+            ctx.SaveChanges();
+            return p.IdPermiso;
+        }
+
+        // Devuelve TODAS las familias de la BD, sin filtrar por padre.
+        // Usado para llenar combos donde se necesitan todas las opciones disponibles.
+        public List<ComponentePermisoBE> ObtenerTodasLasFamilias()
         {
             using var ctx = new AppDbContext();
             return ctx.Permisos
                 .Where(p => p.Tipo == "F")
-                .Max(p => (int?)p.NivelJerarquia) ?? 0;
+                .OrderBy(p => p.Codigo)
+                .ToList()
+                .Select(p => (ComponentePermisoBE)new FamiliaBE
+                {
+                    Id_Permiso = p.IdPermiso,
+                    Codigo = p.Codigo,
+                    Nombre = p.Nombre,
+                    Tipo = p.Tipo
+                })
+                .ToList();
         }
 
-        public int CrearPermiso(string codigo, string nombre, string tipo, int? nivelJerarquia = null)
+        // Devuelve TODAS las patentes de la BD, sin filtrar por padre.
+        public List<ComponentePermisoBE> ObtenerTodasLasPatentes()
         {
             using var ctx = new AppDbContext();
-            var p = new Permiso { Codigo = codigo, Nombre = nombre, Tipo = tipo, NivelJerarquia = nivelJerarquia };
-            ctx.Permisos.Add(p);
-            ctx.SaveChanges();
-            return p.IdPermiso;
+            return ctx.Permisos
+                .Where(p => p.Tipo == "P")
+                .OrderBy(p => p.Codigo)
+                .ToList()
+                .Select(p => (ComponentePermisoBE)new PatenteBE
+                {
+                    Id_Permiso = p.IdPermiso,
+                    Codigo = p.Codigo,
+                    Nombre = p.Nombre,
+                    Tipo = p.Tipo
+                })
+                .ToList();
         }
 
         public void AgregarHijo(int idPadre, int idHijo)

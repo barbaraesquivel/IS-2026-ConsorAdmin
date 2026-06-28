@@ -46,15 +46,14 @@ namespace BLL
         }
 
         public List<ComponentePermisoBE> ObtenerArbolCompleto() => _repo.ObtenerArbolCompleto();
+        public List<ComponentePermisoBE> ObtenerTodasLasFamilias() => _repo.ObtenerTodasLasFamilias();
+        public List<ComponentePermisoBE> ObtenerTodasLasPatentes() => _repo.ObtenerTodasLasPatentes();
 
         public void CrearFamilia(string codigo, string nombre)
         {
             if (string.IsNullOrWhiteSpace(codigo) || string.IsNullOrWhiteSpace(nombre))
                 throw new Exception("Código y nombre son obligatorios.");
-            int nivelNuevo = _repo.ObtenerMaxNivelJerarquiaFamilias() + 1;
-            if (nivelNuevo < 1)
-                throw new Exception("No se pudo determinar el nivel jerárquico de la nueva familia.");
-            _repo.CrearPermiso(codigo.Trim(), nombre.Trim(), "F", nivelNuevo);
+            _repo.CrearPermiso(codigo.Trim(), nombre.Trim(), "F");
         }
 
         public void AgregarPatenteAFamilia(int idFamilia, int idPatente)
@@ -75,6 +74,9 @@ namespace BLL
 
         public void AgregarFamiliaAFamilia(int idContenedor, int idAgregar)
         {
+            if (idContenedor == idAgregar)
+                throw new Exception("Una familia no puede agregarse a sí misma.");
+
             var arbol = _repo.ObtenerArbolCompleto();
             var contenedor = BuscarPorId(arbol, idContenedor) as FamiliaBE;
             if (contenedor == null) throw new Exception("Familia contenedora no encontrada.");
@@ -85,6 +87,12 @@ namespace BLL
                 throw new Exception(
                     $"El Perfil Administrador global ({CodigosPermiso.FamiliaAdmin}) " +
                     $"no puede ser asignado dentro de ninguna otra familia.");
+
+            // Previene ciclos: si el contenedor ya es descendiente de aAgregar, rechaza
+            if (aAgregar.TieneHijo(contenedor))
+                throw new Exception(
+                    $"No se puede agregar: crearía un ciclo entre familias. " +
+                    $"La familia '{contenedor.Nombre}' ya está dentro de '{aAgregar.Nombre}'.");
 
             contenedor.AgregarPermiso(aAgregar);
             _repo.AgregarHijo(idContenedor, idAgregar);

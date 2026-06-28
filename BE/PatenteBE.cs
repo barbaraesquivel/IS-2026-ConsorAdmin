@@ -2,6 +2,7 @@ using System.Collections.Generic;
 
 namespace BE
 {
+    // Leaf: permiso simple, no tiene hijos
     public class PatenteBE : ComponentePermisoBE, IPermiso
     {
         public override void AgregarPermiso(IPermiso p) { }

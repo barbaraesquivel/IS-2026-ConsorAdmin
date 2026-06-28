@@ -24,8 +24,10 @@ namespace ConsorAdmin.FORMS_ADMIN
             try
             {
                 var arbol = _bll.ObtenerArbolCompleto();
+                var todasFamilias = _bll.ObtenerTodasLasFamilias();
+                var todasPatentes = _bll.ObtenerTodasLasPatentes();
                 PopularTreeView(arbol);
-                PopularCombos(arbol);
+                PopularCombos(todasFamilias, todasPatentes);
             }
             catch (Exception ex)
             {
@@ -38,28 +40,27 @@ namespace ConsorAdmin.FORMS_ADMIN
             treeViewPermisos.BeginUpdate();
             treeViewPermisos.Nodes.Clear();
             foreach (var comp in raices)
-                treeViewPermisos.Nodes.Add(CrearNodo(comp));
+                treeViewPermisos.Nodes.Add(CrearNodo(comp, new HashSet<int>()));
             treeViewPermisos.ExpandAll();
             treeViewPermisos.EndUpdate();
         }
 
-        private TreeNode CrearNodo(ComponentePermisoBE comp)
+        // ancestros: IDs de los nodos ya visitados en el camino actual, para cortar ciclos.
+        private TreeNode CrearNodo(ComponentePermisoBE comp, HashSet<int> ancestros)
         {
             string prefijo = comp.Tipo == "F" ? "[F] " : "[P] ";
             var nodo = new TreeNode(prefijo + comp.Nombre) { Tag = comp };
-            foreach (var hijo in comp.ObtenerHijos)
-                nodo.Nodes.Add(CrearNodo((ComponentePermisoBE)hijo));
+            if (!ancestros.Contains(comp.Id_Permiso))
+            {
+                var camino = new HashSet<int>(ancestros) { comp.Id_Permiso };
+                foreach (var hijo in comp.ObtenerHijos)
+                    nodo.Nodes.Add(CrearNodo((ComponentePermisoBE)hijo, camino));
+            }
             return nodo;
         }
 
-        private void PopularCombos(List<ComponentePermisoBE> arbol)
+        private void PopularCombos(List<ComponentePermisoBE> familias, List<ComponentePermisoBE> patentes)
         {
-            var todos = new List<ComponentePermisoBE>();
-            Flatten(arbol, todos);
-
-            var familias = todos.Where(p => p.Tipo == "F").ToList();
-            var patentes = todos.Where(p => p.Tipo == "P").ToList();
-
             comboBoxFamilias.Items.Clear();
             comboBoxPatentes.Items.Clear();
             comboBoxContenedor.Items.Clear();
@@ -67,9 +68,8 @@ namespace ConsorAdmin.FORMS_ADMIN
 
             foreach (var p in familias)
             {
-                var item = new ComboItem { Display = $"{p.Codigo} - {p.Nombre}", Value = p };
-                comboBoxFamilias.Items.Add(item);
-                comboBoxContenedor.Items.Add(item);
+                comboBoxFamilias.Items.Add(new ComboItem { Display = $"{p.Codigo} - {p.Nombre}", Value = p });
+                comboBoxContenedor.Items.Add(new ComboItem { Display = $"{p.Codigo} - {p.Nombre}", Value = p });
                 comboBoxFamiliaAgregar.Items.Add(new ComboItem { Display = $"{p.Codigo} - {p.Nombre}", Value = p });
             }
 
@@ -80,16 +80,6 @@ namespace ConsorAdmin.FORMS_ADMIN
             comboBoxPatentes.DisplayMember = "Display";
             comboBoxContenedor.DisplayMember = "Display";
             comboBoxFamiliaAgregar.DisplayMember = "Display";
-        }
-
-        private void Flatten(IEnumerable<IPermiso> nodos, List<ComponentePermisoBE> resultado)
-        {
-            foreach (var n in nodos)
-            {
-                resultado.Add((ComponentePermisoBE)n);
-                if (n.ObtenerHijos.Count > 0)
-                    Flatten(n.ObtenerHijos, resultado);
-            }
         }
 
         private void buttonCrearFamilia_Click(object sender, EventArgs e)

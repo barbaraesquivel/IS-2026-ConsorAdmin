@@ -2,6 +2,7 @@ using System.Collections.Generic;
 
 namespace BE
 {
+    // Component: interfaz común para hojas y compuestos del patrón Composite
     public interface IPermiso
     {
         int Id_Permiso { get; set; }

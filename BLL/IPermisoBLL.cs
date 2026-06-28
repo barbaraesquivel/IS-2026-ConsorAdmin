@@ -16,11 +16,14 @@ namespace BLL
         bool TieneAlgunaPatenteDeFamilia(Guid idUsuario, string codigoFamilia);
 
         List<ComponentePermisoBE> ObtenerArbolCompleto();
+        // Devuelve todas las familias (con o sin padre) para llenar combos
+        List<ComponentePermisoBE> ObtenerTodasLasFamilias();
+        // Devuelve todas las patentes para llenar combos
+        List<ComponentePermisoBE> ObtenerTodasLasPatentes();
         void CrearFamilia(string codigo, string nombre);
         void AgregarPatenteAFamilia(int idFamilia, int idPatente);
-
-        // Valida si la familia 'aAgregar' puede ser contenida dentro de 'contenedor' según jerarquía.
-        // Retorna true si el nivel de 'aAgregar' es igual o menor (número igual o mayor) al de 'contenedor'.
+        // Retorna true si aAgregar puede ser contenida en contenedor.
+        // La única restricción: la familia Administrador (GE100) no puede anidarse en ninguna otra.
         bool PuedeContener(FamiliaBE contenedor, FamiliaBE aAgregar);
         void AgregarFamiliaAFamilia(int idContenedor, int idAgregar);
     }
