@@ -1,7 +1,4 @@
-﻿using ABSTRAC;
-using DAL.Models;
-
-namespace BE
+﻿namespace BE
 {
     public class UsuarioBE : IUsuario
     {

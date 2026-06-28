@@ -1,7 +1,8 @@
+using BE;
 using System;
 using System.Collections.Generic;
 
-namespace BE
+namespace DAL.Repositorio
 {
     public interface IUsuarioRepositorio
     {
@@ -11,7 +12,6 @@ namespace BE
         void Crear(UsuarioBE usuario);
         void Actualizar(UsuarioBE usuario);
         void Inactivar(Guid idUsuario);
-
         List<PermisoBE> ObtenerTodosPermisos();
         void ActualizarPermisosDeUsuario(Guid idUsuario, List<int> nuevosPermisos);
     }
