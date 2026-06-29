@@ -9,5 +9,6 @@ namespace BE
         public const string Expensas    = "Expensas";
         public const string Servicios   = "Servicios";
         public const string Reportes    = "Reportes";
+        public const string Integridad  = "Integridad";
     }
 }

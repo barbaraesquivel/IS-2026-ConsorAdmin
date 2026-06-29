@@ -13,5 +13,10 @@ namespace BE
         public const string AsignarPermisos  = "ASIGNAR_PERMISOS";
 
         public const string ExportarBitacora = "EXPORTAR_BITACORA";
+
+        public const string VerificacionDV            = "VERIFICACION_DV";
+        public const string GenerarDigitos            = "GENERAR_DIGITOS";
+        public const string ConsultarDetalleIntegridad = "CONSULTAR_DETALLE_INTEGRIDAD";
+        public const string RestaurarBackup           = "RESTAURAR_BACKUP";
     }
 }

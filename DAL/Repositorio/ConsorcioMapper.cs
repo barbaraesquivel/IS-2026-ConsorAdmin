@@ -22,6 +22,7 @@ namespace DAL.Repositorio
                 Nombre = consorcio.Nombre,
                 Direccion = consorcio.Direccion,
                 CantUnidades = consorcio.CantUnidades,
+                DVH = consorcio.Dvh ?? 0,
 
                 Servicios = consorcio.Servicios?
                             .Select(ServicioMapper.Map)

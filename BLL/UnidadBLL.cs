@@ -12,6 +12,7 @@ namespace BLL
     {
         private readonly UnidadDAL _unidadDAL = new UnidadDAL();
         private readonly ConsorcioDAL _consorcioDAL = new ConsorcioDAL();
+        private readonly VerificadorBLL _verificadorBLL = new VerificadorBLL();
 
         // CU07 - Obtener todas las unidades
         public List<UnidadBE> ObtenerTodas()
@@ -66,7 +67,9 @@ namespace BLL
                             "Modifique la capacidad del consorcio antes de agregar más.");
                 }
 
-                return _unidadDAL.Crear(unidadBE);
+                int newId = _unidadDAL.Crear(unidadBE);
+                _verificadorBLL.RecalcularYGuardarDvhConsorcio(unidadBE.Id_Consorcio);
+                return newId;
             }
             catch { throw; }
         }
@@ -82,6 +85,7 @@ namespace BLL
                     throw new UnidadDuplicadaException("La unidad ya existe en este consorcio (mismo piso y departamento).");
 
                 _unidadDAL.Actualizar(unidadBE);
+                _verificadorBLL.RecalcularYGuardarDvhConsorcio(unidadBE.Id_Consorcio);
             }
             catch { throw; }
         }
@@ -96,7 +100,9 @@ namespace BLL
                 if (_unidadDAL.TieneExpensasPendientes(unidadBE.Id_Unidad))
                     throw new ValidacionException("No se puede eliminar: la unidad tiene expensas pendientes o vencidas.");
 
+                string idConsorcio = unidadBE.Id_Consorcio;
                 _unidadDAL.Eliminar(unidadBE);
+                _verificadorBLL.RecalcularYGuardarDvhConsorcio(idConsorcio);
             }
             catch { throw; }
         }

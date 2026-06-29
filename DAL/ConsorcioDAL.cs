@@ -157,6 +157,61 @@ namespace DAL
             }
             catch { throw; }
         }
+
+        // DV — carga todos los consorcios con sus unidades para calcular/verificar DVH
+        public List<ConsorcioBE> ObtenerTodosConUnidades()
+        {
+            try
+            {
+                using var ctx = new AppDbContext();
+                return ctx.Consorcios
+                    .Include(c => c.Unidads)
+                    .Select(c => ConsorcioMapper.Map(c))
+                    .ToList();
+            }
+            catch { throw; }
+        }
+
+        // DV — devuelve todos los DVH almacenados (para recalcular el DVV eficientemente)
+        public List<int> ObtenerTodosDvh()
+        {
+            try
+            {
+                using var ctx = new AppDbContext();
+                return ctx.Consorcios.Select(c => c.Dvh ?? 0).ToList();
+            }
+            catch { throw; }
+        }
+
+        // DV — guarda el DVH recalculado de un consorcio
+        public void ActualizarDvh(string idConsorcio, int dvh)
+        {
+            try
+            {
+                using var ctx = new AppDbContext();
+                var model = ctx.Consorcios.Find(idConsorcio);
+                if (model == null) return;
+                model.Dvh = dvh;
+                ctx.SaveChanges();
+            }
+            catch { throw; }
+        }
+
+        // DV — restaura los campos de un consorcio con los valores del backup
+        public void RestaurarCampos(string idConsorcio, string nombre, string direccion, int cantUnidades)
+        {
+            try
+            {
+                using var ctx = new AppDbContext();
+                var model = ctx.Consorcios.Find(idConsorcio);
+                if (model == null) return;
+                model.Nombre       = nombre;
+                model.Direccion    = direccion;
+                model.CantUnidades = cantUnidades;
+                ctx.SaveChanges();
+            }
+            catch { throw; }
+        }
     }
 }
 

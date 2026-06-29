@@ -43,6 +43,8 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<UsuarioPermiso> UsuarioPermisos { get; set; }
 
+    public virtual DbSet<VerificadorVertical> VerificadorVerticales { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer(DBConfigurations.getDbConectionString());
@@ -65,6 +67,9 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Nombre)
                 .HasMaxLength(200)
                 .HasColumnName("nombre");
+            entity.Property(e => e.Dvh)
+                .IsRequired(false)
+                .HasColumnName("dvh");
         });
 
         modelBuilder.Entity<Consorcistum>(entity =>
@@ -401,6 +406,16 @@ public partial class AppDbContext : DbContext
                 .HasForeignKey(d => d.IdUsuario)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_UP_USUARIO");
+        });
+
+        modelBuilder.Entity<VerificadorVertical>(entity =>
+        {
+            entity.HasKey(e => e.NombreTabla);
+            entity.ToTable("VERIFICADOR_VERTICAL");
+            entity.Property(e => e.NombreTabla)
+                .HasMaxLength(100)
+                .HasColumnName("nombre_tabla");
+            entity.Property(e => e.Dvv).HasColumnName("dvv");
         });
 
         OnModelCreatingPartial(modelBuilder);

@@ -12,6 +12,7 @@ namespace BLL
     public class ConsorcioBLL
     {
         private readonly ConsorcioDAL _consorcioDAL = new ConsorcioDAL();
+        private readonly VerificadorBLL _verificadorBLL = new VerificadorBLL();
 
         // CU06 - Obtener consorcios según el usuario de sesión
         public List<ConsorcioBE> ObtenerConsorcios()
@@ -60,6 +61,7 @@ namespace BLL
                     throw new Exception("El código del consorcio ya existe.");
 
                 _consorcioDAL.Crear(consorcioBE);
+                _verificadorBLL.GenerarDigitos();
             }
             catch { throw; }
         }
@@ -70,13 +72,8 @@ namespace BLL
             try
             {
                 ValidarConsorcio(consorcioBE);
-                /*
-                if (_consorcioDAL.ExisteNombre(consorcioBE.Nombre) == true){
-                    throw new Exception("El nombre del consorcio ya existe.");
-
-                }*/
-
                 _consorcioDAL.Actualizar(consorcioBE);
+                _verificadorBLL.RecalcularYGuardarDvhConsorcio(consorcioBE.Id_Consorcio);
             }
             catch { throw; }
         }
@@ -99,6 +96,7 @@ namespace BLL
                 if (consorcioBE == null)
                     throw new Exception("Error al eliminar.");
                 _consorcioDAL.Eliminar(consorcioBE);
+                _verificadorBLL.RecalcularYGuardarDvv();
             }
             catch { throw; }
         }
