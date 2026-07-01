@@ -57,6 +57,15 @@ namespace DAL.Repositorio
                 .Select(u => UsuarioMapper.Map(u))
                 .ToList();
         }
+        public List<int> ObtenerIdPermisosDeUsuario(Guid idUsuario)
+        {
+            using var ctx = new AppDbContext();
+            return ctx.UsuarioPermisos
+                .Where(up => up.IdUsuario == idUsuario)
+                .Select(up => up.IdPermiso)
+                .ToList();
+        }
+
         public List<UsuarioBE> ObtenerGestores()
         {
          //   int idFamiliaGestores = 12; // Id de la familia "Gestores"
@@ -112,7 +121,9 @@ namespace DAL.Repositorio
                 PasswordHash = usuario.Contraseña,
                 Bloqueado = usuario.Bloqueado,
                 Activo = !usuario.Baja,
-                TipoUsuario = "Operador"
+                TipoUsuario = "Operador",
+                Email = usuario.Email,
+                Telefono = usuario.Telefono
             };
             ctx.Usuarios.Add(model);
             ctx.SaveChanges();
@@ -128,6 +139,8 @@ namespace DAL.Repositorio
             model.PasswordHash = usuario.Contraseña;
             model.Bloqueado = usuario.Bloqueado;
             model.Activo = !usuario.Baja;
+            model.Email = usuario.Email;
+            model.Telefono = usuario.Telefono;
             ctx.SaveChanges();
         }
 

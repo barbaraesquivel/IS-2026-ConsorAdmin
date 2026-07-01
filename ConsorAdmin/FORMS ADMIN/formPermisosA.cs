@@ -76,13 +76,13 @@ namespace ConsorAdmin.FORMS_ADMIN
 
             foreach (var p in familias)
             {
-                comboBoxFamilias.Items.Add(new ComboItem { Display = $"{p.Codigo} - {p.Nombre}", Value = p });
-                comboBoxContenedor.Items.Add(new ComboItem { Display = $"{p.Codigo} - {p.Nombre}", Value = p });
-                comboBoxFamiliaAgregar.Items.Add(new ComboItem { Display = $"{p.Codigo} - {p.Nombre}", Value = p });
+                comboBoxFamilias.Items.Add(new ItemCombo { Display = $"{p.Codigo} - {p.Nombre}", Value = p });
+                comboBoxContenedor.Items.Add(new ItemCombo { Display = $"{p.Codigo} - {p.Nombre}", Value = p });
+                comboBoxFamiliaAgregar.Items.Add(new ItemCombo { Display = $"{p.Codigo} - {p.Nombre}", Value = p });
             }
 
             foreach (var p in patentes)
-                comboBoxPatentes.Items.Add(new ComboItem { Display = p.Nombre, Value = p });
+                comboBoxPatentes.Items.Add(new ItemCombo { Display = p.Nombre, Value = p });
 
             comboBoxFamilias.DisplayMember = "Display";
             comboBoxPatentes.DisplayMember = "Display";
@@ -109,8 +109,8 @@ namespace ConsorAdmin.FORMS_ADMIN
 
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
-            if (comboBoxFamilias.SelectedItem is not ComboItem familia ||
-                comboBoxPatentes.SelectedItem is not ComboItem patente)
+            if (comboBoxFamilias.SelectedItem is not ItemCombo familia ||
+                comboBoxPatentes.SelectedItem is not ItemCombo patente)
             {
                 MessageBox.Show("Seleccione una familia y una patente.", "Atención",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -133,8 +133,8 @@ namespace ConsorAdmin.FORMS_ADMIN
 
         private void buttonAgregarFamilia_Click(object sender, EventArgs e)
         {
-            if (comboBoxContenedor.SelectedItem is not ComboItem contenedor ||
-                comboBoxFamiliaAgregar.SelectedItem is not ComboItem aAgregar)
+            if (comboBoxContenedor.SelectedItem is not ItemCombo contenedor ||
+                comboBoxFamiliaAgregar.SelectedItem is not ItemCombo aAgregar)
             {
                 MessageBox.Show("Seleccione la familia contenedora y la familia a agregar.", "Atención",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -155,7 +155,7 @@ namespace ConsorAdmin.FORMS_ADMIN
             }
         }
 
-        private class ComboItem
+        private class ItemCombo
         {
             public string Display { get; set; }
             public object Value { get; set; }

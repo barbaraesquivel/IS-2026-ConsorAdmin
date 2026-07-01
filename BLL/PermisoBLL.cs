@@ -10,10 +10,6 @@ namespace BLL
     {
         private readonly PermisoRepositorio _repo = new PermisoRepositorio();
 
-        /// <summary>
-        /// Expande los permisos asignados al usuario: si se asignó una Familia,
-        /// se incluye completa (con todos sus hijos transitivos).
-        /// </summary>
         public List<ComponentePermisoBE> ObtenerArbolDeUsuario(Guid idUsuario)
         {
             var arbolCompleto = _repo.ObtenerArbolCompleto();
@@ -97,8 +93,6 @@ namespace BLL
             contenedor.AgregarPermiso(aAgregar);
             _repo.AgregarHijo(idContenedor, idAgregar);
         }
-
-        // ── Helpers privados ────────────────────────────────────────────────
 
         private ComponentePermisoBE BuscarPorId(IEnumerable<IPermiso> nodos, int id)
         {

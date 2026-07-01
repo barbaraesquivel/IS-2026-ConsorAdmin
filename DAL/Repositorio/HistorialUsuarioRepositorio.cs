@@ -16,7 +16,9 @@ namespace DAL.Repositorio
             string usernameSnap,
             bool activoSnap,
             bool bloqueadoSnap,
-            string permisosSnap)
+            string permisosSnap,
+            string? emailGuardado,
+            string? telefonoGuardado)
         {
             using var ctx = new AppDbContext();
             ctx.HistorialUsuarios.Add(new HistorialUsuario
@@ -28,9 +30,22 @@ namespace DAL.Repositorio
                 UsernameSnap      = usernameSnap,
                 ActivoSnap        = activoSnap,
                 BloqueadoSnap     = bloqueadoSnap,
-                PermisosSnap      = permisosSnap
+                PermisosSnap      = permisosSnap,
+                EmailGuardado     = emailGuardado,
+                TelefonoGuardado  = telefonoGuardado
             });
             ctx.SaveChanges();
+        }
+
+        public UsuarioMemento ObtenerPorId(int idHistorial)
+        {
+            using var ctx = new AppDbContext();
+            var h = ctx.HistorialUsuarios.Find(idHistorial);
+            if (h == null) return null;
+            return new UsuarioMemento(
+                h.IdHistorial, h.IdUsuarioAuditado, h.IdUsuarioActor,
+                h.FechaCambio, h.Accion, h.UsernameSnap, h.ActivoSnap,
+                h.BloqueadoSnap, h.PermisosSnap, h.EmailGuardado, h.TelefonoGuardado);
         }
 
         // Devuelve todos los snapshots de un usuario ordenados del más reciente al más antiguo
@@ -49,7 +64,9 @@ namespace DAL.Repositorio
                     h.UsernameSnap,
                     h.ActivoSnap,
                     h.BloqueadoSnap,
-                    h.PermisosSnap))
+                    h.PermisosSnap,
+                    h.EmailGuardado,
+                    h.TelefonoGuardado))
                 .ToList();
         }
     }

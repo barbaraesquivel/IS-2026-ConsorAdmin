@@ -17,7 +17,9 @@ namespace BLL
             string usernameSnap,
             bool activoSnap,
             bool bloqueadoSnap,
-            List<int> permisosIds)
+            List<int> permisosIds,
+            string? emailGuardado = null,
+            string? telefonoGuardado = null)
         {
             string permisosSnap = permisosIds != null && permisosIds.Count > 0
                 ? string.Join(",", permisosIds)
@@ -25,10 +27,14 @@ namespace BLL
 
             _repo.GuardarSnapshot(
                 idUsuarioAuditado, idUsuarioActor, accion,
-                usernameSnap, activoSnap, bloqueadoSnap, permisosSnap);
+                usernameSnap, activoSnap, bloqueadoSnap, permisosSnap,
+                emailGuardado, telefonoGuardado);
         }
 
         public List<UsuarioMemento> ObtenerHistorial(Guid idUsuarioAuditado)
             => _repo.ObtenerHistorial(idUsuarioAuditado);
+
+        public UsuarioMemento ObtenerPorId(int idHistorial)
+            => _repo.ObtenerPorId(idHistorial);
     }
 }

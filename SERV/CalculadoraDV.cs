@@ -11,7 +11,7 @@ namespace SERV
         public static int CalcularDVH(IVerificable obj)
         {
             long acum = 0;
-            var valores = obj.GetValoresParaDV();
+            var valores = obj.ObtenerValoresParaDV();
             for (int j = 0; j < valores.Count; j++)
             {
                 string val = valores[j] ?? string.Empty;

@@ -35,7 +35,7 @@ namespace BLL
             {
                 int dvhCalculado = CalculadoraDV.CalcularDVH(c);
                 if (dvhCalculado != c.DVH)
-                    resultado.FilasConDvhInvalido.Add(c.GetIdentificador());
+                    resultado.FilasConDvhInvalido.Add(c.ObtenerIdentificador());
             }
 
             // DVV se recalcula sobre los DVH ALMACENADOS: detecta filas agregadas/borradas
@@ -69,10 +69,10 @@ namespace BLL
             int dvv = CalculadoraDV.CalcularDVV(consorcios);
             _vvDAL.GuardarOActualizar(TablaConsorcio, dvv);
 
-            string nombreBackup = BackupConsorcioService.GuardarBackup(consorcios);
+            string nombreArchivo = ServicioBackupConsorcio.GuardarCopiaSeguridad(consorcios);
 
             _log.Registrar(Guid.Empty, AccionesBitacora.GenerarDigitos, ModulosBitacora.Integridad,
-                $"Dígitos generados para {consorcios.Count} consorcio(s). Backup: {nombreBackup}");
+                $"Dígitos generados para {consorcios.Count} consorcio(s). Backup: {nombreArchivo}");
         }
 
         // Recalcula el DVH del consorcio indicado y luego actualiza el DVV de la tabla.
@@ -102,14 +102,14 @@ namespace BLL
         // Contempla tres casos: Modificada, Faltante y Sobrante.
         public List<DiferenciaDV>? CompararConBackup(Guid idAdmin)
         {
-            if (!BackupConsorcioService.ExisteBackup())
+            if (!ServicioBackupConsorcio.ExisteCopiaSeguridad())
                 return null;
 
-            var backups  = BackupConsorcioService.CargarUltimoBackup()!;
+            var backups = ServicioBackupConsorcio.CargarUltimaCopiaSeguridad()!;
             var actuales = _consorcioDAL.ObtenerTodos();
 
-            var backupDict  = backups.ToDictionary(c => c.Id_Consorcio);
-            var actualDict  = actuales.ToDictionary(c => c.Id_Consorcio);
+            var backupDict = backups.ToDictionary(c => c.Id_Consorcio);
+            var actualDict = actuales.ToDictionary(c => c.Id_Consorcio);
             var diferencias = new List<DiferenciaDV>();
 
             // MODIFICADAS y FALTANTES: iterar sobre backup
@@ -155,55 +155,43 @@ namespace BLL
             return diferencias;
         }
 
-        // Deja la tabla CONSORCIO exactamente igual al último backup, cubriendo los 3 casos:
-        //   MODIFICADA  → UPDATE de campos con valores del backup
-        //   FALTANTE    → INSERT de la fila que fue borrada por fuera del sistema
-        //   SOBRANTE    → DELETE de la fila que fue agregada por fuera del sistema
-        //                 (puede fallar si tiene registros hijos con FK NO ACTION)
-        // Nota: se usa UPDATE/INSERT/DELETE por PK porque todas las FK de UNIDAD, SERVICIO
-        // y GESTOR_CONSORCIO tienen ON DELETE NO ACTION; borrar e insertar masivamente
-        // rompería las referencias de las filas hijas.
-        public (int actualizadas, int insertadas, int eliminadas, List<string> errores)
-            RestaurarDesdeBackup(Guid idAdmin)
+        public ResultadoRestauracion RestaurarDesdeBackup(Guid idAdmin)
         {
-            if (!BackupConsorcioService.ExisteBackup())
+            if (!ServicioBackupConsorcio.ExisteCopiaSeguridad())
                 throw new Exception("No hay backup disponible para restaurar.");
 
-            var backups   = BackupConsorcioService.CargarUltimoBackup()!;
-            var actuales  = _consorcioDAL.ObtenerTodos();
+            var backups = ServicioBackupConsorcio.CargarUltimaCopiaSeguridad()!;
+            var actuales = _consorcioDAL.ObtenerTodos();
 
             var backupDict = backups.ToDictionary(c => c.Id_Consorcio);
             var actualDict = actuales.ToDictionary(c => c.Id_Consorcio);
 
-            int actualizadas = 0, insertadas = 0, eliminadas = 0;
-            var errores = new List<string>();
+            var resultado = new ResultadoRestauracion();
 
             // MODIFICADAS y FALTANTES: iterar sobre backup
             foreach (var bk in backups)
             {
                 if (actualDict.ContainsKey(bk.Id_Consorcio))
                 {
-                    // Fila presente en ambos → UPDATE campos con valores del backup
                     _consorcioDAL.RestaurarCampos(
                         bk.Id_Consorcio, bk.Nombre, bk.Direccion, bk.CantUnidades);
-                    actualizadas++;
+                    resultado.Actualizadas++;
                 }
                 else
                 {
-                    // Fila en backup pero no en BD → INSERT (recupera fila borrada)
                     try
                     {
                         _consorcioDAL.Crear(bk);
-                        insertadas++;
+                        resultado.Insertadas++;
                     }
                     catch (Exception ex)
                     {
-                        errores.Add($"No se pudo insertar '{bk.Nombre}' ({bk.Id_Consorcio}): {ex.Message}");
+                        resultado.Errores.Add($"No se pudo insertar '{bk.Nombre}' ({bk.Id_Consorcio}): {ex.Message}");
                     }
                 }
             }
 
-            // SOBRANTES: iterar sobre BD buscando filas que no están en el backup → DELETE
+            // SOBRANTES: filas en BD que no están en el backup
             foreach (var ac in actuales)
             {
                 if (!backupDict.ContainsKey(ac.Id_Consorcio))
@@ -211,36 +199,26 @@ namespace BLL
                     try
                     {
                         _consorcioDAL.Eliminar(ac);
-                        eliminadas++;
+                        resultado.Eliminadas++;
                     }
                     catch (Exception ex)
                     {
-                        errores.Add($"No se pudo eliminar '{ac.Nombre}' ({ac.Id_Consorcio})" +
+                        resultado.Errores.Add($"No se pudo eliminar '{ac.Nombre}' ({ac.Id_Consorcio})" +
                             $" — tiene registros dependientes; eliminalos manualmente: {ex.Message}");
                     }
                 }
             }
 
-            if (errores.Count == 0)
-            {
-                // Restauración completa: el estado es íntegro → genera nuevo backup como punto
-                // de restauración válido y actualiza DVH/DVV en BD.
+            if (resultado.Errores.Count == 0)
                 GenerarDigitos();
-            }
             else
-            {
-                // Restauración parcial: preservar el backup anterior intacto (sigue siendo la
-                // referencia para reintentar las operaciones fallidas). Solo actualizar DVH/DVV
-                // en BD para que las filas correctamente restauradas pasen la verificación.
                 RecalcularDvhYDvvSinBackup();
-            }
 
             _log.Registrar(idAdmin, AccionesBitacora.RestaurarBackup, ModulosBitacora.Integridad,
-                $"Restauración desde backup: {actualizadas} actualizadas, {insertadas} insertadas, " +
-                $"{eliminadas} eliminadas, {errores.Count} error(es). " +
-                $"Backup {(errores.Count == 0 ? "actualizado" : "preservado sin cambios")}.");
+                $"Restauración desde backup: {resultado.Actualizadas} actualizadas, {resultado.Insertadas} insertadas, " +
+                $"{resultado.Eliminadas} eliminadas, {resultado.Errores.Count} error(es).");
 
-            return (actualizadas, insertadas, eliminadas, errores);
+            return resultado;
         }
 
         // Recalcula DVH/DVV en la BD sin tocar el archivo de backup.

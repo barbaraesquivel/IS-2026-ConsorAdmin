@@ -6,6 +6,8 @@
         public string Contraseña { get; set; }
         public bool Bloqueado { get; set ; }
         public int? IdIdiomaPreferido { get; set; }
+        public string? Email { get; set; }
+        public string? Telefono { get; set; }
 
         public Guid Id { get; set ; }
         public bool Baja { get; set; }

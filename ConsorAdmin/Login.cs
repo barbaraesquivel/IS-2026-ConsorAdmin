@@ -103,6 +103,9 @@ namespace ConsorAdmin
                     : traductorBLL.ObtenerIdiomaDefault();
 
                 SessionManager.CambiarIdioma(idiomaUsuario);
+
+                if (cboIdiomaPreLogin.SelectedItem is IdiomaBE idiomaElegido)
+                    _usuarioBLL.ActualizarIdiomaPreferido(usuario.Id, idiomaElegido.IdIdioma);
                 // --- fin código de idioma ---
                 intentosFallidos = 0;
                 this.DialogResult = DialogResult.OK;

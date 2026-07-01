@@ -81,7 +81,6 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
             labelEdificio_FormReporteConsorcioG.Tag = "labelEdificio_FormReporteConsorcioG";
         }
 
-        // ── Cargar grilla con los consorcios del gestor ──────────────────────
         private void CargarGrilla()
         {
             try
@@ -110,7 +109,6 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
             }
         }
 
-        // ── Seleccionar consorcio del combo para editar ─────────────────────
         private void comboBoxEdificios_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -129,7 +127,6 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
             }
         }
 
-        // ── Guardar: crea o edita según si hay uno seleccionado ──────────────
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
             try

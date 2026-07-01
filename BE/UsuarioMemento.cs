@@ -15,6 +15,8 @@ namespace BE
         public bool ActivoSnap { get; }
         public bool BloqueadoSnap { get; }
         public string PermisosSnap { get; }       // "1,3,7" o null
+        public string? EmailGuardado { get; }
+        public string? TelefonoGuardado { get; }
 
         public UsuarioMemento(
             int idHistorial,
@@ -25,7 +27,9 @@ namespace BE
             string usernameSnap,
             bool activoSnap,
             bool bloqueadoSnap,
-            string permisosSnap)
+            string permisosSnap,
+            string? emailGuardado = null,
+            string? telefonoGuardado = null)
         {
             IdHistorial       = idHistorial;
             IdUsuarioAuditado = idUsuarioAuditado;
@@ -36,6 +40,8 @@ namespace BE
             ActivoSnap        = activoSnap;
             BloqueadoSnap     = bloqueadoSnap;
             PermisosSnap      = permisosSnap;
+            EmailGuardado     = emailGuardado;
+            TelefonoGuardado  = telefonoGuardado;
         }
 
         // Descripción legible para mostrar en el DataGridView / combo

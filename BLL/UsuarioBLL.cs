@@ -17,7 +17,7 @@ namespace BLL
         public UsuarioBLL()
         {
             _usuarioRepo = new UsuarioRepositorio();
-            _log         = new LogBitacoraBLL();
+            _log = new LogBitacoraBLL();
         }
         public void ActualizarIdiomaPreferido(Guid idUsuario, int idIdioma)
             => _usuarioRepo.ActualizarIdiomaPreferido(idUsuario, idIdioma);
@@ -28,7 +28,7 @@ namespace BLL
             if (string.IsNullOrWhiteSpace(password))
                 throw new ArgumentException("La contraseña es obligatoria.");
 
-            string passwordHash = Hashear(password);
+            string passwordHash = GenerarHash(password);
             UsuarioBE usuario;
             try
             {
@@ -87,8 +87,6 @@ namespace BLL
             }
         }
 
-        // ── CU03 ──────────────────────────────────────────────────────────────
-
         public List<UsuarioBE> ObtenerTodos()
         {
             return _usuarioRepo.ObtenerTodos();
@@ -114,7 +112,7 @@ namespace BLL
             if (string.IsNullOrWhiteSpace(usuario.Contraseña))
                 throw new ArgumentException("La contraseña es obligatoria en el alta.");
 
-            usuario.Contraseña = Hashear(usuario.Contraseña);
+            usuario.Contraseña = GenerarHash(usuario.Contraseña);
             usuario.Id = Guid.NewGuid();
             usuario.Baja = false;
 
@@ -124,7 +122,7 @@ namespace BLL
 
             var histBLL = new HistorialUsuarioBLL();
             var actor = SessionManager.ObtenerInstancia.Usuario.Id;
-            histBLL.RegistrarSnapshot(usuario.Id, actor, "ALTA", usuario.Usuario, !usuario.Baja, usuario.Bloqueado, permisosIds ?? new List<int>());
+            histBLL.RegistrarSnapshot(usuario.Id, actor, "ALTA", usuario.Usuario, !usuario.Baja, usuario.Bloqueado, permisosIds ?? new List<int>(), usuario.Email, usuario.Telefono);
 
             _log.Registrar(AccionesBitacora.AltaUsuario, ModulosBitacora.Usuarios,
                 $"Usuario creado: {usuario.Usuario}");
@@ -146,7 +144,7 @@ namespace BLL
             }
             else
             {
-                usuario.Contraseña = Hashear(usuario.Contraseña);
+                usuario.Contraseña = GenerarHash(usuario.Contraseña);
             }
 
             _usuarioRepo.Actualizar(usuario);
@@ -154,7 +152,7 @@ namespace BLL
 
             var histBLL = new HistorialUsuarioBLL();
             var actor = SessionManager.ObtenerInstancia.Usuario.Id;
-            histBLL.RegistrarSnapshot(usuario.Id, actor, "MODIFICACION", usuario.Usuario, !usuario.Baja, usuario.Bloqueado, permisosIds ?? new List<int>());
+            histBLL.RegistrarSnapshot(usuario.Id, actor, "MODIFICACION", usuario.Usuario, !usuario.Baja, usuario.Bloqueado, permisosIds ?? new List<int>(), usuario.Email, usuario.Telefono);
 
             _log.Registrar(AccionesBitacora.ModificarUsuario, ModulosBitacora.Usuarios,
                 $"Usuario modificado: {usuario.Usuario}");
@@ -168,10 +166,49 @@ namespace BLL
             var usuarioActual = _usuarioRepo.ObtenerPorId(idUsuario);
             var histBLL = new HistorialUsuarioBLL();
             var actor = SessionManager.ObtenerInstancia.Usuario.Id;
-            histBLL.RegistrarSnapshot(idUsuario, actor, "BAJA", usuarioActual?.Usuario ?? "", false, usuarioActual?.Bloqueado ?? false, null);
+            histBLL.RegistrarSnapshot(idUsuario, actor, "BAJA", usuarioActual?.Usuario ?? "", false, usuarioActual?.Bloqueado ?? false, null, usuarioActual?.Email, usuarioActual?.Telefono);
 
             _log.Registrar(AccionesBitacora.InactivarUsuario, ModulosBitacora.Usuarios,
                 $"Usuario inactivado: {idUsuario}");
+        }
+
+        public void RevertirAtributo(Guid idUsuario, int idHistorial, string atributo)
+        {
+            var histBLL = new HistorialUsuarioBLL();
+            var registro = histBLL.ObtenerPorId(idHistorial);
+            if (registro == null) throw new Exception("Registro de historial no encontrado.");
+
+            var usuario = _usuarioRepo.ObtenerPorId(idUsuario);
+            if (usuario == null) throw new Exception("Usuario no encontrado.");
+
+            switch (atributo)
+            {
+                case "Email":
+                    usuario.Email = registro.EmailGuardado;
+                    break;
+                case "Telefono":
+                    usuario.Telefono = registro.TelefonoGuardado;
+                    break;
+                case "Username":
+                    var existente = _usuarioRepo.ObtenerPorNombre(registro.UsernameSnap);
+                    if (existente != null && existente.Id != idUsuario)
+                        throw new InvalidOperationException($"El nombre de usuario '{registro.UsernameSnap}' ya está en uso por otro usuario.");
+                    usuario.Usuario = registro.UsernameSnap;
+                    break;
+                default:
+                    throw new ArgumentException($"El campo '{atributo}' no puede revertirse individualmente.");
+            }
+
+            _usuarioRepo.Actualizar(usuario);
+
+            var permisosActuales = _usuarioRepo.ObtenerIdPermisosDeUsuario(idUsuario);
+            var actor = SessionManager.ObtenerInstancia.Usuario.Id;
+            histBLL.RegistrarSnapshot(idUsuario, actor, $"REVERSION:{atributo}",
+                usuario.Usuario, !usuario.Baja, usuario.Bloqueado, permisosActuales,
+                usuario.Email, usuario.Telefono);
+
+            _log.Registrar(AccionesBitacora.ModificarUsuario, ModulosBitacora.Usuarios,
+                $"Reversión del campo '{atributo}' para usuario: {usuario.Usuario}");
         }
 
         public List<ComponentePermisoBE> ObtenerArbolPermisos()
@@ -190,9 +227,7 @@ namespace BLL
             return resultado;
         }
 
-        // ── Helpers ───────────────────────────────────────────────────────────
-
-        public static string Hashear(string texto)
+        public static string GenerarHash(string texto)
         {
             using var sha = SHA256.Create();
             byte[] bytes = sha.ComputeHash(Encoding.UTF8.GetBytes(texto));

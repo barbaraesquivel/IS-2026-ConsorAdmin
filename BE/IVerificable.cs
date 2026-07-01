@@ -4,8 +4,8 @@ namespace BE
 {
     public interface IVerificable
     {
-        string GetIdentificador();
-        List<string> GetValoresParaDV();
+        string ObtenerIdentificador();
+        List<string> ObtenerValoresParaDV();
         int DVH { get; set; }
     }
 }

@@ -16,6 +16,7 @@ namespace DAL.Repositorio
         List<PermisoBE> ObtenerTodosPermisos();
         void ActualizarPermisosDeUsuario(Guid idUsuario, List<int> nuevosPermisos);
         void ActualizarIdiomaPreferido(Guid idUsuario, int idIdioma);
+        List<int> ObtenerIdPermisosDeUsuario(Guid idUsuario);
 
         List<UsuarioBE> ObtenerGestores();
     }

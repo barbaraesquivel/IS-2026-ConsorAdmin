@@ -28,12 +28,9 @@ namespace ConsorAdmin.FORMS_ADMIN
                 var idUsuario = SessionManager.ObtenerInstancia.Usuario.Id;
                 labelUsername_Form1Admin.Text = SessionManager.ObtenerInstancia.Usuario.Usuario;
 
-                // Botones con patente definida
-                PermisoUIHelper.AplicarPermisos(idUsuario, _permisoBLL,
-                    (buttonGestionUsuarios, CodigosPermiso.GestionarUsuarios),  // US001
-                    (buttonPermisos, CodigosPermiso.AsignarRoles),       // US002
-                    (buttonBitacora, CodigosPermiso.ConsultarBitacora)   // BT001
-                );
+                PermisoHelper.AplicarPermiso(buttonGestionUsuarios, CodigosPermiso.GestionarUsuarios, idUsuario, _permisoBLL);
+                PermisoHelper.AplicarPermiso(buttonPermisos, CodigosPermiso.AsignarRoles, idUsuario, _permisoBLL);
+                PermisoHelper.AplicarPermiso(buttonBitacora, CodigosPermiso.ConsultarBitacora, idUsuario, _permisoBLL);
 
                 // Botones huérfanos — siempre visibles, sin patente asignada aún
                 // TODO: pendiente definir patente para buttonDashboard

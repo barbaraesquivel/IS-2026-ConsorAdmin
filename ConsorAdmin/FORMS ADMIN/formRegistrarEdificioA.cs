@@ -45,7 +45,6 @@ namespace ConsorAdmin.FORMS_ADMIN
             }
         }
 
-        // ── Cargar grilla con los consorcios del gestor ──────────────────────
         private void CargarGrilla()
         {
 
@@ -88,7 +87,6 @@ namespace ConsorAdmin.FORMS_ADMIN
             }
         }
 
-        // ── Seleccionar consorcio del combo para editar ─────────────────────
         private void comboBoxEdificioModificar_SelectedIndexChanged(object sender, EventArgs e)
         {
             try

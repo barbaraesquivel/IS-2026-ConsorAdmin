@@ -15,11 +15,14 @@ namespace ConsorAdmin.FORMS_ADMIN
         private readonly IPermisoBLL _permisoBLL = new PermisoBLL();
         private readonly HistorialUsuarioBLL _histBLL = new HistorialUsuarioBLL();
 
-        // Lista completa de permisos como árbol Composite
         private List<ComponentePermisoBE> _arbolPermisos = new();
-
-        // Usuario actualmente seleccionado para modificar (null = alta)
         private UsuarioBE _usuarioSeleccionado = null;
+
+        // Controles de Email/Teléfono y Revertir campo (se inicializan en Load)
+        private TextBox textBoxEmailModificar;
+        private TextBox textBoxTelefonoModificar;
+        private ComboBox cboAtributoRevertir;
+        private Button btnRevertirAtributo_FormGestionUsuariosA;
 
         public formGestionUsuariosA()
         {
@@ -38,6 +41,7 @@ namespace ConsorAdmin.FORMS_ADMIN
         private void formGestionUsuariosA_Load(object sender, EventArgs e)
         {
             AsignarTags();
+            InicializarControlesExtra();
             SessionManager.SuscribirObservador(this);
             Traducir();
             CargarDatos();
@@ -46,6 +50,78 @@ namespace ConsorAdmin.FORMS_ADMIN
         private void formGestionUsuariosA_FormClosing(object sender, FormClosingEventArgs e)
         {
             SessionManager.DesuscribirObservador(this);
+        }
+
+        private void InicializarControlesExtra()
+        {
+            // Mover botones actuales hacia abajo para hacer lugar a Email y Teléfono
+            buttonRMUsuario_FormGestionUsuariosA.Location = new Point(130, 262);
+            buttonLimpiarCampos_FormGestionUsuariosA.Location = new Point(361, 262);
+            groupBoxModificar_FormGestionUsuariosA.Size = new Size(655, 307);
+
+            // Desplazar secciones inferiores
+            groupBoxEliminar_FormGestionUsuariosA.Location = new Point(15, 335);
+            groupBoxUsuarios_FormGestionUsuariosA.Location = new Point(15, 440);
+            grpHistorial_FormGestionUsuariosA.Location = new Point(15, 641);
+
+            var estiloTexto = new Action<TextBox>(tb =>
+            {
+                tb.BackColor = Color.FromArgb(13, 22, 40);
+                tb.ForeColor = SystemColors.ControlLight;
+            });
+
+            // Campo Email
+            var lblEmail = new Label { AutoSize = true, ForeColor = SystemColors.ControlLight, Location = new Point(7, 190), Text = "Email:" };
+            textBoxEmailModificar = new TextBox { Location = new Point(129, 187), Size = new Size(177, 22) };
+            estiloTexto(textBoxEmailModificar);
+            groupBoxModificar_FormGestionUsuariosA.Controls.Add(lblEmail);
+            groupBoxModificar_FormGestionUsuariosA.Controls.Add(textBoxEmailModificar);
+
+            // Campo Teléfono
+            var lblTelefono = new Label { AutoSize = true, ForeColor = SystemColors.ControlLight, Location = new Point(7, 217), Text = "Teléfono:" };
+            textBoxTelefonoModificar = new TextBox { Location = new Point(129, 214), Size = new Size(177, 22) };
+            estiloTexto(textBoxTelefonoModificar);
+            groupBoxModificar_FormGestionUsuariosA.Controls.Add(lblTelefono);
+            groupBoxModificar_FormGestionUsuariosA.Controls.Add(textBoxTelefonoModificar);
+
+            // Expandir GroupBox historial y ajustar botón existente
+            grpHistorial_FormGestionUsuariosA.Size = new Size(655, 250);
+            btnRestaurarEstado_FormGestionUsuariosA.Location = new Point(455, 90);
+            btnRestaurarEstado_FormGestionUsuariosA.Size = new Size(190, 35);
+            lblInfoRestaurar_FormGestionUsuariosA.Size = new Size(190, 65);
+
+            // Label "Campo a revertir:"
+            var lblCampo = new Label { AutoSize = true, ForeColor = SystemColors.ControlLight, Location = new Point(455, 133), Text = "Campo a revertir:" };
+            grpHistorial_FormGestionUsuariosA.Controls.Add(lblCampo);
+
+            // ComboBox de atributos
+            cboAtributoRevertir = new ComboBox
+            {
+                BackColor = Color.FromArgb(13, 22, 40),
+                ForeColor = SystemColors.ControlLight,
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                Location = new Point(455, 152),
+                Size = new Size(190, 22)
+            };
+            cboAtributoRevertir.Items.AddRange(new object[] { "Email", "Telefono", "Username" });
+            cboAtributoRevertir.SelectedIndex = 0;
+            grpHistorial_FormGestionUsuariosA.Controls.Add(cboAtributoRevertir);
+
+            // Botón "Revertir campo seleccionado"
+            btnRevertirAtributo_FormGestionUsuariosA = new Button
+            {
+                BackColor = Color.FromArgb(255, 140, 0),
+                FlatStyle = FlatStyle.Flat,
+                ForeColor = SystemColors.ControlLight,
+                Location = new Point(455, 180),
+                Size = new Size(190, 40),
+                Text = "Revertir campo seleccionado"
+            };
+            btnRevertirAtributo_FormGestionUsuariosA.FlatAppearance.BorderSize = 0;
+            btnRevertirAtributo_FormGestionUsuariosA.Click += btnRevertirAtributo_Click;
+            grpHistorial_FormGestionUsuariosA.Controls.Add(btnRevertirAtributo_FormGestionUsuariosA);
+
+            this.ClientSize = new Size(682, 911);
         }
 
         public void ActualizarIdioma(IdiomaBE idioma)
@@ -92,8 +168,6 @@ namespace ConsorAdmin.FORMS_ADMIN
             btnRestaurarEstado_FormGestionUsuariosA.Tag = "btnRestaurarEstado_FormGestionUsuariosA";
         }
 
-        // ── Carga inicial ─────────────────────────────────────────────────────
-
         private void CargarDatos()
         {
             CargarArbolPermisos();
@@ -124,13 +198,13 @@ namespace ConsorAdmin.FORMS_ADMIN
                 comboBoxUsuarios.Items.Clear();
                 comboBoxUsuarioEliminar.Items.Clear();
 
-                comboBoxUsuarios.Items.Add(new ComboItem { Display = "(nuevo usuario)", Value = null });
+                comboBoxUsuarios.Items.Add(new ItemCombo { Display = "(nuevo usuario)", Value = null });
 
                 foreach (var u in usuarios)
                 {
-                    var item = new ComboItem { Display = u.Usuario, Value = u };
+                    var item = new ItemCombo { Display = u.Usuario, Value = u };
                     comboBoxUsuarios.Items.Add(item);
-                    comboBoxUsuarioEliminar.Items.Add(new ComboItem { Display = u.Usuario, Value = u });
+                    comboBoxUsuarioEliminar.Items.Add(new ItemCombo { Display = u.Usuario, Value = u });
                 }
 
                 comboBoxUsuarios.DisplayMember = "Display";
@@ -168,8 +242,6 @@ namespace ConsorAdmin.FORMS_ADMIN
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        // ── TreeView de permisos ──────────────────────────────────────────────
 
         private void PopularTreeView(HashSet<int> permisosActivos)
         {
@@ -218,11 +290,10 @@ namespace ConsorAdmin.FORMS_ADMIN
             }
         }
 
-        // ── Selección de usuario para modificar ───────────────────────────────
 
         private void ComboBoxUsuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxUsuarios.SelectedItem is not ComboItem item) return;
+            if (comboBoxUsuarios.SelectedItem is not ItemCombo item) return;
 
             _usuarioSeleccionado = item.Value as UsuarioBE;
 
@@ -236,9 +307,11 @@ namespace ConsorAdmin.FORMS_ADMIN
 
             // Modificación: poblar campos
             textBoxNombreModificar.Text = _usuarioSeleccionado.Usuario;
-            textBoxContraseñaModificar.Text = string.Empty; // no mostrar hash
+            textBoxContraseñaModificar.Text = string.Empty;
             checkBoxActivoModificar_FormGestionUsuariosA.Checked = !_usuarioSeleccionado.Baja;
             checkBoxBloqueadoModificar_FormGestionUsuariosA.Checked = _usuarioSeleccionado.Bloqueado;
+            textBoxEmailModificar.Text = _usuarioSeleccionado.Email ?? string.Empty;
+            textBoxTelefonoModificar.Text = _usuarioSeleccionado.Telefono ?? string.Empty;
 
             // Marcar permisos que ya tiene (cargados via BLL, no desde el objeto en memoria)
             var permisosActivos = _permisoBLL
@@ -249,8 +322,6 @@ namespace ConsorAdmin.FORMS_ADMIN
 
             CargarHistorial(_usuarioSeleccionado.Id);
         }
-
-        // ── Historial (Memento) ───────────────────────────────────────────────
 
         private void CargarHistorial(Guid idUsuario)
         {
@@ -265,6 +336,8 @@ namespace ConsorAdmin.FORMS_ADMIN
                     Username = m.UsernameSnap,
                     Activo = m.ActivoSnap,
                     Bloqueado = m.BloqueadoSnap,
+                    Email = m.EmailGuardado ?? "",
+                    Telefono = m.TelefonoGuardado ?? "",
                     Permisos = m.PermisosSnap ?? "(ninguno)"
                 }).ToList();
 
@@ -348,7 +421,6 @@ namespace ConsorAdmin.FORMS_ADMIN
             }
         }
 
-        // ── Registrar / Modificar ─────────────────────────────────────────────
 
         private void BtnRegistrarModificar_Click(object sender, EventArgs e)
         {
@@ -365,7 +437,9 @@ namespace ConsorAdmin.FORMS_ADMIN
                     Usuario = nombre,
                     Contraseña = contraseña,
                     Baja = activo,
-                    Bloqueado = bloqueado
+                    Bloqueado = bloqueado,
+                    Email = textBoxEmailModificar.Text.Trim(),
+                    Telefono = textBoxTelefonoModificar.Text.Trim()
                 };
 
                 if (_usuarioSeleccionado == null)
@@ -394,11 +468,10 @@ namespace ConsorAdmin.FORMS_ADMIN
             }
         }
 
-        // ── Eliminar (baja lógica) ────────────────────────────────────────────
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            if (comboBoxUsuarioEliminar.SelectedItem is not ComboItem item || item.Value is not UsuarioBE usuario)
+            if (comboBoxUsuarioEliminar.SelectedItem is not ItemCombo item || item.Value is not UsuarioBE usuario)
             {
                 MessageBox.Show("Seleccione un usuario para eliminar.", "Atención",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -427,7 +500,6 @@ namespace ConsorAdmin.FORMS_ADMIN
             }
         }
 
-        // ── Limpiar ───────────────────────────────────────────────────────────
 
         private void BtnLimpiar_Click(object sender, EventArgs e)
         {
@@ -440,14 +512,69 @@ namespace ConsorAdmin.FORMS_ADMIN
             _usuarioSeleccionado = null;
             textBoxNombreModificar.Clear();
             textBoxContraseñaModificar.Clear();
+            textBoxEmailModificar.Clear();
+            textBoxTelefonoModificar.Clear();
             checkBoxActivoModificar_FormGestionUsuariosA.Checked = true;
             checkBoxBloqueadoModificar_FormGestionUsuariosA.Checked = false;
             PopularTreeView(new HashSet<int>());
         }
 
-        // ── Clase auxiliar para ComboBox ──────────────────────────────────────
 
-        private class ComboItem
+        private void btnRevertirAtributo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_usuarioSeleccionado == null)
+                {
+                    MessageBox.Show("Seleccioná un usuario primero.", "Atención",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (dgvHistorial.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Seleccioná una fila del historial.", "Atención",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                string atributo = cboAtributoRevertir.SelectedItem?.ToString();
+                if (string.IsNullOrEmpty(atributo))
+                {
+                    MessageBox.Show("Seleccioná el campo a revertir.", "Atención",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                int idHistorial = (int)dgvHistorial.SelectedRows[0].Cells["IdHistorial"].Value;
+                string fechaRegistro = dgvHistorial.SelectedRows[0].Cells["Fecha"].Value?.ToString() ?? "";
+                Guid idUsuarioRevertir = _usuarioSeleccionado.Id;
+
+                var confirm = MessageBox.Show(
+                    $"¿Revertir el campo '{atributo}' al valor que tenía en:\n{fechaRegistro}\n\n" +
+                    "Se generará un nuevo registro en el historial con la acción 'REVERSION'.",
+                    "Confirmar reversión de campo",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (confirm != DialogResult.Yes) return;
+
+                _bll.RevertirAtributo(idUsuarioRevertir, idHistorial, atributo);
+
+                MessageBox.Show($"Campo '{atributo}' revertido correctamente.", "Éxito",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                CargarDatos();
+                CargarHistorial(idUsuarioRevertir);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al revertir",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private class ItemCombo
         {
             public string Display { get; set; }
             public object Value { get; set; }

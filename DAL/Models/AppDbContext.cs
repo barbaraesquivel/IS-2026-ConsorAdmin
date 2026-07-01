@@ -396,6 +396,10 @@ public partial class AppDbContext : DbContext
                 .HasColumnName("username");
             entity.Property(e => e.IdIdiomaPreferido)
                   .HasColumnName("id_idioma_preferido");
+            entity.Property(e => e.Email)
+                  .HasColumnName("email").HasMaxLength(255).IsRequired(false);
+            entity.Property(e => e.Telefono)
+                  .HasColumnName("telefono").HasMaxLength(50).IsRequired(false);
 
             entity.HasOne(e => e.IdiomaPreferidoNavigation)
                   .WithMany()
@@ -475,6 +479,8 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.ActivoSnap).HasColumnName("activo_snap");
             entity.Property(e => e.BloqueadoSnap).HasColumnName("bloqueado_snap");
             entity.Property(e => e.PermisosSnap).HasColumnName("permisos_snap").IsRequired(false);
+            entity.Property(e => e.EmailGuardado).HasColumnName("email_guardado").HasMaxLength(255).IsRequired(false);
+            entity.Property(e => e.TelefonoGuardado).HasColumnName("telefono_guardado").HasMaxLength(50).IsRequired(false);
 
             entity.HasOne(e => e.UsuarioAuditadoNavigation)
                   .WithMany()

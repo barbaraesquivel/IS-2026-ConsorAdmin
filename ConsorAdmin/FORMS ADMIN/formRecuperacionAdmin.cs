@@ -130,8 +130,6 @@ namespace ConsorAdmin
             this.ResumeLayout(false);
         }
 
-        // ── Cargar tabla de diferencias ────────────────────────────────────
-
         private void CargarComparacion()
         {
             try
@@ -173,7 +171,6 @@ namespace ConsorAdmin
             }
         }
 
-        // ── Colores por tipo de diferencia ─────────────────────────────────
 
         private void Dgv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -188,7 +185,6 @@ namespace ConsorAdmin
             };
         }
 
-        // ── Restaurar desde backup ─────────────────────────────────────────
 
         private void BtnRestaurar_Click(object sender, EventArgs e)
         {
@@ -204,22 +200,21 @@ namespace ConsorAdmin
 
             try
             {
-                var (actualizadas, insertadas, eliminadas, errores) =
-                    new VerificadorBLL().RestaurarDesdeBackup(_idAdmin);
+                var resultado = new VerificadorBLL().RestaurarDesdeBackup(_idAdmin);
 
                 string msg = "Restauración completada:\n" +
-                    $"  • {actualizadas} fila(s) actualizada(s)  (campos modificados)\n" +
-                    $"  • {insertadas}   fila(s) insertada(s)    (filas faltantes recuperadas)\n" +
-                    $"  • {eliminadas}   fila(s) eliminada(s)    (filas sobrantes removidas)";
+                    $"  • {resultado.Actualizadas} fila(s) actualizada(s)\n" +
+                    $"  • {resultado.Insertadas} fila(s) insertada(s)\n" +
+                    $"  • {resultado.Eliminadas} fila(s) eliminada(s)";
 
-                if (errores.Count > 0)
-                    msg += "\n\nOperaciones fallidas (requieren intervención manual):\n" +
-                           string.Join("\n", errores.Select(e => $"  • {e}"));
+                if (resultado.Errores.Count > 0)
+                    msg += "\n\nOperaciones fallidas:\n" +
+                           string.Join("\n", resultado.Errores.Select(e => $"  • {e}"));
 
                 msg += "\n\nCierre este panel para continuar.";
 
                 MessageBox.Show(msg, "Restauración", MessageBoxButtons.OK,
-                    errores.Count == 0 ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
+                    resultado.Errores.Count == 0 ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
                 this.Close();
             }
             catch (Exception ex)
@@ -229,7 +224,6 @@ namespace ConsorAdmin
             }
         }
 
-        // ── Recalcular / Generar línea base ────────────────────────────────
 
         private void BtnRecalcular_Click(object sender, EventArgs e)
         {

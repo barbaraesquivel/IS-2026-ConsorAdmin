@@ -15,9 +15,9 @@ namespace BE
         public List<GestorConsorcioBE> gestorConsorcios { get; set; }
         public List<UnidadBE> Unidades { get; set; }
 
-        public string GetIdentificador() => Id_Consorcio;
+        public string ObtenerIdentificador() => Id_Consorcio;
 
-        public List<string> GetValoresParaDV()
+        public List<string> ObtenerValoresParaDV()
         {
             // Orden fijo: cualquier cambio en posición produce un DVH distinto.
             // La serialización de unidades ordena por Id_Unidad para que sea determinística.

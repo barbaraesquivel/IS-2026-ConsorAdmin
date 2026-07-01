@@ -91,7 +91,6 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
             labelUnidades_FormGestionarUnidadesG.Tag = "labelUnidades_FormGestionarUnidadesG";
         }
 
-        // ── AGREGAR UNIDAD ───────────────────────────────────────────────────
         private void buttonGuardarUnidad_Click(object sender, EventArgs e)
         {
             try
@@ -140,7 +139,6 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
             }
         }
 
-        // ── MODIFICAR UNIDAD ─────────────────────────────────────────────────
         private void comboBoxUnidadModificar_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxUnidadModificar.SelectedItem is not UnidadBE unidad) return;
@@ -215,7 +213,6 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
             }
         }
 
-        // ── ELIMINAR UNIDAD ──────────────────────────────────────────────────
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
             try
@@ -256,7 +253,6 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
             }
         }
 
-        // ── CARGA DE COMBOS Y GRILLA ─────────────────────────────────────────
         private void CargarCombos()
         {
             var unidades = _unidadBLL.ObtenerTodas();

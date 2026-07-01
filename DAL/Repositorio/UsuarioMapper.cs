@@ -19,7 +19,9 @@ namespace DAL.Repositorio
                 Contraseña = usuario.PasswordHash,
                 Bloqueado = usuario.Bloqueado,
                 Baja = !usuario.Activo,
-                IdIdiomaPreferido = usuario.IdIdiomaPreferido, // ← esta línea faltaba
+                IdIdiomaPreferido = usuario.IdIdiomaPreferido,
+                Email = usuario.Email,
+                Telefono = usuario.Telefono,
                 consorcistaBE = null!,
                 proovedorBE = usuario.Proveedor != null
             ? ProovedorMapper.Map(usuario.Proveedor)
@@ -49,6 +51,8 @@ namespace DAL.Repositorio
                 Bloqueado = usuarioBE.Bloqueado,
                 Activo = !usuarioBE.Baja,
                 IdIdiomaPreferido = usuarioBE.IdIdiomaPreferido,
+                Email = usuarioBE.Email,
+                Telefono = usuarioBE.Telefono,
                 LogBitacoras = usuarioBE.logBitacoras?
                     .Select(LogBitacoraMapper.Map)
                     .ToList() ?? new List<LogBitacora>(),

@@ -13,6 +13,8 @@ public partial class HistorialUsuario
     public bool ActivoSnap { get; set; }
     public bool BloqueadoSnap { get; set; }
     public string? PermisosSnap { get; set; }
+    public string? EmailGuardado { get; set; }
+    public string? TelefonoGuardado { get; set; }
 
     // Navegación EF
     public virtual Usuario UsuarioAuditadoNavigation { get; set; } = null!;

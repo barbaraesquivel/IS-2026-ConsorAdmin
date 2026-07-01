@@ -43,7 +43,6 @@ namespace ConsorAdmin.FORMS_ADMIN
             CargarCombos();
         }
 
-        // ── Carga de combos ───────────────────────────────────────────────────
 
         private void CargarCombos()
         {
@@ -51,9 +50,9 @@ namespace ConsorAdmin.FORMS_ADMIN
             {
                 // Usuarios
                 cmbUsuario.Items.Clear();
-                cmbUsuario.Items.Add(new ComboItem { Display = "(Todos)", Value = null });
+                cmbUsuario.Items.Add(new ItemCombo { Display = "(Todos)", Value = null });
                 foreach (var (id, username) in _bll.ObtenerUsuariosConLogs())
-                    cmbUsuario.Items.Add(new ComboItem { Display = username, Value = id });
+                    cmbUsuario.Items.Add(new ItemCombo { Display = username, Value = id });
                 cmbUsuario.DisplayMember = "Display";
                 cmbUsuario.SelectedIndex = 0;
 
@@ -78,7 +77,6 @@ namespace ConsorAdmin.FORMS_ADMIN
             }
         }
 
-        // ── Consultar ─────────────────────────────────────────────────────────
 
         private void BtnConsultar_Click(object sender, EventArgs e)
         {
@@ -86,7 +84,7 @@ namespace ConsorAdmin.FORMS_ADMIN
             {
                 var filtro = new FiltroBitacoraBE
                 {
-                    IdUsuario = (cmbUsuario.SelectedItem as ComboItem)?.Value as string,
+                    IdUsuario = (cmbUsuario.SelectedItem as ItemCombo)?.Value as string,
                     FechaDesde = dtpFechaDesde.Checked ? dtpFechaDesde.Value.Date : (DateTime?)null,
                     FechaHasta = dtpFechaHasta.Checked ? dtpFechaHasta.Value.Date : (DateTime?)null,
                     Modulo = cmbModulo.SelectedIndex > 0 ? cmbModulo.SelectedItem?.ToString() : null,
@@ -135,7 +133,6 @@ namespace ConsorAdmin.FORMS_ADMIN
             }
         }
 
-        // ── Limpiar ───────────────────────────────────────────────────────────
 
         private void BtnLimpiarFiltros_Click(object sender, EventArgs e)
         {
@@ -150,7 +147,6 @@ namespace ConsorAdmin.FORMS_ADMIN
             _resultados.Clear();
         }
 
-        // ── Exportar CSV ──────────────────────────────────────────────────────
 
         private void BtnExportar_Click(object sender, EventArgs e)
         {
@@ -172,16 +168,7 @@ namespace ConsorAdmin.FORMS_ADMIN
 
             try
             {
-                var exportar = _resultados.Select(l => new
-                {
-                    FechaHora = l.FechaHora.ToString("dd/MM/yyyy HH:mm:ss"),
-                    Usuario = l.usuarioBE?.Usuario ?? l.Id_Usuario.ToString(),
-                    Modulo = l.Modulo,
-                    Accion = l.Accion,
-                    Detalle = l.Detalle ?? string.Empty
-                });
-
-                CsvExporter.Exportar(exportar, dlg.FileName);
+                ExportadorCsv.ExportarBitacora(_resultados, dlg.FileName);
 
                 var idUsuario = SessionManager.ObtenerInstancia.Usuario.Id;
                 _bll.RegistrarExportacion(idUsuario, _resultados.Count);
@@ -196,9 +183,7 @@ namespace ConsorAdmin.FORMS_ADMIN
             }
         }
 
-        // ── Clase auxiliar para ComboBox ──────────────────────────────────────
-
-        private class ComboItem
+        private class ItemCombo
         {
             public string Display { get; set; }
             public object Value { get; set; }

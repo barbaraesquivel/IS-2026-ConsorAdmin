@@ -10,7 +10,6 @@ namespace BLL
     {
         private readonly ILogBitacoraRepositorio _repo = new LogBitacoraRepositorio();
 
-        // Fail-silent: la bitácora nunca debe interrumpir la operación principal.
         public void Registrar(Guid idUsuario, string accion, string modulo, string detalle)
         {
             try
@@ -18,10 +17,10 @@ namespace BLL
                 _repo.Registrar(new LogBitacoraBE
                 {
                     Id_Usuario = idUsuario,
-                    FechaHora  = DateTime.Now,
-                    Accion     = accion,
-                    Modulo     = modulo,
-                    Detalle    = detalle
+                    FechaHora = DateTime.Now,
+                    Accion = accion,
+                    Modulo = modulo,
+                    Detalle = detalle
                 });
             }
             catch { }

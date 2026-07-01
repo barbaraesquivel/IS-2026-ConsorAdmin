@@ -18,6 +18,8 @@ public partial class Usuario
 
     public bool Activo { get; set; }
     public int? IdIdiomaPreferido { get; set; }
+    public string? Email { get; set; }
+    public string? Telefono { get; set; }
     public Idioma IdiomaPreferidoNavigation { get; set; }
     public virtual Consorcistum? Consorcistum { get; set; }
     public virtual ICollection<GestorConsorcio> GestorConsorcios { get; set; } = new List<GestorConsorcio>();
