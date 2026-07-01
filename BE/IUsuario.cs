@@ -5,5 +5,6 @@ namespace BE
         string Usuario { get; set; }
         string Contraseña { get; set; }
         bool Bloqueado { get; set; }
+        int? IdIdiomaPreferido { get; set; }
     }
 }

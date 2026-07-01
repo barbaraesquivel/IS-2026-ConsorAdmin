@@ -29,46 +29,46 @@
         private void InitializeComponent()
         {
             groupBox2 = new GroupBox();
-            groupBox1 = new GroupBox();
-            label2 = new Label();
+            groupBoxTotalExp_FormDashA = new GroupBox();
+            labelTotalExp_FormDashA = new Label();
             panel1 = new Panel();
-            groupBox3 = new GroupBox();
-            labelServicios = new Label();
-            labelDeudas = new Label();
+            groupBoxDeudas_FormDashA = new GroupBox();
+            labelConsorcistas_FormDashA = new Label();
+            labelDeudas_FormDashA = new Label();
             panel4 = new Panel();
-            groupBoxRecaudado = new GroupBox();
-            labelCobrado = new Label();
+            groupBoxRecaudado_FormDashA = new GroupBox();
+            labelCobrado_FormDashA = new Label();
             panelGreen = new Panel();
-            groupBoxUltimas = new GroupBox();
+            groupBoxUltimasExp_FormDashA = new GroupBox();
             dataGridExpensas = new DataGridView();
-            groupBoxEdificios = new GroupBox();
+            groupBoxEdificios_FormDashA = new GroupBox();
             dataGridEdificios = new DataGridView();
-            groupBoxProxexp = new GroupBox();
-            labelAcobrar = new Label();
+            groupBoxPorCobrar_FormDashA = new GroupBox();
+            labelAcobrar_FormDashA = new Label();
             panel2 = new Panel();
             groupBox2.SuspendLayout();
-            groupBox1.SuspendLayout();
-            groupBox3.SuspendLayout();
-            groupBoxRecaudado.SuspendLayout();
-            groupBoxUltimas.SuspendLayout();
+            groupBoxTotalExp_FormDashA.SuspendLayout();
+            groupBoxDeudas_FormDashA.SuspendLayout();
+            groupBoxRecaudado_FormDashA.SuspendLayout();
+            groupBoxUltimasExp_FormDashA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridExpensas).BeginInit();
-            groupBoxEdificios.SuspendLayout();
+            groupBoxEdificios_FormDashA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridEdificios).BeginInit();
-            groupBoxProxexp.SuspendLayout();
+            groupBoxPorCobrar_FormDashA.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox2
             // 
             groupBox2.BackColor = Color.FromArgb(8, 14, 26);
-            groupBox2.Controls.Add(groupBox1);
+            groupBox2.Controls.Add(groupBoxTotalExp_FormDashA);
             groupBox2.Controls.Add(panel1);
-            groupBox2.Controls.Add(groupBox3);
+            groupBox2.Controls.Add(groupBoxDeudas_FormDashA);
             groupBox2.Controls.Add(panel4);
-            groupBox2.Controls.Add(groupBoxRecaudado);
+            groupBox2.Controls.Add(groupBoxRecaudado_FormDashA);
             groupBox2.Controls.Add(panelGreen);
-            groupBox2.Controls.Add(groupBoxUltimas);
-            groupBox2.Controls.Add(groupBoxEdificios);
-            groupBox2.Controls.Add(groupBoxProxexp);
+            groupBox2.Controls.Add(groupBoxUltimasExp_FormDashA);
+            groupBox2.Controls.Add(groupBoxEdificios_FormDashA);
+            groupBox2.Controls.Add(groupBoxPorCobrar_FormDashA);
             groupBox2.Controls.Add(panel2);
             groupBox2.Dock = DockStyle.Fill;
             groupBox2.Font = new Font("Unispace", 9F, FontStyle.Bold);
@@ -79,30 +79,30 @@
             groupBox2.TabIndex = 7;
             groupBox2.TabStop = false;
             // 
-            // groupBox1
+            // groupBoxTotalExp_FormDashA
             // 
-            groupBox1.Anchor = AnchorStyles.None;
-            groupBox1.BackColor = Color.FromArgb(17, 30, 53);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBox1.ForeColor = SystemColors.ControlLight;
-            groupBox1.Location = new Point(361, 142);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(159, 63);
-            groupBox1.TabIndex = 10;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "TOTAL EXPENSAS";
+            groupBoxTotalExp_FormDashA.Anchor = AnchorStyles.None;
+            groupBoxTotalExp_FormDashA.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxTotalExp_FormDashA.Controls.Add(labelTotalExp_FormDashA);
+            groupBoxTotalExp_FormDashA.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxTotalExp_FormDashA.ForeColor = SystemColors.ControlLight;
+            groupBoxTotalExp_FormDashA.Location = new Point(361, 142);
+            groupBoxTotalExp_FormDashA.Name = "groupBoxTotalExp_FormDashA";
+            groupBoxTotalExp_FormDashA.Size = new Size(159, 63);
+            groupBoxTotalExp_FormDashA.TabIndex = 10;
+            groupBoxTotalExp_FormDashA.TabStop = false;
+            groupBoxTotalExp_FormDashA.Text = "TOTAL EXPENSAS";
             // 
-            // label2
+            // labelTotalExp_FormDashA
             // 
-            label2.Anchor = AnchorStyles.None;
-            label2.AutoSize = true;
-            label2.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(4, 16);
-            label2.Name = "label2";
-            label2.Size = new Size(19, 19);
-            label2.TabIndex = 4;
-            label2.Text = "X";
+            labelTotalExp_FormDashA.Anchor = AnchorStyles.None;
+            labelTotalExp_FormDashA.AutoSize = true;
+            labelTotalExp_FormDashA.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTotalExp_FormDashA.Location = new Point(4, 16);
+            labelTotalExp_FormDashA.Name = "labelTotalExp_FormDashA";
+            labelTotalExp_FormDashA.Size = new Size(19, 19);
+            labelTotalExp_FormDashA.TabIndex = 4;
+            labelTotalExp_FormDashA.Text = "X";
             // 
             // panel1
             // 
@@ -113,42 +113,42 @@
             panel1.Size = new Size(167, 72);
             panel1.TabIndex = 11;
             // 
-            // groupBox3
+            // groupBoxDeudas_FormDashA
             // 
-            groupBox3.Anchor = AnchorStyles.None;
-            groupBox3.BackColor = Color.FromArgb(17, 30, 53);
-            groupBox3.Controls.Add(labelServicios);
-            groupBox3.Controls.Add(labelDeudas);
-            groupBox3.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBox3.ForeColor = SystemColors.ControlLight;
-            groupBox3.Location = new Point(183, 142);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(159, 63);
-            groupBox3.TabIndex = 8;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "DEUDAS";
+            groupBoxDeudas_FormDashA.Anchor = AnchorStyles.None;
+            groupBoxDeudas_FormDashA.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxDeudas_FormDashA.Controls.Add(labelConsorcistas_FormDashA);
+            groupBoxDeudas_FormDashA.Controls.Add(labelDeudas_FormDashA);
+            groupBoxDeudas_FormDashA.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxDeudas_FormDashA.ForeColor = SystemColors.ControlLight;
+            groupBoxDeudas_FormDashA.Location = new Point(183, 142);
+            groupBoxDeudas_FormDashA.Name = "groupBoxDeudas_FormDashA";
+            groupBoxDeudas_FormDashA.Size = new Size(159, 63);
+            groupBoxDeudas_FormDashA.TabIndex = 8;
+            groupBoxDeudas_FormDashA.TabStop = false;
+            groupBoxDeudas_FormDashA.Text = "DEUDAS";
             // 
-            // labelServicios
+            // labelConsorcistas_FormDashA
             // 
-            labelServicios.Anchor = AnchorStyles.None;
-            labelServicios.AutoSize = true;
-            labelServicios.Font = new Font("Unispace", 6.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelServicios.Location = new Point(6, 44);
-            labelServicios.Name = "labelServicios";
-            labelServicios.Size = new Size(125, 11);
-            labelServicios.TabIndex = 5;
-            labelServicios.Text = "Consorcistas morosos";
+            labelConsorcistas_FormDashA.Anchor = AnchorStyles.None;
+            labelConsorcistas_FormDashA.AutoSize = true;
+            labelConsorcistas_FormDashA.Font = new Font("Unispace", 6.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelConsorcistas_FormDashA.Location = new Point(6, 44);
+            labelConsorcistas_FormDashA.Name = "labelConsorcistas_FormDashA";
+            labelConsorcistas_FormDashA.Size = new Size(125, 11);
+            labelConsorcistas_FormDashA.TabIndex = 5;
+            labelConsorcistas_FormDashA.Text = "Consorcistas morosos";
             // 
-            // labelDeudas
+            // labelDeudas_FormDashA
             // 
-            labelDeudas.Anchor = AnchorStyles.None;
-            labelDeudas.AutoSize = true;
-            labelDeudas.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelDeudas.Location = new Point(4, 16);
-            labelDeudas.Name = "labelDeudas";
-            labelDeudas.Size = new Size(19, 19);
-            labelDeudas.TabIndex = 4;
-            labelDeudas.Text = "X";
+            labelDeudas_FormDashA.Anchor = AnchorStyles.None;
+            labelDeudas_FormDashA.AutoSize = true;
+            labelDeudas_FormDashA.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelDeudas_FormDashA.Location = new Point(4, 16);
+            labelDeudas_FormDashA.Name = "labelDeudas_FormDashA";
+            labelDeudas_FormDashA.Size = new Size(19, 19);
+            labelDeudas_FormDashA.TabIndex = 4;
+            labelDeudas_FormDashA.Text = "X";
             // 
             // panel4
             // 
@@ -159,30 +159,30 @@
             panel4.Size = new Size(167, 72);
             panel4.TabIndex = 9;
             // 
-            // groupBoxRecaudado
+            // groupBoxRecaudado_FormDashA
             // 
-            groupBoxRecaudado.Anchor = AnchorStyles.None;
-            groupBoxRecaudado.BackColor = Color.FromArgb(17, 30, 53);
-            groupBoxRecaudado.Controls.Add(labelCobrado);
-            groupBoxRecaudado.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBoxRecaudado.ForeColor = SystemColors.ControlLight;
-            groupBoxRecaudado.Location = new Point(183, 50);
-            groupBoxRecaudado.Name = "groupBoxRecaudado";
-            groupBoxRecaudado.Size = new Size(159, 63);
-            groupBoxRecaudado.TabIndex = 0;
-            groupBoxRecaudado.TabStop = false;
-            groupBoxRecaudado.Text = "RECAUDADO";
+            groupBoxRecaudado_FormDashA.Anchor = AnchorStyles.None;
+            groupBoxRecaudado_FormDashA.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxRecaudado_FormDashA.Controls.Add(labelCobrado_FormDashA);
+            groupBoxRecaudado_FormDashA.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxRecaudado_FormDashA.ForeColor = SystemColors.ControlLight;
+            groupBoxRecaudado_FormDashA.Location = new Point(183, 50);
+            groupBoxRecaudado_FormDashA.Name = "groupBoxRecaudado_FormDashA";
+            groupBoxRecaudado_FormDashA.Size = new Size(159, 63);
+            groupBoxRecaudado_FormDashA.TabIndex = 0;
+            groupBoxRecaudado_FormDashA.TabStop = false;
+            groupBoxRecaudado_FormDashA.Text = "RECAUDADO";
             // 
-            // labelCobrado
+            // labelCobrado_FormDashA
             // 
-            labelCobrado.Anchor = AnchorStyles.None;
-            labelCobrado.AutoSize = true;
-            labelCobrado.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelCobrado.Location = new Point(6, 14);
-            labelCobrado.Name = "labelCobrado";
-            labelCobrado.Size = new Size(139, 19);
-            labelCobrado.TabIndex = 0;
-            labelCobrado.Text = "$000000000.00";
+            labelCobrado_FormDashA.Anchor = AnchorStyles.None;
+            labelCobrado_FormDashA.AutoSize = true;
+            labelCobrado_FormDashA.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelCobrado_FormDashA.Location = new Point(6, 14);
+            labelCobrado_FormDashA.Name = "labelCobrado_FormDashA";
+            labelCobrado_FormDashA.Size = new Size(139, 19);
+            labelCobrado_FormDashA.TabIndex = 0;
+            labelCobrado_FormDashA.Text = "$000000000.00";
             // 
             // panelGreen
             // 
@@ -193,19 +193,19 @@
             panelGreen.Size = new Size(167, 72);
             panelGreen.TabIndex = 5;
             // 
-            // groupBoxUltimas
+            // groupBoxUltimasExp_FormDashA
             // 
-            groupBoxUltimas.Anchor = AnchorStyles.None;
-            groupBoxUltimas.BackColor = Color.FromArgb(17, 30, 53);
-            groupBoxUltimas.Controls.Add(dataGridExpensas);
-            groupBoxUltimas.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBoxUltimas.ForeColor = SystemColors.ControlLight;
-            groupBoxUltimas.Location = new Point(361, 240);
-            groupBoxUltimas.Name = "groupBoxUltimas";
-            groupBoxUltimas.Size = new Size(264, 303);
-            groupBoxUltimas.TabIndex = 4;
-            groupBoxUltimas.TabStop = false;
-            groupBoxUltimas.Text = "ULTIMAS EXPENSAS";
+            groupBoxUltimasExp_FormDashA.Anchor = AnchorStyles.None;
+            groupBoxUltimasExp_FormDashA.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxUltimasExp_FormDashA.Controls.Add(dataGridExpensas);
+            groupBoxUltimasExp_FormDashA.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxUltimasExp_FormDashA.ForeColor = SystemColors.ControlLight;
+            groupBoxUltimasExp_FormDashA.Location = new Point(361, 240);
+            groupBoxUltimasExp_FormDashA.Name = "groupBoxUltimasExp_FormDashA";
+            groupBoxUltimasExp_FormDashA.Size = new Size(264, 303);
+            groupBoxUltimasExp_FormDashA.TabIndex = 4;
+            groupBoxUltimasExp_FormDashA.TabStop = false;
+            groupBoxUltimasExp_FormDashA.Text = "ULTIMAS EXPENSAS";
             // 
             // dataGridExpensas
             // 
@@ -217,19 +217,19 @@
             dataGridExpensas.Size = new Size(252, 277);
             dataGridExpensas.TabIndex = 9;
             // 
-            // groupBoxEdificios
+            // groupBoxEdificios_FormDashA
             // 
-            groupBoxEdificios.Anchor = AnchorStyles.None;
-            groupBoxEdificios.BackColor = Color.FromArgb(17, 30, 53);
-            groupBoxEdificios.Controls.Add(dataGridEdificios);
-            groupBoxEdificios.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBoxEdificios.ForeColor = SystemColors.ControlLight;
-            groupBoxEdificios.Location = new Point(86, 240);
-            groupBoxEdificios.Name = "groupBoxEdificios";
-            groupBoxEdificios.Size = new Size(264, 303);
-            groupBoxEdificios.TabIndex = 3;
-            groupBoxEdificios.TabStop = false;
-            groupBoxEdificios.Text = "EDIFICIOS";
+            groupBoxEdificios_FormDashA.Anchor = AnchorStyles.None;
+            groupBoxEdificios_FormDashA.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxEdificios_FormDashA.Controls.Add(dataGridEdificios);
+            groupBoxEdificios_FormDashA.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxEdificios_FormDashA.ForeColor = SystemColors.ControlLight;
+            groupBoxEdificios_FormDashA.Location = new Point(86, 240);
+            groupBoxEdificios_FormDashA.Name = "groupBoxEdificios_FormDashA";
+            groupBoxEdificios_FormDashA.Size = new Size(264, 303);
+            groupBoxEdificios_FormDashA.TabIndex = 3;
+            groupBoxEdificios_FormDashA.TabStop = false;
+            groupBoxEdificios_FormDashA.Text = "EDIFICIOS";
             // 
             // dataGridEdificios
             // 
@@ -241,30 +241,30 @@
             dataGridEdificios.Size = new Size(249, 276);
             dataGridEdificios.TabIndex = 0;
             // 
-            // groupBoxProxexp
+            // groupBoxPorCobrar_FormDashA
             // 
-            groupBoxProxexp.Anchor = AnchorStyles.None;
-            groupBoxProxexp.BackColor = Color.FromArgb(17, 30, 53);
-            groupBoxProxexp.Controls.Add(labelAcobrar);
-            groupBoxProxexp.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBoxProxexp.ForeColor = SystemColors.ControlLight;
-            groupBoxProxexp.Location = new Point(361, 50);
-            groupBoxProxexp.Name = "groupBoxProxexp";
-            groupBoxProxexp.Size = new Size(159, 63);
-            groupBoxProxexp.TabIndex = 2;
-            groupBoxProxexp.TabStop = false;
-            groupBoxProxexp.Text = "POR COBRAR";
+            groupBoxPorCobrar_FormDashA.Anchor = AnchorStyles.None;
+            groupBoxPorCobrar_FormDashA.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxPorCobrar_FormDashA.Controls.Add(labelAcobrar_FormDashA);
+            groupBoxPorCobrar_FormDashA.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxPorCobrar_FormDashA.ForeColor = SystemColors.ControlLight;
+            groupBoxPorCobrar_FormDashA.Location = new Point(361, 50);
+            groupBoxPorCobrar_FormDashA.Name = "groupBoxPorCobrar_FormDashA";
+            groupBoxPorCobrar_FormDashA.Size = new Size(159, 63);
+            groupBoxPorCobrar_FormDashA.TabIndex = 2;
+            groupBoxPorCobrar_FormDashA.TabStop = false;
+            groupBoxPorCobrar_FormDashA.Text = "POR COBRAR";
             // 
-            // labelAcobrar
+            // labelAcobrar_FormDashA
             // 
-            labelAcobrar.Anchor = AnchorStyles.None;
-            labelAcobrar.AutoSize = true;
-            labelAcobrar.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelAcobrar.Location = new Point(6, 14);
-            labelAcobrar.Name = "labelAcobrar";
-            labelAcobrar.Size = new Size(19, 19);
-            labelAcobrar.TabIndex = 4;
-            labelAcobrar.Text = "X";
+            labelAcobrar_FormDashA.Anchor = AnchorStyles.None;
+            labelAcobrar_FormDashA.AutoSize = true;
+            labelAcobrar_FormDashA.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelAcobrar_FormDashA.Location = new Point(6, 14);
+            labelAcobrar_FormDashA.Name = "labelAcobrar_FormDashA";
+            labelAcobrar_FormDashA.Size = new Size(19, 19);
+            labelAcobrar_FormDashA.TabIndex = 4;
+            labelAcobrar_FormDashA.Text = "X";
             // 
             // panel2
             // 
@@ -284,41 +284,43 @@
             Controls.Add(groupBox2);
             Name = "formDashA";
             Text = "formDashA";
+            FormClosing += formDashA_FormClosing;
+            Load += formDashA_Load;
             groupBox2.ResumeLayout(false);
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
-            groupBoxRecaudado.ResumeLayout(false);
-            groupBoxRecaudado.PerformLayout();
-            groupBoxUltimas.ResumeLayout(false);
+            groupBoxTotalExp_FormDashA.ResumeLayout(false);
+            groupBoxTotalExp_FormDashA.PerformLayout();
+            groupBoxDeudas_FormDashA.ResumeLayout(false);
+            groupBoxDeudas_FormDashA.PerformLayout();
+            groupBoxRecaudado_FormDashA.ResumeLayout(false);
+            groupBoxRecaudado_FormDashA.PerformLayout();
+            groupBoxUltimasExp_FormDashA.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridExpensas).EndInit();
-            groupBoxEdificios.ResumeLayout(false);
+            groupBoxEdificios_FormDashA.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridEdificios).EndInit();
-            groupBoxProxexp.ResumeLayout(false);
-            groupBoxProxexp.PerformLayout();
+            groupBoxPorCobrar_FormDashA.ResumeLayout(false);
+            groupBoxPorCobrar_FormDashA.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private GroupBox groupBox2;
-        private GroupBox groupBox3;
-        private Label labelServicios;
-        private Label labelDeudas;
+        private GroupBox groupBoxDeudas_FormDashA;
+        private Label labelConsorcistas_FormDashA;
+        private Label labelDeudas_FormDashA;
         private Panel panel4;
-        private GroupBox groupBoxRecaudado;
-        private Label labelCobrado;
+        private GroupBox groupBoxRecaudado_FormDashA;
+        private Label labelCobrado_FormDashA;
         private Panel panelGreen;
-        private GroupBox groupBoxUltimas;
+        private GroupBox groupBoxUltimasExp_FormDashA;
         private DataGridView dataGridExpensas;
-        private GroupBox groupBoxEdificios;
+        private GroupBox groupBoxEdificios_FormDashA;
         private DataGridView dataGridEdificios;
-        private GroupBox groupBoxProxexp;
-        private Label labelAcobrar;
+        private GroupBox groupBoxPorCobrar_FormDashA;
+        private Label labelAcobrar_FormDashA;
         private Panel panel2;
-        private GroupBox groupBox1;
-        private Label label2;
+        private GroupBox groupBoxTotalExp_FormDashA;
+        private Label labelTotalExp_FormDashA;
         private Panel panel1;
     }
 }

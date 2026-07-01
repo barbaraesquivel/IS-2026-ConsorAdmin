@@ -13,8 +13,9 @@ using System.Windows.Forms;
 
 namespace ConsorAdmin.FORMS_ADMIN
 {
-    public partial class formRegistrarEdificioA : Form
+    public partial class formRegistrarEdificioA : Form, IIdiomaObserver
     {
+        private readonly TraductorBLL _traductorBLL = new TraductorBLL();
         private readonly ConsorcioBLL _consorcioBLL = new ConsorcioBLL();
         private ConsorcioBE _consorcioSeleccionado = new ConsorcioBE();
         private UnidadBLL unidadBLL = new UnidadBLL();
@@ -25,12 +26,16 @@ namespace ConsorAdmin.FORMS_ADMIN
         public formRegistrarEdificioA()
         {
             InitializeComponent();
+
         }
 
         private void formRegistrarEdificioA_Load(object sender, EventArgs e)
         {
             try
             {
+                AsignarTags();
+                SessionManager.SuscribirObservador(this);
+                Traducir();
                 CargarGrilla();
                 LimpiarFormulario();
             }
@@ -39,9 +44,11 @@ namespace ConsorAdmin.FORMS_ADMIN
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         // ── Cargar grilla con los consorcios del gestor ──────────────────────
         private void CargarGrilla()
         {
+
             try
             {
 
@@ -59,14 +66,7 @@ namespace ConsorAdmin.FORMS_ADMIN
                 comboBoxEdificioEliminar.ValueMember = "Id_Consorcio";
                 comboBoxEdificioEliminar.SelectedIndex = -1;
 
-                var gestores = new List<UsuarioBE>();
-                foreach (var user in usuarioBLL.ObtenerTodos())
-                {
-                    if (permisoValidarBLL.TieneAlgunaPatenteDeFamilia(user.Id, "GE200") == true)
-                    {
-                        gestores.Add(user);
-                    }
-                }
+                var gestores = usuarioBLL.ObtenerGestores();
                 comboBoxGestor.DataSource = null;
                 comboBoxGestor.DataSource = gestores;
                 comboBoxGestor.DisplayMember = "Usuario";
@@ -78,6 +78,8 @@ namespace ConsorAdmin.FORMS_ADMIN
                 comboBoxGestorModificar.DisplayMember = "Usuario";
                 comboBoxGestorModificar.ValueMember = "Id";
                 comboBoxGestorModificar.SelectedIndex = -1;
+
+
 
             }
             catch (Exception ex)
@@ -223,6 +225,58 @@ namespace ConsorAdmin.FORMS_ADMIN
             {
                 MessageBox.Show(ex.Message, "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void formRegistrarEdificioA_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SessionManager.DesuscribirObservador(this); // evita memory leak / notificar a un form cerrado
+
+        }
+
+        public void ActualizarIdioma(IdiomaBE idioma)
+        {
+            if (this.InvokeRequired) this.Invoke(() => Traducir(idioma));
+            else Traducir(idioma);
+        }
+
+        private void Traducir(IdiomaBE idioma = null)
+        {
+            idioma ??= SessionManager.IdiomaActual ?? _traductorBLL.ObtenerIdiomaDefault();
+            var t = _traductorBLL.ObtenerTraducciones(idioma);
+            TraducirControles(this.Controls, t);
+        }
+
+        private void TraducirControles(Control.ControlCollection controles, Dictionary<string, string> t)
+        {
+            foreach (Control ctrl in controles)
+            {
+                if (ctrl.Tag is string clave && t.ContainsKey(clave))
+                    ctrl.Text = t[clave];
+                if (ctrl.Controls.Count > 0)
+                    TraducirControles(ctrl.Controls, t);
+            }
+        }
+
+        private void AsignarTags()
+        {
+            groupBoxEliminar_FormRegistrarEdificioA.Tag = "groupBoxEliminar_FormRegistrarEdificioA";
+            buttonEliminar_FormRegistrarEdificioA.Tag = "buttonEliminar_FormRegistrarEdificioA";
+            labelEEdificio_FormRegistrarEdificioA.Tag = "labelEEdificio_FormRegistrarEdificioA";
+            groupBoxModificar_FormRegistrarEdificioA.Tag = "groupBoxModificar_FormRegistrarEdificioA";
+            labelMGestor_FormRegistrarEdificioA.Tag = "labelMGestor_FormRegistrarEdificioA";
+            labelMCodigo_FormRegistrarEdificioA.Tag = "labelMCodigo_FormRegistrarEdificioA";
+            labelMDireccion_FormRegistrarEdificioA.Tag = "labelMDireccion_FormRegistrarEdificioA";
+            buttonGuardarCambios_FormRegistrarEdificioA.Tag = "buttonGuardarCambios_FormRegistrarEdificioA";
+            labelMCantUnid_FormRegistrarEdificioA.Tag = "labelMCantUnid_FormRegistrarEdificioA";
+            labelMNombre_FormRegistrarEdificioA.Tag = "labelMNombre_FormRegistrarEdificioA";
+            labelMEdificio_FormRegistrarEdificioA.Tag = "labelMEdificio_FormRegistrarEdificioA";
+            groupBoxEstado_FormRegistrarEdificioA.Tag = "groupBoxEstado_FormRegistrarEdificioA";
+            labelRGestor_FormRegistrarEdificioA.Tag = "labelRGestor_FormRegistrarEdificioA";
+            buttonRegistrar_FormRegistrarEdificioA.Tag = "buttonRegistrar_FormRegistrarEdificioA";
+            labelRCantUnid_FormRegistrarEdificioA.Tag = "labelRCantUnid_FormRegistrarEdificioA";
+            labelRNombre_FormRegistrarEdificioA.Tag = "labelRNombre_FormRegistrarEdificioA";
+            labelRDireccion_FormRegistrarEdificioA.Tag = "labelRDireccion_FormRegistrarEdificioA";
+            labelCodEdificio_FormRegistrarEdificioA.Tag = "labelCodEdificio_FormRegistrarEdificioA";
         }
     }
 }

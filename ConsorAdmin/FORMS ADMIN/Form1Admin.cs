@@ -6,9 +6,10 @@ using System.Windows.Forms;
 
 namespace ConsorAdmin.FORMS_ADMIN
 {
-    public partial class Form1Admin : Form
+    public partial class Form1Admin : Form, IIdiomaObserver
     {
         private readonly IPermisoBLL _permisoBLL = new PermisoBLL();
+        private readonly TraductorBLL _traductorBLL = new TraductorBLL();
         private readonly UsuarioBLL _usuarioBLL = new UsuarioBLL();
         private Form activeForm = null;
         private Size tamañoOriginal;
@@ -25,13 +26,13 @@ namespace ConsorAdmin.FORMS_ADMIN
             try
             {
                 var idUsuario = SessionManager.ObtenerInstancia.Usuario.Id;
-                labelUsername.Text = SessionManager.ObtenerInstancia.Usuario.Usuario;
+                labelUsername_Form1Admin.Text = SessionManager.ObtenerInstancia.Usuario.Usuario;
 
                 // Botones con patente definida
                 PermisoUIHelper.AplicarPermisos(idUsuario, _permisoBLL,
                     (buttonGestionUsuarios, CodigosPermiso.GestionarUsuarios),  // US001
                     (buttonPermisos, CodigosPermiso.AsignarRoles),       // US002
-                    (buttonHistoria, CodigosPermiso.ConsultarBitacora)   // BT001
+                    (buttonBitacora, CodigosPermiso.ConsultarBitacora)   // BT001
                 );
 
                 // Botones huérfanos — siempre visibles, sin patente asignada aún
@@ -40,6 +41,9 @@ namespace ConsorAdmin.FORMS_ADMIN
                 // TODO: pendiente definir patente para buttonListaConsorcios
                 // TODO: pendiente definir patente para buttonCargarExp
                 // TODO: pendiente definir patente para buttonRegistrarConsorcio
+                SessionManager.SuscribirObservador(this);
+                Traducir(); // traduce con el idioma actual de sesión apenas abre
+
             }
             catch (Exception ex)
             {
@@ -48,8 +52,10 @@ namespace ConsorAdmin.FORMS_ADMIN
             }
         }
 
-        private void Form1Proovedor_FormClosing(object sender, FormClosingEventArgs e)
+        private void Form1Admin_FormClosing(object sender, FormClosingEventArgs e)
         {
+            SessionManager.DesuscribirObservador(this); // evita memory leak / notificar a un form cerrado
+
             if (activeForm != null)
             {
                 activeForm.Close();
@@ -57,11 +63,6 @@ namespace ConsorAdmin.FORMS_ADMIN
                 activeForm = null;
             }
             panelChildForm.Controls.Clear();
-        }
-
-        private void buttonDashboard_Click(object sender, EventArgs e)
-        {
-            openChildForm(new formDashA());
         }
 
         private void buttonGestionUsuarios_Click(object sender, EventArgs e)
@@ -89,11 +90,20 @@ namespace ConsorAdmin.FORMS_ADMIN
             openChildForm(new formCargarExpA());
         }
 
-        private void buttonHistoria_Click(object sender, EventArgs e)
+        private void buttonBitacora_Click(object sender, EventArgs e)
         {
             openChildForm(new formBitacoraA());
         }
+        private void buttonGestionarEdificios_Click(object sender, EventArgs e)
+        {
+            openChildForm(new formRegistrarEdificioA());
 
+        }
+        private void buttonAgregarIdiomas_Click(object sender, EventArgs e)
+        {
+            openChildForm(new formIdiomasA());
+
+        }
         private void buttonLogout_Click(object sender, EventArgs e)
         {
             try
@@ -138,10 +148,39 @@ namespace ConsorAdmin.FORMS_ADMIN
             childForm.Show();
         }
 
-        private void buttonGestionarEdificios_Click(object sender, EventArgs e)
+        private void buttonDashboardA_Click(object sender, EventArgs e)
         {
-            openChildForm(new formRegistrarEdificioA());
+            openChildForm(new formDashA());
 
+        }
+
+        public void ActualizarIdioma(IdiomaBE idioma)
+        {
+            if (this.InvokeRequired) this.Invoke(() => Traducir(idioma));
+            else Traducir(idioma);
+        }
+        private void Traducir(IdiomaBE idioma = null)
+        {
+            try
+            {
+                idioma ??= SessionManager.IdiomaActual ?? _traductorBLL.ObtenerIdiomaDefault();
+                var t = _traductorBLL.ObtenerTraducciones(idioma);
+                TraducirControles(this.Controls, t);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al traducir: " + ex.Message);
+            }
+        }
+        private void TraducirControles(Control.ControlCollection controles, Dictionary<string, string> t)
+        {
+            foreach (Control ctrl in controles)
+            {
+                if (ctrl.Tag is string clave && t.ContainsKey(clave))
+                    ctrl.Text = t[clave];
+                if (ctrl.Controls.Count > 0)
+                    TraducirControles(ctrl.Controls, t);
+            }
         }
     }
 }

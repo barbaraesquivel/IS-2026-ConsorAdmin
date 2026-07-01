@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BE.Models;
+using System;
 using System.Collections.Generic;
 
 namespace DAL.Models;
@@ -16,7 +17,8 @@ public partial class Usuario
     public bool Bloqueado { get; set; }
 
     public bool Activo { get; set; }
-
+    public int? IdIdiomaPreferido { get; set; }
+    public Idioma IdiomaPreferidoNavigation { get; set; }
     public virtual Consorcistum? Consorcistum { get; set; }
     public virtual ICollection<GestorConsorcio> GestorConsorcios { get; set; } = new List<GestorConsorcio>();
 

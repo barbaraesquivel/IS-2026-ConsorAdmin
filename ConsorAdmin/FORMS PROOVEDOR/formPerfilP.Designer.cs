@@ -28,103 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
-            groupBoxExpensas = new GroupBox();
-            label1 = new Label();
-            textBoxNombre = new TextBox();
-            label2 = new Label();
-            textBoxApellido = new TextBox();
-            label3 = new Label();
-            textBoxDni = new TextBox();
-            label4 = new Label();
+            groupBoxDatos_FormPerfilP = new GroupBox();
             dateTimeNacimiento = new DateTimePicker();
-            groupBox1 = new GroupBox();
-            label6 = new Label();
-            textBoxTelefono = new TextBox();
-            textBoxEmail = new TextBox();
-            label5 = new Label();
-            label7 = new Label();
-            textBoxDireccion = new TextBox();
-            label10 = new Label();
-            textBoxNewPW = new TextBox();
-            textBoxLocalidad = new TextBox();
-            label9 = new Label();
-            label8 = new Label();
+            labelFecha_FormPerfilP = new Label();
+            textBoxDni = new TextBox();
+            labelDNI_FormPerfilP = new Label();
+            textBoxApellido = new TextBox();
+            labelApellido_FormPerfilP = new Label();
+            textBoxNombre = new TextBox();
+            labelNombre_FormPerfilP = new Label();
+            groupBoxContacto_FormPerfilP = new GroupBox();
+            buttonGuardar_FormPerfilP = new Button();
+            buttonCanc_FormPerfilP = new Button();
             textBoxConfirmarPW = new TextBox();
-            buttonCancelar = new Button();
-            buttonGuard = new Button();
+            labelLocalidad_FormPerfilP = new Label();
+            labelConfirmarContra_FormPerfilP = new Label();
+            textBoxLocalidad = new TextBox();
+            textBoxNewPW = new TextBox();
+            labelNuevaContraseña_FormPerfilP = new Label();
+            textBoxDireccion = new TextBox();
+            labelEmail_FormPerfilP = new Label();
+            labelDireccion_FormPerfilP = new Label();
+            textBoxEmail = new TextBox();
+            textBoxTelefono = new TextBox();
+            labelTelefono_FormPerfilP = new Label();
             groupBox2 = new GroupBox();
-            button1 = new Button();
-            button2 = new Button();
-            groupBoxExpensas.SuspendLayout();
-            groupBox1.SuspendLayout();
+            groupBoxDatos_FormPerfilP.SuspendLayout();
+            groupBoxContacto_FormPerfilP.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
-            // groupBoxExpensas
+            // groupBoxDatos_FormPerfilP
             // 
-            groupBoxExpensas.Anchor = AnchorStyles.None;
-            groupBoxExpensas.BackColor = Color.FromArgb(17, 30, 53);
-            groupBoxExpensas.Controls.Add(dateTimeNacimiento);
-            groupBoxExpensas.Controls.Add(label4);
-            groupBoxExpensas.Controls.Add(textBoxDni);
-            groupBoxExpensas.Controls.Add(label3);
-            groupBoxExpensas.Controls.Add(textBoxApellido);
-            groupBoxExpensas.Controls.Add(label2);
-            groupBoxExpensas.Controls.Add(textBoxNombre);
-            groupBoxExpensas.Controls.Add(label1);
-            groupBoxExpensas.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBoxExpensas.ForeColor = SystemColors.ControlLight;
-            groupBoxExpensas.Location = new Point(25, 34);
-            groupBoxExpensas.Name = "groupBoxExpensas";
-            groupBoxExpensas.Size = new Size(307, 466);
-            groupBoxExpensas.TabIndex = 5;
-            groupBoxExpensas.TabStop = false;
-            groupBoxExpensas.Text = "DATOS PERSONALES";
+            groupBoxDatos_FormPerfilP.Anchor = AnchorStyles.None;
+            groupBoxDatos_FormPerfilP.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxDatos_FormPerfilP.Controls.Add(dateTimeNacimiento);
+            groupBoxDatos_FormPerfilP.Controls.Add(labelFecha_FormPerfilP);
+            groupBoxDatos_FormPerfilP.Controls.Add(textBoxDni);
+            groupBoxDatos_FormPerfilP.Controls.Add(labelDNI_FormPerfilP);
+            groupBoxDatos_FormPerfilP.Controls.Add(textBoxApellido);
+            groupBoxDatos_FormPerfilP.Controls.Add(labelApellido_FormPerfilP);
+            groupBoxDatos_FormPerfilP.Controls.Add(textBoxNombre);
+            groupBoxDatos_FormPerfilP.Controls.Add(labelNombre_FormPerfilP);
+            groupBoxDatos_FormPerfilP.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxDatos_FormPerfilP.ForeColor = SystemColors.ControlLight;
+            groupBoxDatos_FormPerfilP.Location = new Point(25, 34);
+            groupBoxDatos_FormPerfilP.Name = "groupBoxDatos_FormPerfilP";
+            groupBoxDatos_FormPerfilP.Size = new Size(307, 466);
+            groupBoxDatos_FormPerfilP.TabIndex = 5;
+            groupBoxDatos_FormPerfilP.TabStop = false;
+            groupBoxDatos_FormPerfilP.Text = "DATOS PERSONALES";
             // 
-            // label1
+            // dateTimeNacimiento
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(19, 31);
-            label1.Name = "label1";
-            label1.Size = new Size(70, 14);
-            label1.TabIndex = 0;
-            label1.Text = "Nombre(s)";
+            dateTimeNacimiento.CalendarForeColor = SystemColors.ControlLight;
+            dateTimeNacimiento.Location = new Point(19, 236);
+            dateTimeNacimiento.Name = "dateTimeNacimiento";
+            dateTimeNacimiento.Size = new Size(200, 22);
+            dateTimeNacimiento.TabIndex = 19;
             // 
-            // textBoxNombre
+            // labelFecha_FormPerfilP
             // 
-            textBoxNombre.BackColor = Color.FromArgb(13, 22, 40);
-            textBoxNombre.ForeColor = SystemColors.ControlLight;
-            textBoxNombre.Location = new Point(19, 48);
-            textBoxNombre.Name = "textBoxNombre";
-            textBoxNombre.Size = new Size(221, 22);
-            textBoxNombre.TabIndex = 13;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(19, 91);
-            label2.Name = "label2";
-            label2.Size = new Size(84, 14);
-            label2.TabIndex = 14;
-            label2.Text = "Apellido(s)";
-            // 
-            // textBoxApellido
-            // 
-            textBoxApellido.BackColor = Color.FromArgb(13, 22, 40);
-            textBoxApellido.ForeColor = SystemColors.ControlLight;
-            textBoxApellido.Location = new Point(19, 108);
-            textBoxApellido.Name = "textBoxApellido";
-            textBoxApellido.Size = new Size(221, 22);
-            textBoxApellido.TabIndex = 15;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(19, 154);
-            label3.Name = "label3";
-            label3.Size = new Size(91, 14);
-            label3.TabIndex = 16;
-            label3.Text = "D.N.I / CUIT";
+            labelFecha_FormPerfilP.AutoSize = true;
+            labelFecha_FormPerfilP.Location = new Point(19, 219);
+            labelFecha_FormPerfilP.Name = "labelFecha_FormPerfilP";
+            labelFecha_FormPerfilP.Size = new Size(140, 14);
+            labelFecha_FormPerfilP.TabIndex = 18;
+            labelFecha_FormPerfilP.Text = "FECHA DE NACIMIENTO";
             // 
             // textBoxDni
             // 
@@ -135,150 +105,109 @@
             textBoxDni.Size = new Size(221, 22);
             textBoxDni.TabIndex = 17;
             // 
-            // label4
+            // labelDNI_FormPerfilP
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(19, 219);
-            label4.Name = "label4";
-            label4.Size = new Size(140, 14);
-            label4.TabIndex = 18;
-            label4.Text = "FECHA DE NACIMIENTO";
+            labelDNI_FormPerfilP.AutoSize = true;
+            labelDNI_FormPerfilP.Location = new Point(19, 154);
+            labelDNI_FormPerfilP.Name = "labelDNI_FormPerfilP";
+            labelDNI_FormPerfilP.Size = new Size(91, 14);
+            labelDNI_FormPerfilP.TabIndex = 16;
+            labelDNI_FormPerfilP.Text = "D.N.I / CUIT";
             // 
-            // dateTimeNacimiento
+            // textBoxApellido
             // 
-            dateTimeNacimiento.CalendarForeColor = SystemColors.ControlLight;
-            dateTimeNacimiento.Location = new Point(19, 236);
-            dateTimeNacimiento.Name = "dateTimeNacimiento";
-            dateTimeNacimiento.Size = new Size(200, 22);
-            dateTimeNacimiento.TabIndex = 19;
+            textBoxApellido.BackColor = Color.FromArgb(13, 22, 40);
+            textBoxApellido.ForeColor = SystemColors.ControlLight;
+            textBoxApellido.Location = new Point(19, 108);
+            textBoxApellido.Name = "textBoxApellido";
+            textBoxApellido.Size = new Size(221, 22);
+            textBoxApellido.TabIndex = 15;
             // 
-            // groupBox1
+            // labelApellido_FormPerfilP
             // 
-            groupBox1.Anchor = AnchorStyles.None;
-            groupBox1.BackColor = Color.FromArgb(17, 30, 53);
-            groupBox1.Controls.Add(button1);
-            groupBox1.Controls.Add(button2);
-            groupBox1.Controls.Add(buttonGuard);
-            groupBox1.Controls.Add(buttonCancelar);
-            groupBox1.Controls.Add(textBoxConfirmarPW);
-            groupBox1.Controls.Add(label8);
-            groupBox1.Controls.Add(label9);
-            groupBox1.Controls.Add(textBoxLocalidad);
-            groupBox1.Controls.Add(textBoxNewPW);
-            groupBox1.Controls.Add(label10);
-            groupBox1.Controls.Add(textBoxDireccion);
-            groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(textBoxEmail);
-            groupBox1.Controls.Add(textBoxTelefono);
-            groupBox1.Controls.Add(label6);
-            groupBox1.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBox1.ForeColor = SystemColors.ControlLight;
-            groupBox1.Location = new Point(350, 34);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(307, 466);
-            groupBox1.TabIndex = 6;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "DATOS DE CONTACTO";
+            labelApellido_FormPerfilP.AutoSize = true;
+            labelApellido_FormPerfilP.Location = new Point(19, 91);
+            labelApellido_FormPerfilP.Name = "labelApellido_FormPerfilP";
+            labelApellido_FormPerfilP.Size = new Size(84, 14);
+            labelApellido_FormPerfilP.TabIndex = 14;
+            labelApellido_FormPerfilP.Text = "Apellido(s)";
             // 
-            // label6
+            // textBoxNombre
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(21, 91);
-            label6.Name = "label6";
-            label6.Size = new Size(63, 14);
-            label6.TabIndex = 22;
-            label6.Text = "TELÉFONO";
+            textBoxNombre.BackColor = Color.FromArgb(13, 22, 40);
+            textBoxNombre.ForeColor = SystemColors.ControlLight;
+            textBoxNombre.Location = new Point(19, 48);
+            textBoxNombre.Name = "textBoxNombre";
+            textBoxNombre.Size = new Size(221, 22);
+            textBoxNombre.TabIndex = 13;
             // 
-            // textBoxTelefono
+            // labelNombre_FormPerfilP
             // 
-            textBoxTelefono.BackColor = Color.FromArgb(13, 22, 40);
-            textBoxTelefono.ForeColor = SystemColors.ControlLight;
-            textBoxTelefono.Location = new Point(21, 108);
-            textBoxTelefono.Name = "textBoxTelefono";
-            textBoxTelefono.Size = new Size(221, 22);
-            textBoxTelefono.TabIndex = 23;
+            labelNombre_FormPerfilP.AutoSize = true;
+            labelNombre_FormPerfilP.Location = new Point(19, 31);
+            labelNombre_FormPerfilP.Name = "labelNombre_FormPerfilP";
+            labelNombre_FormPerfilP.Size = new Size(70, 14);
+            labelNombre_FormPerfilP.TabIndex = 0;
+            labelNombre_FormPerfilP.Text = "Nombre(s)";
             // 
-            // textBoxEmail
+            // groupBoxContacto_FormPerfilP
             // 
-            textBoxEmail.BackColor = Color.FromArgb(13, 22, 40);
-            textBoxEmail.ForeColor = SystemColors.ControlLight;
-            textBoxEmail.Location = new Point(21, 48);
-            textBoxEmail.Name = "textBoxEmail";
-            textBoxEmail.Size = new Size(221, 22);
-            textBoxEmail.TabIndex = 21;
+            groupBoxContacto_FormPerfilP.Anchor = AnchorStyles.None;
+            groupBoxContacto_FormPerfilP.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxContacto_FormPerfilP.Controls.Add(buttonGuardar_FormPerfilP);
+            groupBoxContacto_FormPerfilP.Controls.Add(buttonCanc_FormPerfilP);
+            groupBoxContacto_FormPerfilP.Controls.Add(textBoxConfirmarPW);
+            groupBoxContacto_FormPerfilP.Controls.Add(labelLocalidad_FormPerfilP);
+            groupBoxContacto_FormPerfilP.Controls.Add(labelConfirmarContra_FormPerfilP);
+            groupBoxContacto_FormPerfilP.Controls.Add(textBoxLocalidad);
+            groupBoxContacto_FormPerfilP.Controls.Add(textBoxNewPW);
+            groupBoxContacto_FormPerfilP.Controls.Add(labelNuevaContraseña_FormPerfilP);
+            groupBoxContacto_FormPerfilP.Controls.Add(textBoxDireccion);
+            groupBoxContacto_FormPerfilP.Controls.Add(labelEmail_FormPerfilP);
+            groupBoxContacto_FormPerfilP.Controls.Add(labelDireccion_FormPerfilP);
+            groupBoxContacto_FormPerfilP.Controls.Add(textBoxEmail);
+            groupBoxContacto_FormPerfilP.Controls.Add(textBoxTelefono);
+            groupBoxContacto_FormPerfilP.Controls.Add(labelTelefono_FormPerfilP);
+            groupBoxContacto_FormPerfilP.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxContacto_FormPerfilP.ForeColor = SystemColors.ControlLight;
+            groupBoxContacto_FormPerfilP.Location = new Point(350, 34);
+            groupBoxContacto_FormPerfilP.Name = "groupBoxContacto_FormPerfilP";
+            groupBoxContacto_FormPerfilP.Size = new Size(307, 466);
+            groupBoxContacto_FormPerfilP.TabIndex = 6;
+            groupBoxContacto_FormPerfilP.TabStop = false;
+            groupBoxContacto_FormPerfilP.Text = "DATOS DE CONTACTO";
             // 
-            // label5
+            // buttonGuardar_FormPerfilP
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(21, 154);
-            label5.Name = "label5";
-            label5.Size = new Size(70, 14);
-            label5.TabIndex = 24;
-            label5.Text = "DIRECCIÓN";
+            buttonGuardar_FormPerfilP.Anchor = AnchorStyles.None;
+            buttonGuardar_FormPerfilP.BackColor = Color.FromArgb(0, 187, 118);
+            buttonGuardar_FormPerfilP.FlatAppearance.BorderSize = 0;
+            buttonGuardar_FormPerfilP.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
+            buttonGuardar_FormPerfilP.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
+            buttonGuardar_FormPerfilP.FlatStyle = FlatStyle.Flat;
+            buttonGuardar_FormPerfilP.ForeColor = SystemColors.ControlLight;
+            buttonGuardar_FormPerfilP.Location = new Point(21, 412);
+            buttonGuardar_FormPerfilP.Name = "buttonGuardar_FormPerfilP";
+            buttonGuardar_FormPerfilP.Size = new Size(90, 36);
+            buttonGuardar_FormPerfilP.TabIndex = 35;
+            buttonGuardar_FormPerfilP.Text = "Guardar";
+            buttonGuardar_FormPerfilP.UseVisualStyleBackColor = false;
             // 
-            // label7
+            // buttonCanc_FormPerfilP
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(21, 31);
-            label7.Name = "label7";
-            label7.Size = new Size(42, 14);
-            label7.TabIndex = 20;
-            label7.Text = "EMAIL";
-            // 
-            // textBoxDireccion
-            // 
-            textBoxDireccion.BackColor = Color.FromArgb(13, 22, 40);
-            textBoxDireccion.ForeColor = SystemColors.ControlLight;
-            textBoxDireccion.Location = new Point(21, 171);
-            textBoxDireccion.Name = "textBoxDireccion";
-            textBoxDireccion.Size = new Size(221, 22);
-            textBoxDireccion.TabIndex = 25;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(21, 279);
-            label10.Name = "label10";
-            label10.Size = new Size(119, 14);
-            label10.TabIndex = 28;
-            label10.Text = "NUEVA CONTRASEÑA";
-            // 
-            // textBoxNewPW
-            // 
-            textBoxNewPW.BackColor = Color.FromArgb(13, 22, 40);
-            textBoxNewPW.ForeColor = SystemColors.ControlLight;
-            textBoxNewPW.Location = new Point(21, 296);
-            textBoxNewPW.Name = "textBoxNewPW";
-            textBoxNewPW.Size = new Size(221, 22);
-            textBoxNewPW.TabIndex = 29;
-            // 
-            // textBoxLocalidad
-            // 
-            textBoxLocalidad.BackColor = Color.FromArgb(13, 22, 40);
-            textBoxLocalidad.ForeColor = SystemColors.ControlLight;
-            textBoxLocalidad.Location = new Point(21, 236);
-            textBoxLocalidad.Name = "textBoxLocalidad";
-            textBoxLocalidad.Size = new Size(221, 22);
-            textBoxLocalidad.TabIndex = 27;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(21, 342);
-            label9.Name = "label9";
-            label9.Size = new Size(147, 14);
-            label9.TabIndex = 30;
-            label9.Text = "CONFIRMAR CONTRASEÑA";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(21, 219);
-            label8.Name = "label8";
-            label8.Size = new Size(70, 14);
-            label8.TabIndex = 26;
-            label8.Text = "LOCALIDAD";
+            buttonCanc_FormPerfilP.Anchor = AnchorStyles.None;
+            buttonCanc_FormPerfilP.BackColor = Color.Transparent;
+            buttonCanc_FormPerfilP.FlatAppearance.BorderColor = Color.FromArgb(30, 58, 95);
+            buttonCanc_FormPerfilP.FlatAppearance.MouseDownBackColor = SystemColors.Highlight;
+            buttonCanc_FormPerfilP.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            buttonCanc_FormPerfilP.FlatStyle = FlatStyle.Flat;
+            buttonCanc_FormPerfilP.ForeColor = SystemColors.ControlLight;
+            buttonCanc_FormPerfilP.Location = new Point(152, 412);
+            buttonCanc_FormPerfilP.Name = "buttonCanc_FormPerfilP";
+            buttonCanc_FormPerfilP.Size = new Size(90, 36);
+            buttonCanc_FormPerfilP.TabIndex = 34;
+            buttonCanc_FormPerfilP.Text = "Cancelar";
+            buttonCanc_FormPerfilP.UseVisualStyleBackColor = false;
             // 
             // textBoxConfirmarPW
             // 
@@ -289,43 +218,110 @@
             textBoxConfirmarPW.Size = new Size(221, 22);
             textBoxConfirmarPW.TabIndex = 31;
             // 
-            // buttonCancelar
+            // labelLocalidad_FormPerfilP
             // 
-            buttonCancelar.Anchor = AnchorStyles.None;
-            buttonCancelar.BackColor = Color.Transparent;
-            buttonCancelar.FlatAppearance.BorderColor = Color.FromArgb(30, 58, 95);
-            buttonCancelar.FlatAppearance.MouseDownBackColor = SystemColors.Highlight;
-            buttonCancelar.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
-            buttonCancelar.FlatStyle = FlatStyle.Flat;
-            buttonCancelar.ForeColor = SystemColors.ControlLight;
-            buttonCancelar.Location = new Point(205, 591);
-            buttonCancelar.Name = "buttonCancelar";
-            buttonCancelar.Size = new Size(90, 36);
-            buttonCancelar.TabIndex = 32;
-            buttonCancelar.Text = "Cancelar";
-            buttonCancelar.UseVisualStyleBackColor = false;
+            labelLocalidad_FormPerfilP.AutoSize = true;
+            labelLocalidad_FormPerfilP.Location = new Point(21, 219);
+            labelLocalidad_FormPerfilP.Name = "labelLocalidad_FormPerfilP";
+            labelLocalidad_FormPerfilP.Size = new Size(70, 14);
+            labelLocalidad_FormPerfilP.TabIndex = 26;
+            labelLocalidad_FormPerfilP.Text = "LOCALIDAD";
             // 
-            // buttonGuard
+            // labelConfirmarContra_FormPerfilP
             // 
-            buttonGuard.Anchor = AnchorStyles.None;
-            buttonGuard.BackColor = Color.FromArgb(0, 187, 118);
-            buttonGuard.FlatAppearance.BorderSize = 0;
-            buttonGuard.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
-            buttonGuard.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
-            buttonGuard.FlatStyle = FlatStyle.Flat;
-            buttonGuard.ForeColor = SystemColors.ControlLight;
-            buttonGuard.Location = new Point(74, 591);
-            buttonGuard.Name = "buttonGuard";
-            buttonGuard.Size = new Size(90, 36);
-            buttonGuard.TabIndex = 33;
-            buttonGuard.Text = "Guardar";
-            buttonGuard.UseVisualStyleBackColor = false;
+            labelConfirmarContra_FormPerfilP.AutoSize = true;
+            labelConfirmarContra_FormPerfilP.Location = new Point(21, 342);
+            labelConfirmarContra_FormPerfilP.Name = "labelConfirmarContra_FormPerfilP";
+            labelConfirmarContra_FormPerfilP.Size = new Size(147, 14);
+            labelConfirmarContra_FormPerfilP.TabIndex = 30;
+            labelConfirmarContra_FormPerfilP.Text = "CONFIRMAR CONTRASEÑA";
+            // 
+            // textBoxLocalidad
+            // 
+            textBoxLocalidad.BackColor = Color.FromArgb(13, 22, 40);
+            textBoxLocalidad.ForeColor = SystemColors.ControlLight;
+            textBoxLocalidad.Location = new Point(21, 236);
+            textBoxLocalidad.Name = "textBoxLocalidad";
+            textBoxLocalidad.Size = new Size(221, 22);
+            textBoxLocalidad.TabIndex = 27;
+            // 
+            // textBoxNewPW
+            // 
+            textBoxNewPW.BackColor = Color.FromArgb(13, 22, 40);
+            textBoxNewPW.ForeColor = SystemColors.ControlLight;
+            textBoxNewPW.Location = new Point(21, 296);
+            textBoxNewPW.Name = "textBoxNewPW";
+            textBoxNewPW.Size = new Size(221, 22);
+            textBoxNewPW.TabIndex = 29;
+            // 
+            // labelNuevaContraseña_FormPerfilP
+            // 
+            labelNuevaContraseña_FormPerfilP.AutoSize = true;
+            labelNuevaContraseña_FormPerfilP.Location = new Point(21, 279);
+            labelNuevaContraseña_FormPerfilP.Name = "labelNuevaContraseña_FormPerfilP";
+            labelNuevaContraseña_FormPerfilP.Size = new Size(119, 14);
+            labelNuevaContraseña_FormPerfilP.TabIndex = 28;
+            labelNuevaContraseña_FormPerfilP.Text = "NUEVA CONTRASEÑA";
+            // 
+            // textBoxDireccion
+            // 
+            textBoxDireccion.BackColor = Color.FromArgb(13, 22, 40);
+            textBoxDireccion.ForeColor = SystemColors.ControlLight;
+            textBoxDireccion.Location = new Point(21, 171);
+            textBoxDireccion.Name = "textBoxDireccion";
+            textBoxDireccion.Size = new Size(221, 22);
+            textBoxDireccion.TabIndex = 25;
+            // 
+            // labelEmail_FormPerfilP
+            // 
+            labelEmail_FormPerfilP.AutoSize = true;
+            labelEmail_FormPerfilP.Location = new Point(21, 31);
+            labelEmail_FormPerfilP.Name = "labelEmail_FormPerfilP";
+            labelEmail_FormPerfilP.Size = new Size(42, 14);
+            labelEmail_FormPerfilP.TabIndex = 20;
+            labelEmail_FormPerfilP.Text = "EMAIL";
+            // 
+            // labelDireccion_FormPerfilP
+            // 
+            labelDireccion_FormPerfilP.AutoSize = true;
+            labelDireccion_FormPerfilP.Location = new Point(21, 154);
+            labelDireccion_FormPerfilP.Name = "labelDireccion_FormPerfilP";
+            labelDireccion_FormPerfilP.Size = new Size(70, 14);
+            labelDireccion_FormPerfilP.TabIndex = 24;
+            labelDireccion_FormPerfilP.Text = "DIRECCIÓN";
+            // 
+            // textBoxEmail
+            // 
+            textBoxEmail.BackColor = Color.FromArgb(13, 22, 40);
+            textBoxEmail.ForeColor = SystemColors.ControlLight;
+            textBoxEmail.Location = new Point(21, 48);
+            textBoxEmail.Name = "textBoxEmail";
+            textBoxEmail.Size = new Size(221, 22);
+            textBoxEmail.TabIndex = 21;
+            // 
+            // textBoxTelefono
+            // 
+            textBoxTelefono.BackColor = Color.FromArgb(13, 22, 40);
+            textBoxTelefono.ForeColor = SystemColors.ControlLight;
+            textBoxTelefono.Location = new Point(21, 108);
+            textBoxTelefono.Name = "textBoxTelefono";
+            textBoxTelefono.Size = new Size(221, 22);
+            textBoxTelefono.TabIndex = 23;
+            // 
+            // labelTelefono_FormPerfilP
+            // 
+            labelTelefono_FormPerfilP.AutoSize = true;
+            labelTelefono_FormPerfilP.Location = new Point(21, 91);
+            labelTelefono_FormPerfilP.Name = "labelTelefono_FormPerfilP";
+            labelTelefono_FormPerfilP.Size = new Size(63, 14);
+            labelTelefono_FormPerfilP.TabIndex = 22;
+            labelTelefono_FormPerfilP.Text = "TELÉFONO";
             // 
             // groupBox2
             // 
             groupBox2.BackColor = Color.FromArgb(8, 14, 26);
-            groupBox2.Controls.Add(groupBox1);
-            groupBox2.Controls.Add(groupBoxExpensas);
+            groupBox2.Controls.Add(groupBoxContacto_FormPerfilP);
+            groupBox2.Controls.Add(groupBoxDatos_FormPerfilP);
             groupBox2.Dock = DockStyle.Fill;
             groupBox2.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBox2.ForeColor = SystemColors.ControlLight;
@@ -334,38 +330,6 @@
             groupBox2.Size = new Size(682, 597);
             groupBox2.TabIndex = 9;
             groupBox2.TabStop = false;
-            // 
-            // button1
-            // 
-            button1.Anchor = AnchorStyles.None;
-            button1.BackColor = Color.FromArgb(0, 187, 118);
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
-            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.ForeColor = SystemColors.ControlLight;
-            button1.Location = new Point(21, 412);
-            button1.Name = "button1";
-            button1.Size = new Size(90, 36);
-            button1.TabIndex = 35;
-            button1.Text = "Guardar";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            button2.Anchor = AnchorStyles.None;
-            button2.BackColor = Color.Transparent;
-            button2.FlatAppearance.BorderColor = Color.FromArgb(30, 58, 95);
-            button2.FlatAppearance.MouseDownBackColor = SystemColors.Highlight;
-            button2.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.ForeColor = SystemColors.ControlLight;
-            button2.Location = new Point(152, 412);
-            button2.Name = "button2";
-            button2.Size = new Size(90, 36);
-            button2.TabIndex = 34;
-            button2.Text = "Cancelar";
-            button2.UseVisualStyleBackColor = false;
             // 
             // formPerfilP
             // 
@@ -376,42 +340,42 @@
             Controls.Add(groupBox2);
             Name = "formPerfilP";
             Text = "formPerfilP";
-            groupBoxExpensas.ResumeLayout(false);
-            groupBoxExpensas.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            Load += formPerfilP_Load;
+            FormClosing += formPerfilP_FormClosing;
+            groupBoxDatos_FormPerfilP.ResumeLayout(false);
+            groupBoxDatos_FormPerfilP.PerformLayout();
+            groupBoxContacto_FormPerfilP.ResumeLayout(false);
+            groupBoxContacto_FormPerfilP.PerformLayout();
             groupBox2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private GroupBox groupBoxExpensas;
+        private GroupBox groupBoxDatos_FormPerfilP;
         private DateTimePicker dateTimeNacimiento;
-        private Label label4;
+        private Label labelFecha_FormPerfilP;
         private TextBox textBoxDni;
-        private Label label3;
+        private Label labelDNI_FormPerfilP;
         private TextBox textBoxApellido;
-        private Label label2;
+        private Label labelApellido_FormPerfilP;
         private TextBox textBoxNombre;
-        private Label label1;
-        private GroupBox groupBox1;
-        private Button buttonGuard;
-        private Button buttonCancelar;
+        private Label labelNombre_FormPerfilP;
+        private GroupBox groupBoxContacto_FormPerfilP;
         private TextBox textBoxConfirmarPW;
-        private Label label8;
-        private Label label9;
+        private Label labelLocalidad_FormPerfilP;
+        private Label labelConfirmarContra_FormPerfilP;
         private TextBox textBoxLocalidad;
         private TextBox textBoxNewPW;
-        private Label label10;
+        private Label labelNuevaContraseña_FormPerfilP;
         private TextBox textBoxDireccion;
-        private Label label7;
-        private Label label5;
+        private Label labelEmail_FormPerfilP;
+        private Label labelDireccion_FormPerfilP;
         private TextBox textBoxEmail;
         private TextBox textBoxTelefono;
-        private Label label6;
+        private Label labelTelefono_FormPerfilP;
         private GroupBox groupBox2;
-        private Button button1;
-        private Button button2;
+        private Button buttonGuardar_FormPerfilP;
+        private Button buttonCanc_FormPerfilP;
     }
 }

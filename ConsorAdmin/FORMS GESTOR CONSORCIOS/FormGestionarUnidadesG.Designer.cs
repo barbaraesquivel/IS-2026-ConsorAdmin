@@ -29,54 +29,54 @@
         private void InitializeComponent()
         {
             groupBox2 = new GroupBox();
-            buttonEliminar = new Button();
+            buttonEliminar_FormGestionarUnidadesG = new Button();
             comboBoxUnidadEliminar = new ComboBox();
-            label14 = new Label();
-            label9 = new Label();
-            groupBox1 = new GroupBox();
+            labelEUnidad_FormGestionarUnidadesG = new Label();
+            labelEliminarUnidad_FormGestionarUnidadesG = new Label();
+            groupBoxAgregarUnidades_FormGestionarUnidadesG = new GroupBox();
             comboBoxTipoVinculo = new ComboBox();
-            label15 = new Label();
-            buttonGuardarUnidad = new Button();
-            label13 = new Label();
+            labelATipo_FormGestionarUnidadesG = new Label();
+            buttonGuardarUnidad_FormGestionarUnidadesG = new Button();
+            labelAEdificio_FormGestionarUnidadesG = new Label();
             textBoxPisoAgregar = new TextBox();
             comboBoxEdificioAgregar = new ComboBox();
-            label12 = new Label();
-            label11 = new Label();
+            labelAPiso_FormGestionarUnidadesG = new Label();
+            labelADpto_FormGestionarUnidadesG = new Label();
             textBoxDptoAgregar = new TextBox();
-            label10 = new Label();
+            labelASuperficie_FormGestionarUnidadesG = new Label();
             textBoxSuperficieAgregar = new TextBox();
-            groupBoxEstado = new GroupBox();
+            groupBoxEstado_FormGestionarUnidadesG = new GroupBox();
             comboBoxTipoVinculoModificar = new ComboBox();
-            label16 = new Label();
+            labelETipo_FormGestionarUnidadesG = new Label();
             comboBoxUnidadModificar = new ComboBox();
             textBoxPisoModificar = new TextBox();
-            label1 = new Label();
-            buttonGuardar = new Button();
+            labelEditarUnidad_FormGestionarUnidadesG = new Label();
+            buttonActualizar_FormGestionarUnidadesG = new Button();
             textBoxDptoModificar = new TextBox();
             textBoxSuperficieModificar = new TextBox();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
+            labelESuperficie_FormGestionarUnidadesG = new Label();
+            labelEDpto_FormGestionarUnidadesG = new Label();
+            labelEPiso_FormGestionarUnidadesG = new Label();
             comboBoxEdificioModificar = new ComboBox();
-            label6 = new Label();
-            label2 = new Label();
+            labelEEdificio_FormGestionarUnidadesG = new Label();
+            labelUnidades_FormGestionarUnidadesG = new Label();
             dataGridUnidades = new DataGridView();
             groupBox2.SuspendLayout();
-            groupBox1.SuspendLayout();
-            groupBoxEstado.SuspendLayout();
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.SuspendLayout();
+            groupBoxEstado_FormGestionarUnidadesG.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridUnidades).BeginInit();
             SuspendLayout();
             // 
             // groupBox2
             // 
             groupBox2.BackColor = Color.FromArgb(8, 14, 26);
-            groupBox2.Controls.Add(buttonEliminar);
+            groupBox2.Controls.Add(buttonEliminar_FormGestionarUnidadesG);
             groupBox2.Controls.Add(comboBoxUnidadEliminar);
-            groupBox2.Controls.Add(label14);
-            groupBox2.Controls.Add(label9);
-            groupBox2.Controls.Add(groupBox1);
-            groupBox2.Controls.Add(groupBoxEstado);
-            groupBox2.Controls.Add(label2);
+            groupBox2.Controls.Add(labelEUnidad_FormGestionarUnidadesG);
+            groupBox2.Controls.Add(labelEliminarUnidad_FormGestionarUnidadesG);
+            groupBox2.Controls.Add(groupBoxAgregarUnidades_FormGestionarUnidadesG);
+            groupBox2.Controls.Add(groupBoxEstado_FormGestionarUnidadesG);
+            groupBox2.Controls.Add(labelUnidades_FormGestionarUnidadesG);
             groupBox2.Controls.Add(dataGridUnidades);
             groupBox2.Dock = DockStyle.Fill;
             groupBox2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
@@ -87,22 +87,22 @@
             groupBox2.TabIndex = 9;
             groupBox2.TabStop = false;
             // 
-            // buttonEliminar
+            // buttonEliminar_FormGestionarUnidadesG
             // 
-            buttonEliminar.Anchor = AnchorStyles.Bottom;
-            buttonEliminar.BackColor = Color.FromArgb(255, 83, 113);
-            buttonEliminar.FlatAppearance.BorderSize = 0;
-            buttonEliminar.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
-            buttonEliminar.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
-            buttonEliminar.FlatStyle = FlatStyle.Flat;
-            buttonEliminar.ForeColor = SystemColors.ControlLight;
-            buttonEliminar.Location = new Point(631, 494);
-            buttonEliminar.Name = "buttonEliminar";
-            buttonEliminar.Size = new Size(177, 26);
-            buttonEliminar.TabIndex = 42;
-            buttonEliminar.Text = "Eliminar Unidad";
-            buttonEliminar.UseVisualStyleBackColor = false;
-            buttonEliminar.Click += buttonEliminar_Click;
+            buttonEliminar_FormGestionarUnidadesG.Anchor = AnchorStyles.Bottom;
+            buttonEliminar_FormGestionarUnidadesG.BackColor = Color.FromArgb(255, 83, 113);
+            buttonEliminar_FormGestionarUnidadesG.FlatAppearance.BorderSize = 0;
+            buttonEliminar_FormGestionarUnidadesG.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
+            buttonEliminar_FormGestionarUnidadesG.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
+            buttonEliminar_FormGestionarUnidadesG.FlatStyle = FlatStyle.Flat;
+            buttonEliminar_FormGestionarUnidadesG.ForeColor = SystemColors.ControlLight;
+            buttonEliminar_FormGestionarUnidadesG.Location = new Point(631, 494);
+            buttonEliminar_FormGestionarUnidadesG.Name = "buttonEliminar_FormGestionarUnidadesG";
+            buttonEliminar_FormGestionarUnidadesG.Size = new Size(177, 26);
+            buttonEliminar_FormGestionarUnidadesG.TabIndex = 42;
+            buttonEliminar_FormGestionarUnidadesG.Text = "Eliminar Unidad";
+            buttonEliminar_FormGestionarUnidadesG.UseVisualStyleBackColor = false;
+            buttonEliminar_FormGestionarUnidadesG.Click += buttonEliminar_Click;
             // 
             // comboBoxUnidadEliminar
             // 
@@ -115,49 +115,49 @@
             comboBoxUnidadEliminar.Size = new Size(181, 23);
             comboBoxUnidadEliminar.TabIndex = 26;
             // 
-            // label14
+            // labelEUnidad_FormGestionarUnidadesG
             // 
-            label14.Anchor = AnchorStyles.Bottom;
-            label14.AutoSize = true;
-            label14.Location = new Point(631, 440);
-            label14.Name = "label14";
-            label14.Size = new Size(57, 15);
-            label14.TabIndex = 25;
-            label14.Text = "Unidad:";
+            labelEUnidad_FormGestionarUnidadesG.Anchor = AnchorStyles.Bottom;
+            labelEUnidad_FormGestionarUnidadesG.AutoSize = true;
+            labelEUnidad_FormGestionarUnidadesG.Location = new Point(631, 440);
+            labelEUnidad_FormGestionarUnidadesG.Name = "labelEUnidad_FormGestionarUnidadesG";
+            labelEUnidad_FormGestionarUnidadesG.Size = new Size(57, 15);
+            labelEUnidad_FormGestionarUnidadesG.TabIndex = 25;
+            labelEUnidad_FormGestionarUnidadesG.Text = "Unidad:";
             // 
-            // label9
+            // labelEliminarUnidad_FormGestionarUnidadesG
             // 
-            label9.Anchor = AnchorStyles.Bottom;
-            label9.AutoSize = true;
-            label9.Location = new Point(631, 415);
-            label9.Name = "label9";
-            label9.Size = new Size(115, 15);
-            label9.TabIndex = 41;
-            label9.Text = "Eliminar Unidad:";
+            labelEliminarUnidad_FormGestionarUnidadesG.Anchor = AnchorStyles.Bottom;
+            labelEliminarUnidad_FormGestionarUnidadesG.AutoSize = true;
+            labelEliminarUnidad_FormGestionarUnidadesG.Location = new Point(631, 415);
+            labelEliminarUnidad_FormGestionarUnidadesG.Name = "labelEliminarUnidad_FormGestionarUnidadesG";
+            labelEliminarUnidad_FormGestionarUnidadesG.Size = new Size(115, 15);
+            labelEliminarUnidad_FormGestionarUnidadesG.TabIndex = 41;
+            labelEliminarUnidad_FormGestionarUnidadesG.Text = "Eliminar Unidad:";
             // 
-            // groupBox1
+            // groupBoxAgregarUnidades_FormGestionarUnidadesG
             // 
-            groupBox1.Anchor = AnchorStyles.Top;
-            groupBox1.BackColor = Color.FromArgb(17, 30, 53);
-            groupBox1.Controls.Add(comboBoxTipoVinculo);
-            groupBox1.Controls.Add(label15);
-            groupBox1.Controls.Add(buttonGuardarUnidad);
-            groupBox1.Controls.Add(label13);
-            groupBox1.Controls.Add(textBoxPisoAgregar);
-            groupBox1.Controls.Add(comboBoxEdificioAgregar);
-            groupBox1.Controls.Add(label12);
-            groupBox1.Controls.Add(label11);
-            groupBox1.Controls.Add(textBoxDptoAgregar);
-            groupBox1.Controls.Add(label10);
-            groupBox1.Controls.Add(textBoxSuperficieAgregar);
-            groupBox1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
-            groupBox1.ForeColor = SystemColors.ControlLight;
-            groupBox1.Location = new Point(52, 12);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(601, 189);
-            groupBox1.TabIndex = 40;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Agregar Unidades";
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.Anchor = AnchorStyles.Top;
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.Controls.Add(comboBoxTipoVinculo);
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.Controls.Add(labelATipo_FormGestionarUnidadesG);
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.Controls.Add(buttonGuardarUnidad_FormGestionarUnidadesG);
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.Controls.Add(labelAEdificio_FormGestionarUnidadesG);
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.Controls.Add(textBoxPisoAgregar);
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.Controls.Add(comboBoxEdificioAgregar);
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.Controls.Add(labelAPiso_FormGestionarUnidadesG);
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.Controls.Add(labelADpto_FormGestionarUnidadesG);
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.Controls.Add(textBoxDptoAgregar);
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.Controls.Add(labelASuperficie_FormGestionarUnidadesG);
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.Controls.Add(textBoxSuperficieAgregar);
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.ForeColor = SystemColors.ControlLight;
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.Location = new Point(52, 12);
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.Name = "groupBoxAgregarUnidades_FormGestionarUnidadesG";
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.Size = new Size(601, 189);
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.TabIndex = 40;
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.TabStop = false;
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.Text = "Agregar Unidades";
             // 
             // comboBoxTipoVinculo
             // 
@@ -169,40 +169,40 @@
             comboBoxTipoVinculo.Size = new Size(209, 23);
             comboBoxTipoVinculo.TabIndex = 38;
             // 
-            // label15
+            // labelATipo_FormGestionarUnidadesG
             // 
-            label15.AutoSize = true;
-            label15.Location = new Point(320, 18);
-            label15.Name = "label15";
-            label15.Size = new Size(110, 15);
-            label15.TabIndex = 37;
-            label15.Text = "Tipo de Vinculo:";
+            labelATipo_FormGestionarUnidadesG.AutoSize = true;
+            labelATipo_FormGestionarUnidadesG.Location = new Point(320, 18);
+            labelATipo_FormGestionarUnidadesG.Name = "labelATipo_FormGestionarUnidadesG";
+            labelATipo_FormGestionarUnidadesG.Size = new Size(110, 15);
+            labelATipo_FormGestionarUnidadesG.TabIndex = 37;
+            labelATipo_FormGestionarUnidadesG.Text = "Tipo de Vinculo:";
             // 
-            // buttonGuardarUnidad
+            // buttonGuardarUnidad_FormGestionarUnidadesG
             // 
-            buttonGuardarUnidad.Anchor = AnchorStyles.None;
-            buttonGuardarUnidad.BackColor = Color.FromArgb(0, 187, 118);
-            buttonGuardarUnidad.FlatAppearance.BorderSize = 0;
-            buttonGuardarUnidad.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
-            buttonGuardarUnidad.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
-            buttonGuardarUnidad.FlatStyle = FlatStyle.Flat;
-            buttonGuardarUnidad.ForeColor = SystemColors.ControlLight;
-            buttonGuardarUnidad.Location = new Point(133, 152);
-            buttonGuardarUnidad.Name = "buttonGuardarUnidad";
-            buttonGuardarUnidad.Size = new Size(338, 32);
-            buttonGuardarUnidad.TabIndex = 20;
-            buttonGuardarUnidad.Text = "Guardar Cambios";
-            buttonGuardarUnidad.UseVisualStyleBackColor = false;
-            buttonGuardarUnidad.Click += buttonGuardarUnidad_Click;
+            buttonGuardarUnidad_FormGestionarUnidadesG.Anchor = AnchorStyles.None;
+            buttonGuardarUnidad_FormGestionarUnidadesG.BackColor = Color.FromArgb(0, 187, 118);
+            buttonGuardarUnidad_FormGestionarUnidadesG.FlatAppearance.BorderSize = 0;
+            buttonGuardarUnidad_FormGestionarUnidadesG.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
+            buttonGuardarUnidad_FormGestionarUnidadesG.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
+            buttonGuardarUnidad_FormGestionarUnidadesG.FlatStyle = FlatStyle.Flat;
+            buttonGuardarUnidad_FormGestionarUnidadesG.ForeColor = SystemColors.ControlLight;
+            buttonGuardarUnidad_FormGestionarUnidadesG.Location = new Point(133, 152);
+            buttonGuardarUnidad_FormGestionarUnidadesG.Name = "buttonGuardarUnidad_FormGestionarUnidadesG";
+            buttonGuardarUnidad_FormGestionarUnidadesG.Size = new Size(338, 32);
+            buttonGuardarUnidad_FormGestionarUnidadesG.TabIndex = 20;
+            buttonGuardarUnidad_FormGestionarUnidadesG.Text = "Guardar Cambios";
+            buttonGuardarUnidad_FormGestionarUnidadesG.UseVisualStyleBackColor = false;
+            buttonGuardarUnidad_FormGestionarUnidadesG.Click += buttonGuardarUnidad_Click;
             // 
-            // label13
+            // labelAEdificio_FormGestionarUnidadesG
             // 
-            label13.AutoSize = true;
-            label13.Location = new Point(37, 18);
-            label13.Name = "label13";
-            label13.Size = new Size(59, 15);
-            label13.TabIndex = 25;
-            label13.Text = "Edificio:";
+            labelAEdificio_FormGestionarUnidadesG.AutoSize = true;
+            labelAEdificio_FormGestionarUnidadesG.Location = new Point(37, 18);
+            labelAEdificio_FormGestionarUnidadesG.Name = "labelAEdificio_FormGestionarUnidadesG";
+            labelAEdificio_FormGestionarUnidadesG.Size = new Size(59, 15);
+            labelAEdificio_FormGestionarUnidadesG.TabIndex = 25;
+            labelAEdificio_FormGestionarUnidadesG.Text = "Edificio:";
             // 
             // textBoxPisoAgregar
             // 
@@ -223,23 +223,23 @@
             comboBoxEdificioAgregar.Size = new Size(209, 23);
             comboBoxEdificioAgregar.TabIndex = 26;
             // 
-            // label12
+            // labelAPiso_FormGestionarUnidadesG
             // 
-            label12.AutoSize = true;
-            label12.Location = new Point(37, 64);
-            label12.Name = "label12";
-            label12.Size = new Size(39, 15);
-            label12.TabIndex = 28;
-            label12.Text = "Piso:";
+            labelAPiso_FormGestionarUnidadesG.AutoSize = true;
+            labelAPiso_FormGestionarUnidadesG.Location = new Point(37, 64);
+            labelAPiso_FormGestionarUnidadesG.Name = "labelAPiso_FormGestionarUnidadesG";
+            labelAPiso_FormGestionarUnidadesG.Size = new Size(39, 15);
+            labelAPiso_FormGestionarUnidadesG.TabIndex = 28;
+            labelAPiso_FormGestionarUnidadesG.Text = "Piso:";
             // 
-            // label11
+            // labelADpto_FormGestionarUnidadesG
             // 
-            label11.AutoSize = true;
-            label11.Location = new Point(320, 60);
-            label11.Name = "label11";
-            label11.Size = new Size(41, 15);
-            label11.TabIndex = 29;
-            label11.Text = "Dpto:";
+            labelADpto_FormGestionarUnidadesG.AutoSize = true;
+            labelADpto_FormGestionarUnidadesG.Location = new Point(320, 60);
+            labelADpto_FormGestionarUnidadesG.Name = "labelADpto_FormGestionarUnidadesG";
+            labelADpto_FormGestionarUnidadesG.Size = new Size(41, 15);
+            labelADpto_FormGestionarUnidadesG.TabIndex = 29;
+            labelADpto_FormGestionarUnidadesG.Text = "Dpto:";
             // 
             // textBoxDptoAgregar
             // 
@@ -250,14 +250,14 @@
             textBoxDptoAgregar.Size = new Size(208, 21);
             textBoxDptoAgregar.TabIndex = 32;
             // 
-            // label10
+            // labelASuperficie_FormGestionarUnidadesG
             // 
-            label10.AutoSize = true;
-            label10.Location = new Point(37, 106);
-            label10.Name = "label10";
-            label10.Size = new Size(184, 15);
-            label10.TabIndex = 30;
-            label10.Text = "Superficie (mts cuadrados):";
+            labelASuperficie_FormGestionarUnidadesG.AutoSize = true;
+            labelASuperficie_FormGestionarUnidadesG.Location = new Point(37, 106);
+            labelASuperficie_FormGestionarUnidadesG.Name = "labelASuperficie_FormGestionarUnidadesG";
+            labelASuperficie_FormGestionarUnidadesG.Size = new Size(184, 15);
+            labelASuperficie_FormGestionarUnidadesG.TabIndex = 30;
+            labelASuperficie_FormGestionarUnidadesG.Text = "Superficie (mts cuadrados):";
             // 
             // textBoxSuperficieAgregar
             // 
@@ -268,31 +268,31 @@
             textBoxSuperficieAgregar.Size = new Size(208, 21);
             textBoxSuperficieAgregar.TabIndex = 31;
             // 
-            // groupBoxEstado
+            // groupBoxEstado_FormGestionarUnidadesG
             // 
-            groupBoxEstado.Anchor = AnchorStyles.Top;
-            groupBoxEstado.BackColor = Color.FromArgb(17, 30, 53);
-            groupBoxEstado.Controls.Add(comboBoxTipoVinculoModificar);
-            groupBoxEstado.Controls.Add(label16);
-            groupBoxEstado.Controls.Add(comboBoxUnidadModificar);
-            groupBoxEstado.Controls.Add(textBoxPisoModificar);
-            groupBoxEstado.Controls.Add(label1);
-            groupBoxEstado.Controls.Add(buttonGuardar);
-            groupBoxEstado.Controls.Add(textBoxDptoModificar);
-            groupBoxEstado.Controls.Add(textBoxSuperficieModificar);
-            groupBoxEstado.Controls.Add(label3);
-            groupBoxEstado.Controls.Add(label4);
-            groupBoxEstado.Controls.Add(label5);
-            groupBoxEstado.Controls.Add(comboBoxEdificioModificar);
-            groupBoxEstado.Controls.Add(label6);
-            groupBoxEstado.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
-            groupBoxEstado.ForeColor = SystemColors.ControlLight;
-            groupBoxEstado.Location = new Point(52, 207);
-            groupBoxEstado.Name = "groupBoxEstado";
-            groupBoxEstado.Size = new Size(732, 189);
-            groupBoxEstado.TabIndex = 39;
-            groupBoxEstado.TabStop = false;
-            groupBoxEstado.Text = "Editar Unidades";
+            groupBoxEstado_FormGestionarUnidadesG.Anchor = AnchorStyles.Top;
+            groupBoxEstado_FormGestionarUnidadesG.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxEstado_FormGestionarUnidadesG.Controls.Add(comboBoxTipoVinculoModificar);
+            groupBoxEstado_FormGestionarUnidadesG.Controls.Add(labelETipo_FormGestionarUnidadesG);
+            groupBoxEstado_FormGestionarUnidadesG.Controls.Add(comboBoxUnidadModificar);
+            groupBoxEstado_FormGestionarUnidadesG.Controls.Add(textBoxPisoModificar);
+            groupBoxEstado_FormGestionarUnidadesG.Controls.Add(labelEditarUnidad_FormGestionarUnidadesG);
+            groupBoxEstado_FormGestionarUnidadesG.Controls.Add(buttonActualizar_FormGestionarUnidadesG);
+            groupBoxEstado_FormGestionarUnidadesG.Controls.Add(textBoxDptoModificar);
+            groupBoxEstado_FormGestionarUnidadesG.Controls.Add(textBoxSuperficieModificar);
+            groupBoxEstado_FormGestionarUnidadesG.Controls.Add(labelESuperficie_FormGestionarUnidadesG);
+            groupBoxEstado_FormGestionarUnidadesG.Controls.Add(labelEDpto_FormGestionarUnidadesG);
+            groupBoxEstado_FormGestionarUnidadesG.Controls.Add(labelEPiso_FormGestionarUnidadesG);
+            groupBoxEstado_FormGestionarUnidadesG.Controls.Add(comboBoxEdificioModificar);
+            groupBoxEstado_FormGestionarUnidadesG.Controls.Add(labelEEdificio_FormGestionarUnidadesG);
+            groupBoxEstado_FormGestionarUnidadesG.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            groupBoxEstado_FormGestionarUnidadesG.ForeColor = SystemColors.ControlLight;
+            groupBoxEstado_FormGestionarUnidadesG.Location = new Point(52, 207);
+            groupBoxEstado_FormGestionarUnidadesG.Name = "groupBoxEstado_FormGestionarUnidadesG";
+            groupBoxEstado_FormGestionarUnidadesG.Size = new Size(732, 189);
+            groupBoxEstado_FormGestionarUnidadesG.TabIndex = 39;
+            groupBoxEstado_FormGestionarUnidadesG.TabStop = false;
+            groupBoxEstado_FormGestionarUnidadesG.Text = "Editar Unidades";
             // 
             // comboBoxTipoVinculoModificar
             // 
@@ -304,14 +304,14 @@
             comboBoxTipoVinculoModificar.Size = new Size(181, 23);
             comboBoxTipoVinculoModificar.TabIndex = 40;
             // 
-            // label16
+            // labelETipo_FormGestionarUnidadesG
             // 
-            label16.AutoSize = true;
-            label16.Location = new Point(320, 66);
-            label16.Name = "label16";
-            label16.Size = new Size(110, 15);
-            label16.TabIndex = 39;
-            label16.Text = "Tipo de Vinculo:";
+            labelETipo_FormGestionarUnidadesG.AutoSize = true;
+            labelETipo_FormGestionarUnidadesG.Location = new Point(320, 66);
+            labelETipo_FormGestionarUnidadesG.Name = "labelETipo_FormGestionarUnidadesG";
+            labelETipo_FormGestionarUnidadesG.Size = new Size(110, 15);
+            labelETipo_FormGestionarUnidadesG.TabIndex = 39;
+            labelETipo_FormGestionarUnidadesG.Text = "Tipo de Vinculo:";
             // 
             // comboBoxUnidadModificar
             // 
@@ -332,31 +332,31 @@
             textBoxPisoModificar.Size = new Size(208, 21);
             textBoxPisoModificar.TabIndex = 21;
             // 
-            // label1
+            // labelEditarUnidad_FormGestionarUnidadesG
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(24, 18);
-            label1.Name = "label1";
-            label1.Size = new Size(57, 15);
-            label1.TabIndex = 22;
-            label1.Text = "Unidad:";
+            labelEditarUnidad_FormGestionarUnidadesG.AutoSize = true;
+            labelEditarUnidad_FormGestionarUnidadesG.Location = new Point(24, 18);
+            labelEditarUnidad_FormGestionarUnidadesG.Name = "labelEditarUnidad_FormGestionarUnidadesG";
+            labelEditarUnidad_FormGestionarUnidadesG.Size = new Size(57, 15);
+            labelEditarUnidad_FormGestionarUnidadesG.TabIndex = 22;
+            labelEditarUnidad_FormGestionarUnidadesG.Text = "Unidad:";
             // 
-            // buttonGuardar
+            // buttonActualizar_FormGestionarUnidadesG
             // 
-            buttonGuardar.Anchor = AnchorStyles.None;
-            buttonGuardar.BackColor = Color.FromArgb(0, 187, 118);
-            buttonGuardar.FlatAppearance.BorderSize = 0;
-            buttonGuardar.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
-            buttonGuardar.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
-            buttonGuardar.FlatStyle = FlatStyle.Flat;
-            buttonGuardar.ForeColor = SystemColors.ControlLight;
-            buttonGuardar.Location = new Point(24, 151);
-            buttonGuardar.Name = "buttonGuardar";
-            buttonGuardar.Size = new Size(504, 32);
-            buttonGuardar.TabIndex = 20;
-            buttonGuardar.Text = "Actualizar Cambios";
-            buttonGuardar.UseVisualStyleBackColor = false;
-            buttonGuardar.Click += buttonGuardar_Click;
+            buttonActualizar_FormGestionarUnidadesG.Anchor = AnchorStyles.None;
+            buttonActualizar_FormGestionarUnidadesG.BackColor = Color.FromArgb(0, 187, 118);
+            buttonActualizar_FormGestionarUnidadesG.FlatAppearance.BorderSize = 0;
+            buttonActualizar_FormGestionarUnidadesG.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
+            buttonActualizar_FormGestionarUnidadesG.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
+            buttonActualizar_FormGestionarUnidadesG.FlatStyle = FlatStyle.Flat;
+            buttonActualizar_FormGestionarUnidadesG.ForeColor = SystemColors.ControlLight;
+            buttonActualizar_FormGestionarUnidadesG.Location = new Point(24, 151);
+            buttonActualizar_FormGestionarUnidadesG.Name = "buttonActualizar_FormGestionarUnidadesG";
+            buttonActualizar_FormGestionarUnidadesG.Size = new Size(504, 32);
+            buttonActualizar_FormGestionarUnidadesG.TabIndex = 20;
+            buttonActualizar_FormGestionarUnidadesG.Text = "Actualizar Cambios";
+            buttonActualizar_FormGestionarUnidadesG.UseVisualStyleBackColor = false;
+            buttonActualizar_FormGestionarUnidadesG.Click += buttonGuardar_Click;
             // 
             // textBoxDptoModificar
             // 
@@ -376,32 +376,32 @@
             textBoxSuperficieModificar.Size = new Size(208, 21);
             textBoxSuperficieModificar.TabIndex = 18;
             // 
-            // label3
+            // labelESuperficie_FormGestionarUnidadesG
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(24, 108);
-            label3.Name = "label3";
-            label3.Size = new Size(184, 15);
-            label3.TabIndex = 16;
-            label3.Text = "Superficie (mts cuadrados):";
+            labelESuperficie_FormGestionarUnidadesG.AutoSize = true;
+            labelESuperficie_FormGestionarUnidadesG.Location = new Point(24, 108);
+            labelESuperficie_FormGestionarUnidadesG.Name = "labelESuperficie_FormGestionarUnidadesG";
+            labelESuperficie_FormGestionarUnidadesG.Size = new Size(184, 15);
+            labelESuperficie_FormGestionarUnidadesG.TabIndex = 16;
+            labelESuperficie_FormGestionarUnidadesG.Text = "Superficie (mts cuadrados):";
             // 
-            // label4
+            // labelEDpto_FormGestionarUnidadesG
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(319, 108);
-            label4.Name = "label4";
-            label4.Size = new Size(41, 15);
-            label4.TabIndex = 15;
-            label4.Text = "Dpto:";
+            labelEDpto_FormGestionarUnidadesG.AutoSize = true;
+            labelEDpto_FormGestionarUnidadesG.Location = new Point(319, 108);
+            labelEDpto_FormGestionarUnidadesG.Name = "labelEDpto_FormGestionarUnidadesG";
+            labelEDpto_FormGestionarUnidadesG.Size = new Size(41, 15);
+            labelEDpto_FormGestionarUnidadesG.TabIndex = 15;
+            labelEDpto_FormGestionarUnidadesG.Text = "Dpto:";
             // 
-            // label5
+            // labelEPiso_FormGestionarUnidadesG
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(24, 66);
-            label5.Name = "label5";
-            label5.Size = new Size(39, 15);
-            label5.TabIndex = 13;
-            label5.Text = "Piso:";
+            labelEPiso_FormGestionarUnidadesG.AutoSize = true;
+            labelEPiso_FormGestionarUnidadesG.Location = new Point(24, 66);
+            labelEPiso_FormGestionarUnidadesG.Name = "labelEPiso_FormGestionarUnidadesG";
+            labelEPiso_FormGestionarUnidadesG.Size = new Size(39, 15);
+            labelEPiso_FormGestionarUnidadesG.TabIndex = 13;
+            labelEPiso_FormGestionarUnidadesG.Text = "Piso:";
             // 
             // comboBoxEdificioModificar
             // 
@@ -413,24 +413,24 @@
             comboBoxEdificioModificar.Size = new Size(209, 23);
             comboBoxEdificioModificar.TabIndex = 12;
             // 
-            // label6
+            // labelEEdificio_FormGestionarUnidadesG
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(319, 18);
-            label6.Name = "label6";
-            label6.Size = new Size(59, 15);
-            label6.TabIndex = 0;
-            label6.Text = "Edificio:";
+            labelEEdificio_FormGestionarUnidadesG.AutoSize = true;
+            labelEEdificio_FormGestionarUnidadesG.Location = new Point(319, 18);
+            labelEEdificio_FormGestionarUnidadesG.Name = "labelEEdificio_FormGestionarUnidadesG";
+            labelEEdificio_FormGestionarUnidadesG.Size = new Size(59, 15);
+            labelEEdificio_FormGestionarUnidadesG.TabIndex = 0;
+            labelEEdificio_FormGestionarUnidadesG.Text = "Edificio:";
             // 
-            // label2
+            // labelUnidades_FormGestionarUnidadesG
             // 
-            label2.Anchor = AnchorStyles.Bottom;
-            label2.AutoSize = true;
-            label2.Location = new Point(52, 399);
-            label2.Name = "label2";
-            label2.Size = new Size(72, 15);
-            label2.TabIndex = 38;
-            label2.Text = "Unidades:";
+            labelUnidades_FormGestionarUnidadesG.Anchor = AnchorStyles.Bottom;
+            labelUnidades_FormGestionarUnidadesG.AutoSize = true;
+            labelUnidades_FormGestionarUnidadesG.Location = new Point(52, 399);
+            labelUnidades_FormGestionarUnidadesG.Name = "labelUnidades_FormGestionarUnidadesG";
+            labelUnidades_FormGestionarUnidadesG.Size = new Size(72, 15);
+            labelUnidades_FormGestionarUnidadesG.TabIndex = 38;
+            labelUnidades_FormGestionarUnidadesG.Text = "Unidades:";
             // 
             // dataGridUnidades
             // 
@@ -454,12 +454,13 @@
             Name = "FormGestionarUnidadesG";
             Text = "FormGestionarUnidadesG";
             Load += FormGestionarUnidadesG_Load;
+            FormClosing += FormGestionarUnidadesG_FormClosing;
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            groupBoxEstado.ResumeLayout(false);
-            groupBoxEstado.PerformLayout();
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.ResumeLayout(false);
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.PerformLayout();
+            groupBoxEstado_FormGestionarUnidadesG.ResumeLayout(false);
+            groupBoxEstado_FormGestionarUnidadesG.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridUnidades).EndInit();
             ResumeLayout(false);
         }
@@ -467,40 +468,40 @@
         #endregion
 
         private GroupBox groupBox2;
-        private Label label2;
+        private Label labelUnidades_FormGestionarUnidadesG;
         private DataGridView dataGridUnidades;
         private Button buttonLimpiar;
         private Button buttonBuscar;
         private ComboBox comboBoxEdificios;
-        private GroupBox groupBoxEstado;
+        private GroupBox groupBoxEstado_FormGestionarUnidadesG;
         private TextBox textBoxPisoModificar;
-        private Button buttonGuardar;
+        private Button buttonActualizar_FormGestionarUnidadesG;
         private TextBox textBoxDptoModificar;
         private TextBox textBoxSuperficieModificar;
-        private Label label3;
-        private Label label4;
-        private Label label5;
+        private Label labelESuperficie_FormGestionarUnidadesG;
+        private Label labelEDpto_FormGestionarUnidadesG;
+        private Label labelEPiso_FormGestionarUnidadesG;
         private ComboBox comboBoxEdificioModificar;
-        private Label label6;
-        private GroupBox groupBox1;
-        private Button buttonGuardarUnidad;
+        private Label labelEEdificio_FormGestionarUnidadesG;
+        private GroupBox groupBoxAgregarUnidades_FormGestionarUnidadesG;
+        private Button buttonGuardarUnidad_FormGestionarUnidadesG;
         private ComboBox comboBoxUnidadModificar;
-        private Label label1;
-        private Label label9;
-        private Label label13;
+        private Label labelEditarUnidad_FormGestionarUnidadesG;
+        private Label labelEliminarUnidad_FormGestionarUnidadesG;
+        private Label labelAEdificio_FormGestionarUnidadesG;
         private TextBox textBoxPisoAgregar;
         private ComboBox comboBoxEdificioAgregar;
-        private Label label12;
-        private Label label11;
+        private Label labelAPiso_FormGestionarUnidadesG;
+        private Label labelADpto_FormGestionarUnidadesG;
         private TextBox textBoxDptoAgregar;
-        private Label label10;
+        private Label labelASuperficie_FormGestionarUnidadesG;
         private TextBox textBoxSuperficieAgregar;
         private ComboBox comboBoxUnidadEliminar;
-        private Label label14;
-        private Button buttonEliminar;
+        private Label labelEUnidad_FormGestionarUnidadesG;
+        private Button buttonEliminar_FormGestionarUnidadesG;
         private ComboBox comboBoxTipoVinculo;
-        private Label label15;
+        private Label labelATipo_FormGestionarUnidadesG;
         private ComboBox comboBoxTipoVinculoModificar;
-        private Label label16;
+        private Label labelETipo_FormGestionarUnidadesG;
     }
 }

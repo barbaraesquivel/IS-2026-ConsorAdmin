@@ -8,9 +8,10 @@ using System.Windows.Forms;
 
 namespace ConsorAdmin.FORMS_ADMIN
 {
-    public partial class formBitacoraA : Form
+    public partial class formBitacoraA : Form, IIdiomaObserver
     {
-        private readonly ILogBitacoraBLL _bll    = new LogBitacoraBLL();
+        private readonly TraductorBLL _traductorBLL = new TraductorBLL();
+        private readonly ILogBitacoraBLL _bll = new LogBitacoraBLL();
         private readonly IPermisoBLL _permisoBLL = new PermisoBLL();
 
         // Resultados actuales (para exportar)
@@ -20,13 +21,16 @@ namespace ConsorAdmin.FORMS_ADMIN
         {
             InitializeComponent();
             this.Load += FormHistoriaA_Load;
-            btnConsultar.Click     += BtnConsultar_Click;
-            btnLimpiarFiltros.Click += BtnLimpiarFiltros_Click;
-            btnExportar.Click      += BtnExportar_Click;
+            btnConsultar_FormBitacoraA.Click += BtnConsultar_Click;
+            btnLimpiarFiltros_FormBitacoraA.Click += BtnLimpiarFiltros_Click;
+            btnExportar.Click += BtnExportar_Click;
         }
 
         private void FormHistoriaA_Load(object sender, EventArgs e)
         {
+            AsignarTags();
+            SessionManager.SuscribirObservador(this);
+            Traducir();
             var idUsuario = SessionManager.ObtenerInstancia.Usuario.Id;
             if (!_permisoBLL.TienePatente(idUsuario, CodigosPermiso.ConsultarBitacora))
             {
@@ -82,11 +86,11 @@ namespace ConsorAdmin.FORMS_ADMIN
             {
                 var filtro = new FiltroBitacoraBE
                 {
-                    IdUsuario   = (cmbUsuario.SelectedItem as ComboItem)?.Value as string,
-                    FechaDesde  = dtpFechaDesde.Checked ? dtpFechaDesde.Value.Date : (DateTime?)null,
-                    FechaHasta  = dtpFechaHasta.Checked ? dtpFechaHasta.Value.Date : (DateTime?)null,
-                    Modulo      = cmbModulo.SelectedIndex > 0 ? cmbModulo.SelectedItem?.ToString() : null,
-                    Accion      = cmbAccion.SelectedIndex > 0 ? cmbAccion.SelectedItem?.ToString() : null
+                    IdUsuario = (cmbUsuario.SelectedItem as ComboItem)?.Value as string,
+                    FechaDesde = dtpFechaDesde.Checked ? dtpFechaDesde.Value.Date : (DateTime?)null,
+                    FechaHasta = dtpFechaHasta.Checked ? dtpFechaHasta.Value.Date : (DateTime?)null,
+                    Modulo = cmbModulo.SelectedIndex > 0 ? cmbModulo.SelectedItem?.ToString() : null,
+                    Accion = cmbAccion.SelectedIndex > 0 ? cmbAccion.SelectedItem?.ToString() : null
                 };
 
                 _resultados = _bll.Consultar(filtro);
@@ -125,7 +129,7 @@ namespace ConsorAdmin.FORMS_ADMIN
                 dgvBitacora.AutoResizeColumns();
                 lblTotalRegistros.Text = $"Total: {datos.Count} registros";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -160,7 +164,7 @@ namespace ConsorAdmin.FORMS_ADMIN
 
             using var dlg = new SaveFileDialog
             {
-                Filter   = "Archivos CSV (*.csv)|*.csv",
+                Filter = "Archivos CSV (*.csv)|*.csv",
                 FileName = $"bitacora_{DateTime.Now:yyyyMMdd_HHmmss}.csv"
             };
 
@@ -171,10 +175,10 @@ namespace ConsorAdmin.FORMS_ADMIN
                 var exportar = _resultados.Select(l => new
                 {
                     FechaHora = l.FechaHora.ToString("dd/MM/yyyy HH:mm:ss"),
-                    Usuario   = l.usuarioBE?.Usuario ?? l.Id_Usuario.ToString(),
-                    Modulo    = l.Modulo,
-                    Accion    = l.Accion,
-                    Detalle   = l.Detalle ?? string.Empty
+                    Usuario = l.usuarioBE?.Usuario ?? l.Id_Usuario.ToString(),
+                    Modulo = l.Modulo,
+                    Accion = l.Accion,
+                    Detalle = l.Detalle ?? string.Empty
                 });
 
                 CsvExporter.Exportar(exportar, dlg.FileName);
@@ -197,8 +201,50 @@ namespace ConsorAdmin.FORMS_ADMIN
         private class ComboItem
         {
             public string Display { get; set; }
-            public object Value   { get; set; }
+            public object Value { get; set; }
             public override string ToString() => Display;
+        }
+
+        private void formBitacoraA_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SessionManager.DesuscribirObservador(this); // evita memory leak / notificar a un form cerrado
+        }
+
+        public void ActualizarIdioma(IdiomaBE idioma)
+        {
+            if (this.InvokeRequired) this.Invoke(() => Traducir(idioma));
+            else Traducir(idioma);
+        }
+        private void Traducir(IdiomaBE idioma = null)
+        {
+            idioma ??= SessionManager.IdiomaActual ?? _traductorBLL.ObtenerIdiomaDefault();
+            var t = _traductorBLL.ObtenerTraducciones(idioma);
+            TraducirControles(this.Controls, t);
+        }
+
+        private void TraducirControles(Control.ControlCollection controles, Dictionary<string, string> t)
+        {
+            foreach (Control ctrl in controles)
+            {
+                if (ctrl.Tag is string clave && t.ContainsKey(clave))
+                    ctrl.Text = t[clave];
+                if (ctrl.Controls.Count > 0)
+                    TraducirControles(ctrl.Controls, t);
+            }
+        }
+
+        private void AsignarTags()
+        {
+            grpFiltros_FormBitacoraA.Tag = "grpFiltros_FormBitacoraA";
+            lblUsuario_FormBitacoraA.Tag = "lblUsuario_FormBitacoraA";
+            lblFechaDesde_FormBitacoraA.Tag = "lblFechaDesde_FormBitacoraA";
+            lblFechaHasta_FormBitacoraA.Tag = "lblFechaHasta_FormBitacoraA";
+            lblModulo_FormBitacoraA.Tag = "lblModulo_FormBitacoraA";
+            lblAccion_FormBitacoraA.Tag = "lblAccion_FormBitacoraA";
+            btnConsultar_FormBitacoraA.Tag = "btnConsultar_FormBitacoraA";
+            btnLimpiarFiltros_FormBitacoraA.Tag = "btnLimpiarFiltros_FormBitacoraA";
+            grpResultados_FormBitacoraA.Tag = "grpResultados_FormBitacoraA";
+            btnExportar.Tag = "btnExportar";
         }
     }
 }

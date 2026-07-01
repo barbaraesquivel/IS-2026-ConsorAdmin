@@ -1,5 +1,6 @@
 using BE;
 using BLL;
+using SERV;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,9 @@ using System.Windows.Forms;
 
 namespace ConsorAdmin.FORMS_ADMIN
 {
-    public partial class formPermisosA : Form
+    public partial class formPermisosA : Form, IIdiomaObserver
     {
+        private readonly TraductorBLL _traductorBLL = new TraductorBLL();
         private readonly IPermisoBLL _bll = new PermisoBLL();
 
         public formPermisosA()
@@ -17,7 +19,13 @@ namespace ConsorAdmin.FORMS_ADMIN
             this.Load += formPermisosA_Load;
         }
 
-        private void formPermisosA_Load(object sender, EventArgs e) => CargarDatos();
+        private void formPermisosA_Load(object sender, EventArgs e)
+        {
+            AsignarTags();
+            SessionManager.SuscribirObservador(this);
+            Traducir();
+            CargarDatos();
+        }
 
         private void CargarDatos()
         {
@@ -152,6 +160,51 @@ namespace ConsorAdmin.FORMS_ADMIN
             public string Display { get; set; }
             public object Value { get; set; }
             public override string ToString() => Display;
+        }
+
+        private void formPermisosA_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SessionManager.DesuscribirObservador(this); // evita memory leak / notificar a un form cerrado
+        }
+        public void ActualizarIdioma(IdiomaBE idioma)
+        {
+            if (this.InvokeRequired) this.Invoke(() => Traducir(idioma));
+            else Traducir(idioma);
+        }
+
+        private void Traducir(IdiomaBE idioma = null)
+        {
+            idioma ??= SessionManager.IdiomaActual ?? _traductorBLL.ObtenerIdiomaDefault();
+            var t = _traductorBLL.ObtenerTraducciones(idioma);
+            TraducirControles(this.Controls, t);
+        }
+
+        private void TraducirControles(Control.ControlCollection controles, Dictionary<string, string> t)
+        {
+            foreach (Control ctrl in controles)
+            {
+                if (ctrl.Tag is string clave && t.ContainsKey(clave))
+                    ctrl.Text = t[clave];
+                if (ctrl.Controls.Count > 0)
+                    TraducirControles(ctrl.Controls, t);
+            }
+        }
+
+        private void AsignarTags()
+        {
+            groupBoxFamilia_FormPermisosA.Tag = "groupBoxFamilia_FormPermisosA";
+            buttonCrearFamilia.Tag = "buttonCrearFamilia";
+            labelNombre_FormPermisosA.Tag = "labelNombre_FormPermisosA";
+            labelCodigo_FormPermisosA.Tag = "labelCodigo_FormPermisosA";
+            groupBoxAsignar_FormPermisosA.Tag = "groupBoxAsignar_FormPermisosA";
+            buttonAgregar_FormPermisosA.Tag = "buttonAgregar_FormPermisosA";
+            labelPatente_FormPermisosA.Tag = "labelPatente_FormPermisosA";
+            labelFamilia_FormPermisosA.Tag = "labelFamilia_FormPermisosA";
+            groupBoxFamiliaEnFamilia_FormPermisosA.Tag = "groupBoxFamiliaEnFamilia_FormPermisosA";
+            buttonAgregarFamilia_FormPermisosA.Tag = "buttonAgregarFamilia_FormPermisosA";
+            labelFamiliaAgregar_FormPermisosA.Tag = "labelFamiliaAgregar_FormPermisosA";
+            labelContenedor_FormPermisosA.Tag = "labelContenedor_FormPermisosA";
+            labelArbol_FormPermisosA.Tag = "labelArbol_FormPermisosA";
         }
     }
 }

@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            groupBox1 = new GroupBox();
+            groupBoxEdificios_FormEdificiosA = new GroupBox();
             dataGridViewEdificios = new DataGridView();
-            groupBox1.SuspendLayout();
+            groupBoxEdificios_FormEdificiosA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewEdificios).BeginInit();
             SuspendLayout();
             // 
-            // groupBox1
+            // groupBoxEdificios_FormEdificiosA
             // 
-            groupBox1.Anchor = AnchorStyles.None;
-            groupBox1.BackColor = Color.FromArgb(17, 30, 53);
-            groupBox1.Controls.Add(dataGridViewEdificios);
-            groupBox1.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBox1.ForeColor = SystemColors.ControlLight;
-            groupBox1.Location = new Point(36, 24);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(601, 551);
-            groupBox1.TabIndex = 22;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "EDIFICIOS";
+            groupBoxEdificios_FormEdificiosA.Anchor = AnchorStyles.None;
+            groupBoxEdificios_FormEdificiosA.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxEdificios_FormEdificiosA.Controls.Add(dataGridViewEdificios);
+            groupBoxEdificios_FormEdificiosA.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxEdificios_FormEdificiosA.ForeColor = SystemColors.ControlLight;
+            groupBoxEdificios_FormEdificiosA.Location = new Point(36, 24);
+            groupBoxEdificios_FormEdificiosA.Name = "groupBoxEdificios_FormEdificiosA";
+            groupBoxEdificios_FormEdificiosA.Size = new Size(601, 551);
+            groupBoxEdificios_FormEdificiosA.TabIndex = 22;
+            groupBoxEdificios_FormEdificiosA.TabStop = false;
+            groupBoxEdificios_FormEdificiosA.Text = "EDIFICIOS";
             // 
             // dataGridViewEdificios
             // 
@@ -62,17 +62,19 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(8, 14, 26);
             ClientSize = new Size(682, 597);
-            Controls.Add(groupBox1);
+            Controls.Add(groupBoxEdificios_FormEdificiosA);
             Name = "formEdificiosA";
             Text = "formEdificiosA";
-            groupBox1.ResumeLayout(false);
+            FormClosing += formEdificiosA_FormClosing;
+            Load += formEdificiosA_Load;
+            groupBoxEdificios_FormEdificiosA.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewEdificios).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private GroupBox groupBox1;
+        private GroupBox groupBoxEdificios_FormEdificiosA;
         private DataGridView dataGridViewEdificios;
     }
 }

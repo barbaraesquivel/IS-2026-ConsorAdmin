@@ -9,10 +9,11 @@ using System.Windows.Forms;
 
 namespace ConsorAdmin
 {
-    public partial class FormPrincipal : Form
+    public partial class FormPrincipal : Form, IIdiomaObserver
     {
         private readonly UsuarioBLL _usuarioBLL = new UsuarioBLL();
         private readonly IPermisoBLL _permisoBLL = new PermisoBLL();
+        private readonly TraductorBLL _traductorBLL = new TraductorBLL();
 
         public FormPrincipal()
         {
@@ -21,6 +22,10 @@ namespace ConsorAdmin
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
+            AsignarTags();
+            SessionManager.SuscribirObservador(this);
+            Traducir();
+
             try
             {
                 MostrarBotonesSegunPermisos();
@@ -32,17 +37,55 @@ namespace ConsorAdmin
             }
         }
 
+        private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SessionManager.DesuscribirObservador(this);
+        }
+
+        public void ActualizarIdioma(IdiomaBE idioma)
+        {
+            if (this.InvokeRequired) this.Invoke(() => Traducir(idioma));
+            else Traducir(idioma);
+        }
+
+        private void Traducir(IdiomaBE idioma = null)
+        {
+            idioma ??= SessionManager.IdiomaActual ?? _traductorBLL.ObtenerIdiomaDefault();
+            var t = _traductorBLL.ObtenerTraducciones(idioma);
+            TraducirControles(this.Controls, t);
+        }
+
+        private void TraducirControles(Control.ControlCollection controles, Dictionary<string, string> t)
+        {
+            foreach (Control ctrl in controles)
+            {
+                if (ctrl.Tag is string clave && t.ContainsKey(clave))
+                    ctrl.Text = t[clave];
+                if (ctrl.Controls.Count > 0)
+                    TraducirControles(ctrl.Controls, t);
+            }
+        }
+
+        private void AsignarTags()
+        {
+            buttonAdmin_FormPrincipal.Tag = "buttonAdmin_FormPrincipal";
+            buttonGestor_FormPrincipal.Tag = "buttonGestor_FormPrincipal";
+            buttonConsorcista_FormPrincipal.Tag = "buttonConsorcista_FormPrincipal";
+            buttonProovedor_FormPrincipal.Tag = "buttonProovedor_FormPrincipal";
+            buttonLogout_FormPrincipal.Tag = "buttonLogout_FormPrincipal";
+        }
+
         private void MostrarBotonesSegunPermisos()
         {
             var idUsuario = SessionManager.ObtenerInstancia.Usuario.Id;
 
-            buttonAdmin.Visible       = _permisoBLL.TieneAlgunaPatenteDeFamilia(idUsuario, CodigosPermiso.FamiliaAdmin);
-            buttonGestor.Visible      = _permisoBLL.TieneAlgunaPatenteDeFamilia(idUsuario, CodigosPermiso.FamiliaGestor);
-            buttonConsorcista.Visible = _permisoBLL.TieneAlgunaPatenteDeFamilia(idUsuario, CodigosPermiso.FamiliaConsorcista);
-            buttonProovedor.Visible   = _permisoBLL.TieneAlgunaPatenteDeFamilia(idUsuario, CodigosPermiso.FamiliaProveedor);
+            buttonAdmin_FormPrincipal.Visible       = _permisoBLL.TieneAlgunaPatenteDeFamilia(idUsuario, CodigosPermiso.FamiliaAdmin);
+            buttonGestor_FormPrincipal.Visible      = _permisoBLL.TieneAlgunaPatenteDeFamilia(idUsuario, CodigosPermiso.FamiliaGestor);
+            buttonConsorcista_FormPrincipal.Visible = _permisoBLL.TieneAlgunaPatenteDeFamilia(idUsuario, CodigosPermiso.FamiliaConsorcista);
+            buttonProovedor_FormPrincipal.Visible   = _permisoBLL.TieneAlgunaPatenteDeFamilia(idUsuario, CodigosPermiso.FamiliaProveedor);
 
-            if (!buttonAdmin.Visible && !buttonGestor.Visible &&
-                !buttonConsorcista.Visible && !buttonProovedor.Visible)
+            if (!buttonAdmin_FormPrincipal.Visible && !buttonGestor_FormPrincipal.Visible &&
+                !buttonConsorcista_FormPrincipal.Visible && !buttonProovedor_FormPrincipal.Visible)
             {
                 MessageBox.Show("No tiene perfiles asignados. Contacte al administrador.",
                     "Sin perfiles", MessageBoxButtons.OK, MessageBoxIcon.Warning);

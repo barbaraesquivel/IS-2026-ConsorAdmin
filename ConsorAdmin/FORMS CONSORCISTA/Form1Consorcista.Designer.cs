@@ -32,19 +32,20 @@ namespace ConsorAdmin
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1Consorcista));
             panelSideMenu = new Panel();
-            buttonLogout = new Button();
-            buttonModificarPerfil = new Button();
-            buttonVerExpensas = new Button();
-            buttonPagarExpensas = new Button();
-            buttonInicio = new Button();
+            buttonLogout_Form1Consorcista = new Button();
+            buttonModificarPerfil_Form1Consorcista = new Button();
+            buttonVerExpensas_Form1Consorcista = new Button();
+            buttonPagarExpensas_Form1Consorcista = new Button();
+            buttonInicio_Form1Consorcista = new Button();
             panelSessionInfo = new Panel();
             pictureBox2 = new PictureBox();
-            labelUsername = new Label();
-            labelSESION = new Label();
+            labelUsername_Form1Consorcista = new Label();
+            labelSESION_Form1Consorcista = new Label();
             panelChildForm = new Panel();
             groupBox1 = new GroupBox();
             pictureBox1 = new PictureBox();
-            labelBienvenida = new Label();
+            labelBienvenida_Form1Consorcista = new Label();
+            cboIdiomaShell = new ComboBox();
             panelSideMenu.SuspendLayout();
             panelSessionInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -56,11 +57,11 @@ namespace ConsorAdmin
             // panelSideMenu
             // 
             panelSideMenu.BackColor = Color.FromArgb(13, 22, 40);
-            panelSideMenu.Controls.Add(buttonLogout);
-            panelSideMenu.Controls.Add(buttonModificarPerfil);
-            panelSideMenu.Controls.Add(buttonVerExpensas);
-            panelSideMenu.Controls.Add(buttonPagarExpensas);
-            panelSideMenu.Controls.Add(buttonInicio);
+            panelSideMenu.Controls.Add(buttonLogout_Form1Consorcista);
+            panelSideMenu.Controls.Add(buttonModificarPerfil_Form1Consorcista);
+            panelSideMenu.Controls.Add(buttonVerExpensas_Form1Consorcista);
+            panelSideMenu.Controls.Add(buttonPagarExpensas_Form1Consorcista);
+            panelSideMenu.Controls.Add(buttonInicio_Form1Consorcista);
             panelSideMenu.Controls.Add(panelSessionInfo);
             panelSideMenu.Dock = DockStyle.Left;
             panelSideMenu.Location = new Point(0, 0);
@@ -68,106 +69,107 @@ namespace ConsorAdmin
             panelSideMenu.Size = new Size(186, 636);
             panelSideMenu.TabIndex = 0;
             // 
-            // buttonLogout
+            // buttonLogout_Form1Consorcista
             // 
-            buttonLogout.Dock = DockStyle.Bottom;
-            buttonLogout.FlatAppearance.BorderSize = 0;
-            buttonLogout.FlatAppearance.MouseDownBackColor = Color.FromArgb(38, 28, 47);
-            buttonLogout.FlatAppearance.MouseOverBackColor = Color.FromArgb(38, 28, 47);
-            buttonLogout.FlatStyle = FlatStyle.Flat;
-            buttonLogout.ForeColor = Color.FromArgb(220, 58, 89);
-            buttonLogout.Location = new Point(0, 596);
-            buttonLogout.Name = "buttonLogout";
-            buttonLogout.Padding = new Padding(20, 0, 0, 0);
-            buttonLogout.Size = new Size(186, 40);
-            buttonLogout.TabIndex = 6;
-            buttonLogout.Text = "Salir";
-            buttonLogout.TextAlign = ContentAlignment.MiddleLeft;
-            buttonLogout.UseVisualStyleBackColor = true;
-            buttonLogout.Click += buttonLogout_Click;
+            buttonLogout_Form1Consorcista.Dock = DockStyle.Bottom;
+            buttonLogout_Form1Consorcista.FlatAppearance.BorderSize = 0;
+            buttonLogout_Form1Consorcista.FlatAppearance.MouseDownBackColor = Color.FromArgb(38, 28, 47);
+            buttonLogout_Form1Consorcista.FlatAppearance.MouseOverBackColor = Color.FromArgb(38, 28, 47);
+            buttonLogout_Form1Consorcista.FlatStyle = FlatStyle.Flat;
+            buttonLogout_Form1Consorcista.ForeColor = Color.FromArgb(220, 58, 89);
+            buttonLogout_Form1Consorcista.Location = new Point(0, 596);
+            buttonLogout_Form1Consorcista.Name = "buttonLogout_Form1Consorcista";
+            buttonLogout_Form1Consorcista.Padding = new Padding(20, 0, 0, 0);
+            buttonLogout_Form1Consorcista.Size = new Size(186, 40);
+            buttonLogout_Form1Consorcista.TabIndex = 6;
+            buttonLogout_Form1Consorcista.Text = "Salir";
+            buttonLogout_Form1Consorcista.TextAlign = ContentAlignment.MiddleLeft;
+            buttonLogout_Form1Consorcista.UseVisualStyleBackColor = true;
+            buttonLogout_Form1Consorcista.Click += buttonLogout_Click;
             // 
-            // buttonModificarPerfil
+            // buttonModificarPerfil_Form1Consorcista
             // 
-            buttonModificarPerfil.Dock = DockStyle.Top;
-            buttonModificarPerfil.FlatAppearance.BorderSize = 0;
-            buttonModificarPerfil.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonModificarPerfil.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonModificarPerfil.FlatStyle = FlatStyle.Flat;
-            buttonModificarPerfil.ForeColor = SystemColors.ControlLight;
-            buttonModificarPerfil.Location = new Point(0, 244);
-            buttonModificarPerfil.Name = "buttonModificarPerfil";
-            buttonModificarPerfil.Padding = new Padding(20, 0, 0, 0);
-            buttonModificarPerfil.Size = new Size(186, 40);
-            buttonModificarPerfil.TabIndex = 5;
-            buttonModificarPerfil.Text = "Modificar Perfil";
-            buttonModificarPerfil.TextAlign = ContentAlignment.MiddleLeft;
-            buttonModificarPerfil.UseVisualStyleBackColor = true;
-            buttonModificarPerfil.Click += buttonModificarPerfil_Click;
+            buttonModificarPerfil_Form1Consorcista.Dock = DockStyle.Top;
+            buttonModificarPerfil_Form1Consorcista.FlatAppearance.BorderSize = 0;
+            buttonModificarPerfil_Form1Consorcista.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
+            buttonModificarPerfil_Form1Consorcista.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
+            buttonModificarPerfil_Form1Consorcista.FlatStyle = FlatStyle.Flat;
+            buttonModificarPerfil_Form1Consorcista.ForeColor = SystemColors.ControlLight;
+            buttonModificarPerfil_Form1Consorcista.Location = new Point(0, 244);
+            buttonModificarPerfil_Form1Consorcista.Name = "buttonModificarPerfil_Form1Consorcista";
+            buttonModificarPerfil_Form1Consorcista.Padding = new Padding(20, 0, 0, 0);
+            buttonModificarPerfil_Form1Consorcista.Size = new Size(186, 40);
+            buttonModificarPerfil_Form1Consorcista.TabIndex = 5;
+            buttonModificarPerfil_Form1Consorcista.Text = "Modificar Perfil";
+            buttonModificarPerfil_Form1Consorcista.TextAlign = ContentAlignment.MiddleLeft;
+            buttonModificarPerfil_Form1Consorcista.UseVisualStyleBackColor = true;
+            buttonModificarPerfil_Form1Consorcista.Click += buttonModificarPerfil_Click;
             // 
-            // buttonVerExpensas
+            // buttonVerExpensas_Form1Consorcista
             // 
-            buttonVerExpensas.Dock = DockStyle.Top;
-            buttonVerExpensas.FlatAppearance.BorderSize = 0;
-            buttonVerExpensas.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonVerExpensas.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonVerExpensas.FlatStyle = FlatStyle.Flat;
-            buttonVerExpensas.ForeColor = SystemColors.ControlLight;
-            buttonVerExpensas.Location = new Point(0, 204);
-            buttonVerExpensas.Name = "buttonVerExpensas";
-            buttonVerExpensas.Padding = new Padding(20, 0, 0, 0);
-            buttonVerExpensas.Size = new Size(186, 40);
-            buttonVerExpensas.TabIndex = 4;
-            buttonVerExpensas.Text = "Ver Expensas";
-            buttonVerExpensas.TextAlign = ContentAlignment.MiddleLeft;
-            buttonVerExpensas.UseVisualStyleBackColor = true;
-            buttonVerExpensas.Click += buttonVerExpensas_Click;
+            buttonVerExpensas_Form1Consorcista.Dock = DockStyle.Top;
+            buttonVerExpensas_Form1Consorcista.FlatAppearance.BorderSize = 0;
+            buttonVerExpensas_Form1Consorcista.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
+            buttonVerExpensas_Form1Consorcista.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
+            buttonVerExpensas_Form1Consorcista.FlatStyle = FlatStyle.Flat;
+            buttonVerExpensas_Form1Consorcista.ForeColor = SystemColors.ControlLight;
+            buttonVerExpensas_Form1Consorcista.Location = new Point(0, 204);
+            buttonVerExpensas_Form1Consorcista.Name = "buttonVerExpensas_Form1Consorcista";
+            buttonVerExpensas_Form1Consorcista.Padding = new Padding(20, 0, 0, 0);
+            buttonVerExpensas_Form1Consorcista.Size = new Size(186, 40);
+            buttonVerExpensas_Form1Consorcista.TabIndex = 4;
+            buttonVerExpensas_Form1Consorcista.Text = "Ver Expensas";
+            buttonVerExpensas_Form1Consorcista.TextAlign = ContentAlignment.MiddleLeft;
+            buttonVerExpensas_Form1Consorcista.UseVisualStyleBackColor = true;
+            buttonVerExpensas_Form1Consorcista.Click += buttonVerExpensas_Click;
             // 
-            // buttonPagarExpensas
+            // buttonPagarExpensas_Form1Consorcista
             // 
-            buttonPagarExpensas.Dock = DockStyle.Top;
-            buttonPagarExpensas.FlatAppearance.BorderSize = 0;
-            buttonPagarExpensas.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonPagarExpensas.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonPagarExpensas.FlatStyle = FlatStyle.Flat;
-            buttonPagarExpensas.ForeColor = SystemColors.ControlLight;
-            buttonPagarExpensas.Location = new Point(0, 164);
-            buttonPagarExpensas.Name = "buttonPagarExpensas";
-            buttonPagarExpensas.Padding = new Padding(20, 0, 0, 0);
-            buttonPagarExpensas.Size = new Size(186, 40);
-            buttonPagarExpensas.TabIndex = 3;
-            buttonPagarExpensas.Text = "Pagar Expensas";
-            buttonPagarExpensas.TextAlign = ContentAlignment.MiddleLeft;
-            buttonPagarExpensas.UseVisualStyleBackColor = true;
-            buttonPagarExpensas.Click += buttonPagarExpensas_Click;
+            buttonPagarExpensas_Form1Consorcista.Dock = DockStyle.Top;
+            buttonPagarExpensas_Form1Consorcista.FlatAppearance.BorderSize = 0;
+            buttonPagarExpensas_Form1Consorcista.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
+            buttonPagarExpensas_Form1Consorcista.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
+            buttonPagarExpensas_Form1Consorcista.FlatStyle = FlatStyle.Flat;
+            buttonPagarExpensas_Form1Consorcista.ForeColor = SystemColors.ControlLight;
+            buttonPagarExpensas_Form1Consorcista.Location = new Point(0, 164);
+            buttonPagarExpensas_Form1Consorcista.Name = "buttonPagarExpensas_Form1Consorcista";
+            buttonPagarExpensas_Form1Consorcista.Padding = new Padding(20, 0, 0, 0);
+            buttonPagarExpensas_Form1Consorcista.Size = new Size(186, 40);
+            buttonPagarExpensas_Form1Consorcista.TabIndex = 3;
+            buttonPagarExpensas_Form1Consorcista.Text = "Pagar Expensas";
+            buttonPagarExpensas_Form1Consorcista.TextAlign = ContentAlignment.MiddleLeft;
+            buttonPagarExpensas_Form1Consorcista.UseVisualStyleBackColor = true;
+            buttonPagarExpensas_Form1Consorcista.Click += buttonPagarExpensas_Click;
             // 
-            // buttonInicio
+            // buttonInicio_Form1Consorcista
             // 
-            buttonInicio.Dock = DockStyle.Top;
-            buttonInicio.FlatAppearance.BorderSize = 0;
-            buttonInicio.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonInicio.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonInicio.FlatStyle = FlatStyle.Flat;
-            buttonInicio.ForeColor = SystemColors.ControlLight;
-            buttonInicio.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonInicio.Location = new Point(0, 124);
-            buttonInicio.Name = "buttonInicio";
-            buttonInicio.Padding = new Padding(20, 0, 0, 0);
-            buttonInicio.Size = new Size(186, 40);
-            buttonInicio.TabIndex = 2;
-            buttonInicio.Text = "Inicio";
-            buttonInicio.TextAlign = ContentAlignment.MiddleLeft;
-            buttonInicio.UseVisualStyleBackColor = true;
-            buttonInicio.Click += buttonInicio_Click;
+            buttonInicio_Form1Consorcista.Dock = DockStyle.Top;
+            buttonInicio_Form1Consorcista.FlatAppearance.BorderSize = 0;
+            buttonInicio_Form1Consorcista.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
+            buttonInicio_Form1Consorcista.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
+            buttonInicio_Form1Consorcista.FlatStyle = FlatStyle.Flat;
+            buttonInicio_Form1Consorcista.ForeColor = SystemColors.ControlLight;
+            buttonInicio_Form1Consorcista.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonInicio_Form1Consorcista.Location = new Point(0, 124);
+            buttonInicio_Form1Consorcista.Name = "buttonInicio_Form1Consorcista";
+            buttonInicio_Form1Consorcista.Padding = new Padding(20, 0, 0, 0);
+            buttonInicio_Form1Consorcista.Size = new Size(186, 40);
+            buttonInicio_Form1Consorcista.TabIndex = 2;
+            buttonInicio_Form1Consorcista.Text = "Inicio";
+            buttonInicio_Form1Consorcista.TextAlign = ContentAlignment.MiddleLeft;
+            buttonInicio_Form1Consorcista.UseVisualStyleBackColor = true;
+            buttonInicio_Form1Consorcista.Click += buttonInicio_Click;
             // 
             // panelSessionInfo
             // 
+            panelSessionInfo.Controls.Add(cboIdiomaShell);
             panelSessionInfo.Controls.Add(pictureBox2);
-            panelSessionInfo.Controls.Add(labelUsername);
-            panelSessionInfo.Controls.Add(labelSESION);
+            panelSessionInfo.Controls.Add(labelUsername_Form1Consorcista);
+            panelSessionInfo.Controls.Add(labelSESION_Form1Consorcista);
             panelSessionInfo.Dock = DockStyle.Top;
             panelSessionInfo.Location = new Point(0, 0);
             panelSessionInfo.Name = "panelSessionInfo";
-            panelSessionInfo.Size = new Size(186, 124);
+            panelSessionInfo.Size = new Size(186, 150);
             panelSessionInfo.TabIndex = 1;
             // 
             // pictureBox2
@@ -181,27 +183,35 @@ namespace ConsorAdmin
             pictureBox2.TabIndex = 2;
             pictureBox2.TabStop = false;
             // 
-            // labelUsername
+            // labelUsername_Form1Consorcista
             // 
-            labelUsername.AutoSize = true;
-            labelUsername.ForeColor = SystemColors.ControlLight;
-            labelUsername.Location = new Point(12, 93);
-            labelUsername.Name = "labelUsername";
-            labelUsername.Size = new Size(71, 19);
-            labelUsername.TabIndex = 1;
-            labelUsername.Text = "Username";
+            labelUsername_Form1Consorcista.AutoSize = true;
+            labelUsername_Form1Consorcista.ForeColor = SystemColors.ControlLight;
+            labelUsername_Form1Consorcista.Location = new Point(12, 93);
+            labelUsername_Form1Consorcista.Name = "labelUsername_Form1Consorcista";
+            labelUsername_Form1Consorcista.Size = new Size(71, 19);
+            labelUsername_Form1Consorcista.TabIndex = 1;
+            labelUsername_Form1Consorcista.Text = "Username";
             // 
-            // labelSESION
+            // labelSESION_Form1Consorcista
             // 
-            labelSESION.AutoSize = true;
-            labelSESION.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelSESION.ForeColor = SystemColors.ControlLight;
-            labelSESION.Location = new Point(12, 79);
-            labelSESION.Name = "labelSESION";
-            labelSESION.Size = new Size(121, 16);
-            labelSESION.TabIndex = 0;
-            labelSESION.Text = "SESION ACTIVA";
-            // 
+            labelSESION_Form1Consorcista.AutoSize = true;
+            labelSESION_Form1Consorcista.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelSESION_Form1Consorcista.ForeColor = SystemColors.ControlLight;
+            labelSESION_Form1Consorcista.Location = new Point(12, 79);
+            labelSESION_Form1Consorcista.Name = "labelSESION_Form1Consorcista";
+            labelSESION_Form1Consorcista.Size = new Size(121, 16);
+            labelSESION_Form1Consorcista.TabIndex = 0;
+            labelSESION_Form1Consorcista.Text = "SESION ACTIVA";
+            //
+            // cboIdiomaShell
+            //
+            cboIdiomaShell.FormattingEnabled = true;
+            cboIdiomaShell.Location = new Point(12, 114);
+            cboIdiomaShell.Name = "cboIdiomaShell";
+            cboIdiomaShell.Size = new Size(162, 23);
+            cboIdiomaShell.TabIndex = 3;
+            //
             // panelChildForm
             // 
             panelChildForm.BackColor = Color.FromArgb(8, 14, 26);
@@ -215,7 +225,7 @@ namespace ConsorAdmin
             // groupBox1
             // 
             groupBox1.Controls.Add(pictureBox1);
-            groupBox1.Controls.Add(labelBienvenida);
+            groupBox1.Controls.Add(labelBienvenida_Form1Consorcista);
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
@@ -234,18 +244,18 @@ namespace ConsorAdmin
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
-            // labelBienvenida
+            // labelBienvenida_Form1Consorcista
             // 
-            labelBienvenida.Anchor = AnchorStyles.None;
-            labelBienvenida.AutoSize = true;
-            labelBienvenida.Font = new Font("Microsoft Sans Serif", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelBienvenida.ForeColor = SystemColors.ControlLight;
-            labelBienvenida.Location = new Point(234, 99);
-            labelBienvenida.Name = "labelBienvenida";
-            labelBienvenida.Size = new Size(188, 40);
-            labelBienvenida.TabIndex = 0;
-            labelBienvenida.Text = "Bienvenido usuari@ a \r\nConsorAdmin";
-            labelBienvenida.TextAlign = ContentAlignment.TopCenter;
+            labelBienvenida_Form1Consorcista.Anchor = AnchorStyles.None;
+            labelBienvenida_Form1Consorcista.AutoSize = true;
+            labelBienvenida_Form1Consorcista.Font = new Font("Microsoft Sans Serif", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelBienvenida_Form1Consorcista.ForeColor = SystemColors.ControlLight;
+            labelBienvenida_Form1Consorcista.Location = new Point(234, 99);
+            labelBienvenida_Form1Consorcista.Name = "labelBienvenida_Form1Consorcista";
+            labelBienvenida_Form1Consorcista.Size = new Size(188, 40);
+            labelBienvenida_Form1Consorcista.TabIndex = 0;
+            labelBienvenida_Form1Consorcista.Text = "Bienvenido usuari@ a \r\nConsorAdmin";
+            labelBienvenida_Form1Consorcista.TextAlign = ContentAlignment.TopCenter;
             // 
             // Form1Consorcista
             // 
@@ -259,6 +269,7 @@ namespace ConsorAdmin
             MinimumSize = new Size(900, 675);
             Name = "Form1Consorcista";
             Text = "Form1";
+            FormClosing += Form1Consorcista_FormClosing;
             Load += Form1_Load;
             panelSideMenu.ResumeLayout(false);
             panelSessionInfo.ResumeLayout(false);
@@ -277,17 +288,18 @@ namespace ConsorAdmin
 
         private Panel panelSideMenu;
         private Panel panelSessionInfo;
-        private Button buttonInicio;
-        private Button buttonPagarExpensas;
-        private Button buttonModificarPerfil;
-        private Button buttonVerExpensas;
-        private Button buttonLogout;
+        private Button buttonInicio_Form1Consorcista;
+        private Button buttonPagarExpensas_Form1Consorcista;
+        private Button buttonModificarPerfil_Form1Consorcista;
+        private Button buttonVerExpensas_Form1Consorcista;
+        private Button buttonLogout_Form1Consorcista;
         private Panel panelChildForm;
         private PictureBox pictureBox2;
-        private Label labelUsername;
-        private Label labelSESION;
+        private Label labelUsername_Form1Consorcista;
+        private Label labelSESION_Form1Consorcista;
         private GroupBox groupBox1;
         private PictureBox pictureBox1;
-        private Label labelBienvenida;
+        private Label labelBienvenida_Form1Consorcista;
+        private ComboBox cboIdiomaShell;
     }
 }

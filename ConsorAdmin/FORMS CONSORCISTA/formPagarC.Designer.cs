@@ -28,37 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            groupBoxExpensas = new GroupBox();
+            groupBoxExpensas_FormPagarC = new GroupBox();
             dataGridExpensas = new DataGridView();
-            groupBoxPago = new GroupBox();
-            buttonPagar = new Button();
+            groupBoxPago_FormPagarC = new GroupBox();
+            buttonPagar_FormPagarC = new Button();
             textBoxReferencia = new TextBox();
-            label2 = new Label();
+            labelNReferencia_FormPagarC = new Label();
             comboBoxMedio = new ComboBox();
-            label1 = new Label();
-            groupBoxSelected = new GroupBox();
-            labelInfoExpensa = new Label();
-            labelExpensaTot = new Label();
+            labelMedioPago_FormPagarC = new Label();
+            groupBoxSelected_FormPagarC = new GroupBox();
+            labelInfoExpensa_FormPagarC = new Label();
+            labelExpensaTot_FormPagarC = new Label();
             groupBox2 = new GroupBox();
-            groupBoxExpensas.SuspendLayout();
+            groupBoxExpensas_FormPagarC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridExpensas).BeginInit();
-            groupBoxPago.SuspendLayout();
-            groupBoxSelected.SuspendLayout();
+            groupBoxPago_FormPagarC.SuspendLayout();
+            groupBoxSelected_FormPagarC.SuspendLayout();
             SuspendLayout();
             // 
-            // groupBoxExpensas
+            // groupBoxExpensas_FormPagarC
             // 
-            groupBoxExpensas.Anchor = AnchorStyles.None;
-            groupBoxExpensas.BackColor = Color.FromArgb(17, 30, 53);
-            groupBoxExpensas.Controls.Add(dataGridExpensas);
-            groupBoxExpensas.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBoxExpensas.ForeColor = SystemColors.ControlLight;
-            groupBoxExpensas.Location = new Point(23, 118);
-            groupBoxExpensas.Name = "groupBoxExpensas";
-            groupBoxExpensas.Size = new Size(264, 303);
-            groupBoxExpensas.TabIndex = 4;
-            groupBoxExpensas.TabStop = false;
-            groupBoxExpensas.Text = "SELECCIONAR EXPENSA";
+            groupBoxExpensas_FormPagarC.Anchor = AnchorStyles.None;
+            groupBoxExpensas_FormPagarC.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxExpensas_FormPagarC.Controls.Add(dataGridExpensas);
+            groupBoxExpensas_FormPagarC.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxExpensas_FormPagarC.ForeColor = SystemColors.ControlLight;
+            groupBoxExpensas_FormPagarC.Location = new Point(23, 118);
+            groupBoxExpensas_FormPagarC.Name = "groupBoxExpensas_FormPagarC";
+            groupBoxExpensas_FormPagarC.Size = new Size(264, 303);
+            groupBoxExpensas_FormPagarC.TabIndex = 4;
+            groupBoxExpensas_FormPagarC.TabStop = false;
+            groupBoxExpensas_FormPagarC.Text = "SELECCIONAR EXPENSA";
             // 
             // dataGridExpensas
             // 
@@ -69,40 +69,40 @@
             dataGridExpensas.Size = new Size(249, 276);
             dataGridExpensas.TabIndex = 0;
             // 
-            // groupBoxPago
+            // groupBoxPago_FormPagarC
             // 
-            groupBoxPago.Anchor = AnchorStyles.None;
-            groupBoxPago.BackColor = Color.FromArgb(17, 30, 53);
-            groupBoxPago.Controls.Add(buttonPagar);
-            groupBoxPago.Controls.Add(textBoxReferencia);
-            groupBoxPago.Controls.Add(label2);
-            groupBoxPago.Controls.Add(comboBoxMedio);
-            groupBoxPago.Controls.Add(label1);
-            groupBoxPago.Controls.Add(groupBoxSelected);
-            groupBoxPago.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBoxPago.ForeColor = SystemColors.ControlLight;
-            groupBoxPago.Location = new Point(308, 118);
-            groupBoxPago.Name = "groupBoxPago";
-            groupBoxPago.Size = new Size(350, 303);
-            groupBoxPago.TabIndex = 5;
-            groupBoxPago.TabStop = false;
-            groupBoxPago.Text = "DETALLE DEL PAGO";
+            groupBoxPago_FormPagarC.Anchor = AnchorStyles.None;
+            groupBoxPago_FormPagarC.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxPago_FormPagarC.Controls.Add(buttonPagar_FormPagarC);
+            groupBoxPago_FormPagarC.Controls.Add(textBoxReferencia);
+            groupBoxPago_FormPagarC.Controls.Add(labelNReferencia_FormPagarC);
+            groupBoxPago_FormPagarC.Controls.Add(comboBoxMedio);
+            groupBoxPago_FormPagarC.Controls.Add(labelMedioPago_FormPagarC);
+            groupBoxPago_FormPagarC.Controls.Add(groupBoxSelected_FormPagarC);
+            groupBoxPago_FormPagarC.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxPago_FormPagarC.ForeColor = SystemColors.ControlLight;
+            groupBoxPago_FormPagarC.Location = new Point(308, 118);
+            groupBoxPago_FormPagarC.Name = "groupBoxPago_FormPagarC";
+            groupBoxPago_FormPagarC.Size = new Size(350, 303);
+            groupBoxPago_FormPagarC.TabIndex = 5;
+            groupBoxPago_FormPagarC.TabStop = false;
+            groupBoxPago_FormPagarC.Text = "DETALLE DEL PAGO";
             // 
-            // buttonPagar
+            // buttonPagar_FormPagarC
             // 
-            buttonPagar.Anchor = AnchorStyles.None;
-            buttonPagar.BackColor = Color.FromArgb(0, 187, 118);
-            buttonPagar.FlatAppearance.BorderSize = 0;
-            buttonPagar.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
-            buttonPagar.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
-            buttonPagar.FlatStyle = FlatStyle.Flat;
-            buttonPagar.ForeColor = SystemColors.ControlLight;
-            buttonPagar.Location = new Point(6, 246);
-            buttonPagar.Name = "buttonPagar";
-            buttonPagar.Size = new Size(338, 36);
-            buttonPagar.TabIndex = 13;
-            buttonPagar.Text = "Confirmar Pago";
-            buttonPagar.UseVisualStyleBackColor = false;
+            buttonPagar_FormPagarC.Anchor = AnchorStyles.None;
+            buttonPagar_FormPagarC.BackColor = Color.FromArgb(0, 187, 118);
+            buttonPagar_FormPagarC.FlatAppearance.BorderSize = 0;
+            buttonPagar_FormPagarC.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
+            buttonPagar_FormPagarC.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
+            buttonPagar_FormPagarC.FlatStyle = FlatStyle.Flat;
+            buttonPagar_FormPagarC.ForeColor = SystemColors.ControlLight;
+            buttonPagar_FormPagarC.Location = new Point(6, 246);
+            buttonPagar_FormPagarC.Name = "buttonPagar_FormPagarC";
+            buttonPagar_FormPagarC.Size = new Size(338, 36);
+            buttonPagar_FormPagarC.TabIndex = 13;
+            buttonPagar_FormPagarC.Text = "Confirmar Pago";
+            buttonPagar_FormPagarC.UseVisualStyleBackColor = false;
             // 
             // textBoxReferencia
             // 
@@ -113,14 +113,14 @@
             textBoxReferencia.Size = new Size(221, 22);
             textBoxReferencia.TabIndex = 12;
             // 
-            // label2
+            // labelNReferencia_FormPagarC
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(16, 177);
-            label2.Name = "label2";
-            label2.Size = new Size(98, 14);
-            label2.TabIndex = 11;
-            label2.Text = "N° REFERENCIA";
+            labelNReferencia_FormPagarC.AutoSize = true;
+            labelNReferencia_FormPagarC.Location = new Point(16, 177);
+            labelNReferencia_FormPagarC.Name = "labelNReferencia_FormPagarC";
+            labelNReferencia_FormPagarC.Size = new Size(98, 14);
+            labelNReferencia_FormPagarC.TabIndex = 11;
+            labelNReferencia_FormPagarC.Text = "N° REFERENCIA";
             // 
             // comboBoxMedio
             // 
@@ -132,51 +132,51 @@
             comboBoxMedio.Size = new Size(221, 22);
             comboBoxMedio.TabIndex = 10;
             // 
-            // label1
+            // labelMedioPago_FormPagarC
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(13, 113);
-            label1.Name = "label1";
-            label1.Size = new Size(98, 14);
-            label1.TabIndex = 9;
-            label1.Text = "MEDIO DE PAGO";
+            labelMedioPago_FormPagarC.AutoSize = true;
+            labelMedioPago_FormPagarC.Location = new Point(13, 113);
+            labelMedioPago_FormPagarC.Name = "labelMedioPago_FormPagarC";
+            labelMedioPago_FormPagarC.Size = new Size(98, 14);
+            labelMedioPago_FormPagarC.TabIndex = 9;
+            labelMedioPago_FormPagarC.Text = "MEDIO DE PAGO";
             // 
-            // groupBoxSelected
+            // groupBoxSelected_FormPagarC
             // 
-            groupBoxSelected.Anchor = AnchorStyles.None;
-            groupBoxSelected.BackColor = Color.FromArgb(13, 22, 40);
-            groupBoxSelected.Controls.Add(labelInfoExpensa);
-            groupBoxSelected.Controls.Add(labelExpensaTot);
-            groupBoxSelected.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBoxSelected.ForeColor = SystemColors.ControlLight;
-            groupBoxSelected.Location = new Point(6, 21);
-            groupBoxSelected.Name = "groupBoxSelected";
-            groupBoxSelected.Size = new Size(338, 74);
-            groupBoxSelected.TabIndex = 8;
-            groupBoxSelected.TabStop = false;
-            groupBoxSelected.Text = "EXPENSA SELECCIONADA";
+            groupBoxSelected_FormPagarC.Anchor = AnchorStyles.None;
+            groupBoxSelected_FormPagarC.BackColor = Color.FromArgb(13, 22, 40);
+            groupBoxSelected_FormPagarC.Controls.Add(labelInfoExpensa_FormPagarC);
+            groupBoxSelected_FormPagarC.Controls.Add(labelExpensaTot_FormPagarC);
+            groupBoxSelected_FormPagarC.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxSelected_FormPagarC.ForeColor = SystemColors.ControlLight;
+            groupBoxSelected_FormPagarC.Location = new Point(6, 21);
+            groupBoxSelected_FormPagarC.Name = "groupBoxSelected_FormPagarC";
+            groupBoxSelected_FormPagarC.Size = new Size(338, 74);
+            groupBoxSelected_FormPagarC.TabIndex = 8;
+            groupBoxSelected_FormPagarC.TabStop = false;
+            groupBoxSelected_FormPagarC.Text = "EXPENSA SELECCIONADA";
             // 
-            // labelInfoExpensa
+            // labelInfoExpensa_FormPagarC
             // 
-            labelInfoExpensa.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelInfoExpensa.AutoSize = true;
-            labelInfoExpensa.Font = new Font("Unispace", 6.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelInfoExpensa.Location = new Point(10, 47);
-            labelInfoExpensa.Name = "labelInfoExpensa";
-            labelInfoExpensa.Size = new Size(221, 11);
-            labelInfoExpensa.TabIndex = 3;
-            labelInfoExpensa.Text = "Expensa Ene 2025 - Vencio 10/01/2025";
+            labelInfoExpensa_FormPagarC.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelInfoExpensa_FormPagarC.AutoSize = true;
+            labelInfoExpensa_FormPagarC.Font = new Font("Unispace", 6.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelInfoExpensa_FormPagarC.Location = new Point(10, 47);
+            labelInfoExpensa_FormPagarC.Name = "labelInfoExpensa_FormPagarC";
+            labelInfoExpensa_FormPagarC.Size = new Size(221, 11);
+            labelInfoExpensa_FormPagarC.TabIndex = 3;
+            labelInfoExpensa_FormPagarC.Text = "Expensa Ene 2025 - Vencio 10/01/2025";
             // 
-            // labelExpensaTot
+            // labelExpensaTot_FormPagarC
             // 
-            labelExpensaTot.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelExpensaTot.AutoSize = true;
-            labelExpensaTot.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelExpensaTot.Location = new Point(7, 21);
-            labelExpensaTot.Name = "labelExpensaTot";
-            labelExpensaTot.Size = new Size(139, 19);
-            labelExpensaTot.TabIndex = 2;
-            labelExpensaTot.Text = "$000000000.00";
+            labelExpensaTot_FormPagarC.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelExpensaTot_FormPagarC.AutoSize = true;
+            labelExpensaTot_FormPagarC.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelExpensaTot_FormPagarC.Location = new Point(7, 21);
+            labelExpensaTot_FormPagarC.Name = "labelExpensaTot_FormPagarC";
+            labelExpensaTot_FormPagarC.Size = new Size(139, 19);
+            labelExpensaTot_FormPagarC.TabIndex = 2;
+            labelExpensaTot_FormPagarC.Text = "$000000000.00";
             // 
             // groupBox2
             // 
@@ -196,33 +196,35 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(8, 14, 26);
             ClientSize = new Size(682, 597);
-            Controls.Add(groupBoxPago);
-            Controls.Add(groupBoxExpensas);
+            Controls.Add(groupBoxPago_FormPagarC);
+            Controls.Add(groupBoxExpensas_FormPagarC);
             Controls.Add(groupBox2);
             Name = "formPagarC";
             Text = "formPagarC";
-            groupBoxExpensas.ResumeLayout(false);
+            FormClosing += formPagarC_FormClosing;
+            Load += formPagarC_Load;
+            groupBoxExpensas_FormPagarC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridExpensas).EndInit();
-            groupBoxPago.ResumeLayout(false);
-            groupBoxPago.PerformLayout();
-            groupBoxSelected.ResumeLayout(false);
-            groupBoxSelected.PerformLayout();
+            groupBoxPago_FormPagarC.ResumeLayout(false);
+            groupBoxPago_FormPagarC.PerformLayout();
+            groupBoxSelected_FormPagarC.ResumeLayout(false);
+            groupBoxSelected_FormPagarC.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private GroupBox groupBoxExpensas;
+        private GroupBox groupBoxExpensas_FormPagarC;
         private DataGridView dataGridExpensas;
-        private GroupBox groupBoxPago;
-        private GroupBox groupBoxSelected;
+        private GroupBox groupBoxPago_FormPagarC;
+        private GroupBox groupBoxSelected_FormPagarC;
         private TextBox textBoxReferencia;
-        private Label label2;
+        private Label labelNReferencia_FormPagarC;
         private ComboBox comboBoxMedio;
-        private Label label1;
-        private Button buttonPagar;
+        private Label labelMedioPago_FormPagarC;
+        private Button buttonPagar_FormPagarC;
         private GroupBox groupBox2;
-        private Label labelInfoExpensa;
-        private Label labelExpensaTot;
+        private Label labelInfoExpensa_FormPagarC;
+        private Label labelExpensaTot_FormPagarC;
     }
 }

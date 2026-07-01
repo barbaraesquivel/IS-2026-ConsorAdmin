@@ -29,37 +29,37 @@
         private void InitializeComponent()
         {
             groupBox2 = new GroupBox();
-            groupBoxExpensas = new GroupBox();
+            groupBoxRegistrarServ_FormCargarP = new GroupBox();
             panel1 = new Panel();
-            label10 = new Label();
-            label9 = new Label();
+            labelImporteTotal_FormCargarP = new Label();
             comboBoxEstado = new ComboBox();
-            label8 = new Label();
+            labelEstado_FormCargarP = new Label();
             textBox2 = new TextBox();
-            label7 = new Label();
+            labelGastos_FormCargarP = new Label();
             textBox1 = new TextBox();
-            label6 = new Label();
+            labelMonto_FormCargarP = new Label();
             textBoxFacturanr = new TextBox();
-            label5 = new Label();
+            labelNFact_FormCargarP = new Label();
             dateTimePrestacion = new DateTimePicker();
-            label4 = new Label();
+            labelFecha_FormCargarP = new Label();
             richTextBoxDetalle = new RichTextBox();
-            label3 = new Label();
+            labelDetalle_FormCargarP = new Label();
             comboBoxServicios = new ComboBox();
-            label2 = new Label();
+            labelTipoServ_FormCargarP = new Label();
             comboBoxConsorcios = new ComboBox();
-            label1 = new Label();
-            buttonGuardar = new Button();
-            buttonCargarS = new Button();
+            labelConsorcio_FormCargarP = new Label();
+            buttonLimpiar_FormCargarP = new Button();
+            buttonCargarS_FormCargarP = new Button();
+            labelTotal_FormCargarP = new Label();
             groupBox2.SuspendLayout();
-            groupBoxExpensas.SuspendLayout();
+            groupBoxRegistrarServ_FormCargarP.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox2
             // 
             groupBox2.BackColor = Color.FromArgb(8, 14, 26);
-            groupBox2.Controls.Add(groupBoxExpensas);
+            groupBox2.Controls.Add(groupBoxRegistrarServ_FormCargarP);
             groupBox2.Dock = DockStyle.Fill;
             groupBox2.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBox2.ForeColor = SystemColors.ControlLight;
@@ -69,69 +69,60 @@
             groupBox2.TabIndex = 8;
             groupBox2.TabStop = false;
             // 
-            // groupBoxExpensas
+            // groupBoxRegistrarServ_FormCargarP
             // 
-            groupBoxExpensas.Anchor = AnchorStyles.None;
-            groupBoxExpensas.BackColor = Color.FromArgb(17, 30, 53);
-            groupBoxExpensas.Controls.Add(panel1);
-            groupBoxExpensas.Controls.Add(label9);
-            groupBoxExpensas.Controls.Add(comboBoxEstado);
-            groupBoxExpensas.Controls.Add(label8);
-            groupBoxExpensas.Controls.Add(textBox2);
-            groupBoxExpensas.Controls.Add(label7);
-            groupBoxExpensas.Controls.Add(textBox1);
-            groupBoxExpensas.Controls.Add(label6);
-            groupBoxExpensas.Controls.Add(textBoxFacturanr);
-            groupBoxExpensas.Controls.Add(label5);
-            groupBoxExpensas.Controls.Add(dateTimePrestacion);
-            groupBoxExpensas.Controls.Add(label4);
-            groupBoxExpensas.Controls.Add(richTextBoxDetalle);
-            groupBoxExpensas.Controls.Add(label3);
-            groupBoxExpensas.Controls.Add(comboBoxServicios);
-            groupBoxExpensas.Controls.Add(label2);
-            groupBoxExpensas.Controls.Add(comboBoxConsorcios);
-            groupBoxExpensas.Controls.Add(label1);
-            groupBoxExpensas.Controls.Add(buttonGuardar);
-            groupBoxExpensas.Controls.Add(buttonCargarS);
-            groupBoxExpensas.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBoxExpensas.ForeColor = SystemColors.ControlLight;
-            groupBoxExpensas.Location = new Point(12, 21);
-            groupBoxExpensas.Name = "groupBoxExpensas";
-            groupBoxExpensas.Size = new Size(655, 564);
-            groupBoxExpensas.TabIndex = 5;
-            groupBoxExpensas.TabStop = false;
-            groupBoxExpensas.Text = "Registrar Servicio Prestado";
+            groupBoxRegistrarServ_FormCargarP.Anchor = AnchorStyles.None;
+            groupBoxRegistrarServ_FormCargarP.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxRegistrarServ_FormCargarP.Controls.Add(labelTotal_FormCargarP);
+            groupBoxRegistrarServ_FormCargarP.Controls.Add(panel1);
+            groupBoxRegistrarServ_FormCargarP.Controls.Add(comboBoxEstado);
+            groupBoxRegistrarServ_FormCargarP.Controls.Add(labelEstado_FormCargarP);
+            groupBoxRegistrarServ_FormCargarP.Controls.Add(textBox2);
+            groupBoxRegistrarServ_FormCargarP.Controls.Add(labelGastos_FormCargarP);
+            groupBoxRegistrarServ_FormCargarP.Controls.Add(textBox1);
+            groupBoxRegistrarServ_FormCargarP.Controls.Add(labelMonto_FormCargarP);
+            groupBoxRegistrarServ_FormCargarP.Controls.Add(textBoxFacturanr);
+            groupBoxRegistrarServ_FormCargarP.Controls.Add(labelNFact_FormCargarP);
+            groupBoxRegistrarServ_FormCargarP.Controls.Add(dateTimePrestacion);
+            groupBoxRegistrarServ_FormCargarP.Controls.Add(labelFecha_FormCargarP);
+            groupBoxRegistrarServ_FormCargarP.Controls.Add(richTextBoxDetalle);
+            groupBoxRegistrarServ_FormCargarP.Controls.Add(labelDetalle_FormCargarP);
+            groupBoxRegistrarServ_FormCargarP.Controls.Add(comboBoxServicios);
+            groupBoxRegistrarServ_FormCargarP.Controls.Add(labelTipoServ_FormCargarP);
+            groupBoxRegistrarServ_FormCargarP.Controls.Add(comboBoxConsorcios);
+            groupBoxRegistrarServ_FormCargarP.Controls.Add(labelConsorcio_FormCargarP);
+            groupBoxRegistrarServ_FormCargarP.Controls.Add(buttonLimpiar_FormCargarP);
+            groupBoxRegistrarServ_FormCargarP.Controls.Add(buttonCargarS_FormCargarP);
+            groupBoxRegistrarServ_FormCargarP.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxRegistrarServ_FormCargarP.ForeColor = SystemColors.ControlLight;
+            groupBoxRegistrarServ_FormCargarP.Location = new Point(12, 21);
+            groupBoxRegistrarServ_FormCargarP.Name = "groupBoxRegistrarServ_FormCargarP";
+            groupBoxRegistrarServ_FormCargarP.Size = new Size(655, 564);
+            groupBoxRegistrarServ_FormCargarP.TabIndex = 5;
+            groupBoxRegistrarServ_FormCargarP.TabStop = false;
+            groupBoxRegistrarServ_FormCargarP.Text = "Registrar Servicio Prestado";
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(16, 44, 59);
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(label10);
+            panel1.Controls.Add(labelImporteTotal_FormCargarP);
             panel1.ForeColor = SystemColors.ActiveCaptionText;
             panel1.Location = new Point(39, 377);
             panel1.Name = "panel1";
             panel1.Size = new Size(231, 32);
             panel1.TabIndex = 33;
             // 
-            // label10
+            // labelImporteTotal_FormCargarP
             // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Unispace", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.FromArgb(0, 201, 127);
-            label10.Location = new Point(4, 8);
-            label10.Name = "label10";
-            label10.Size = new Size(79, 15);
-            label10.TabIndex = 34;
-            label10.Text = "$1.234,56";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(39, 360);
-            label9.Name = "label9";
-            label9.Size = new Size(42, 14);
-            label9.TabIndex = 32;
-            label9.Text = "Total";
+            labelImporteTotal_FormCargarP.AutoSize = true;
+            labelImporteTotal_FormCargarP.Font = new Font("Unispace", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelImporteTotal_FormCargarP.ForeColor = Color.FromArgb(0, 201, 127);
+            labelImporteTotal_FormCargarP.Location = new Point(4, 8);
+            labelImporteTotal_FormCargarP.Name = "labelImporteTotal_FormCargarP";
+            labelImporteTotal_FormCargarP.Size = new Size(79, 15);
+            labelImporteTotal_FormCargarP.TabIndex = 34;
+            labelImporteTotal_FormCargarP.Text = "$1.234,56";
             // 
             // comboBoxEstado
             // 
@@ -143,14 +134,14 @@
             comboBoxEstado.Size = new Size(231, 22);
             comboBoxEstado.TabIndex = 31;
             // 
-            // label8
+            // labelEstado_FormCargarP
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(347, 360);
-            label8.Name = "label8";
-            label8.Size = new Size(119, 14);
-            label8.TabIndex = 30;
-            label8.Text = "Estado del Cobro";
+            labelEstado_FormCargarP.AutoSize = true;
+            labelEstado_FormCargarP.Location = new Point(347, 360);
+            labelEstado_FormCargarP.Name = "labelEstado_FormCargarP";
+            labelEstado_FormCargarP.Size = new Size(119, 14);
+            labelEstado_FormCargarP.TabIndex = 30;
+            labelEstado_FormCargarP.Text = "Estado del Cobro";
             // 
             // textBox2
             // 
@@ -161,14 +152,14 @@
             textBox2.Size = new Size(231, 22);
             textBox2.TabIndex = 29;
             // 
-            // label7
+            // labelGastos_FormCargarP
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(347, 295);
-            label7.Name = "label7";
-            label7.Size = new Size(98, 14);
-            label7.TabIndex = 28;
-            label7.Text = "Gastos Extras";
+            labelGastos_FormCargarP.AutoSize = true;
+            labelGastos_FormCargarP.Location = new Point(347, 295);
+            labelGastos_FormCargarP.Name = "labelGastos_FormCargarP";
+            labelGastos_FormCargarP.Size = new Size(98, 14);
+            labelGastos_FormCargarP.TabIndex = 28;
+            labelGastos_FormCargarP.Text = "Gastos Extras";
             // 
             // textBox1
             // 
@@ -179,14 +170,14 @@
             textBox1.Size = new Size(231, 22);
             textBox1.TabIndex = 27;
             // 
-            // label6
+            // labelMonto_FormCargarP
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(39, 295);
-            label6.Name = "label6";
-            label6.Size = new Size(77, 14);
-            label6.TabIndex = 26;
-            label6.Text = "Monto Base";
+            labelMonto_FormCargarP.AutoSize = true;
+            labelMonto_FormCargarP.Location = new Point(39, 295);
+            labelMonto_FormCargarP.Name = "labelMonto_FormCargarP";
+            labelMonto_FormCargarP.Size = new Size(77, 14);
+            labelMonto_FormCargarP.TabIndex = 26;
+            labelMonto_FormCargarP.Text = "Monto Base";
             // 
             // textBoxFacturanr
             // 
@@ -197,14 +188,14 @@
             textBoxFacturanr.Size = new Size(231, 22);
             textBoxFacturanr.TabIndex = 25;
             // 
-            // label5
+            // labelNFact_FormCargarP
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(347, 229);
-            label5.Name = "label5";
-            label5.Size = new Size(98, 14);
-            label5.TabIndex = 24;
-            label5.Text = "N° de Factura";
+            labelNFact_FormCargarP.AutoSize = true;
+            labelNFact_FormCargarP.Location = new Point(347, 229);
+            labelNFact_FormCargarP.Name = "labelNFact_FormCargarP";
+            labelNFact_FormCargarP.Size = new Size(98, 14);
+            labelNFact_FormCargarP.TabIndex = 24;
+            labelNFact_FormCargarP.Text = "N° de Factura";
             // 
             // dateTimePrestacion
             // 
@@ -214,14 +205,14 @@
             dateTimePrestacion.Size = new Size(231, 22);
             dateTimePrestacion.TabIndex = 23;
             // 
-            // label4
+            // labelFecha_FormCargarP
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(39, 229);
-            label4.Name = "label4";
-            label4.Size = new Size(140, 14);
-            label4.TabIndex = 22;
-            label4.Text = "Fecha de Prestación";
+            labelFecha_FormCargarP.AutoSize = true;
+            labelFecha_FormCargarP.Location = new Point(39, 229);
+            labelFecha_FormCargarP.Name = "labelFecha_FormCargarP";
+            labelFecha_FormCargarP.Size = new Size(140, 14);
+            labelFecha_FormCargarP.TabIndex = 22;
+            labelFecha_FormCargarP.Text = "Fecha de Prestación";
             // 
             // richTextBoxDetalle
             // 
@@ -233,14 +224,14 @@
             richTextBoxDetalle.TabIndex = 21;
             richTextBoxDetalle.Text = "";
             // 
-            // label3
+            // labelDetalle_FormCargarP
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(39, 97);
-            label3.Name = "label3";
-            label3.Size = new Size(140, 14);
-            label3.TabIndex = 20;
-            label3.Text = "Detalle del Trabajo";
+            labelDetalle_FormCargarP.AutoSize = true;
+            labelDetalle_FormCargarP.Location = new Point(39, 97);
+            labelDetalle_FormCargarP.Name = "labelDetalle_FormCargarP";
+            labelDetalle_FormCargarP.Size = new Size(140, 14);
+            labelDetalle_FormCargarP.TabIndex = 20;
+            labelDetalle_FormCargarP.Text = "Detalle del Trabajo";
             // 
             // comboBoxServicios
             // 
@@ -252,14 +243,14 @@
             comboBoxServicios.Size = new Size(231, 22);
             comboBoxServicios.TabIndex = 19;
             // 
-            // label2
+            // labelTipoServ_FormCargarP
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(347, 36);
-            label2.Name = "label2";
-            label2.Size = new Size(119, 14);
-            label2.TabIndex = 18;
-            label2.Text = "Tipo de Servicio";
+            labelTipoServ_FormCargarP.AutoSize = true;
+            labelTipoServ_FormCargarP.Location = new Point(347, 36);
+            labelTipoServ_FormCargarP.Name = "labelTipoServ_FormCargarP";
+            labelTipoServ_FormCargarP.Size = new Size(119, 14);
+            labelTipoServ_FormCargarP.TabIndex = 18;
+            labelTipoServ_FormCargarP.Text = "Tipo de Servicio";
             // 
             // comboBoxConsorcios
             // 
@@ -271,46 +262,55 @@
             comboBoxConsorcios.Size = new Size(231, 22);
             comboBoxConsorcios.TabIndex = 17;
             // 
-            // label1
+            // labelConsorcio_FormCargarP
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(39, 36);
-            label1.Name = "label1";
-            label1.Size = new Size(70, 14);
-            label1.TabIndex = 16;
-            label1.Text = "Consorcio";
+            labelConsorcio_FormCargarP.AutoSize = true;
+            labelConsorcio_FormCargarP.Location = new Point(39, 36);
+            labelConsorcio_FormCargarP.Name = "labelConsorcio_FormCargarP";
+            labelConsorcio_FormCargarP.Size = new Size(70, 14);
+            labelConsorcio_FormCargarP.TabIndex = 16;
+            labelConsorcio_FormCargarP.Text = "Consorcio";
             // 
-            // buttonGuardar
+            // buttonLimpiar_FormCargarP
             // 
-            buttonGuardar.Anchor = AnchorStyles.None;
-            buttonGuardar.BackColor = Color.Transparent;
-            buttonGuardar.FlatAppearance.BorderColor = Color.FromArgb(30, 58, 95);
-            buttonGuardar.FlatAppearance.MouseDownBackColor = SystemColors.Highlight;
-            buttonGuardar.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
-            buttonGuardar.FlatStyle = FlatStyle.Flat;
-            buttonGuardar.ForeColor = SystemColors.ControlLight;
-            buttonGuardar.Location = new Point(264, 477);
-            buttonGuardar.Name = "buttonGuardar";
-            buttonGuardar.Size = new Size(202, 36);
-            buttonGuardar.TabIndex = 15;
-            buttonGuardar.Text = "Limpiar Campos";
-            buttonGuardar.UseVisualStyleBackColor = false;
+            buttonLimpiar_FormCargarP.Anchor = AnchorStyles.None;
+            buttonLimpiar_FormCargarP.BackColor = Color.Transparent;
+            buttonLimpiar_FormCargarP.FlatAppearance.BorderColor = Color.FromArgb(30, 58, 95);
+            buttonLimpiar_FormCargarP.FlatAppearance.MouseDownBackColor = SystemColors.Highlight;
+            buttonLimpiar_FormCargarP.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            buttonLimpiar_FormCargarP.FlatStyle = FlatStyle.Flat;
+            buttonLimpiar_FormCargarP.ForeColor = SystemColors.ControlLight;
+            buttonLimpiar_FormCargarP.Location = new Point(264, 477);
+            buttonLimpiar_FormCargarP.Name = "buttonLimpiar_FormCargarP";
+            buttonLimpiar_FormCargarP.Size = new Size(202, 36);
+            buttonLimpiar_FormCargarP.TabIndex = 15;
+            buttonLimpiar_FormCargarP.Text = "Limpiar Campos";
+            buttonLimpiar_FormCargarP.UseVisualStyleBackColor = false;
             // 
-            // buttonCargarS
+            // buttonCargarS_FormCargarP
             // 
-            buttonCargarS.Anchor = AnchorStyles.None;
-            buttonCargarS.BackColor = Color.FromArgb(0, 187, 118);
-            buttonCargarS.FlatAppearance.BorderSize = 0;
-            buttonCargarS.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
-            buttonCargarS.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
-            buttonCargarS.FlatStyle = FlatStyle.Flat;
-            buttonCargarS.ForeColor = SystemColors.ControlLight;
-            buttonCargarS.Location = new Point(37, 477);
-            buttonCargarS.Name = "buttonCargarS";
-            buttonCargarS.Size = new Size(202, 36);
-            buttonCargarS.TabIndex = 14;
-            buttonCargarS.Text = "Cargar Servicio";
-            buttonCargarS.UseVisualStyleBackColor = false;
+            buttonCargarS_FormCargarP.Anchor = AnchorStyles.None;
+            buttonCargarS_FormCargarP.BackColor = Color.FromArgb(0, 187, 118);
+            buttonCargarS_FormCargarP.FlatAppearance.BorderSize = 0;
+            buttonCargarS_FormCargarP.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
+            buttonCargarS_FormCargarP.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
+            buttonCargarS_FormCargarP.FlatStyle = FlatStyle.Flat;
+            buttonCargarS_FormCargarP.ForeColor = SystemColors.ControlLight;
+            buttonCargarS_FormCargarP.Location = new Point(37, 477);
+            buttonCargarS_FormCargarP.Name = "buttonCargarS_FormCargarP";
+            buttonCargarS_FormCargarP.Size = new Size(202, 36);
+            buttonCargarS_FormCargarP.TabIndex = 14;
+            buttonCargarS_FormCargarP.Text = "Cargar Servicio";
+            buttonCargarS_FormCargarP.UseVisualStyleBackColor = false;
+            // 
+            // labelTotal_FormCargarP
+            // 
+            labelTotal_FormCargarP.AutoSize = true;
+            labelTotal_FormCargarP.Location = new Point(39, 360);
+            labelTotal_FormCargarP.Name = "labelTotal_FormCargarP";
+            labelTotal_FormCargarP.Size = new Size(42, 14);
+            labelTotal_FormCargarP.TabIndex = 34;
+            labelTotal_FormCargarP.Text = "Total";
             // 
             // formCargarP
             // 
@@ -321,9 +321,11 @@
             Controls.Add(groupBox2);
             Name = "formCargarP";
             Text = "formCargarP";
+            Load += formCargarP_Load;
+            FormClosing += formCargarP_FormClosing;
             groupBox2.ResumeLayout(false);
-            groupBoxExpensas.ResumeLayout(false);
-            groupBoxExpensas.PerformLayout();
+            groupBoxRegistrarServ_FormCargarP.ResumeLayout(false);
+            groupBoxRegistrarServ_FormCargarP.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -332,27 +334,27 @@
         #endregion
 
         private GroupBox groupBox2;
-        private GroupBox groupBoxExpensas;
-        private Button buttonGuardar;
-        private Button buttonCargarS;
-        private Label label1;
-        private Label label4;
+        private GroupBox groupBoxRegistrarServ_FormCargarP;
+        private Button buttonLimpiar_FormCargarP;
+        private Button buttonCargarS_FormCargarP;
+        private Label labelConsorcio_FormCargarP;
+        private Label labelFecha_FormCargarP;
         private RichTextBox richTextBoxDetalle;
-        private Label label3;
+        private Label labelDetalle_FormCargarP;
         private ComboBox comboBoxServicios;
-        private Label label2;
+        private Label labelTipoServ_FormCargarP;
         private ComboBox comboBoxConsorcios;
         private DateTimePicker dateTimePrestacion;
         private TextBox textBoxFacturanr;
-        private Label label5;
+        private Label labelNFact_FormCargarP;
         private Panel panel1;
-        private Label label9;
         private ComboBox comboBoxEstado;
-        private Label label8;
+        private Label labelEstado_FormCargarP;
         private TextBox textBox2;
-        private Label label7;
+        private Label labelGastos_FormCargarP;
         private TextBox textBox1;
-        private Label label6;
-        private Label label10;
+        private Label labelMonto_FormCargarP;
+        private Label labelImporteTotal_FormCargarP;
+        private Label labelTotal_FormCargarP;
     }
 }

@@ -18,23 +18,21 @@ namespace DAL.Repositorio
                 Usuario = usuario.Username,
                 Contraseña = usuario.PasswordHash,
                 Bloqueado = usuario.Bloqueado,
-                // Activo=true en BD significa usuario activo → Baja debe ser false
                 Baja = !usuario.Activo,
-
-                
-                consorcistaBE = null!,  // no llamar ConsorcistaMapper: evita ciclo Usuario ↔ Consorcista
+                IdIdiomaPreferido = usuario.IdIdiomaPreferido, // ← esta línea faltaba
+                consorcistaBE = null!,
                 proovedorBE = usuario.Proveedor != null
-                    ? ProovedorMapper.Map(usuario.Proveedor)
-                    : null,
+            ? ProovedorMapper.Map(usuario.Proveedor)
+            : null,
                 logBitacoras = usuario.LogBitacoras
-                    .Select(LogBitacoraMapper.Map)
-                    .ToList(),
+            .Select(LogBitacoraMapper.Map)
+            .ToList(),
                 usuarioPermisos = usuario.UsuarioPermisos
-                    .Select(UsuarioPermisoMapper.Map)
-                    .ToList(),
+            .Select(UsuarioPermisoMapper.Map)
+            .ToList(),
                 gestorConsorcioBEs = usuario.GestorConsorcios
-                    .Select(GestorConsorcioMapper.Map)
-                    .ToList()
+            .Select(GestorConsorcioMapper.Map)
+            .ToList()
             };
         }
 
@@ -50,6 +48,7 @@ namespace DAL.Repositorio
                 PasswordHash = usuarioBE.Contraseña,
                 Bloqueado = usuarioBE.Bloqueado,
                 Activo = !usuarioBE.Baja,
+                IdIdiomaPreferido = usuarioBE.IdIdiomaPreferido,
                 LogBitacoras = usuarioBE.logBitacoras?
                     .Select(LogBitacoraMapper.Map)
                     .ToList() ?? new List<LogBitacora>(),

@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using SERV;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,8 +13,9 @@ using System.Windows.Forms;
 
 namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
 {
-    public partial class FormCargarG : Form
+    public partial class FormCargarG : Form, IIdiomaObserver
     {
+        private readonly TraductorBLL _traductorBLL = new TraductorBLL();
         private readonly ConsorcioBLL _consorcioBLL = new ConsorcioBLL();
         private readonly ServicioBLL _servicioBLL = new ServicioBLL();
         public FormCargarG()
@@ -22,6 +24,10 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
         }
         private void FormCargarG_Load(object sender, EventArgs e)
         {
+            AsignarTags();
+            SessionManager.SuscribirObservador(this);
+            Traducir();
+
             try
             {
                 // Cargar consorcios del gestor
@@ -51,6 +57,11 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void FormCargarG_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SessionManager.DesuscribirObservador(this);
         }
 
         private void buttonGuard_Click(object sender, EventArgs e)
@@ -107,6 +118,44 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
             dateTimePickerVencimiento.Value = DateTime.Today.AddDays(10);
         }
 
+        public void ActualizarIdioma(IdiomaBE idioma)
+        {
+            if (this.InvokeRequired) this.Invoke(() => Traducir(idioma));
+            else Traducir(idioma);
+        }
+
+        private void Traducir(IdiomaBE idioma = null)
+        {
+            idioma ??= SessionManager.IdiomaActual ?? _traductorBLL.ObtenerIdiomaDefault();
+            var t = _traductorBLL.ObtenerTraducciones(idioma);
+            TraducirControles(this.Controls, t);
+        }
+
+        private void TraducirControles(Control.ControlCollection controles, Dictionary<string, string> t)
+        {
+            foreach (Control ctrl in controles)
+            {
+                if (ctrl.Tag is string clave && t.ContainsKey(clave))
+                    ctrl.Text = t[clave];
+                if (ctrl.Controls.Count > 0)
+                    TraducirControles(ctrl.Controls, t);
+            }
+        }
+
+        private void AsignarTags()
+        {
+            groupBoxNuevaExp_FormCargarG.Tag = "groupBoxNuevaExp_FormCargarG";
+            buttonGuard_FormCargarG.Tag = "buttonGuard_FormCargarG";
+            buttonCancelar_FormCargarG.Tag = "buttonCancelar_FormCargarG";
+            labelSituacion_FormCargarG.Tag = "labelSituacion_FormCargarG";
+            labelFechaVencimiento_FormCargarG.Tag = "labelFechaVencimiento_FormCargarG";
+            labelFecha_FormCargarG.Tag = "labelFecha_FormCargarG";
+            labelImporte_FormCargarG.Tag = "labelImporte_FormCargarG";
+            labelSubRubro_FormCargarG.Tag = "labelSubRubro_FormCargarG";
+            labelRubro_FormCargarG.Tag = "labelRubro_FormCargarG";
+            labelTipoExp_FormCargarG.Tag = "labelTipoExp_FormCargarG";
+            labelEdificio_FormCargarG.Tag = "labelEdificio_FormCargarG";
+        }
 
     }
 }

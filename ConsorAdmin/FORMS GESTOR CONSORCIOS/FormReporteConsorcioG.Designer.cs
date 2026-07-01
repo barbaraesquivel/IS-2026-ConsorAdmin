@@ -28,31 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             groupBox2 = new GroupBox();
-            groupBox1 = new GroupBox();
+            groupBoxEdificio_FormReporteConsorcioG = new GroupBox();
             dataGridViewEdificios = new DataGridView();
-            groupBoxEstado = new GroupBox();
+            groupBoxEditarEdificios_FormReporteConsorcioG = new GroupBox();
             textBoxDireccion = new TextBox();
-            buttonGuardar = new Button();
+            buttonGuardar_FormReporteConsorcioG = new Button();
             textBoxNombre = new TextBox();
             textBoxCantUnid = new TextBox();
-            label3 = new Label();
-            label4 = new Label();
-            label2 = new Label();
+            labelCantUnid_FormReporteConsorcioG = new Label();
+            labelNombre_FormReporteConsorcioG = new Label();
+            labelDireccion_FormReporteConsorcioG = new Label();
             comboBoxEdificios = new ComboBox();
-            label1 = new Label();
+            labelEdificio_FormReporteConsorcioG = new Label();
             groupBox2.SuspendLayout();
-            groupBox1.SuspendLayout();
+            groupBoxEdificio_FormReporteConsorcioG.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewEdificios).BeginInit();
-            groupBoxEstado.SuspendLayout();
+            groupBoxEditarEdificios_FormReporteConsorcioG.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox2
             // 
             groupBox2.BackColor = Color.FromArgb(8, 14, 26);
-            groupBox2.Controls.Add(groupBox1);
-            groupBox2.Controls.Add(groupBoxEstado);
+            groupBox2.Controls.Add(groupBoxEdificio_FormReporteConsorcioG);
+            groupBox2.Controls.Add(groupBoxEditarEdificios_FormReporteConsorcioG);
             groupBox2.Dock = DockStyle.Fill;
             groupBox2.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBox2.ForeColor = SystemColors.ControlLight;
@@ -62,57 +62,57 @@
             groupBox2.TabIndex = 7;
             groupBox2.TabStop = false;
             // 
-            // groupBox1
+            // groupBoxEdificio_FormReporteConsorcioG
             // 
-            groupBox1.Anchor = AnchorStyles.None;
-            groupBox1.BackColor = Color.FromArgb(17, 30, 53);
-            groupBox1.Controls.Add(dataGridViewEdificios);
-            groupBox1.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBox1.ForeColor = SystemColors.ControlLight;
-            groupBox1.Location = new Point(40, 255);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(601, 318);
-            groupBox1.TabIndex = 21;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "EDIFICIOS";
+            groupBoxEdificio_FormReporteConsorcioG.Anchor = AnchorStyles.None;
+            groupBoxEdificio_FormReporteConsorcioG.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxEdificio_FormReporteConsorcioG.Controls.Add(dataGridViewEdificios);
+            groupBoxEdificio_FormReporteConsorcioG.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxEdificio_FormReporteConsorcioG.ForeColor = SystemColors.ControlLight;
+            groupBoxEdificio_FormReporteConsorcioG.Location = new Point(40, 255);
+            groupBoxEdificio_FormReporteConsorcioG.Name = "groupBoxEdificio_FormReporteConsorcioG";
+            groupBoxEdificio_FormReporteConsorcioG.Size = new Size(601, 318);
+            groupBoxEdificio_FormReporteConsorcioG.TabIndex = 21;
+            groupBoxEdificio_FormReporteConsorcioG.TabStop = false;
+            groupBoxEdificio_FormReporteConsorcioG.Text = "EDIFICIOS";
             // 
             // dataGridViewEdificios
             // 
             dataGridViewEdificios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlLight;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dataGridViewEdificios.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlLight;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridViewEdificios.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewEdificios.Location = new Point(7, 21);
             dataGridViewEdificios.Name = "dataGridViewEdificios";
             dataGridViewEdificios.Size = new Size(587, 277);
             dataGridViewEdificios.TabIndex = 0;
             // 
-            // groupBoxEstado
+            // groupBoxEditarEdificios_FormReporteConsorcioG
             // 
-            groupBoxEstado.Anchor = AnchorStyles.None;
-            groupBoxEstado.BackColor = Color.FromArgb(17, 30, 53);
-            groupBoxEstado.Controls.Add(textBoxDireccion);
-            groupBoxEstado.Controls.Add(buttonGuardar);
-            groupBoxEstado.Controls.Add(textBoxNombre);
-            groupBoxEstado.Controls.Add(textBoxCantUnid);
-            groupBoxEstado.Controls.Add(label3);
-            groupBoxEstado.Controls.Add(label4);
-            groupBoxEstado.Controls.Add(label2);
-            groupBoxEstado.Controls.Add(comboBoxEdificios);
-            groupBoxEstado.Controls.Add(label1);
-            groupBoxEstado.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBoxEstado.ForeColor = SystemColors.ControlLight;
-            groupBoxEstado.Location = new Point(40, 32);
-            groupBoxEstado.Name = "groupBoxEstado";
-            groupBoxEstado.Size = new Size(601, 201);
-            groupBoxEstado.TabIndex = 3;
-            groupBoxEstado.TabStop = false;
-            groupBoxEstado.Text = "EDITAR EDIFICIOS";
+            groupBoxEditarEdificios_FormReporteConsorcioG.Anchor = AnchorStyles.None;
+            groupBoxEditarEdificios_FormReporteConsorcioG.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxEditarEdificios_FormReporteConsorcioG.Controls.Add(textBoxDireccion);
+            groupBoxEditarEdificios_FormReporteConsorcioG.Controls.Add(buttonGuardar_FormReporteConsorcioG);
+            groupBoxEditarEdificios_FormReporteConsorcioG.Controls.Add(textBoxNombre);
+            groupBoxEditarEdificios_FormReporteConsorcioG.Controls.Add(textBoxCantUnid);
+            groupBoxEditarEdificios_FormReporteConsorcioG.Controls.Add(labelCantUnid_FormReporteConsorcioG);
+            groupBoxEditarEdificios_FormReporteConsorcioG.Controls.Add(labelNombre_FormReporteConsorcioG);
+            groupBoxEditarEdificios_FormReporteConsorcioG.Controls.Add(labelDireccion_FormReporteConsorcioG);
+            groupBoxEditarEdificios_FormReporteConsorcioG.Controls.Add(comboBoxEdificios);
+            groupBoxEditarEdificios_FormReporteConsorcioG.Controls.Add(labelEdificio_FormReporteConsorcioG);
+            groupBoxEditarEdificios_FormReporteConsorcioG.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxEditarEdificios_FormReporteConsorcioG.ForeColor = SystemColors.ControlLight;
+            groupBoxEditarEdificios_FormReporteConsorcioG.Location = new Point(40, 32);
+            groupBoxEditarEdificios_FormReporteConsorcioG.Name = "groupBoxEditarEdificios_FormReporteConsorcioG";
+            groupBoxEditarEdificios_FormReporteConsorcioG.Size = new Size(601, 201);
+            groupBoxEditarEdificios_FormReporteConsorcioG.TabIndex = 3;
+            groupBoxEditarEdificios_FormReporteConsorcioG.TabStop = false;
+            groupBoxEditarEdificios_FormReporteConsorcioG.Text = "EDITAR EDIFICIOS";
             // 
             // textBoxDireccion
             // 
@@ -123,22 +123,22 @@
             textBoxDireccion.Size = new Size(208, 22);
             textBoxDireccion.TabIndex = 21;
             // 
-            // buttonGuardar
+            // buttonGuardar_FormReporteConsorcioG
             // 
-            buttonGuardar.Anchor = AnchorStyles.None;
-            buttonGuardar.BackColor = Color.FromArgb(0, 187, 118);
-            buttonGuardar.FlatAppearance.BorderSize = 0;
-            buttonGuardar.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
-            buttonGuardar.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
-            buttonGuardar.FlatStyle = FlatStyle.Flat;
-            buttonGuardar.ForeColor = SystemColors.ControlLight;
-            buttonGuardar.Location = new Point(112, 154);
-            buttonGuardar.Name = "buttonGuardar";
-            buttonGuardar.Size = new Size(338, 36);
-            buttonGuardar.TabIndex = 20;
-            buttonGuardar.Text = "Guardar Cambios";
-            buttonGuardar.UseVisualStyleBackColor = false;
-            buttonGuardar.Click += buttonGuardar_Click;
+            buttonGuardar_FormReporteConsorcioG.Anchor = AnchorStyles.None;
+            buttonGuardar_FormReporteConsorcioG.BackColor = Color.FromArgb(0, 187, 118);
+            buttonGuardar_FormReporteConsorcioG.FlatAppearance.BorderSize = 0;
+            buttonGuardar_FormReporteConsorcioG.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
+            buttonGuardar_FormReporteConsorcioG.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
+            buttonGuardar_FormReporteConsorcioG.FlatStyle = FlatStyle.Flat;
+            buttonGuardar_FormReporteConsorcioG.ForeColor = SystemColors.ControlLight;
+            buttonGuardar_FormReporteConsorcioG.Location = new Point(112, 154);
+            buttonGuardar_FormReporteConsorcioG.Name = "buttonGuardar_FormReporteConsorcioG";
+            buttonGuardar_FormReporteConsorcioG.Size = new Size(338, 36);
+            buttonGuardar_FormReporteConsorcioG.TabIndex = 20;
+            buttonGuardar_FormReporteConsorcioG.Text = "Guardar Cambios";
+            buttonGuardar_FormReporteConsorcioG.UseVisualStyleBackColor = false;
+            buttonGuardar_FormReporteConsorcioG.Click += buttonGuardar_Click;
             // 
             // textBoxNombre
             // 
@@ -158,32 +158,32 @@
             textBoxCantUnid.Size = new Size(208, 22);
             textBoxCantUnid.TabIndex = 18;
             // 
-            // label3
+            // labelCantUnid_FormReporteConsorcioG
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(319, 95);
-            label3.Name = "label3";
-            label3.Size = new Size(154, 14);
-            label3.TabIndex = 16;
-            label3.Text = "Cantidad de unidades:";
+            labelCantUnid_FormReporteConsorcioG.AutoSize = true;
+            labelCantUnid_FormReporteConsorcioG.Location = new Point(319, 95);
+            labelCantUnid_FormReporteConsorcioG.Name = "labelCantUnid_FormReporteConsorcioG";
+            labelCantUnid_FormReporteConsorcioG.Size = new Size(154, 14);
+            labelCantUnid_FormReporteConsorcioG.TabIndex = 16;
+            labelCantUnid_FormReporteConsorcioG.Text = "Cantidad de unidades:";
             // 
-            // label4
+            // labelNombre_FormReporteConsorcioG
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(24, 95);
-            label4.Name = "label4";
-            label4.Size = new Size(56, 14);
-            label4.TabIndex = 15;
-            label4.Text = "Nombre:";
+            labelNombre_FormReporteConsorcioG.AutoSize = true;
+            labelNombre_FormReporteConsorcioG.Location = new Point(24, 95);
+            labelNombre_FormReporteConsorcioG.Name = "labelNombre_FormReporteConsorcioG";
+            labelNombre_FormReporteConsorcioG.Size = new Size(56, 14);
+            labelNombre_FormReporteConsorcioG.TabIndex = 15;
+            labelNombre_FormReporteConsorcioG.Text = "Nombre:";
             // 
-            // label2
+            // labelDireccion_FormReporteConsorcioG
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(319, 32);
-            label2.Name = "label2";
-            label2.Size = new Size(77, 14);
-            label2.TabIndex = 13;
-            label2.Text = "Direccion:";
+            labelDireccion_FormReporteConsorcioG.AutoSize = true;
+            labelDireccion_FormReporteConsorcioG.Location = new Point(319, 32);
+            labelDireccion_FormReporteConsorcioG.Name = "labelDireccion_FormReporteConsorcioG";
+            labelDireccion_FormReporteConsorcioG.Size = new Size(77, 14);
+            labelDireccion_FormReporteConsorcioG.TabIndex = 13;
+            labelDireccion_FormReporteConsorcioG.Text = "Direccion:";
             // 
             // comboBoxEdificios
             // 
@@ -195,46 +195,47 @@
             comboBoxEdificios.Size = new Size(209, 22);
             comboBoxEdificios.TabIndex = 12;
             // 
-            // label1
+            // labelEdificio_FormReporteConsorcioG
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(24, 32);
-            label1.Name = "label1";
-            label1.Size = new Size(70, 14);
-            label1.TabIndex = 0;
-            label1.Text = "Edificio:";
+            labelEdificio_FormReporteConsorcioG.AutoSize = true;
+            labelEdificio_FormReporteConsorcioG.Location = new Point(24, 32);
+            labelEdificio_FormReporteConsorcioG.Name = "labelEdificio_FormReporteConsorcioG";
+            labelEdificio_FormReporteConsorcioG.Size = new Size(70, 14);
+            labelEdificio_FormReporteConsorcioG.TabIndex = 0;
+            labelEdificio_FormReporteConsorcioG.Text = "Edificio:";
             // 
-            // FormEdificiosG
+            // FormReporteConsorcioG
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(8, 14, 26);
             ClientSize = new Size(682, 597);
             Controls.Add(groupBox2);
-            Name = "FormEdificiosG";
+            Name = "FormReporteConsorcioG";
             Text = "FormEdificiosG";
             Load += FormEdificiosG_Load;
+            FormClosing += FormReporteConsorcioG_FormClosing;
             groupBox2.ResumeLayout(false);
-            groupBox1.ResumeLayout(false);
+            groupBoxEdificio_FormReporteConsorcioG.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewEdificios).EndInit();
-            groupBoxEstado.ResumeLayout(false);
-            groupBoxEstado.PerformLayout();
+            groupBoxEditarEdificios_FormReporteConsorcioG.ResumeLayout(false);
+            groupBoxEditarEdificios_FormReporteConsorcioG.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private GroupBox groupBox2;
-        private GroupBox groupBoxEstado;
+        private GroupBox groupBoxEditarEdificios_FormReporteConsorcioG;
         private TextBox textBoxCantUnid;
-        private Label label3;
-        private Label label4;
-        private Label label2;
+        private Label labelCantUnid_FormReporteConsorcioG;
+        private Label labelNombre_FormReporteConsorcioG;
+        private Label labelDireccion_FormReporteConsorcioG;
         private ComboBox comboBoxEdificios;
-        private Label label1;
+        private Label labelEdificio_FormReporteConsorcioG;
         private TextBox textBoxNombre;
-        private Button buttonGuardar;
-        private GroupBox groupBox1;
+        private Button buttonGuardar_FormReporteConsorcioG;
+        private GroupBox groupBoxEdificio_FormReporteConsorcioG;
         private DataGridView dataGridViewEdificios;
         private TextBox textBoxDireccion;
     }

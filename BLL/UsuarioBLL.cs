@@ -19,7 +19,8 @@ namespace BLL
             _usuarioRepo = new UsuarioRepositorio();
             _log         = new LogBitacoraBLL();
         }
-
+        public void ActualizarIdiomaPreferido(Guid idUsuario, int idIdioma)
+            => _usuarioRepo.ActualizarIdiomaPreferido(idUsuario, idIdioma);
         public IUsuario Login(string nombreUsuario, string password)
         {
             if (string.IsNullOrWhiteSpace(nombreUsuario))
@@ -93,6 +94,14 @@ namespace BLL
             return _usuarioRepo.ObtenerTodos();
         }
 
+
+        public List<UsuarioBE> ObtenerGestores()
+        {
+
+            return _usuarioRepo.ObtenerGestores();
+        }
+
+
         public void Registrar(UsuarioBE usuario, List<int> permisosIds)
         {
             if (string.IsNullOrWhiteSpace(usuario.Usuario))
@@ -112,6 +121,10 @@ namespace BLL
             _usuarioRepo.Crear(usuario);
             if (permisosIds != null && permisosIds.Count > 0)
                 _usuarioRepo.ActualizarPermisosDeUsuario(usuario.Id, permisosIds);
+
+            var histBLL = new HistorialUsuarioBLL();
+            var actor = SessionManager.ObtenerInstancia.Usuario.Id;
+            histBLL.RegistrarSnapshot(usuario.Id, actor, "ALTA", usuario.Usuario, !usuario.Baja, usuario.Bloqueado, permisosIds ?? new List<int>());
 
             _log.Registrar(AccionesBitacora.AltaUsuario, ModulosBitacora.Usuarios,
                 $"Usuario creado: {usuario.Usuario}");
@@ -139,6 +152,10 @@ namespace BLL
             _usuarioRepo.Actualizar(usuario);
             _usuarioRepo.ActualizarPermisosDeUsuario(usuario.Id, permisosIds ?? new List<int>());
 
+            var histBLL = new HistorialUsuarioBLL();
+            var actor = SessionManager.ObtenerInstancia.Usuario.Id;
+            histBLL.RegistrarSnapshot(usuario.Id, actor, "MODIFICACION", usuario.Usuario, !usuario.Baja, usuario.Bloqueado, permisosIds ?? new List<int>());
+
             _log.Registrar(AccionesBitacora.ModificarUsuario, ModulosBitacora.Usuarios,
                 $"Usuario modificado: {usuario.Usuario}");
         }
@@ -146,6 +163,13 @@ namespace BLL
         public void Inactivar(Guid idUsuario)
         {
             _usuarioRepo.Inactivar(idUsuario);
+
+            // Obtener los datos actuales antes de archivar el snapshot
+            var usuarioActual = _usuarioRepo.ObtenerPorId(idUsuario);
+            var histBLL = new HistorialUsuarioBLL();
+            var actor = SessionManager.ObtenerInstancia.Usuario.Id;
+            histBLL.RegistrarSnapshot(idUsuario, actor, "BAJA", usuarioActual?.Usuario ?? "", false, usuarioActual?.Bloqueado ?? false, null);
+
             _log.Registrar(AccionesBitacora.InactivarUsuario, ModulosBitacora.Usuarios,
                 $"Usuario inactivado: {idUsuario}");
         }

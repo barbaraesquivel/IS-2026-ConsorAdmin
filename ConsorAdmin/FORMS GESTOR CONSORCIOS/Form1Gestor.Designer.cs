@@ -31,20 +31,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1Gestor));
             panelSessionInfo = new Panel();
             pictureBox2 = new PictureBox();
-            labelUsername = new Label();
-            labelSESION = new Label();
-            buttonHistorial = new Button();
-            buttonVerEdificios = new Button();
-            buttonCargarExpensas = new Button();
-            buttonInicio = new Button();
+            labelUsername_Form1Gestor = new Label();
+            labelSESION_Form1Gestor = new Label();
+            buttonHistorial_Form1Gestor = new Button();
+            buttonVerEdificios_Form1Gestor = new Button();
+            buttonCargarExpensas_Form1Gestor = new Button();
+            buttonInicio_Form1Gestor = new Button();
             panelSideMenu = new Panel();
-            buttonGestionarUnidades = new Button();
-            buttonRecaudacion = new Button();
-            buttonLogout = new Button();
+            buttonGestionarUnidades_Form1Gestor = new Button();
+            buttonRecaudacion_Form1Gestor = new Button();
+            buttonLogout_Form1Gestor = new Button();
             panelChildForm = new Panel();
             groupBox1 = new GroupBox();
             pictureBox1 = new PictureBox();
-            labelBienvenida = new Label();
+            labelBienvenida_Form1Gestor = new Label();
+            cboIdiomaShell = new ComboBox();
             panelSessionInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panelSideMenu.SuspendLayout();
@@ -55,13 +56,14 @@
             // 
             // panelSessionInfo
             // 
+            panelSessionInfo.Controls.Add(cboIdiomaShell);
             panelSessionInfo.Controls.Add(pictureBox2);
-            panelSessionInfo.Controls.Add(labelUsername);
-            panelSessionInfo.Controls.Add(labelSESION);
+            panelSessionInfo.Controls.Add(labelUsername_Form1Gestor);
+            panelSessionInfo.Controls.Add(labelSESION_Form1Gestor);
             panelSessionInfo.Dock = DockStyle.Top;
             panelSessionInfo.Location = new Point(0, 0);
             panelSessionInfo.Name = "panelSessionInfo";
-            panelSessionInfo.Size = new Size(186, 124);
+            panelSessionInfo.Size = new Size(186, 150);
             panelSessionInfo.TabIndex = 1;
             // 
             // pictureBox2
@@ -75,110 +77,118 @@
             pictureBox2.TabIndex = 2;
             pictureBox2.TabStop = false;
             // 
-            // labelUsername
+            // labelUsername_Form1Gestor
             // 
-            labelUsername.AutoSize = true;
-            labelUsername.ForeColor = SystemColors.ControlLight;
-            labelUsername.Location = new Point(12, 93);
-            labelUsername.Name = "labelUsername";
-            labelUsername.Size = new Size(60, 15);
-            labelUsername.TabIndex = 1;
-            labelUsername.Text = "Username";
+            labelUsername_Form1Gestor.AutoSize = true;
+            labelUsername_Form1Gestor.ForeColor = SystemColors.ControlLight;
+            labelUsername_Form1Gestor.Location = new Point(12, 93);
+            labelUsername_Form1Gestor.Name = "labelUsername_Form1Gestor";
+            labelUsername_Form1Gestor.Size = new Size(60, 15);
+            labelUsername_Form1Gestor.TabIndex = 1;
+            labelUsername_Form1Gestor.Text = "Username";
             // 
-            // labelSESION
+            // labelSESION_Form1Gestor
             // 
-            labelSESION.AutoSize = true;
-            labelSESION.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelSESION.ForeColor = SystemColors.ControlLight;
-            labelSESION.Location = new Point(12, 79);
-            labelSESION.Name = "labelSESION";
-            labelSESION.Size = new Size(121, 16);
-            labelSESION.TabIndex = 0;
-            labelSESION.Text = "SESION ACTIVA";
+            labelSESION_Form1Gestor.AutoSize = true;
+            labelSESION_Form1Gestor.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelSESION_Form1Gestor.ForeColor = SystemColors.ControlLight;
+            labelSESION_Form1Gestor.Location = new Point(12, 79);
+            labelSESION_Form1Gestor.Name = "labelSESION_Form1Gestor";
+            labelSESION_Form1Gestor.Size = new Size(121, 16);
+            labelSESION_Form1Gestor.TabIndex = 0;
+            labelSESION_Form1Gestor.Text = "SESION ACTIVA";
+            //
+            // cboIdiomaShell
+            //
+            cboIdiomaShell.FormattingEnabled = true;
+            cboIdiomaShell.Location = new Point(12, 114);
+            cboIdiomaShell.Name = "cboIdiomaShell";
+            cboIdiomaShell.Size = new Size(162, 23);
+            cboIdiomaShell.TabIndex = 3;
+            //
+            // buttonHistorial_Form1Gestor
             // 
-            // buttonHistorial
+            buttonHistorial_Form1Gestor.Dock = DockStyle.Top;
+            buttonHistorial_Form1Gestor.FlatAppearance.BorderSize = 0;
+            buttonHistorial_Form1Gestor.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
+            buttonHistorial_Form1Gestor.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
+            buttonHistorial_Form1Gestor.FlatStyle = FlatStyle.Flat;
+            buttonHistorial_Form1Gestor.ForeColor = SystemColors.ControlLight;
+            buttonHistorial_Form1Gestor.Location = new Point(0, 244);
+            buttonHistorial_Form1Gestor.Name = "buttonHistorial_Form1Gestor";
+            buttonHistorial_Form1Gestor.Padding = new Padding(20, 0, 0, 0);
+            buttonHistorial_Form1Gestor.Size = new Size(186, 40);
+            buttonHistorial_Form1Gestor.TabIndex = 5;
+            buttonHistorial_Form1Gestor.Text = "Historial";
+            buttonHistorial_Form1Gestor.TextAlign = ContentAlignment.MiddleLeft;
+            buttonHistorial_Form1Gestor.UseVisualStyleBackColor = true;
+            buttonHistorial_Form1Gestor.Click += buttonHistorial_Click;
             // 
-            buttonHistorial.Dock = DockStyle.Top;
-            buttonHistorial.FlatAppearance.BorderSize = 0;
-            buttonHistorial.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonHistorial.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonHistorial.FlatStyle = FlatStyle.Flat;
-            buttonHistorial.ForeColor = SystemColors.ControlLight;
-            buttonHistorial.Location = new Point(0, 244);
-            buttonHistorial.Name = "buttonHistorial";
-            buttonHistorial.Padding = new Padding(20, 0, 0, 0);
-            buttonHistorial.Size = new Size(186, 40);
-            buttonHistorial.TabIndex = 5;
-            buttonHistorial.Text = "Historial";
-            buttonHistorial.TextAlign = ContentAlignment.MiddleLeft;
-            buttonHistorial.UseVisualStyleBackColor = true;
-            buttonHistorial.Click += buttonHistorial_Click;
+            // buttonVerEdificios_Form1Gestor
             // 
-            // buttonVerEdificios
+            buttonVerEdificios_Form1Gestor.Dock = DockStyle.Top;
+            buttonVerEdificios_Form1Gestor.FlatAppearance.BorderSize = 0;
+            buttonVerEdificios_Form1Gestor.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
+            buttonVerEdificios_Form1Gestor.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
+            buttonVerEdificios_Form1Gestor.FlatStyle = FlatStyle.Flat;
+            buttonVerEdificios_Form1Gestor.ForeColor = SystemColors.ControlLight;
+            buttonVerEdificios_Form1Gestor.Location = new Point(0, 204);
+            buttonVerEdificios_Form1Gestor.Name = "buttonVerEdificios_Form1Gestor";
+            buttonVerEdificios_Form1Gestor.Padding = new Padding(20, 0, 0, 0);
+            buttonVerEdificios_Form1Gestor.Size = new Size(186, 40);
+            buttonVerEdificios_Form1Gestor.TabIndex = 4;
+            buttonVerEdificios_Form1Gestor.Text = "Reporte consorcios";
+            buttonVerEdificios_Form1Gestor.TextAlign = ContentAlignment.MiddleLeft;
+            buttonVerEdificios_Form1Gestor.UseVisualStyleBackColor = true;
+            buttonVerEdificios_Form1Gestor.Click += buttonVerEdificios_Click;
             // 
-            buttonVerEdificios.Dock = DockStyle.Top;
-            buttonVerEdificios.FlatAppearance.BorderSize = 0;
-            buttonVerEdificios.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonVerEdificios.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonVerEdificios.FlatStyle = FlatStyle.Flat;
-            buttonVerEdificios.ForeColor = SystemColors.ControlLight;
-            buttonVerEdificios.Location = new Point(0, 204);
-            buttonVerEdificios.Name = "buttonVerEdificios";
-            buttonVerEdificios.Padding = new Padding(20, 0, 0, 0);
-            buttonVerEdificios.Size = new Size(186, 40);
-            buttonVerEdificios.TabIndex = 4;
-            buttonVerEdificios.Text = "Reporte consorcios";
-            buttonVerEdificios.TextAlign = ContentAlignment.MiddleLeft;
-            buttonVerEdificios.UseVisualStyleBackColor = true;
-            buttonVerEdificios.Click += buttonVerEdificios_Click;
+            // buttonCargarExpensas_Form1Gestor
             // 
-            // buttonCargarExpensas
+            buttonCargarExpensas_Form1Gestor.Dock = DockStyle.Top;
+            buttonCargarExpensas_Form1Gestor.FlatAppearance.BorderSize = 0;
+            buttonCargarExpensas_Form1Gestor.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
+            buttonCargarExpensas_Form1Gestor.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
+            buttonCargarExpensas_Form1Gestor.FlatStyle = FlatStyle.Flat;
+            buttonCargarExpensas_Form1Gestor.ForeColor = SystemColors.ControlLight;
+            buttonCargarExpensas_Form1Gestor.Location = new Point(0, 164);
+            buttonCargarExpensas_Form1Gestor.Name = "buttonCargarExpensas_Form1Gestor";
+            buttonCargarExpensas_Form1Gestor.Padding = new Padding(20, 0, 0, 0);
+            buttonCargarExpensas_Form1Gestor.Size = new Size(186, 40);
+            buttonCargarExpensas_Form1Gestor.TabIndex = 3;
+            buttonCargarExpensas_Form1Gestor.Text = "Liquidar Expensas";
+            buttonCargarExpensas_Form1Gestor.TextAlign = ContentAlignment.MiddleLeft;
+            buttonCargarExpensas_Form1Gestor.UseVisualStyleBackColor = true;
+            buttonCargarExpensas_Form1Gestor.Click += buttonCargarExpensas_Click;
             // 
-            buttonCargarExpensas.Dock = DockStyle.Top;
-            buttonCargarExpensas.FlatAppearance.BorderSize = 0;
-            buttonCargarExpensas.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonCargarExpensas.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonCargarExpensas.FlatStyle = FlatStyle.Flat;
-            buttonCargarExpensas.ForeColor = SystemColors.ControlLight;
-            buttonCargarExpensas.Location = new Point(0, 164);
-            buttonCargarExpensas.Name = "buttonCargarExpensas";
-            buttonCargarExpensas.Padding = new Padding(20, 0, 0, 0);
-            buttonCargarExpensas.Size = new Size(186, 40);
-            buttonCargarExpensas.TabIndex = 3;
-            buttonCargarExpensas.Text = "Liquidar Expensas";
-            buttonCargarExpensas.TextAlign = ContentAlignment.MiddleLeft;
-            buttonCargarExpensas.UseVisualStyleBackColor = true;
-            buttonCargarExpensas.Click += buttonCargarExpensas_Click;
+            // buttonInicio_Form1Gestor
             // 
-            // buttonInicio
-            // 
-            buttonInicio.Dock = DockStyle.Top;
-            buttonInicio.FlatAppearance.BorderSize = 0;
-            buttonInicio.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonInicio.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonInicio.FlatStyle = FlatStyle.Flat;
-            buttonInicio.ForeColor = SystemColors.ControlLight;
-            buttonInicio.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonInicio.Location = new Point(0, 124);
-            buttonInicio.Name = "buttonInicio";
-            buttonInicio.Padding = new Padding(20, 0, 0, 0);
-            buttonInicio.Size = new Size(186, 40);
-            buttonInicio.TabIndex = 2;
-            buttonInicio.Text = "Inicio";
-            buttonInicio.TextAlign = ContentAlignment.MiddleLeft;
-            buttonInicio.UseVisualStyleBackColor = true;
-            buttonInicio.Click += buttonInicio_Click;
+            buttonInicio_Form1Gestor.Dock = DockStyle.Top;
+            buttonInicio_Form1Gestor.FlatAppearance.BorderSize = 0;
+            buttonInicio_Form1Gestor.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
+            buttonInicio_Form1Gestor.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
+            buttonInicio_Form1Gestor.FlatStyle = FlatStyle.Flat;
+            buttonInicio_Form1Gestor.ForeColor = SystemColors.ControlLight;
+            buttonInicio_Form1Gestor.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonInicio_Form1Gestor.Location = new Point(0, 124);
+            buttonInicio_Form1Gestor.Name = "buttonInicio_Form1Gestor";
+            buttonInicio_Form1Gestor.Padding = new Padding(20, 0, 0, 0);
+            buttonInicio_Form1Gestor.Size = new Size(186, 40);
+            buttonInicio_Form1Gestor.TabIndex = 2;
+            buttonInicio_Form1Gestor.Text = "Inicio";
+            buttonInicio_Form1Gestor.TextAlign = ContentAlignment.MiddleLeft;
+            buttonInicio_Form1Gestor.UseVisualStyleBackColor = true;
+            buttonInicio_Form1Gestor.Click += buttonInicio_Click;
             // 
             // panelSideMenu
             // 
             panelSideMenu.BackColor = Color.FromArgb(13, 22, 40);
-            panelSideMenu.Controls.Add(buttonGestionarUnidades);
-            panelSideMenu.Controls.Add(buttonRecaudacion);
-            panelSideMenu.Controls.Add(buttonLogout);
-            panelSideMenu.Controls.Add(buttonHistorial);
-            panelSideMenu.Controls.Add(buttonVerEdificios);
-            panelSideMenu.Controls.Add(buttonCargarExpensas);
-            panelSideMenu.Controls.Add(buttonInicio);
+            panelSideMenu.Controls.Add(buttonGestionarUnidades_Form1Gestor);
+            panelSideMenu.Controls.Add(buttonRecaudacion_Form1Gestor);
+            panelSideMenu.Controls.Add(buttonLogout_Form1Gestor);
+            panelSideMenu.Controls.Add(buttonHistorial_Form1Gestor);
+            panelSideMenu.Controls.Add(buttonVerEdificios_Form1Gestor);
+            panelSideMenu.Controls.Add(buttonCargarExpensas_Form1Gestor);
+            panelSideMenu.Controls.Add(buttonInicio_Form1Gestor);
             panelSideMenu.Controls.Add(panelSessionInfo);
             panelSideMenu.Dock = DockStyle.Left;
             panelSideMenu.Location = new Point(0, 0);
@@ -186,59 +196,59 @@
             panelSideMenu.Size = new Size(186, 636);
             panelSideMenu.TabIndex = 3;
             // 
-            // buttonGestionarUnidades
+            // buttonGestionarUnidades_Form1Gestor
             // 
-            buttonGestionarUnidades.Dock = DockStyle.Top;
-            buttonGestionarUnidades.FlatAppearance.BorderSize = 0;
-            buttonGestionarUnidades.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonGestionarUnidades.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonGestionarUnidades.FlatStyle = FlatStyle.Flat;
-            buttonGestionarUnidades.ForeColor = SystemColors.ControlLight;
-            buttonGestionarUnidades.Location = new Point(0, 324);
-            buttonGestionarUnidades.Name = "buttonGestionarUnidades";
-            buttonGestionarUnidades.Padding = new Padding(20, 0, 0, 0);
-            buttonGestionarUnidades.Size = new Size(186, 40);
-            buttonGestionarUnidades.TabIndex = 8;
-            buttonGestionarUnidades.Text = "Gestionar consorcios y unidades";
-            buttonGestionarUnidades.TextAlign = ContentAlignment.MiddleLeft;
-            buttonGestionarUnidades.UseVisualStyleBackColor = true;
-            buttonGestionarUnidades.Click += buttonGestionarUnidades_Click;
+            buttonGestionarUnidades_Form1Gestor.Dock = DockStyle.Top;
+            buttonGestionarUnidades_Form1Gestor.FlatAppearance.BorderSize = 0;
+            buttonGestionarUnidades_Form1Gestor.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
+            buttonGestionarUnidades_Form1Gestor.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
+            buttonGestionarUnidades_Form1Gestor.FlatStyle = FlatStyle.Flat;
+            buttonGestionarUnidades_Form1Gestor.ForeColor = SystemColors.ControlLight;
+            buttonGestionarUnidades_Form1Gestor.Location = new Point(0, 324);
+            buttonGestionarUnidades_Form1Gestor.Name = "buttonGestionarUnidades_Form1Gestor";
+            buttonGestionarUnidades_Form1Gestor.Padding = new Padding(20, 0, 0, 0);
+            buttonGestionarUnidades_Form1Gestor.Size = new Size(186, 40);
+            buttonGestionarUnidades_Form1Gestor.TabIndex = 8;
+            buttonGestionarUnidades_Form1Gestor.Text = "Gestionar consorcios y unidades";
+            buttonGestionarUnidades_Form1Gestor.TextAlign = ContentAlignment.MiddleLeft;
+            buttonGestionarUnidades_Form1Gestor.UseVisualStyleBackColor = true;
+            buttonGestionarUnidades_Form1Gestor.Click += buttonGestionarUnidades_Click;
             // 
-            // buttonRecaudacion
+            // buttonRecaudacion_Form1Gestor
             // 
-            buttonRecaudacion.Dock = DockStyle.Top;
-            buttonRecaudacion.FlatAppearance.BorderSize = 0;
-            buttonRecaudacion.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonRecaudacion.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonRecaudacion.FlatStyle = FlatStyle.Flat;
-            buttonRecaudacion.ForeColor = SystemColors.ControlLight;
-            buttonRecaudacion.Location = new Point(0, 284);
-            buttonRecaudacion.Name = "buttonRecaudacion";
-            buttonRecaudacion.Padding = new Padding(20, 0, 0, 0);
-            buttonRecaudacion.Size = new Size(186, 40);
-            buttonRecaudacion.TabIndex = 7;
-            buttonRecaudacion.Text = "Ver recaudación";
-            buttonRecaudacion.TextAlign = ContentAlignment.MiddleLeft;
-            buttonRecaudacion.UseVisualStyleBackColor = true;
-            buttonRecaudacion.Click += buttonRecaudacion_Click;
+            buttonRecaudacion_Form1Gestor.Dock = DockStyle.Top;
+            buttonRecaudacion_Form1Gestor.FlatAppearance.BorderSize = 0;
+            buttonRecaudacion_Form1Gestor.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
+            buttonRecaudacion_Form1Gestor.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
+            buttonRecaudacion_Form1Gestor.FlatStyle = FlatStyle.Flat;
+            buttonRecaudacion_Form1Gestor.ForeColor = SystemColors.ControlLight;
+            buttonRecaudacion_Form1Gestor.Location = new Point(0, 284);
+            buttonRecaudacion_Form1Gestor.Name = "buttonRecaudacion_Form1Gestor";
+            buttonRecaudacion_Form1Gestor.Padding = new Padding(20, 0, 0, 0);
+            buttonRecaudacion_Form1Gestor.Size = new Size(186, 40);
+            buttonRecaudacion_Form1Gestor.TabIndex = 7;
+            buttonRecaudacion_Form1Gestor.Text = "Ver recaudación";
+            buttonRecaudacion_Form1Gestor.TextAlign = ContentAlignment.MiddleLeft;
+            buttonRecaudacion_Form1Gestor.UseVisualStyleBackColor = true;
+            buttonRecaudacion_Form1Gestor.Click += buttonRecaudacion_Click;
             // 
-            // buttonLogout
+            // buttonLogout_Form1Gestor
             // 
-            buttonLogout.Dock = DockStyle.Bottom;
-            buttonLogout.FlatAppearance.BorderSize = 0;
-            buttonLogout.FlatAppearance.MouseDownBackColor = Color.FromArgb(38, 28, 47);
-            buttonLogout.FlatAppearance.MouseOverBackColor = Color.FromArgb(38, 28, 47);
-            buttonLogout.FlatStyle = FlatStyle.Flat;
-            buttonLogout.ForeColor = Color.FromArgb(220, 58, 89);
-            buttonLogout.Location = new Point(0, 596);
-            buttonLogout.Name = "buttonLogout";
-            buttonLogout.Padding = new Padding(20, 0, 0, 0);
-            buttonLogout.Size = new Size(186, 40);
-            buttonLogout.TabIndex = 6;
-            buttonLogout.Text = "Salir";
-            buttonLogout.TextAlign = ContentAlignment.MiddleLeft;
-            buttonLogout.UseVisualStyleBackColor = true;
-            buttonLogout.Click += buttonLogout_Click;
+            buttonLogout_Form1Gestor.Dock = DockStyle.Bottom;
+            buttonLogout_Form1Gestor.FlatAppearance.BorderSize = 0;
+            buttonLogout_Form1Gestor.FlatAppearance.MouseDownBackColor = Color.FromArgb(38, 28, 47);
+            buttonLogout_Form1Gestor.FlatAppearance.MouseOverBackColor = Color.FromArgb(38, 28, 47);
+            buttonLogout_Form1Gestor.FlatStyle = FlatStyle.Flat;
+            buttonLogout_Form1Gestor.ForeColor = Color.FromArgb(220, 58, 89);
+            buttonLogout_Form1Gestor.Location = new Point(0, 596);
+            buttonLogout_Form1Gestor.Name = "buttonLogout_Form1Gestor";
+            buttonLogout_Form1Gestor.Padding = new Padding(20, 0, 0, 0);
+            buttonLogout_Form1Gestor.Size = new Size(186, 40);
+            buttonLogout_Form1Gestor.TabIndex = 6;
+            buttonLogout_Form1Gestor.Text = "Salir";
+            buttonLogout_Form1Gestor.TextAlign = ContentAlignment.MiddleLeft;
+            buttonLogout_Form1Gestor.UseVisualStyleBackColor = true;
+            buttonLogout_Form1Gestor.Click += buttonLogout_Click;
             // 
             // panelChildForm
             // 
@@ -253,7 +263,7 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(pictureBox1);
-            groupBox1.Controls.Add(labelBienvenida);
+            groupBox1.Controls.Add(labelBienvenida_Form1Gestor);
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
@@ -272,18 +282,18 @@
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
-            // labelBienvenida
+            // labelBienvenida_Form1Gestor
             // 
-            labelBienvenida.Anchor = AnchorStyles.None;
-            labelBienvenida.AutoSize = true;
-            labelBienvenida.Font = new Font("Microsoft Sans Serif", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelBienvenida.ForeColor = SystemColors.ControlLight;
-            labelBienvenida.Location = new Point(247, 93);
-            labelBienvenida.Name = "labelBienvenida";
-            labelBienvenida.Size = new Size(188, 40);
-            labelBienvenida.TabIndex = 0;
-            labelBienvenida.Text = "Bienvenido usuari@ a \r\nConsorAdmin";
-            labelBienvenida.TextAlign = ContentAlignment.TopCenter;
+            labelBienvenida_Form1Gestor.Anchor = AnchorStyles.None;
+            labelBienvenida_Form1Gestor.AutoSize = true;
+            labelBienvenida_Form1Gestor.Font = new Font("Microsoft Sans Serif", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelBienvenida_Form1Gestor.ForeColor = SystemColors.ControlLight;
+            labelBienvenida_Form1Gestor.Location = new Point(247, 93);
+            labelBienvenida_Form1Gestor.Name = "labelBienvenida_Form1Gestor";
+            labelBienvenida_Form1Gestor.Size = new Size(188, 40);
+            labelBienvenida_Form1Gestor.TabIndex = 0;
+            labelBienvenida_Form1Gestor.Text = "Bienvenido usuari@ a \r\nConsorAdmin";
+            labelBienvenida_Form1Gestor.TextAlign = ContentAlignment.TopCenter;
             // 
             // Form1Gestor
             // 
@@ -297,6 +307,7 @@
             Name = "Form1Gestor";
             Text = "Form1";
             Load += Form1Gestor_Load;
+            FormClosing += Form1Gestor_FormClosing;
             panelSessionInfo.ResumeLayout(false);
             panelSessionInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -312,19 +323,20 @@
 
         private Panel panelSessionInfo;
         private PictureBox pictureBox2;
-        private Label labelUsername;
-        private Label labelSESION;
-        private Button buttonHistorial;
-        private Button buttonVerEdificios;
-        private Button buttonCargarExpensas;
-        private Button buttonInicio;
+        private Label labelUsername_Form1Gestor;
+        private Label labelSESION_Form1Gestor;
+        private Button buttonHistorial_Form1Gestor;
+        private Button buttonVerEdificios_Form1Gestor;
+        private Button buttonCargarExpensas_Form1Gestor;
+        private Button buttonInicio_Form1Gestor;
         private Panel panelSideMenu;
-        private Button buttonLogout;
-        private Button buttonRecaudacion;
+        private Button buttonLogout_Form1Gestor;
+        private Button buttonRecaudacion_Form1Gestor;
         private Panel panelChildForm;
         private GroupBox groupBox1;
         private PictureBox pictureBox1;
-        private Label labelBienvenida;
-        private Button buttonGestionarUnidades;
+        private Label labelBienvenida_Form1Gestor;
+        private Button buttonGestionarUnidades_Form1Gestor;
+        private ComboBox cboIdiomaShell;
     }
 }

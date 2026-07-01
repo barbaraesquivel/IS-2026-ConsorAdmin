@@ -20,6 +20,15 @@ namespace DAL.Repositorio
             return UsuarioMapper.Map(model);
         }
 
+        public void ActualizarIdiomaPreferido(Guid idUsuario, int idIdioma)
+        {
+            using var ctx = new AppDbContext();
+            var usuario = ctx.Usuarios.Find(idUsuario);
+            if (usuario == null) return;
+            usuario.IdIdiomaPreferido = idIdioma;
+            ctx.SaveChanges();
+        }
+
         public UsuarioBE ObtenerPorNombre(string nombreUsuario)
         {
             using var ctx = new AppDbContext();
@@ -27,6 +36,13 @@ namespace DAL.Repositorio
                 .Include(u => u.UsuarioPermisos)
                     .ThenInclude(up => up.IdPermisoNavigation)
                 .FirstOrDefault(u => u.Username == nombreUsuario);
+            return UsuarioMapper.Map(model);
+        }
+
+        public UsuarioBE ObtenerPorId(Guid id)
+        {
+            using var ctx = new AppDbContext();
+            var model = ctx.Usuarios.Find(id);
             return UsuarioMapper.Map(model);
         }
 
@@ -40,6 +56,47 @@ namespace DAL.Repositorio
             return ctx.Usuarios
                 .Select(u => UsuarioMapper.Map(u))
                 .ToList();
+        }
+        public List<UsuarioBE> ObtenerGestores()
+        {
+         //   int idFamiliaGestores = 12; // Id de la familia "Gestores"
+
+            /*
+            using (var context = new AppDbContext())
+            {
+                return context.Usuarios
+                    .Where(u => u.UsuarioPermisos
+                        .Any(up => up.IdPermiso == idFamiliaGestores))
+                    .Select(u => UsuarioMapper.Map(u))
+                    .ToList();
+            }
+            */
+            using (var context = new AppDbContext())
+            {
+                int idFamilia = context.Permisos
+                    .Where(p => p.Codigo == "GE200" && p.Tipo == "F")
+                    .Select(p => p.IdPermiso)
+                    .First();
+
+                return context.Usuarios
+                    .Where(u => u.UsuarioPermisos
+                        .Any(up => up.IdPermiso == idFamilia))
+                    .Select(u => UsuarioMapper.Map(u))
+                    .ToList();
+            }
+            
+
+            // No se hace Include de UsuarioPermisos porque la columna id_usuario_permiso
+            // en la BD es int pero el modelo EF la declara como string (scaffolding legacy).
+            // Los permisos de cada usuario se cargan por separado vía PermisoRepositorio.
+            /*
+            return ctx.Usuarios
+                .Where(n => n.UsuarioPermisos.ToList().Exists(Predicate<UsuarioPermiso> "GE200"))
+                .Select()
+                .ToList();
+                .Select(u => UsuarioMapper.Map(u))
+                
+                .ToList();*/
         }
 
         public void Crear(UsuarioBE usuario)

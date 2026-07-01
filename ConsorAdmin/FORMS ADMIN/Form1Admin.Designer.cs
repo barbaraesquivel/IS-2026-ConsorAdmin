@@ -30,23 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1Admin));
             panelSideMenu = new Panel();
+            buttonAgregarIdiomas = new Button();
             buttonGestionarEdificios = new Button();
-            buttonHistoria = new Button();
+            buttonBitacora = new Button();
             buttonCargarExp = new Button();
             buttonListaConsorcios = new Button();
             buttonAsignarG = new Button();
-            buttonLogout = new Button();
+            buttonLogout_Form1Admin = new Button();
             buttonRegistrarConsorcio = new Button();
             buttonPermisos = new Button();
             buttonGestionUsuarios = new Button();
-            buttonDashboard = new Button();
+            buttonDashboardA = new Button();
             panelSessionInfo = new Panel();
             pictureBox2 = new PictureBox();
-            labelUsername = new Label();
-            labelSESION = new Label();
+            labelUsername_Form1Admin = new Label();
+            labelSESION_Form1Admin = new Label();
             groupBox1 = new GroupBox();
             pictureBox1 = new PictureBox();
-            labelBienvenida = new Label();
+            labelBienvenida_Form1Admin = new Label();
             panelChildForm = new Panel();
             panelSideMenu.SuspendLayout();
             panelSessionInfo.SuspendLayout();
@@ -60,22 +61,44 @@
             // 
             panelSideMenu.AutoScroll = true;
             panelSideMenu.BackColor = Color.FromArgb(13, 22, 40);
+            panelSideMenu.Controls.Add(buttonAgregarIdiomas);
             panelSideMenu.Controls.Add(buttonGestionarEdificios);
-            panelSideMenu.Controls.Add(buttonHistoria);
+            panelSideMenu.Controls.Add(buttonBitacora);
             panelSideMenu.Controls.Add(buttonCargarExp);
             panelSideMenu.Controls.Add(buttonListaConsorcios);
             panelSideMenu.Controls.Add(buttonAsignarG);
-            panelSideMenu.Controls.Add(buttonLogout);
+            panelSideMenu.Controls.Add(buttonLogout_Form1Admin);
             panelSideMenu.Controls.Add(buttonRegistrarConsorcio);
             panelSideMenu.Controls.Add(buttonPermisos);
             panelSideMenu.Controls.Add(buttonGestionUsuarios);
-            panelSideMenu.Controls.Add(buttonDashboard);
+            panelSideMenu.Controls.Add(buttonDashboardA);
             panelSideMenu.Controls.Add(panelSessionInfo);
             panelSideMenu.Dock = DockStyle.Left;
             panelSideMenu.Location = new Point(0, 0);
+            panelSideMenu.Margin = new Padding(3, 4, 3, 4);
             panelSideMenu.Name = "panelSideMenu";
-            panelSideMenu.Size = new Size(186, 636);
+            panelSideMenu.Size = new Size(213, 848);
             panelSideMenu.TabIndex = 3;
+            // 
+            // buttonAgregarIdiomas
+            // 
+            buttonAgregarIdiomas.Dock = DockStyle.Top;
+            buttonAgregarIdiomas.FlatAppearance.BorderSize = 0;
+            buttonAgregarIdiomas.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
+            buttonAgregarIdiomas.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
+            buttonAgregarIdiomas.FlatStyle = FlatStyle.Flat;
+            buttonAgregarIdiomas.ForeColor = SystemColors.ControlLight;
+            buttonAgregarIdiomas.Location = new Point(0, 589);
+            buttonAgregarIdiomas.Margin = new Padding(3, 4, 3, 4);
+            buttonAgregarIdiomas.Name = "buttonAgregarIdiomas";
+            buttonAgregarIdiomas.Padding = new Padding(23, 0, 0, 0);
+            buttonAgregarIdiomas.Size = new Size(213, 53);
+            buttonAgregarIdiomas.TabIndex = 12;
+            buttonAgregarIdiomas.Tag = "buttonAgregarIdiomas";
+            buttonAgregarIdiomas.Text = "Agregar Idiomas";
+            buttonAgregarIdiomas.TextAlign = ContentAlignment.MiddleLeft;
+            buttonAgregarIdiomas.UseVisualStyleBackColor = true;
+            buttonAgregarIdiomas.Click += buttonAgregarIdiomas_Click;
             // 
             // buttonGestionarEdificios
             // 
@@ -85,33 +108,37 @@
             buttonGestionarEdificios.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
             buttonGestionarEdificios.FlatStyle = FlatStyle.Flat;
             buttonGestionarEdificios.ForeColor = SystemColors.ControlLight;
-            buttonGestionarEdificios.Location = new Point(0, 404);
+            buttonGestionarEdificios.Location = new Point(0, 536);
+            buttonGestionarEdificios.Margin = new Padding(3, 4, 3, 4);
             buttonGestionarEdificios.Name = "buttonGestionarEdificios";
-            buttonGestionarEdificios.Padding = new Padding(20, 0, 0, 0);
-            buttonGestionarEdificios.Size = new Size(186, 40);
+            buttonGestionarEdificios.Padding = new Padding(23, 0, 0, 0);
+            buttonGestionarEdificios.Size = new Size(213, 53);
             buttonGestionarEdificios.TabIndex = 11;
+            buttonGestionarEdificios.Tag = "buttonGestionarEdificios";
             buttonGestionarEdificios.Text = "Gestionar consorcios y unidades";
             buttonGestionarEdificios.TextAlign = ContentAlignment.MiddleLeft;
             buttonGestionarEdificios.UseVisualStyleBackColor = true;
             buttonGestionarEdificios.Click += buttonGestionarEdificios_Click;
             // 
-            // buttonHistoria
+            // buttonBitacora
             // 
-            buttonHistoria.Dock = DockStyle.Top;
-            buttonHistoria.FlatAppearance.BorderSize = 0;
-            buttonHistoria.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonHistoria.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonHistoria.FlatStyle = FlatStyle.Flat;
-            buttonHistoria.ForeColor = SystemColors.ControlLight;
-            buttonHistoria.Location = new Point(0, 364);
-            buttonHistoria.Name = "buttonHistoria";
-            buttonHistoria.Padding = new Padding(20, 0, 0, 0);
-            buttonHistoria.Size = new Size(186, 40);
-            buttonHistoria.TabIndex = 10;
-            buttonHistoria.Text = "Consultar bitacora";
-            buttonHistoria.TextAlign = ContentAlignment.MiddleLeft;
-            buttonHistoria.UseVisualStyleBackColor = true;
-            buttonHistoria.Click += buttonHistoria_Click;
+            buttonBitacora.Dock = DockStyle.Top;
+            buttonBitacora.FlatAppearance.BorderSize = 0;
+            buttonBitacora.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
+            buttonBitacora.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
+            buttonBitacora.FlatStyle = FlatStyle.Flat;
+            buttonBitacora.ForeColor = SystemColors.ControlLight;
+            buttonBitacora.Location = new Point(0, 483);
+            buttonBitacora.Margin = new Padding(3, 4, 3, 4);
+            buttonBitacora.Name = "buttonBitacora";
+            buttonBitacora.Padding = new Padding(23, 0, 0, 0);
+            buttonBitacora.Size = new Size(213, 53);
+            buttonBitacora.TabIndex = 10;
+            buttonBitacora.Tag = "buttonBitacora";
+            buttonBitacora.Text = "Consultar bitacora";
+            buttonBitacora.TextAlign = ContentAlignment.MiddleLeft;
+            buttonBitacora.UseVisualStyleBackColor = true;
+            buttonBitacora.Click += buttonBitacora_Click;
             // 
             // buttonCargarExp
             // 
@@ -121,11 +148,13 @@
             buttonCargarExp.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
             buttonCargarExp.FlatStyle = FlatStyle.Flat;
             buttonCargarExp.ForeColor = SystemColors.ControlLight;
-            buttonCargarExp.Location = new Point(0, 324);
+            buttonCargarExp.Location = new Point(0, 430);
+            buttonCargarExp.Margin = new Padding(3, 4, 3, 4);
             buttonCargarExp.Name = "buttonCargarExp";
-            buttonCargarExp.Padding = new Padding(20, 0, 0, 0);
-            buttonCargarExp.Size = new Size(186, 40);
+            buttonCargarExp.Padding = new Padding(23, 0, 0, 0);
+            buttonCargarExp.Size = new Size(213, 53);
             buttonCargarExp.TabIndex = 9;
+            buttonCargarExp.Tag = "buttonCargarExp";
             buttonCargarExp.Text = "Cargar Expensa";
             buttonCargarExp.TextAlign = ContentAlignment.MiddleLeft;
             buttonCargarExp.UseVisualStyleBackColor = true;
@@ -139,11 +168,13 @@
             buttonListaConsorcios.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
             buttonListaConsorcios.FlatStyle = FlatStyle.Flat;
             buttonListaConsorcios.ForeColor = SystemColors.ControlLight;
-            buttonListaConsorcios.Location = new Point(0, 284);
+            buttonListaConsorcios.Location = new Point(0, 377);
+            buttonListaConsorcios.Margin = new Padding(3, 4, 3, 4);
             buttonListaConsorcios.Name = "buttonListaConsorcios";
-            buttonListaConsorcios.Padding = new Padding(20, 0, 0, 0);
-            buttonListaConsorcios.Size = new Size(186, 40);
+            buttonListaConsorcios.Padding = new Padding(23, 0, 0, 0);
+            buttonListaConsorcios.Size = new Size(213, 53);
             buttonListaConsorcios.TabIndex = 8;
+            buttonListaConsorcios.Tag = "buttonListaConsorcios";
             buttonListaConsorcios.Text = "Lista de Consorcios";
             buttonListaConsorcios.TextAlign = ContentAlignment.MiddleLeft;
             buttonListaConsorcios.UseVisualStyleBackColor = true;
@@ -158,33 +189,37 @@
             buttonAsignarG.FlatStyle = FlatStyle.Flat;
             buttonAsignarG.ForeColor = SystemColors.ControlLight;
             buttonAsignarG.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonAsignarG.Location = new Point(0, 244);
+            buttonAsignarG.Location = new Point(0, 324);
+            buttonAsignarG.Margin = new Padding(3, 4, 3, 4);
             buttonAsignarG.Name = "buttonAsignarG";
-            buttonAsignarG.Padding = new Padding(20, 0, 0, 0);
-            buttonAsignarG.Size = new Size(186, 40);
+            buttonAsignarG.Padding = new Padding(23, 0, 0, 0);
+            buttonAsignarG.Size = new Size(213, 53);
             buttonAsignarG.TabIndex = 7;
+            buttonAsignarG.Tag = "buttonAsignarG";
             buttonAsignarG.Text = "Asignar Gestores";
             buttonAsignarG.TextAlign = ContentAlignment.MiddleLeft;
             buttonAsignarG.UseVisualStyleBackColor = true;
             buttonAsignarG.Click += buttonAsignarG_Click;
             // 
-            // buttonLogout
+            // buttonLogout_Form1Admin
             // 
-            buttonLogout.Dock = DockStyle.Bottom;
-            buttonLogout.FlatAppearance.BorderSize = 0;
-            buttonLogout.FlatAppearance.MouseDownBackColor = Color.FromArgb(38, 28, 47);
-            buttonLogout.FlatAppearance.MouseOverBackColor = Color.FromArgb(38, 28, 47);
-            buttonLogout.FlatStyle = FlatStyle.Flat;
-            buttonLogout.ForeColor = Color.FromArgb(220, 58, 89);
-            buttonLogout.Location = new Point(0, 596);
-            buttonLogout.Name = "buttonLogout";
-            buttonLogout.Padding = new Padding(20, 0, 0, 0);
-            buttonLogout.Size = new Size(186, 40);
-            buttonLogout.TabIndex = 6;
-            buttonLogout.Text = "Salir";
-            buttonLogout.TextAlign = ContentAlignment.MiddleLeft;
-            buttonLogout.UseVisualStyleBackColor = true;
-            buttonLogout.Click += buttonLogout_Click;
+            buttonLogout_Form1Admin.Dock = DockStyle.Bottom;
+            buttonLogout_Form1Admin.FlatAppearance.BorderSize = 0;
+            buttonLogout_Form1Admin.FlatAppearance.MouseDownBackColor = Color.FromArgb(38, 28, 47);
+            buttonLogout_Form1Admin.FlatAppearance.MouseOverBackColor = Color.FromArgb(38, 28, 47);
+            buttonLogout_Form1Admin.FlatStyle = FlatStyle.Flat;
+            buttonLogout_Form1Admin.ForeColor = Color.FromArgb(220, 58, 89);
+            buttonLogout_Form1Admin.Location = new Point(0, 795);
+            buttonLogout_Form1Admin.Margin = new Padding(3, 4, 3, 4);
+            buttonLogout_Form1Admin.Name = "buttonLogout_Form1Admin";
+            buttonLogout_Form1Admin.Padding = new Padding(23, 0, 0, 0);
+            buttonLogout_Form1Admin.Size = new Size(213, 53);
+            buttonLogout_Form1Admin.TabIndex = 6;
+            buttonLogout_Form1Admin.Tag = "buttonLogout_Form1Admin";
+            buttonLogout_Form1Admin.Text = "Salir";
+            buttonLogout_Form1Admin.TextAlign = ContentAlignment.MiddleLeft;
+            buttonLogout_Form1Admin.UseVisualStyleBackColor = true;
+            buttonLogout_Form1Admin.Click += buttonLogout_Click;
             // 
             // buttonRegistrarConsorcio
             // 
@@ -193,10 +228,11 @@
             buttonRegistrarConsorcio.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
             buttonRegistrarConsorcio.FlatStyle = FlatStyle.Flat;
             buttonRegistrarConsorcio.ForeColor = SystemColors.ControlLight;
-            buttonRegistrarConsorcio.Location = new Point(0, 299);
+            buttonRegistrarConsorcio.Location = new Point(0, 399);
+            buttonRegistrarConsorcio.Margin = new Padding(3, 4, 3, 4);
             buttonRegistrarConsorcio.Name = "buttonRegistrarConsorcio";
-            buttonRegistrarConsorcio.Padding = new Padding(20, 0, 0, 0);
-            buttonRegistrarConsorcio.Size = new Size(186, 40);
+            buttonRegistrarConsorcio.Padding = new Padding(23, 0, 0, 0);
+            buttonRegistrarConsorcio.Size = new Size(213, 53);
             buttonRegistrarConsorcio.TabIndex = 5;
             buttonRegistrarConsorcio.Text = "Registrar Consorcio";
             buttonRegistrarConsorcio.TextAlign = ContentAlignment.MiddleLeft;
@@ -210,11 +246,13 @@
             buttonPermisos.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
             buttonPermisos.FlatStyle = FlatStyle.Flat;
             buttonPermisos.ForeColor = SystemColors.ControlLight;
-            buttonPermisos.Location = new Point(0, 204);
+            buttonPermisos.Location = new Point(0, 271);
+            buttonPermisos.Margin = new Padding(3, 4, 3, 4);
             buttonPermisos.Name = "buttonPermisos";
-            buttonPermisos.Padding = new Padding(20, 0, 0, 0);
-            buttonPermisos.Size = new Size(186, 40);
+            buttonPermisos.Padding = new Padding(23, 0, 0, 0);
+            buttonPermisos.Size = new Size(213, 53);
             buttonPermisos.TabIndex = 4;
+            buttonPermisos.Tag = "buttonPermisos";
             buttonPermisos.Text = "Crear permisos";
             buttonPermisos.TextAlign = ContentAlignment.MiddleLeft;
             buttonPermisos.UseVisualStyleBackColor = true;
@@ -228,86 +266,96 @@
             buttonGestionUsuarios.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
             buttonGestionUsuarios.FlatStyle = FlatStyle.Flat;
             buttonGestionUsuarios.ForeColor = SystemColors.ControlLight;
-            buttonGestionUsuarios.Location = new Point(0, 164);
+            buttonGestionUsuarios.Location = new Point(0, 218);
+            buttonGestionUsuarios.Margin = new Padding(3, 4, 3, 4);
             buttonGestionUsuarios.Name = "buttonGestionUsuarios";
-            buttonGestionUsuarios.Padding = new Padding(20, 0, 0, 0);
-            buttonGestionUsuarios.Size = new Size(186, 40);
+            buttonGestionUsuarios.Padding = new Padding(23, 0, 0, 0);
+            buttonGestionUsuarios.Size = new Size(213, 53);
             buttonGestionUsuarios.TabIndex = 3;
+            buttonGestionUsuarios.Tag = "buttonGestionUsuarios";
             buttonGestionUsuarios.Text = "Gestion de Usuarios";
             buttonGestionUsuarios.TextAlign = ContentAlignment.MiddleLeft;
             buttonGestionUsuarios.UseVisualStyleBackColor = true;
             buttonGestionUsuarios.Click += buttonGestionUsuarios_Click;
             // 
-            // buttonDashboard
+            // buttonDashboardA
             // 
-            buttonDashboard.Dock = DockStyle.Top;
-            buttonDashboard.FlatAppearance.BorderSize = 0;
-            buttonDashboard.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonDashboard.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonDashboard.FlatStyle = FlatStyle.Flat;
-            buttonDashboard.ForeColor = SystemColors.ControlLight;
-            buttonDashboard.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonDashboard.Location = new Point(0, 124);
-            buttonDashboard.Name = "buttonDashboard";
-            buttonDashboard.Padding = new Padding(20, 0, 0, 0);
-            buttonDashboard.Size = new Size(186, 40);
-            buttonDashboard.TabIndex = 2;
-            buttonDashboard.Text = "Reporte globales";
-            buttonDashboard.TextAlign = ContentAlignment.MiddleLeft;
-            buttonDashboard.UseVisualStyleBackColor = true;
-            buttonDashboard.Click += buttonDashboard_Click;
+            buttonDashboardA.Dock = DockStyle.Top;
+            buttonDashboardA.FlatAppearance.BorderSize = 0;
+            buttonDashboardA.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
+            buttonDashboardA.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
+            buttonDashboardA.FlatStyle = FlatStyle.Flat;
+            buttonDashboardA.ForeColor = SystemColors.ControlLight;
+            buttonDashboardA.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonDashboardA.Location = new Point(0, 165);
+            buttonDashboardA.Margin = new Padding(3, 4, 3, 4);
+            buttonDashboardA.Name = "buttonDashboardA";
+            buttonDashboardA.Padding = new Padding(23, 0, 0, 0);
+            buttonDashboardA.Size = new Size(213, 53);
+            buttonDashboardA.TabIndex = 2;
+            buttonDashboardA.Tag = "buttonDashboardA";
+            buttonDashboardA.Text = "Reporte globales";
+            buttonDashboardA.TextAlign = ContentAlignment.MiddleLeft;
+            buttonDashboardA.UseVisualStyleBackColor = true;
+            buttonDashboardA.Click += buttonDashboardA_Click;
             // 
             // panelSessionInfo
             // 
             panelSessionInfo.Controls.Add(pictureBox2);
-            panelSessionInfo.Controls.Add(labelUsername);
-            panelSessionInfo.Controls.Add(labelSESION);
+            panelSessionInfo.Controls.Add(labelUsername_Form1Admin);
+            panelSessionInfo.Controls.Add(labelSESION_Form1Admin);
             panelSessionInfo.Dock = DockStyle.Top;
             panelSessionInfo.Location = new Point(0, 0);
+            panelSessionInfo.Margin = new Padding(3, 4, 3, 4);
             panelSessionInfo.Name = "panelSessionInfo";
-            panelSessionInfo.Size = new Size(186, 124);
+            panelSessionInfo.Size = new Size(213, 165);
             panelSessionInfo.TabIndex = 1;
             // 
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.White;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(6, 12);
+            pictureBox2.Location = new Point(7, 16);
+            pictureBox2.Margin = new Padding(3, 4, 3, 4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(168, 52);
+            pictureBox2.Size = new Size(192, 69);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 2;
             pictureBox2.TabStop = false;
             // 
-            // labelUsername
+            // labelUsername_Form1Admin
             // 
-            labelUsername.AutoSize = true;
-            labelUsername.ForeColor = SystemColors.ControlLight;
-            labelUsername.Location = new Point(12, 93);
-            labelUsername.Name = "labelUsername";
-            labelUsername.Size = new Size(60, 15);
-            labelUsername.TabIndex = 1;
-            labelUsername.Text = "Username";
+            labelUsername_Form1Admin.AutoSize = true;
+            labelUsername_Form1Admin.ForeColor = SystemColors.ControlLight;
+            labelUsername_Form1Admin.Location = new Point(14, 124);
+            labelUsername_Form1Admin.Name = "labelUsername_Form1Admin";
+            labelUsername_Form1Admin.Size = new Size(75, 20);
+            labelUsername_Form1Admin.TabIndex = 1;
+            labelUsername_Form1Admin.Tag = "labelUsername";
+            labelUsername_Form1Admin.Text = "Username";
             // 
-            // labelSESION
+            // labelSESION_Form1Admin
             // 
-            labelSESION.AutoSize = true;
-            labelSESION.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelSESION.ForeColor = SystemColors.ControlLight;
-            labelSESION.Location = new Point(12, 79);
-            labelSESION.Name = "labelSESION";
-            labelSESION.Size = new Size(121, 16);
-            labelSESION.TabIndex = 0;
-            labelSESION.Text = "SESION ACTIVA";
+            labelSESION_Form1Admin.AutoSize = true;
+            labelSESION_Form1Admin.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelSESION_Form1Admin.ForeColor = SystemColors.ControlLight;
+            labelSESION_Form1Admin.Location = new Point(14, 105);
+            labelSESION_Form1Admin.Name = "labelSESION_Form1Admin";
+            labelSESION_Form1Admin.Size = new Size(148, 20);
+            labelSESION_Form1Admin.TabIndex = 0;
+            labelSESION_Form1Admin.Tag = "labelSESION";
+            labelSESION_Form1Admin.Text = "SESION ACTIVA";
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(pictureBox1);
-            groupBox1.Controls.Add(labelBienvenida);
+            groupBox1.Controls.Add(labelBienvenida_Form1Admin);
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Location = new Point(0, 0);
+            groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(698, 636);
+            groupBox1.Padding = new Padding(3, 4, 3, 4);
+            groupBox1.Size = new Size(797, 848);
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             // 
@@ -315,44 +363,48 @@
             // 
             pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(84, 125);
+            pictureBox1.Location = new Point(95, 167);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(544, 397);
+            pictureBox1.Size = new Size(622, 529);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
-            // labelBienvenida
+            // labelBienvenida_Form1Admin
             // 
-            labelBienvenida.Anchor = AnchorStyles.None;
-            labelBienvenida.AutoSize = true;
-            labelBienvenida.Font = new Font("Microsoft Sans Serif", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelBienvenida.ForeColor = SystemColors.ControlLight;
-            labelBienvenida.Location = new Point(239, 84);
-            labelBienvenida.Name = "labelBienvenida";
-            labelBienvenida.Size = new Size(188, 40);
-            labelBienvenida.TabIndex = 0;
-            labelBienvenida.Text = "Bienvenido usuari@ a \r\nConsorAdmin";
-            labelBienvenida.TextAlign = ContentAlignment.TopCenter;
+            labelBienvenida_Form1Admin.Anchor = AnchorStyles.None;
+            labelBienvenida_Form1Admin.AutoSize = true;
+            labelBienvenida_Form1Admin.Font = new Font("Microsoft Sans Serif", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelBienvenida_Form1Admin.ForeColor = SystemColors.ControlLight;
+            labelBienvenida_Form1Admin.Location = new Point(272, 112);
+            labelBienvenida_Form1Admin.Name = "labelBienvenida_Form1Admin";
+            labelBienvenida_Form1Admin.Size = new Size(229, 50);
+            labelBienvenida_Form1Admin.TabIndex = 0;
+            labelBienvenida_Form1Admin.Tag = "labelBienvenida_Form1Admin";
+            labelBienvenida_Form1Admin.Text = "Bienvenido usuari@ a \r\nConsorAdmin";
+            labelBienvenida_Form1Admin.TextAlign = ContentAlignment.TopCenter;
             // 
             // panelChildForm
             // 
             panelChildForm.Controls.Add(groupBox1);
             panelChildForm.Dock = DockStyle.Fill;
-            panelChildForm.Location = new Point(186, 0);
+            panelChildForm.Location = new Point(213, 0);
+            panelChildForm.Margin = new Padding(3, 4, 3, 4);
             panelChildForm.Name = "panelChildForm";
-            panelChildForm.Size = new Size(698, 636);
+            panelChildForm.Size = new Size(797, 848);
             panelChildForm.TabIndex = 5;
             // 
             // Form1Admin
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(8, 14, 26);
-            ClientSize = new Size(884, 636);
+            ClientSize = new Size(1010, 848);
             Controls.Add(panelChildForm);
             Controls.Add(panelSideMenu);
-            MinimumSize = new Size(900, 675);
+            Margin = new Padding(3, 4, 3, 4);
+            MinimumSize = new Size(1026, 884);
             Name = "Form1Admin";
             Text = "Form1Admin";
             panelSideMenu.ResumeLayout(false);
@@ -369,24 +421,25 @@
         #endregion
 
         private Panel panelSideMenu;
-        private Button buttonLogout;
+        private Button buttonLogout_Form1Admin;
         private Button buttonRegistrarConsorcio;
         private Button buttonPermisos;
         private Button buttonGestionUsuarios;
-        private Button buttonDashboard;
+        private Button buttonDashboardA;
         private Panel panelSessionInfo;
         private PictureBox pictureBox2;
-        private Label labelUsername;
-        private Label labelSESION;
+        private Label labelUsername_Form1Admin;
+        private Label labelSESION_Form1Admin;
         private GroupBox groupBox1;
         private PictureBox pictureBox1;
-        private Label labelBienvenida;
+        private Label labelBienvenida_Form1Admin;
         private Panel panelChildForm;
-        private Button buttonHistoria;
+        private Button buttonBitacora;
         private Button buttonCargarExp;
         private Label labelSistema;
         private Button buttonListaConsorcios;
         private Button buttonAsignarG;
         private Button buttonGestionarEdificios;
+        private Button buttonAgregarIdiomas;
     }
 }

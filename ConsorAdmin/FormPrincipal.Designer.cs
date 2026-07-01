@@ -29,97 +29,97 @@
         private void InitializeComponent()
         {
             flowLayoutPanel1 = new FlowLayoutPanel();
-            buttonAdmin = new Button();
-            buttonGestor = new Button();
-            buttonConsorcista = new Button();
-            buttonProovedor = new Button();
-            buttonLogout = new Button();
+            buttonAdmin_FormPrincipal = new Button();
+            buttonGestor_FormPrincipal = new Button();
+            buttonConsorcista_FormPrincipal = new Button();
+            buttonProovedor_FormPrincipal = new Button();
+            buttonLogout_FormPrincipal = new Button();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Controls.Add(buttonAdmin);
-            flowLayoutPanel1.Controls.Add(buttonGestor);
-            flowLayoutPanel1.Controls.Add(buttonConsorcista);
-            flowLayoutPanel1.Controls.Add(buttonProovedor);
+            flowLayoutPanel1.Controls.Add(buttonAdmin_FormPrincipal);
+            flowLayoutPanel1.Controls.Add(buttonGestor_FormPrincipal);
+            flowLayoutPanel1.Controls.Add(buttonConsorcista_FormPrincipal);
+            flowLayoutPanel1.Controls.Add(buttonProovedor_FormPrincipal);
             flowLayoutPanel1.Location = new Point(260, 77);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(283, 209);
             flowLayoutPanel1.TabIndex = 0;
             // 
-            // buttonAdmin
+            // buttonAdmin_FormPrincipal
             // 
-            buttonAdmin.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonAdmin.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonAdmin.FlatStyle = FlatStyle.Flat;
-            buttonAdmin.ForeColor = SystemColors.ControlLight;
-            buttonAdmin.Location = new Point(3, 3);
-            buttonAdmin.Name = "buttonAdmin";
-            buttonAdmin.Size = new Size(280, 38);
-            buttonAdmin.TabIndex = 0;
-            buttonAdmin.Text = "Admin";
-            buttonAdmin.UseVisualStyleBackColor = true;
-            buttonAdmin.Click += buttonAdmin_Click;
+            buttonAdmin_FormPrincipal.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
+            buttonAdmin_FormPrincipal.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
+            buttonAdmin_FormPrincipal.FlatStyle = FlatStyle.Flat;
+            buttonAdmin_FormPrincipal.ForeColor = SystemColors.ControlLight;
+            buttonAdmin_FormPrincipal.Location = new Point(3, 3);
+            buttonAdmin_FormPrincipal.Name = "buttonAdmin_FormPrincipal";
+            buttonAdmin_FormPrincipal.Size = new Size(280, 38);
+            buttonAdmin_FormPrincipal.TabIndex = 0;
+            buttonAdmin_FormPrincipal.Text = "Admin";
+            buttonAdmin_FormPrincipal.UseVisualStyleBackColor = true;
+            buttonAdmin_FormPrincipal.Click += buttonAdmin_Click;
             // 
-            // buttonGestor
+            // buttonGestor_FormPrincipal
             // 
-            buttonGestor.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonGestor.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonGestor.FlatStyle = FlatStyle.Flat;
-            buttonGestor.ForeColor = SystemColors.ControlLight;
-            buttonGestor.Location = new Point(3, 47);
-            buttonGestor.Name = "buttonGestor";
-            buttonGestor.Size = new Size(280, 38);
-            buttonGestor.TabIndex = 1;
-            buttonGestor.Text = "Gestor";
-            buttonGestor.UseVisualStyleBackColor = true;
-            buttonGestor.Click += buttonGestor_Click;
+            buttonGestor_FormPrincipal.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
+            buttonGestor_FormPrincipal.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
+            buttonGestor_FormPrincipal.FlatStyle = FlatStyle.Flat;
+            buttonGestor_FormPrincipal.ForeColor = SystemColors.ControlLight;
+            buttonGestor_FormPrincipal.Location = new Point(3, 47);
+            buttonGestor_FormPrincipal.Name = "buttonGestor_FormPrincipal";
+            buttonGestor_FormPrincipal.Size = new Size(280, 38);
+            buttonGestor_FormPrincipal.TabIndex = 1;
+            buttonGestor_FormPrincipal.Text = "Gestor";
+            buttonGestor_FormPrincipal.UseVisualStyleBackColor = true;
+            buttonGestor_FormPrincipal.Click += buttonGestor_Click;
             // 
-            // buttonConsorcista
+            // buttonConsorcista_FormPrincipal
             // 
-            buttonConsorcista.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonConsorcista.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonConsorcista.FlatStyle = FlatStyle.Flat;
-            buttonConsorcista.ForeColor = SystemColors.ControlLight;
-            buttonConsorcista.Location = new Point(3, 91);
-            buttonConsorcista.Name = "buttonConsorcista";
-            buttonConsorcista.Size = new Size(280, 38);
-            buttonConsorcista.TabIndex = 2;
-            buttonConsorcista.Text = "Consorcista";
-            buttonConsorcista.UseVisualStyleBackColor = true;
-            buttonConsorcista.Click += buttonConsorcista_Click;
+            buttonConsorcista_FormPrincipal.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
+            buttonConsorcista_FormPrincipal.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
+            buttonConsorcista_FormPrincipal.FlatStyle = FlatStyle.Flat;
+            buttonConsorcista_FormPrincipal.ForeColor = SystemColors.ControlLight;
+            buttonConsorcista_FormPrincipal.Location = new Point(3, 91);
+            buttonConsorcista_FormPrincipal.Name = "buttonConsorcista_FormPrincipal";
+            buttonConsorcista_FormPrincipal.Size = new Size(280, 38);
+            buttonConsorcista_FormPrincipal.TabIndex = 2;
+            buttonConsorcista_FormPrincipal.Text = "Consorcista";
+            buttonConsorcista_FormPrincipal.UseVisualStyleBackColor = true;
+            buttonConsorcista_FormPrincipal.Click += buttonConsorcista_Click;
             // 
-            // buttonProovedor
+            // buttonProovedor_FormPrincipal
             // 
-            buttonProovedor.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
-            buttonProovedor.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
-            buttonProovedor.FlatStyle = FlatStyle.Flat;
-            buttonProovedor.ForeColor = SystemColors.ControlLight;
-            buttonProovedor.Location = new Point(3, 135);
-            buttonProovedor.Name = "buttonProovedor";
-            buttonProovedor.Size = new Size(280, 38);
-            buttonProovedor.TabIndex = 3;
-            buttonProovedor.Text = "Proovedor";
-            buttonProovedor.UseVisualStyleBackColor = true;
-            buttonProovedor.Click += buttonProovedor_Click;
+            buttonProovedor_FormPrincipal.FlatAppearance.MouseDownBackColor = Color.FromArgb(16, 34, 62);
+            buttonProovedor_FormPrincipal.FlatAppearance.MouseOverBackColor = Color.FromArgb(16, 34, 62);
+            buttonProovedor_FormPrincipal.FlatStyle = FlatStyle.Flat;
+            buttonProovedor_FormPrincipal.ForeColor = SystemColors.ControlLight;
+            buttonProovedor_FormPrincipal.Location = new Point(3, 135);
+            buttonProovedor_FormPrincipal.Name = "buttonProovedor_FormPrincipal";
+            buttonProovedor_FormPrincipal.Size = new Size(280, 38);
+            buttonProovedor_FormPrincipal.TabIndex = 3;
+            buttonProovedor_FormPrincipal.Text = "Proovedor";
+            buttonProovedor_FormPrincipal.UseVisualStyleBackColor = true;
+            buttonProovedor_FormPrincipal.Click += buttonProovedor_Click;
             // 
-            // buttonLogout
+            // buttonLogout_FormPrincipal
             // 
-            buttonLogout.Dock = DockStyle.Bottom;
-            buttonLogout.FlatAppearance.BorderSize = 0;
-            buttonLogout.FlatAppearance.MouseDownBackColor = Color.FromArgb(38, 28, 47);
-            buttonLogout.FlatAppearance.MouseOverBackColor = Color.FromArgb(38, 28, 47);
-            buttonLogout.FlatStyle = FlatStyle.Flat;
-            buttonLogout.ForeColor = Color.FromArgb(220, 58, 89);
-            buttonLogout.Location = new Point(0, 382);
-            buttonLogout.Name = "buttonLogout";
-            buttonLogout.Padding = new Padding(20, 0, 0, 0);
-            buttonLogout.Size = new Size(800, 68);
-            buttonLogout.TabIndex = 7;
-            buttonLogout.Text = "Cerrar Sesión";
-            buttonLogout.UseVisualStyleBackColor = true;
-            buttonLogout.Click += buttonLogout_Click;
+            buttonLogout_FormPrincipal.Dock = DockStyle.Bottom;
+            buttonLogout_FormPrincipal.FlatAppearance.BorderSize = 0;
+            buttonLogout_FormPrincipal.FlatAppearance.MouseDownBackColor = Color.FromArgb(38, 28, 47);
+            buttonLogout_FormPrincipal.FlatAppearance.MouseOverBackColor = Color.FromArgb(38, 28, 47);
+            buttonLogout_FormPrincipal.FlatStyle = FlatStyle.Flat;
+            buttonLogout_FormPrincipal.ForeColor = Color.FromArgb(220, 58, 89);
+            buttonLogout_FormPrincipal.Location = new Point(0, 382);
+            buttonLogout_FormPrincipal.Name = "buttonLogout_FormPrincipal";
+            buttonLogout_FormPrincipal.Padding = new Padding(20, 0, 0, 0);
+            buttonLogout_FormPrincipal.Size = new Size(800, 68);
+            buttonLogout_FormPrincipal.TabIndex = 7;
+            buttonLogout_FormPrincipal.Text = "Cerrar Sesión";
+            buttonLogout_FormPrincipal.UseVisualStyleBackColor = true;
+            buttonLogout_FormPrincipal.Click += buttonLogout_Click;
             // 
             // FormPrincipal
             // 
@@ -127,10 +127,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(8, 14, 26);
             ClientSize = new Size(800, 450);
-            Controls.Add(buttonLogout);
+            Controls.Add(buttonLogout_FormPrincipal);
             Controls.Add(flowLayoutPanel1);
             Name = "FormPrincipal";
             Text = "FormPrincipal";
+            FormClosing += FormPrincipal_FormClosing;
             Load += FormPrincipal_Load;
             flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
@@ -139,10 +140,10 @@
         #endregion
 
         private FlowLayoutPanel flowLayoutPanel1;
-        private Button buttonAdmin;
-        private Button buttonGestor;
-        private Button buttonConsorcista;
-        private Button buttonProovedor;
-        private Button buttonLogout;
+        private Button buttonAdmin_FormPrincipal;
+        private Button buttonGestor_FormPrincipal;
+        private Button buttonConsorcista_FormPrincipal;
+        private Button buttonProovedor_FormPrincipal;
+        private Button buttonLogout_FormPrincipal;
     }
 }

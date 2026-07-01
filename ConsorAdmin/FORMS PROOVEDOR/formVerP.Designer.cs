@@ -29,45 +29,45 @@
         private void InitializeComponent()
         {
             groupBox2 = new GroupBox();
-            buttonEditar = new Button();
-            groupBoxExpensas = new GroupBox();
-            dataGridExpensas = new DataGridView();
-            groupBox1 = new GroupBox();
+            groupBoxModificarServ_FormVerP = new GroupBox();
+            comboBoxExpensas = new ComboBox();
+            labelExpensa_FormVerP = new Label();
             panel1 = new Panel();
-            label10 = new Label();
-            label9 = new Label();
+            labelTotalNumero_FormVerP = new Label();
+            buttonEditar_FormVerP = new Button();
+            labelTotal = new Label();
             comboBoxEstado = new ComboBox();
-            label8 = new Label();
+            labelEstado_FormVerP = new Label();
             textBox2 = new TextBox();
-            label7 = new Label();
+            labelGastos_FormVerP = new Label();
             textBox1 = new TextBox();
-            label6 = new Label();
+            labelMonto_FormVerP = new Label();
             textBoxFacturanr = new TextBox();
-            label5 = new Label();
+            labelNFactura_FormVerP = new Label();
             dateTimePrestacion = new DateTimePicker();
-            label4 = new Label();
+            labelFechaPrest_FormVerP = new Label();
             richTextBoxDetalle = new RichTextBox();
-            label3 = new Label();
+            labelDetalle_FormVerP = new Label();
             comboBoxServicios = new ComboBox();
-            label2 = new Label();
+            labelTipoServ_FormVerP = new Label();
             comboBoxConsorcios = new ComboBox();
-            label1 = new Label();
+            labelConsorcio_FormVerP = new Label();
             buttonGuardar = new Button();
             buttonImprimir = new Button();
-            comboBoxExpensas = new ComboBox();
-            label11 = new Label();
+            groupBoxExpensas_FormVerP = new GroupBox();
+            dataGridExpensas = new DataGridView();
             groupBox2.SuspendLayout();
-            groupBoxExpensas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridExpensas).BeginInit();
-            groupBox1.SuspendLayout();
+            groupBoxModificarServ_FormVerP.SuspendLayout();
             panel1.SuspendLayout();
+            groupBoxExpensas_FormVerP.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridExpensas).BeginInit();
             SuspendLayout();
             // 
             // groupBox2
             // 
             groupBox2.BackColor = Color.FromArgb(8, 14, 26);
-            groupBox2.Controls.Add(groupBox1);
-            groupBox2.Controls.Add(groupBoxExpensas);
+            groupBox2.Controls.Add(groupBoxModificarServ_FormVerP);
+            groupBox2.Controls.Add(groupBoxExpensas_FormVerP);
             groupBox2.Dock = DockStyle.Fill;
             groupBox2.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBox2.ForeColor = SystemColors.ControlLight;
@@ -77,112 +77,108 @@
             groupBox2.TabIndex = 8;
             groupBox2.TabStop = false;
             // 
-            // buttonEditar
+            // groupBoxModificarServ_FormVerP
             // 
-            buttonEditar.Anchor = AnchorStyles.None;
-            buttonEditar.BackColor = Color.FromArgb(39, 133, 243);
-            buttonEditar.FlatAppearance.BorderSize = 0;
-            buttonEditar.FlatAppearance.MouseDownBackColor = Color.FromArgb(28, 105, 193);
-            buttonEditar.FlatAppearance.MouseOverBackColor = Color.FromArgb(28, 105, 193);
-            buttonEditar.FlatStyle = FlatStyle.Flat;
-            buttonEditar.ForeColor = SystemColors.ControlLight;
-            buttonEditar.Location = new Point(39, 373);
-            buttonEditar.Name = "buttonEditar";
-            buttonEditar.Size = new Size(591, 28);
-            buttonEditar.TabIndex = 14;
-            buttonEditar.Text = "Editar Expensa";
-            buttonEditar.UseVisualStyleBackColor = false;
-            buttonEditar.Click += buttonEditar_Click;
+            groupBoxModificarServ_FormVerP.Anchor = AnchorStyles.None;
+            groupBoxModificarServ_FormVerP.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxModificarServ_FormVerP.Controls.Add(comboBoxExpensas);
+            groupBoxModificarServ_FormVerP.Controls.Add(labelExpensa_FormVerP);
+            groupBoxModificarServ_FormVerP.Controls.Add(panel1);
+            groupBoxModificarServ_FormVerP.Controls.Add(buttonEditar_FormVerP);
+            groupBoxModificarServ_FormVerP.Controls.Add(labelTotal);
+            groupBoxModificarServ_FormVerP.Controls.Add(comboBoxEstado);
+            groupBoxModificarServ_FormVerP.Controls.Add(labelEstado_FormVerP);
+            groupBoxModificarServ_FormVerP.Controls.Add(textBox2);
+            groupBoxModificarServ_FormVerP.Controls.Add(labelGastos_FormVerP);
+            groupBoxModificarServ_FormVerP.Controls.Add(textBox1);
+            groupBoxModificarServ_FormVerP.Controls.Add(labelMonto_FormVerP);
+            groupBoxModificarServ_FormVerP.Controls.Add(textBoxFacturanr);
+            groupBoxModificarServ_FormVerP.Controls.Add(labelNFactura_FormVerP);
+            groupBoxModificarServ_FormVerP.Controls.Add(dateTimePrestacion);
+            groupBoxModificarServ_FormVerP.Controls.Add(labelFechaPrest_FormVerP);
+            groupBoxModificarServ_FormVerP.Controls.Add(richTextBoxDetalle);
+            groupBoxModificarServ_FormVerP.Controls.Add(labelDetalle_FormVerP);
+            groupBoxModificarServ_FormVerP.Controls.Add(comboBoxServicios);
+            groupBoxModificarServ_FormVerP.Controls.Add(labelTipoServ_FormVerP);
+            groupBoxModificarServ_FormVerP.Controls.Add(comboBoxConsorcios);
+            groupBoxModificarServ_FormVerP.Controls.Add(labelConsorcio_FormVerP);
+            groupBoxModificarServ_FormVerP.Controls.Add(buttonGuardar);
+            groupBoxModificarServ_FormVerP.Controls.Add(buttonImprimir);
+            groupBoxModificarServ_FormVerP.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxModificarServ_FormVerP.ForeColor = SystemColors.ControlLight;
+            groupBoxModificarServ_FormVerP.Location = new Point(12, 10);
+            groupBoxModificarServ_FormVerP.Name = "groupBoxModificarServ_FormVerP";
+            groupBoxModificarServ_FormVerP.Size = new Size(655, 411);
+            groupBoxModificarServ_FormVerP.TabIndex = 15;
+            groupBoxModificarServ_FormVerP.TabStop = false;
+            groupBoxModificarServ_FormVerP.Text = "Modificar Servicio Prestado";
             // 
-            // groupBoxExpensas
+            // comboBoxExpensas
             // 
-            groupBoxExpensas.Anchor = AnchorStyles.None;
-            groupBoxExpensas.BackColor = Color.FromArgb(17, 30, 53);
-            groupBoxExpensas.Controls.Add(dataGridExpensas);
-            groupBoxExpensas.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBoxExpensas.ForeColor = SystemColors.ControlLight;
-            groupBoxExpensas.Location = new Point(12, 427);
-            groupBoxExpensas.Name = "groupBoxExpensas";
-            groupBoxExpensas.Size = new Size(655, 158);
-            groupBoxExpensas.TabIndex = 5;
-            groupBoxExpensas.TabStop = false;
-            groupBoxExpensas.Text = "EXPENSAS";
+            comboBoxExpensas.BackColor = Color.FromArgb(13, 22, 40);
+            comboBoxExpensas.ForeColor = SystemColors.ControlLight;
+            comboBoxExpensas.FormattingEnabled = true;
+            comboBoxExpensas.Location = new Point(115, 15);
+            comboBoxExpensas.Name = "comboBoxExpensas";
+            comboBoxExpensas.Size = new Size(231, 22);
+            comboBoxExpensas.TabIndex = 35;
             // 
-            // dataGridExpensas
+            // labelExpensa_FormVerP
             // 
-            dataGridExpensas.Anchor = AnchorStyles.None;
-            dataGridExpensas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridExpensas.Location = new Point(30, 21);
-            dataGridExpensas.Name = "dataGridExpensas";
-            dataGridExpensas.Size = new Size(591, 131);
-            dataGridExpensas.TabIndex = 0;
-            // 
-            // groupBox1
-            // 
-            groupBox1.Anchor = AnchorStyles.None;
-            groupBox1.BackColor = Color.FromArgb(17, 30, 53);
-            groupBox1.Controls.Add(comboBoxExpensas);
-            groupBox1.Controls.Add(label11);
-            groupBox1.Controls.Add(panel1);
-            groupBox1.Controls.Add(buttonEditar);
-            groupBox1.Controls.Add(label9);
-            groupBox1.Controls.Add(comboBoxEstado);
-            groupBox1.Controls.Add(label8);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(textBoxFacturanr);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(dateTimePrestacion);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(richTextBoxDetalle);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(comboBoxServicios);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(comboBoxConsorcios);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(buttonGuardar);
-            groupBox1.Controls.Add(buttonImprimir);
-            groupBox1.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBox1.ForeColor = SystemColors.ControlLight;
-            groupBox1.Location = new Point(12, 10);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(655, 411);
-            groupBox1.TabIndex = 15;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Modificar Servicio Prestado";
+            labelExpensa_FormVerP.AutoSize = true;
+            labelExpensa_FormVerP.Location = new Point(39, 18);
+            labelExpensa_FormVerP.Name = "labelExpensa_FormVerP";
+            labelExpensa_FormVerP.Size = new Size(63, 14);
+            labelExpensa_FormVerP.TabIndex = 34;
+            labelExpensa_FormVerP.Text = "Expensa:";
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(16, 44, 59);
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(label10);
+            panel1.Controls.Add(labelTotalNumero_FormVerP);
             panel1.ForeColor = SystemColors.ActiveCaptionText;
             panel1.Location = new Point(39, 326);
             panel1.Name = "panel1";
             panel1.Size = new Size(231, 32);
             panel1.TabIndex = 33;
             // 
-            // label10
+            // labelTotalNumero_FormVerP
             // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Unispace", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.FromArgb(0, 201, 127);
-            label10.Location = new Point(4, 8);
-            label10.Name = "label10";
-            label10.Size = new Size(79, 15);
-            label10.TabIndex = 34;
-            label10.Text = "$1.234,56";
+            labelTotalNumero_FormVerP.AutoSize = true;
+            labelTotalNumero_FormVerP.Font = new Font("Unispace", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTotalNumero_FormVerP.ForeColor = Color.FromArgb(0, 201, 127);
+            labelTotalNumero_FormVerP.Location = new Point(4, 8);
+            labelTotalNumero_FormVerP.Name = "labelTotalNumero_FormVerP";
+            labelTotalNumero_FormVerP.Size = new Size(79, 15);
+            labelTotalNumero_FormVerP.TabIndex = 34;
+            labelTotalNumero_FormVerP.Text = "$1.234,56";
             // 
-            // label9
+            // buttonEditar_FormVerP
             // 
-            label9.AutoSize = true;
-            label9.Location = new Point(39, 309);
-            label9.Name = "label9";
-            label9.Size = new Size(42, 14);
-            label9.TabIndex = 32;
-            label9.Text = "Total";
+            buttonEditar_FormVerP.Anchor = AnchorStyles.None;
+            buttonEditar_FormVerP.BackColor = Color.FromArgb(39, 133, 243);
+            buttonEditar_FormVerP.FlatAppearance.BorderSize = 0;
+            buttonEditar_FormVerP.FlatAppearance.MouseDownBackColor = Color.FromArgb(28, 105, 193);
+            buttonEditar_FormVerP.FlatAppearance.MouseOverBackColor = Color.FromArgb(28, 105, 193);
+            buttonEditar_FormVerP.FlatStyle = FlatStyle.Flat;
+            buttonEditar_FormVerP.ForeColor = SystemColors.ControlLight;
+            buttonEditar_FormVerP.Location = new Point(39, 373);
+            buttonEditar_FormVerP.Name = "buttonEditar_FormVerP";
+            buttonEditar_FormVerP.Size = new Size(591, 28);
+            buttonEditar_FormVerP.TabIndex = 14;
+            buttonEditar_FormVerP.Text = "Editar Expensa";
+            buttonEditar_FormVerP.UseVisualStyleBackColor = false;
+            buttonEditar_FormVerP.Click += buttonEditar_Click;
+            // 
+            // labelTotal
+            // 
+            labelTotal.AutoSize = true;
+            labelTotal.Location = new Point(39, 309);
+            labelTotal.Name = "labelTotal";
+            labelTotal.Size = new Size(42, 14);
+            labelTotal.TabIndex = 32;
+            labelTotal.Text = "Total";
             // 
             // comboBoxEstado
             // 
@@ -194,14 +190,14 @@
             comboBoxEstado.Size = new Size(231, 22);
             comboBoxEstado.TabIndex = 31;
             // 
-            // label8
+            // labelEstado_FormVerP
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(347, 309);
-            label8.Name = "label8";
-            label8.Size = new Size(119, 14);
-            label8.TabIndex = 30;
-            label8.Text = "Estado del Cobro";
+            labelEstado_FormVerP.AutoSize = true;
+            labelEstado_FormVerP.Location = new Point(347, 309);
+            labelEstado_FormVerP.Name = "labelEstado_FormVerP";
+            labelEstado_FormVerP.Size = new Size(119, 14);
+            labelEstado_FormVerP.TabIndex = 30;
+            labelEstado_FormVerP.Text = "Estado del Cobro";
             // 
             // textBox2
             // 
@@ -212,14 +208,14 @@
             textBox2.Size = new Size(231, 22);
             textBox2.TabIndex = 29;
             // 
-            // label7
+            // labelGastos_FormVerP
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(347, 244);
-            label7.Name = "label7";
-            label7.Size = new Size(98, 14);
-            label7.TabIndex = 28;
-            label7.Text = "Gastos Extras";
+            labelGastos_FormVerP.AutoSize = true;
+            labelGastos_FormVerP.Location = new Point(347, 244);
+            labelGastos_FormVerP.Name = "labelGastos_FormVerP";
+            labelGastos_FormVerP.Size = new Size(98, 14);
+            labelGastos_FormVerP.TabIndex = 28;
+            labelGastos_FormVerP.Text = "Gastos Extras";
             // 
             // textBox1
             // 
@@ -230,14 +226,14 @@
             textBox1.Size = new Size(231, 22);
             textBox1.TabIndex = 27;
             // 
-            // label6
+            // labelMonto_FormVerP
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(39, 244);
-            label6.Name = "label6";
-            label6.Size = new Size(77, 14);
-            label6.TabIndex = 26;
-            label6.Text = "Monto Base";
+            labelMonto_FormVerP.AutoSize = true;
+            labelMonto_FormVerP.Location = new Point(39, 244);
+            labelMonto_FormVerP.Name = "labelMonto_FormVerP";
+            labelMonto_FormVerP.Size = new Size(77, 14);
+            labelMonto_FormVerP.TabIndex = 26;
+            labelMonto_FormVerP.Text = "Monto Base";
             // 
             // textBoxFacturanr
             // 
@@ -248,14 +244,14 @@
             textBoxFacturanr.Size = new Size(231, 22);
             textBoxFacturanr.TabIndex = 25;
             // 
-            // label5
+            // labelNFactura_FormVerP
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(347, 196);
-            label5.Name = "label5";
-            label5.Size = new Size(98, 14);
-            label5.TabIndex = 24;
-            label5.Text = "N° de Factura";
+            labelNFactura_FormVerP.AutoSize = true;
+            labelNFactura_FormVerP.Location = new Point(347, 196);
+            labelNFactura_FormVerP.Name = "labelNFactura_FormVerP";
+            labelNFactura_FormVerP.Size = new Size(98, 14);
+            labelNFactura_FormVerP.TabIndex = 24;
+            labelNFactura_FormVerP.Text = "N° de Factura";
             // 
             // dateTimePrestacion
             // 
@@ -265,14 +261,14 @@
             dateTimePrestacion.Size = new Size(231, 22);
             dateTimePrestacion.TabIndex = 23;
             // 
-            // label4
+            // labelFechaPrest_FormVerP
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(39, 196);
-            label4.Name = "label4";
-            label4.Size = new Size(140, 14);
-            label4.TabIndex = 22;
-            label4.Text = "Fecha de Prestación";
+            labelFechaPrest_FormVerP.AutoSize = true;
+            labelFechaPrest_FormVerP.Location = new Point(39, 196);
+            labelFechaPrest_FormVerP.Name = "labelFechaPrest_FormVerP";
+            labelFechaPrest_FormVerP.Size = new Size(140, 14);
+            labelFechaPrest_FormVerP.TabIndex = 22;
+            labelFechaPrest_FormVerP.Text = "Fecha de Prestación";
             // 
             // richTextBoxDetalle
             // 
@@ -284,14 +280,14 @@
             richTextBoxDetalle.TabIndex = 21;
             richTextBoxDetalle.Text = "";
             // 
-            // label3
+            // labelDetalle_FormVerP
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(39, 85);
-            label3.Name = "label3";
-            label3.Size = new Size(140, 14);
-            label3.TabIndex = 20;
-            label3.Text = "Detalle del Trabajo";
+            labelDetalle_FormVerP.AutoSize = true;
+            labelDetalle_FormVerP.Location = new Point(39, 85);
+            labelDetalle_FormVerP.Name = "labelDetalle_FormVerP";
+            labelDetalle_FormVerP.Size = new Size(140, 14);
+            labelDetalle_FormVerP.TabIndex = 20;
+            labelDetalle_FormVerP.Text = "Detalle del Trabajo";
             // 
             // comboBoxServicios
             // 
@@ -303,14 +299,14 @@
             comboBoxServicios.Size = new Size(231, 22);
             comboBoxServicios.TabIndex = 19;
             // 
-            // label2
+            // labelTipoServ_FormVerP
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(347, 42);
-            label2.Name = "label2";
-            label2.Size = new Size(119, 14);
-            label2.TabIndex = 18;
-            label2.Text = "Tipo de Servicio";
+            labelTipoServ_FormVerP.AutoSize = true;
+            labelTipoServ_FormVerP.Location = new Point(347, 42);
+            labelTipoServ_FormVerP.Name = "labelTipoServ_FormVerP";
+            labelTipoServ_FormVerP.Size = new Size(119, 14);
+            labelTipoServ_FormVerP.TabIndex = 18;
+            labelTipoServ_FormVerP.Text = "Tipo de Servicio";
             // 
             // comboBoxConsorcios
             // 
@@ -322,14 +318,14 @@
             comboBoxConsorcios.Size = new Size(231, 22);
             comboBoxConsorcios.TabIndex = 17;
             // 
-            // label1
+            // labelConsorcio_FormVerP
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(39, 42);
-            label1.Name = "label1";
-            label1.Size = new Size(70, 14);
-            label1.TabIndex = 16;
-            label1.Text = "Consorcio";
+            labelConsorcio_FormVerP.AutoSize = true;
+            labelConsorcio_FormVerP.Location = new Point(39, 42);
+            labelConsorcio_FormVerP.Name = "labelConsorcio_FormVerP";
+            labelConsorcio_FormVerP.Size = new Size(70, 14);
+            labelConsorcio_FormVerP.TabIndex = 16;
+            labelConsorcio_FormVerP.Text = "Consorcio";
             // 
             // buttonGuardar
             // 
@@ -363,24 +359,28 @@
             buttonImprimir.Text = "Cargar Servicio";
             buttonImprimir.UseVisualStyleBackColor = false;
             // 
-            // comboBoxExpensas
+            // groupBoxExpensas_FormVerP
             // 
-            comboBoxExpensas.BackColor = Color.FromArgb(13, 22, 40);
-            comboBoxExpensas.ForeColor = SystemColors.ControlLight;
-            comboBoxExpensas.FormattingEnabled = true;
-            comboBoxExpensas.Location = new Point(115, 15);
-            comboBoxExpensas.Name = "comboBoxExpensas";
-            comboBoxExpensas.Size = new Size(231, 22);
-            comboBoxExpensas.TabIndex = 35;
+            groupBoxExpensas_FormVerP.Anchor = AnchorStyles.None;
+            groupBoxExpensas_FormVerP.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxExpensas_FormVerP.Controls.Add(dataGridExpensas);
+            groupBoxExpensas_FormVerP.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxExpensas_FormVerP.ForeColor = SystemColors.ControlLight;
+            groupBoxExpensas_FormVerP.Location = new Point(12, 427);
+            groupBoxExpensas_FormVerP.Name = "groupBoxExpensas_FormVerP";
+            groupBoxExpensas_FormVerP.Size = new Size(655, 158);
+            groupBoxExpensas_FormVerP.TabIndex = 5;
+            groupBoxExpensas_FormVerP.TabStop = false;
+            groupBoxExpensas_FormVerP.Text = "EXPENSAS";
             // 
-            // label11
+            // dataGridExpensas
             // 
-            label11.AutoSize = true;
-            label11.Location = new Point(39, 18);
-            label11.Name = "label11";
-            label11.Size = new Size(63, 14);
-            label11.TabIndex = 34;
-            label11.Text = "Expensa:";
+            dataGridExpensas.Anchor = AnchorStyles.None;
+            dataGridExpensas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridExpensas.Location = new Point(30, 21);
+            dataGridExpensas.Name = "dataGridExpensas";
+            dataGridExpensas.Size = new Size(591, 131);
+            dataGridExpensas.TabIndex = 0;
             // 
             // formVerP
             // 
@@ -391,45 +391,47 @@
             Controls.Add(groupBox2);
             Name = "formVerP";
             Text = "formVerP";
+            Load += formVerP_Load;
+            FormClosing += formVerP_FormClosing;
             groupBox2.ResumeLayout(false);
-            groupBoxExpensas.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridExpensas).EndInit();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            groupBoxModificarServ_FormVerP.ResumeLayout(false);
+            groupBoxModificarServ_FormVerP.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            groupBoxExpensas_FormVerP.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridExpensas).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private GroupBox groupBox2;
-        private Button buttonEditar;
-        private GroupBox groupBoxExpensas;
+        private Button buttonEditar_FormVerP;
+        private GroupBox groupBoxExpensas_FormVerP;
         private DataGridView dataGridExpensas;
-        private GroupBox groupBox1;
+        private GroupBox groupBoxModificarServ_FormVerP;
         private Panel panel1;
-        private Label label10;
-        private Label label9;
+        private Label labelTotalNumero_FormVerP;
+        private Label labelTotal;
         private ComboBox comboBoxEstado;
-        private Label label8;
+        private Label labelEstado_FormVerP;
         private TextBox textBox2;
-        private Label label7;
+        private Label labelGastos_FormVerP;
         private TextBox textBox1;
-        private Label label6;
+        private Label labelMonto_FormVerP;
         private TextBox textBoxFacturanr;
-        private Label label5;
+        private Label labelNFactura_FormVerP;
         private DateTimePicker dateTimePrestacion;
-        private Label label4;
+        private Label labelFechaPrest_FormVerP;
         private RichTextBox richTextBoxDetalle;
-        private Label label3;
+        private Label labelDetalle_FormVerP;
         private ComboBox comboBoxServicios;
-        private Label label2;
+        private Label labelTipoServ_FormVerP;
         private ComboBox comboBoxConsorcios;
-        private Label label1;
+        private Label labelConsorcio_FormVerP;
         private Button buttonGuardar;
         private Button buttonImprimir;
         private ComboBox comboBoxExpensas;
-        private Label label11;
+        private Label labelExpensa_FormVerP;
     }
 }

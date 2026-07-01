@@ -30,10 +30,10 @@
         {
             groupBox2 = new GroupBox();
             dataGridViewExpensas = new DataGridView();
-            buttonLimpiar = new Button();
-            buttonBuscar = new Button();
+            buttonLimpiar_FormHistoG = new Button();
+            buttonBuscar_FormHistoG = new Button();
             comboBoxEdificios = new ComboBox();
-            label1 = new Label();
+            labelBuscarPorNombre_FormHistoG = new Label();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewExpensas).BeginInit();
             SuspendLayout();
@@ -42,10 +42,10 @@
             // 
             groupBox2.BackColor = Color.FromArgb(8, 14, 26);
             groupBox2.Controls.Add(dataGridViewExpensas);
-            groupBox2.Controls.Add(buttonLimpiar);
-            groupBox2.Controls.Add(buttonBuscar);
+            groupBox2.Controls.Add(buttonLimpiar_FormHistoG);
+            groupBox2.Controls.Add(buttonBuscar_FormHistoG);
             groupBox2.Controls.Add(comboBoxEdificios);
-            groupBox2.Controls.Add(label1);
+            groupBox2.Controls.Add(labelBuscarPorNombre_FormHistoG);
             groupBox2.Dock = DockStyle.Fill;
             groupBox2.Font = new Font("Unispace", 9F, FontStyle.Bold);
             groupBox2.ForeColor = SystemColors.ControlLight;
@@ -65,37 +65,37 @@
             dataGridViewExpensas.Size = new Size(573, 472);
             dataGridViewExpensas.TabIndex = 37;
             // 
-            // buttonLimpiar
+            // buttonLimpiar_FormHistoG
             // 
-            buttonLimpiar.Anchor = AnchorStyles.Top;
-            buttonLimpiar.BackColor = Color.Transparent;
-            buttonLimpiar.FlatAppearance.BorderColor = Color.FromArgb(30, 58, 95);
-            buttonLimpiar.FlatAppearance.MouseDownBackColor = SystemColors.Highlight;
-            buttonLimpiar.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
-            buttonLimpiar.FlatStyle = FlatStyle.Flat;
-            buttonLimpiar.ForeColor = SystemColors.ControlLight;
-            buttonLimpiar.Location = new Point(352, 58);
-            buttonLimpiar.Name = "buttonLimpiar";
-            buttonLimpiar.Size = new Size(123, 35);
-            buttonLimpiar.TabIndex = 36;
-            buttonLimpiar.Text = "Limpiar Vista";
-            buttonLimpiar.UseVisualStyleBackColor = false;
+            buttonLimpiar_FormHistoG.Anchor = AnchorStyles.Top;
+            buttonLimpiar_FormHistoG.BackColor = Color.Transparent;
+            buttonLimpiar_FormHistoG.FlatAppearance.BorderColor = Color.FromArgb(30, 58, 95);
+            buttonLimpiar_FormHistoG.FlatAppearance.MouseDownBackColor = SystemColors.Highlight;
+            buttonLimpiar_FormHistoG.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            buttonLimpiar_FormHistoG.FlatStyle = FlatStyle.Flat;
+            buttonLimpiar_FormHistoG.ForeColor = SystemColors.ControlLight;
+            buttonLimpiar_FormHistoG.Location = new Point(352, 58);
+            buttonLimpiar_FormHistoG.Name = "buttonLimpiar_FormHistoG";
+            buttonLimpiar_FormHistoG.Size = new Size(123, 35);
+            buttonLimpiar_FormHistoG.TabIndex = 36;
+            buttonLimpiar_FormHistoG.Text = "Limpiar Vista";
+            buttonLimpiar_FormHistoG.UseVisualStyleBackColor = false;
             // 
-            // buttonBuscar
+            // buttonBuscar_FormHistoG
             // 
-            buttonBuscar.Anchor = AnchorStyles.Top;
-            buttonBuscar.BackColor = Color.Transparent;
-            buttonBuscar.FlatAppearance.BorderColor = Color.FromArgb(30, 58, 95);
-            buttonBuscar.FlatAppearance.MouseDownBackColor = SystemColors.Highlight;
-            buttonBuscar.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
-            buttonBuscar.FlatStyle = FlatStyle.Flat;
-            buttonBuscar.ForeColor = SystemColors.ControlLight;
-            buttonBuscar.Location = new Point(502, 57);
-            buttonBuscar.Name = "buttonBuscar";
-            buttonBuscar.Size = new Size(123, 35);
-            buttonBuscar.TabIndex = 35;
-            buttonBuscar.Text = "Buscar";
-            buttonBuscar.UseVisualStyleBackColor = false;
+            buttonBuscar_FormHistoG.Anchor = AnchorStyles.Top;
+            buttonBuscar_FormHistoG.BackColor = Color.Transparent;
+            buttonBuscar_FormHistoG.FlatAppearance.BorderColor = Color.FromArgb(30, 58, 95);
+            buttonBuscar_FormHistoG.FlatAppearance.MouseDownBackColor = SystemColors.Highlight;
+            buttonBuscar_FormHistoG.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            buttonBuscar_FormHistoG.FlatStyle = FlatStyle.Flat;
+            buttonBuscar_FormHistoG.ForeColor = SystemColors.ControlLight;
+            buttonBuscar_FormHistoG.Location = new Point(502, 57);
+            buttonBuscar_FormHistoG.Name = "buttonBuscar_FormHistoG";
+            buttonBuscar_FormHistoG.Size = new Size(123, 35);
+            buttonBuscar_FormHistoG.TabIndex = 35;
+            buttonBuscar_FormHistoG.Text = "Buscar";
+            buttonBuscar_FormHistoG.UseVisualStyleBackColor = false;
             // 
             // comboBoxEdificios
             // 
@@ -107,14 +107,14 @@
             comboBoxEdificios.Size = new Size(264, 22);
             comboBoxEdificios.TabIndex = 11;
             // 
-            // label1
+            // labelBuscarPorNombre_FormHistoG
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(52, 47);
-            label1.Name = "label1";
-            label1.Size = new Size(224, 14);
-            label1.TabIndex = 0;
-            label1.Text = "Buscar por nombre de Consorcio:";
+            labelBuscarPorNombre_FormHistoG.AutoSize = true;
+            labelBuscarPorNombre_FormHistoG.Location = new Point(52, 47);
+            labelBuscarPorNombre_FormHistoG.Name = "labelBuscarPorNombre_FormHistoG";
+            labelBuscarPorNombre_FormHistoG.Size = new Size(224, 14);
+            labelBuscarPorNombre_FormHistoG.TabIndex = 0;
+            labelBuscarPorNombre_FormHistoG.Text = "Buscar por nombre de Consorcio:";
             // 
             // FormHistorialG
             // 
@@ -126,6 +126,8 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormHistorialG";
             Text = "FormHistorialG";
+            Load += FormHistorialG_Load;
+            FormClosing += FormHistorialG_FormClosing;
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewExpensas).EndInit();
@@ -135,10 +137,10 @@
         #endregion
 
         private GroupBox groupBox2;
-        private Label label1;
+        private Label labelBuscarPorNombre_FormHistoG;
         private ComboBox comboBoxEdificios;
-        private Button buttonLimpiar;
-        private Button buttonBuscar;
+        private Button buttonLimpiar_FormHistoG;
+        private Button buttonBuscar_FormHistoG;
         private DataGridView dataGridViewExpensas;
     }
 }

@@ -13,11 +13,12 @@ using System.Windows.Forms;
 
 namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
 {
-    public partial class FormReporteConsorcioG : Form
+    public partial class FormReporteConsorcioG : Form, IIdiomaObserver
     {
+        private readonly TraductorBLL _traductorBLL = new TraductorBLL();
         private readonly ConsorcioBLL _consorcioBLL = new ConsorcioBLL();
         private ConsorcioBE _consorcioSeleccionado = null;
-        
+
         public FormReporteConsorcioG()
         {
             InitializeComponent();
@@ -25,6 +26,10 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
 
         private void FormEdificiosG_Load(object sender, EventArgs e)
         {
+            AsignarTags();
+            SessionManager.SuscribirObservador(this);
+            Traducir();
+
             try
             {
                 CargarGrilla();
@@ -34,6 +39,46 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void FormReporteConsorcioG_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SessionManager.DesuscribirObservador(this);
+        }
+
+        public void ActualizarIdioma(IdiomaBE idioma)
+        {
+            if (this.InvokeRequired) this.Invoke(() => Traducir(idioma));
+            else Traducir(idioma);
+        }
+
+        private void Traducir(IdiomaBE idioma = null)
+        {
+            idioma ??= SessionManager.IdiomaActual ?? _traductorBLL.ObtenerIdiomaDefault();
+            var t = _traductorBLL.ObtenerTraducciones(idioma);
+            TraducirControles(this.Controls, t);
+        }
+
+        private void TraducirControles(Control.ControlCollection controles, Dictionary<string, string> t)
+        {
+            foreach (Control ctrl in controles)
+            {
+                if (ctrl.Tag is string clave && t.ContainsKey(clave))
+                    ctrl.Text = t[clave];
+                if (ctrl.Controls.Count > 0)
+                    TraducirControles(ctrl.Controls, t);
+            }
+        }
+
+        private void AsignarTags()
+        {
+            groupBoxEdificio_FormReporteConsorcioG.Tag = "groupBoxEdificio_FormReporteConsorcioG";
+            groupBoxEditarEdificios_FormReporteConsorcioG.Tag = "groupBoxEditarEdificios_FormReporteConsorcioG";
+            buttonGuardar_FormReporteConsorcioG.Tag = "buttonGuardar_FormReporteConsorcioG";
+            labelCantUnid_FormReporteConsorcioG.Tag = "labelCantUnid_FormReporteConsorcioG";
+            labelNombre_FormReporteConsorcioG.Tag = "labelNombre_FormReporteConsorcioG";
+            labelDireccion_FormReporteConsorcioG.Tag = "labelDireccion_FormReporteConsorcioG";
+            labelEdificio_FormReporteConsorcioG.Tag = "labelEdificio_FormReporteConsorcioG";
         }
 
         // ── Cargar grilla con los consorcios del gestor ──────────────────────

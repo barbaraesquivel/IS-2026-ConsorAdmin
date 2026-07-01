@@ -28,94 +28,90 @@
         /// </summary>
         private void InitializeComponent()
         {
-            groupBoxEdificios = new GroupBox();
-            buttonGuard = new Button();
-            buttonCancelar = new Button();
+            groupBoxNuevaExpensa_FormCargarExpA = new GroupBox();
+            buttonCargar_FormCargarExpA = new Button();
+            buttonCanc_FormCargarExpA = new Button();
             comboBoxSituacion = new ComboBox();
-            label8 = new Label();
-            label7 = new Label();
+            labelSituacion_FormCargarExpA = new Label();
+            labelVencimiento_FormCargarExpA = new Label();
             dateTimePickerVencimiento = new DateTimePicker();
-            label6 = new Label();
+            labelFecha_FormCargarExpA = new Label();
             dateTimeFechaActual = new DateTimePicker();
             textBoxImporte = new TextBox();
-            label5 = new Label();
+            labelImporte_FormCargarExpA = new Label();
             comboBoxSubrubro = new ComboBox();
-            label4 = new Label();
+            labelSubRubro_FormCargarExpA = new Label();
             comboBoxRubro = new ComboBox();
-            label3 = new Label();
+            labelRubro_FormCargarExpA = new Label();
             comboBoxTipo = new ComboBox();
-            label2 = new Label();
+            labelTipoExp_FormCargarExpA = new Label();
             comboBoxEdificios = new ComboBox();
-            label1 = new Label();
-            buttonCargar = new Button();
-            button2 = new Button();
-            groupBoxEdificios.SuspendLayout();
+            labelEdificio_FormCargarExpA = new Label();
+            groupBoxNuevaExpensa_FormCargarExpA.SuspendLayout();
             SuspendLayout();
             // 
-            // groupBoxEdificios
+            // groupBoxNuevaExpensa_FormCargarExpA
             // 
-            groupBoxEdificios.Anchor = AnchorStyles.None;
-            groupBoxEdificios.BackColor = Color.FromArgb(17, 30, 53);
-            groupBoxEdificios.Controls.Add(buttonCargar);
-            groupBoxEdificios.Controls.Add(button2);
-            groupBoxEdificios.Controls.Add(buttonGuard);
-            groupBoxEdificios.Controls.Add(buttonCancelar);
-            groupBoxEdificios.Controls.Add(comboBoxSituacion);
-            groupBoxEdificios.Controls.Add(label8);
-            groupBoxEdificios.Controls.Add(label7);
-            groupBoxEdificios.Controls.Add(dateTimePickerVencimiento);
-            groupBoxEdificios.Controls.Add(label6);
-            groupBoxEdificios.Controls.Add(dateTimeFechaActual);
-            groupBoxEdificios.Controls.Add(textBoxImporte);
-            groupBoxEdificios.Controls.Add(label5);
-            groupBoxEdificios.Controls.Add(comboBoxSubrubro);
-            groupBoxEdificios.Controls.Add(label4);
-            groupBoxEdificios.Controls.Add(comboBoxRubro);
-            groupBoxEdificios.Controls.Add(label3);
-            groupBoxEdificios.Controls.Add(comboBoxTipo);
-            groupBoxEdificios.Controls.Add(label2);
-            groupBoxEdificios.Controls.Add(comboBoxEdificios);
-            groupBoxEdificios.Controls.Add(label1);
-            groupBoxEdificios.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBoxEdificios.ForeColor = SystemColors.ControlLight;
-            groupBoxEdificios.Location = new Point(21, 14);
-            groupBoxEdificios.Name = "groupBoxEdificios";
-            groupBoxEdificios.Size = new Size(640, 568);
-            groupBoxEdificios.TabIndex = 4;
-            groupBoxEdificios.TabStop = false;
-            groupBoxEdificios.Text = "NUEVA EXPENSA";
+            groupBoxNuevaExpensa_FormCargarExpA.Anchor = AnchorStyles.None;
+            groupBoxNuevaExpensa_FormCargarExpA.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxNuevaExpensa_FormCargarExpA.Controls.Add(buttonCargar_FormCargarExpA);
+            groupBoxNuevaExpensa_FormCargarExpA.Controls.Add(buttonCanc_FormCargarExpA);
+            groupBoxNuevaExpensa_FormCargarExpA.Controls.Add(comboBoxSituacion);
+            groupBoxNuevaExpensa_FormCargarExpA.Controls.Add(labelSituacion_FormCargarExpA);
+            groupBoxNuevaExpensa_FormCargarExpA.Controls.Add(labelVencimiento_FormCargarExpA);
+            groupBoxNuevaExpensa_FormCargarExpA.Controls.Add(dateTimePickerVencimiento);
+            groupBoxNuevaExpensa_FormCargarExpA.Controls.Add(labelFecha_FormCargarExpA);
+            groupBoxNuevaExpensa_FormCargarExpA.Controls.Add(dateTimeFechaActual);
+            groupBoxNuevaExpensa_FormCargarExpA.Controls.Add(textBoxImporte);
+            groupBoxNuevaExpensa_FormCargarExpA.Controls.Add(labelImporte_FormCargarExpA);
+            groupBoxNuevaExpensa_FormCargarExpA.Controls.Add(comboBoxSubrubro);
+            groupBoxNuevaExpensa_FormCargarExpA.Controls.Add(labelSubRubro_FormCargarExpA);
+            groupBoxNuevaExpensa_FormCargarExpA.Controls.Add(comboBoxRubro);
+            groupBoxNuevaExpensa_FormCargarExpA.Controls.Add(labelRubro_FormCargarExpA);
+            groupBoxNuevaExpensa_FormCargarExpA.Controls.Add(comboBoxTipo);
+            groupBoxNuevaExpensa_FormCargarExpA.Controls.Add(labelTipoExp_FormCargarExpA);
+            groupBoxNuevaExpensa_FormCargarExpA.Controls.Add(comboBoxEdificios);
+            groupBoxNuevaExpensa_FormCargarExpA.Controls.Add(labelEdificio_FormCargarExpA);
+            groupBoxNuevaExpensa_FormCargarExpA.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxNuevaExpensa_FormCargarExpA.ForeColor = SystemColors.ControlLight;
+            groupBoxNuevaExpensa_FormCargarExpA.Location = new Point(21, 14);
+            groupBoxNuevaExpensa_FormCargarExpA.Name = "groupBoxNuevaExpensa_FormCargarExpA";
+            groupBoxNuevaExpensa_FormCargarExpA.Size = new Size(640, 568);
+            groupBoxNuevaExpensa_FormCargarExpA.TabIndex = 4;
+            groupBoxNuevaExpensa_FormCargarExpA.TabStop = false;
+            groupBoxNuevaExpensa_FormCargarExpA.Text = "NUEVA EXPENSA";
             // 
-            // buttonGuard
+            // buttonCargar_FormCargarExpA
             // 
-            buttonGuard.Anchor = AnchorStyles.None;
-            buttonGuard.BackColor = Color.FromArgb(0, 187, 118);
-            buttonGuard.FlatAppearance.BorderSize = 0;
-            buttonGuard.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
-            buttonGuard.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
-            buttonGuard.FlatStyle = FlatStyle.Flat;
-            buttonGuard.ForeColor = SystemColors.ControlLight;
-            buttonGuard.Location = new Point(294, 646);
-            buttonGuard.Name = "buttonGuard";
-            buttonGuard.Size = new Size(495, 36);
-            buttonGuard.TabIndex = 35;
-            buttonGuard.Text = "Cargar";
-            buttonGuard.UseVisualStyleBackColor = false;
+            buttonCargar_FormCargarExpA.Anchor = AnchorStyles.None;
+            buttonCargar_FormCargarExpA.BackColor = Color.FromArgb(0, 187, 118);
+            buttonCargar_FormCargarExpA.FlatAppearance.BorderSize = 0;
+            buttonCargar_FormCargarExpA.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
+            buttonCargar_FormCargarExpA.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
+            buttonCargar_FormCargarExpA.FlatStyle = FlatStyle.Flat;
+            buttonCargar_FormCargarExpA.ForeColor = SystemColors.ControlLight;
+            buttonCargar_FormCargarExpA.Location = new Point(74, 415);
+            buttonCargar_FormCargarExpA.Name = "buttonCargar_FormCargarExpA";
+            buttonCargar_FormCargarExpA.Size = new Size(495, 36);
+            buttonCargar_FormCargarExpA.TabIndex = 37;
+            buttonCargar_FormCargarExpA.Text = "Cargar";
+            buttonCargar_FormCargarExpA.UseVisualStyleBackColor = false;
             // 
-            // buttonCancelar
+            // buttonCanc_FormCargarExpA
             // 
-            buttonCancelar.Anchor = AnchorStyles.None;
-            buttonCancelar.BackColor = Color.Transparent;
-            buttonCancelar.FlatAppearance.BorderColor = Color.FromArgb(30, 58, 95);
-            buttonCancelar.FlatAppearance.MouseDownBackColor = SystemColors.Highlight;
-            buttonCancelar.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
-            buttonCancelar.FlatStyle = FlatStyle.Flat;
-            buttonCancelar.ForeColor = SystemColors.ControlLight;
-            buttonCancelar.Location = new Point(294, 694);
-            buttonCancelar.Name = "buttonCancelar";
-            buttonCancelar.Size = new Size(495, 36);
-            buttonCancelar.TabIndex = 34;
-            buttonCancelar.Text = "Cancelar";
-            buttonCancelar.UseVisualStyleBackColor = false;
+            buttonCanc_FormCargarExpA.Anchor = AnchorStyles.None;
+            buttonCanc_FormCargarExpA.BackColor = Color.Transparent;
+            buttonCanc_FormCargarExpA.FlatAppearance.BorderColor = Color.FromArgb(30, 58, 95);
+            buttonCanc_FormCargarExpA.FlatAppearance.MouseDownBackColor = SystemColors.Highlight;
+            buttonCanc_FormCargarExpA.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            buttonCanc_FormCargarExpA.FlatStyle = FlatStyle.Flat;
+            buttonCanc_FormCargarExpA.ForeColor = SystemColors.ControlLight;
+            buttonCanc_FormCargarExpA.Location = new Point(74, 463);
+            buttonCanc_FormCargarExpA.Name = "buttonCanc_FormCargarExpA";
+            buttonCanc_FormCargarExpA.Size = new Size(495, 36);
+            buttonCanc_FormCargarExpA.TabIndex = 36;
+            buttonCanc_FormCargarExpA.Text = "Cancelar";
+            buttonCanc_FormCargarExpA.UseVisualStyleBackColor = false;
             // 
             // comboBoxSituacion
             // 
@@ -127,23 +123,23 @@
             comboBoxSituacion.Size = new Size(200, 22);
             comboBoxSituacion.TabIndex = 25;
             // 
-            // label8
+            // labelSituacion_FormCargarExpA
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(74, 300);
-            label8.Name = "label8";
-            label8.Size = new Size(77, 14);
-            label8.TabIndex = 24;
-            label8.Text = "Situacion:";
+            labelSituacion_FormCargarExpA.AutoSize = true;
+            labelSituacion_FormCargarExpA.Location = new Point(74, 300);
+            labelSituacion_FormCargarExpA.Name = "labelSituacion_FormCargarExpA";
+            labelSituacion_FormCargarExpA.Size = new Size(77, 14);
+            labelSituacion_FormCargarExpA.TabIndex = 24;
+            labelSituacion_FormCargarExpA.Text = "Situacion:";
             // 
-            // label7
+            // labelVencimiento_FormCargarExpA
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(354, 230);
-            label7.Name = "label7";
-            label7.Size = new Size(154, 14);
-            label7.TabIndex = 23;
-            label7.Text = "Fecha de vencimiento:";
+            labelVencimiento_FormCargarExpA.AutoSize = true;
+            labelVencimiento_FormCargarExpA.Location = new Point(354, 230);
+            labelVencimiento_FormCargarExpA.Name = "labelVencimiento_FormCargarExpA";
+            labelVencimiento_FormCargarExpA.Size = new Size(154, 14);
+            labelVencimiento_FormCargarExpA.TabIndex = 23;
+            labelVencimiento_FormCargarExpA.Text = "Fecha de vencimiento:";
             // 
             // dateTimePickerVencimiento
             // 
@@ -153,14 +149,14 @@
             dateTimePickerVencimiento.Size = new Size(215, 22);
             dateTimePickerVencimiento.TabIndex = 22;
             // 
-            // label6
+            // labelFecha_FormCargarExpA
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(74, 230);
-            label6.Name = "label6";
-            label6.Size = new Size(49, 14);
-            label6.TabIndex = 21;
-            label6.Text = "Fecha:";
+            labelFecha_FormCargarExpA.AutoSize = true;
+            labelFecha_FormCargarExpA.Location = new Point(74, 230);
+            labelFecha_FormCargarExpA.Name = "labelFecha_FormCargarExpA";
+            labelFecha_FormCargarExpA.Size = new Size(49, 14);
+            labelFecha_FormCargarExpA.TabIndex = 21;
+            labelFecha_FormCargarExpA.Text = "Fecha:";
             // 
             // dateTimeFechaActual
             // 
@@ -179,14 +175,14 @@
             textBoxImporte.Size = new Size(215, 22);
             textBoxImporte.TabIndex = 19;
             // 
-            // label5
+            // labelImporte_FormCargarExpA
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(354, 160);
-            label5.Name = "label5";
-            label5.Size = new Size(63, 14);
-            label5.TabIndex = 18;
-            label5.Text = "Importe:";
+            labelImporte_FormCargarExpA.AutoSize = true;
+            labelImporte_FormCargarExpA.Location = new Point(354, 160);
+            labelImporte_FormCargarExpA.Name = "labelImporte_FormCargarExpA";
+            labelImporte_FormCargarExpA.Size = new Size(63, 14);
+            labelImporte_FormCargarExpA.TabIndex = 18;
+            labelImporte_FormCargarExpA.Text = "Importe:";
             // 
             // comboBoxSubrubro
             // 
@@ -198,14 +194,14 @@
             comboBoxSubrubro.Size = new Size(200, 22);
             comboBoxSubrubro.TabIndex = 17;
             // 
-            // label4
+            // labelSubRubro_FormCargarExpA
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(74, 160);
-            label4.Name = "label4";
-            label4.Size = new Size(77, 14);
-            label4.TabIndex = 16;
-            label4.Text = "Sub-Rubro:";
+            labelSubRubro_FormCargarExpA.AutoSize = true;
+            labelSubRubro_FormCargarExpA.Location = new Point(74, 160);
+            labelSubRubro_FormCargarExpA.Name = "labelSubRubro_FormCargarExpA";
+            labelSubRubro_FormCargarExpA.Size = new Size(77, 14);
+            labelSubRubro_FormCargarExpA.TabIndex = 16;
+            labelSubRubro_FormCargarExpA.Text = "Sub-Rubro:";
             // 
             // comboBoxRubro
             // 
@@ -217,14 +213,14 @@
             comboBoxRubro.Size = new Size(215, 22);
             comboBoxRubro.TabIndex = 15;
             // 
-            // label3
+            // labelRubro_FormCargarExpA
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(354, 102);
-            label3.Name = "label3";
-            label3.Size = new Size(49, 14);
-            label3.TabIndex = 14;
-            label3.Text = "Rubro:";
+            labelRubro_FormCargarExpA.AutoSize = true;
+            labelRubro_FormCargarExpA.Location = new Point(354, 102);
+            labelRubro_FormCargarExpA.Name = "labelRubro_FormCargarExpA";
+            labelRubro_FormCargarExpA.Size = new Size(49, 14);
+            labelRubro_FormCargarExpA.TabIndex = 14;
+            labelRubro_FormCargarExpA.Text = "Rubro:";
             // 
             // comboBoxTipo
             // 
@@ -236,14 +232,14 @@
             comboBoxTipo.Size = new Size(200, 22);
             comboBoxTipo.TabIndex = 13;
             // 
-            // label2
+            // labelTipoExp_FormCargarExpA
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(74, 102);
-            label2.Name = "label2";
-            label2.Size = new Size(119, 14);
-            label2.TabIndex = 12;
-            label2.Text = "Tipo de expensa:";
+            labelTipoExp_FormCargarExpA.AutoSize = true;
+            labelTipoExp_FormCargarExpA.Location = new Point(74, 102);
+            labelTipoExp_FormCargarExpA.Name = "labelTipoExp_FormCargarExpA";
+            labelTipoExp_FormCargarExpA.Size = new Size(119, 14);
+            labelTipoExp_FormCargarExpA.TabIndex = 12;
+            labelTipoExp_FormCargarExpA.Text = "Tipo de expensa:";
             // 
             // comboBoxEdificios
             // 
@@ -255,46 +251,14 @@
             comboBoxEdificios.Size = new Size(200, 22);
             comboBoxEdificios.TabIndex = 11;
             // 
-            // label1
+            // labelEdificio_FormCargarExpA
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(74, 43);
-            label1.Name = "label1";
-            label1.Size = new Size(70, 14);
-            label1.TabIndex = 0;
-            label1.Text = "Edificio:";
-            // 
-            // buttonCargar
-            // 
-            buttonCargar.Anchor = AnchorStyles.None;
-            buttonCargar.BackColor = Color.FromArgb(0, 187, 118);
-            buttonCargar.FlatAppearance.BorderSize = 0;
-            buttonCargar.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
-            buttonCargar.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
-            buttonCargar.FlatStyle = FlatStyle.Flat;
-            buttonCargar.ForeColor = SystemColors.ControlLight;
-            buttonCargar.Location = new Point(74, 415);
-            buttonCargar.Name = "buttonCargar";
-            buttonCargar.Size = new Size(495, 36);
-            buttonCargar.TabIndex = 37;
-            buttonCargar.Text = "Cargar";
-            buttonCargar.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            button2.Anchor = AnchorStyles.None;
-            button2.BackColor = Color.Transparent;
-            button2.FlatAppearance.BorderColor = Color.FromArgb(30, 58, 95);
-            button2.FlatAppearance.MouseDownBackColor = SystemColors.Highlight;
-            button2.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.ForeColor = SystemColors.ControlLight;
-            button2.Location = new Point(74, 463);
-            button2.Name = "button2";
-            button2.Size = new Size(495, 36);
-            button2.TabIndex = 36;
-            button2.Text = "Cancelar";
-            button2.UseVisualStyleBackColor = false;
+            labelEdificio_FormCargarExpA.AutoSize = true;
+            labelEdificio_FormCargarExpA.Location = new Point(74, 43);
+            labelEdificio_FormCargarExpA.Name = "labelEdificio_FormCargarExpA";
+            labelEdificio_FormCargarExpA.Size = new Size(70, 14);
+            labelEdificio_FormCargarExpA.TabIndex = 0;
+            labelEdificio_FormCargarExpA.Text = "Edificio:";
             // 
             // formCargarExpA
             // 
@@ -302,36 +266,36 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(8, 14, 26);
             ClientSize = new Size(682, 597);
-            Controls.Add(groupBoxEdificios);
+            Controls.Add(groupBoxNuevaExpensa_FormCargarExpA);
             Name = "formCargarExpA";
             Text = "formCargarExpA";
-            groupBoxEdificios.ResumeLayout(false);
-            groupBoxEdificios.PerformLayout();
+            FormClosing += formCargarExpA_FormClosing;
+            Load += formCargarExpA_Load;
+            groupBoxNuevaExpensa_FormCargarExpA.ResumeLayout(false);
+            groupBoxNuevaExpensa_FormCargarExpA.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private GroupBox groupBoxEdificios;
-        private Button buttonGuard;
-        private Button buttonCancelar;
+        private GroupBox groupBoxNuevaExpensa_FormCargarExpA;
         private ComboBox comboBoxSituacion;
-        private Label label8;
-        private Label label7;
+        private Label labelSituacion_FormCargarExpA;
+        private Label labelVencimiento_FormCargarExpA;
         private DateTimePicker dateTimePickerVencimiento;
-        private Label label6;
+        private Label labelFecha_FormCargarExpA;
         private DateTimePicker dateTimeFechaActual;
         private TextBox textBoxImporte;
-        private Label label5;
+        private Label labelImporte_FormCargarExpA;
         private ComboBox comboBoxSubrubro;
-        private Label label4;
+        private Label labelSubRubro_FormCargarExpA;
         private ComboBox comboBoxRubro;
-        private Label label3;
+        private Label labelRubro_FormCargarExpA;
         private ComboBox comboBoxTipo;
-        private Label label2;
+        private Label labelTipoExp_FormCargarExpA;
         private ComboBox comboBoxEdificios;
-        private Label label1;
-        private Button buttonCargar;
-        private Button button2;
+        private Label labelEdificio_FormCargarExpA;
+        private Button buttonCargar_FormCargarExpA;
+        private Button buttonCanc_FormCargarExpA;
     }
 }

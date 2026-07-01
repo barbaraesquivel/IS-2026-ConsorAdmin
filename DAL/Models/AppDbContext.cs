@@ -1,6 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using BE.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 
 namespace DAL.Models;
 
@@ -44,6 +45,14 @@ public partial class AppDbContext : DbContext
     public virtual DbSet<UsuarioPermiso> UsuarioPermisos { get; set; }
 
     public virtual DbSet<VerificadorVertical> VerificadorVerticales { get; set; }
+    
+    public virtual DbSet<Idioma> Idiomas { get; set; }
+    
+    public virtual DbSet<Etiqueta> Etiquetas { get; set; }
+    
+    public virtual DbSet<Traduccion> Traducciones { get; set; }
+
+    public virtual DbSet<HistorialUsuario> HistorialUsuarios { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -385,6 +394,13 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Username)
                 .HasMaxLength(100)
                 .HasColumnName("username");
+            entity.Property(e => e.IdIdiomaPreferido)
+                  .HasColumnName("id_idioma_preferido");
+
+            entity.HasOne(e => e.IdiomaPreferidoNavigation)
+                  .WithMany()
+                  .HasForeignKey(e => e.IdIdiomaPreferido)
+                  .IsRequired(false);
         });
 
         modelBuilder.Entity<UsuarioPermiso>(entity =>
@@ -416,6 +432,61 @@ public partial class AppDbContext : DbContext
                 .HasMaxLength(100)
                 .HasColumnName("nombre_tabla");
             entity.Property(e => e.Dvv).HasColumnName("dvv");
+        });
+
+        modelBuilder.Entity<Idioma>(entity => {
+            entity.HasKey(e => e.IdIdioma);
+            entity.ToTable("IDIOMA");
+            entity.Property(e => e.IdIdioma).HasColumnName("id_idioma");
+            entity.Property(e => e.Nombre).HasColumnName("nombre");
+            entity.Property(e => e.EsDefault).HasColumnName("es_default");
+        });
+
+        modelBuilder.Entity<Etiqueta>(entity => {
+            entity.HasKey(e => e.IdEtiqueta);
+            entity.ToTable("ETIQUETA");
+            entity.Property(e => e.IdEtiqueta).HasColumnName("id_etiqueta");
+            entity.Property(e => e.Clave).HasColumnName("clave");
+            entity.Property(e => e.Formulario).HasColumnName("formulario");
+
+        });
+
+        modelBuilder.Entity<Traduccion>(entity => {
+            entity.HasKey(e => e.IdTraduccion);
+            entity.ToTable("TRADUCCION");
+            entity.Property(e => e.IdTraduccion).HasColumnName("id_traduccion");
+            entity.Property(e => e.IdIdioma).HasColumnName("id_idioma");
+            entity.Property(e => e.IdEtiqueta).HasColumnName("id_etiqueta");
+            entity.Property(e => e.Texto).HasColumnName("texto");
+            entity.HasOne(e => e.IdIdiomaNavigation).WithMany(i => i.Traducciones).HasForeignKey(e => e.IdIdioma);
+            entity.HasOne(e => e.IdEtiquetaNavigation).WithMany(et => et.Traducciones).HasForeignKey(e => e.IdEtiqueta);
+        });
+
+        modelBuilder.Entity<HistorialUsuario>(entity =>
+        {
+            entity.HasKey(e => e.IdHistorial);
+            entity.ToTable("HISTORIAL_USUARIO");
+            entity.Property(e => e.IdHistorial).HasColumnName("id_historial");
+            entity.Property(e => e.IdUsuarioAuditado).HasColumnName("id_usuario_auditado");
+            entity.Property(e => e.IdUsuarioActor).HasColumnName("id_usuario_actor");
+            entity.Property(e => e.FechaCambio).HasColumnName("fecha_cambio").HasColumnType("datetime");
+            entity.Property(e => e.Accion).HasMaxLength(50).HasColumnName("accion");
+            entity.Property(e => e.UsernameSnap).HasMaxLength(100).HasColumnName("username_snap");
+            entity.Property(e => e.ActivoSnap).HasColumnName("activo_snap");
+            entity.Property(e => e.BloqueadoSnap).HasColumnName("bloqueado_snap");
+            entity.Property(e => e.PermisosSnap).HasColumnName("permisos_snap").IsRequired(false);
+
+            entity.HasOne(e => e.UsuarioAuditadoNavigation)
+                  .WithMany()
+                  .HasForeignKey(e => e.IdUsuarioAuditado)
+                  .OnDelete(DeleteBehavior.Restrict)
+                  .HasConstraintName("FK_HISTORIAL_USUARIO_AUDITADO");
+
+            entity.HasOne(e => e.UsuarioActorNavigation)
+                  .WithMany()
+                  .HasForeignKey(e => e.IdUsuarioActor)
+                  .OnDelete(DeleteBehavior.Restrict)
+                  .HasConstraintName("FK_HISTORIAL_USUARIO_ACTOR");
         });
 
         OnModelCreatingPartial(modelBuilder);

@@ -28,83 +28,116 @@
         /// </summary>
         private void InitializeComponent()
         {
-            groupBox2 = new GroupBox();
-            groupBox1 = new GroupBox();
+            groupBoxEliminar_FormRegistrarEdificioA = new GroupBox();
+            buttonEliminar_FormRegistrarEdificioA = new Button();
+            comboBoxEdificioEliminar = new ComboBox();
+            labelEEdificio_FormRegistrarEdificioA = new Label();
+            groupBoxModificar_FormRegistrarEdificioA = new GroupBox();
             comboBoxGestorModificar = new ComboBox();
-            label13 = new Label();
+            labelMGestor_FormRegistrarEdificioA = new Label();
             textBoxCodigoModificar = new TextBox();
-            label11 = new Label();
+            labelMCodigo_FormRegistrarEdificioA = new Label();
             textBoxDireccionModificar = new TextBox();
-            label10 = new Label();
-            buttonGuardarCambios = new Button();
+            labelMDireccion_FormRegistrarEdificioA = new Label();
+            buttonGuardarCambios_FormRegistrarEdificioA = new Button();
             textBoxNombreModificar = new TextBox();
             textBoxCantModificar = new TextBox();
-            label5 = new Label();
-            label6 = new Label();
+            labelMCantUnid_FormRegistrarEdificioA = new Label();
+            labelMNombre_FormRegistrarEdificioA = new Label();
             comboBoxEdificioModificar = new ComboBox();
-            label8 = new Label();
-            groupBoxEstado = new GroupBox();
-            label12 = new Label();
+            labelMEdificio_FormRegistrarEdificioA = new Label();
+            groupBoxEstado_FormRegistrarEdificioA = new GroupBox();
+            labelRGestor_FormRegistrarEdificioA = new Label();
             comboBoxGestor = new ComboBox();
             textBoxCodigo = new TextBox();
             textBoxDireccion = new TextBox();
-            buttonGuardar = new Button();
+            buttonRegistrar_FormRegistrarEdificioA = new Button();
             textBoxNombre = new TextBox();
             textBoxCant = new TextBox();
-            label3 = new Label();
-            label4 = new Label();
-            label2 = new Label();
-            label1 = new Label();
-            groupBox3 = new GroupBox();
-            buttonDarBaja = new Button();
-            comboBoxEdificioEliminar = new ComboBox();
-            label17 = new Label();
-            groupBox2.SuspendLayout();
-            groupBox1.SuspendLayout();
-            groupBoxEstado.SuspendLayout();
-            groupBox3.SuspendLayout();
+            labelRCantUnid_FormRegistrarEdificioA = new Label();
+            labelRNombre_FormRegistrarEdificioA = new Label();
+            labelRDireccion_FormRegistrarEdificioA = new Label();
+            labelCodEdificio_FormRegistrarEdificioA = new Label();
+            groupBoxEliminar_FormRegistrarEdificioA.SuspendLayout();
+            groupBoxModificar_FormRegistrarEdificioA.SuspendLayout();
+            groupBoxEstado_FormRegistrarEdificioA.SuspendLayout();
             SuspendLayout();
             // 
-            // groupBox2
+            // groupBoxEliminar_FormRegistrarEdificioA
             // 
-            groupBox2.BackColor = Color.FromArgb(8, 14, 26);
-            groupBox2.Controls.Add(groupBox3);
-            groupBox2.Controls.Add(groupBox1);
-            groupBox2.Controls.Add(groupBoxEstado);
-            groupBox2.Dock = DockStyle.Fill;
-            groupBox2.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBox2.ForeColor = SystemColors.ControlLight;
-            groupBox2.Location = new Point(0, 0);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(682, 597);
-            groupBox2.TabIndex = 8;
-            groupBox2.TabStop = false;
+            groupBoxEliminar_FormRegistrarEdificioA.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxEliminar_FormRegistrarEdificioA.Controls.Add(buttonEliminar_FormRegistrarEdificioA);
+            groupBoxEliminar_FormRegistrarEdificioA.Controls.Add(comboBoxEdificioEliminar);
+            groupBoxEliminar_FormRegistrarEdificioA.Controls.Add(labelEEdificio_FormRegistrarEdificioA);
+            groupBoxEliminar_FormRegistrarEdificioA.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxEliminar_FormRegistrarEdificioA.ForeColor = SystemColors.ControlLight;
+            groupBoxEliminar_FormRegistrarEdificioA.Location = new Point(48, 506);
+            groupBoxEliminar_FormRegistrarEdificioA.Name = "groupBoxEliminar_FormRegistrarEdificioA";
+            groupBoxEliminar_FormRegistrarEdificioA.Size = new Size(601, 82);
+            groupBoxEliminar_FormRegistrarEdificioA.TabIndex = 22;
+            groupBoxEliminar_FormRegistrarEdificioA.TabStop = false;
+            groupBoxEliminar_FormRegistrarEdificioA.Text = "ELIMINAR EDIFICIOS";
             // 
-            // groupBox1
+            // buttonEliminar_FormRegistrarEdificioA
             // 
-            groupBox1.Anchor = AnchorStyles.None;
-            groupBox1.BackColor = Color.FromArgb(17, 30, 53);
-            groupBox1.Controls.Add(comboBoxGestorModificar);
-            groupBox1.Controls.Add(label13);
-            groupBox1.Controls.Add(textBoxCodigoModificar);
-            groupBox1.Controls.Add(label11);
-            groupBox1.Controls.Add(textBoxDireccionModificar);
-            groupBox1.Controls.Add(label10);
-            groupBox1.Controls.Add(buttonGuardarCambios);
-            groupBox1.Controls.Add(textBoxNombreModificar);
-            groupBox1.Controls.Add(textBoxCantModificar);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(comboBoxEdificioModificar);
-            groupBox1.Controls.Add(label8);
-            groupBox1.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBox1.ForeColor = SystemColors.ControlLight;
-            groupBox1.Location = new Point(36, 255);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(601, 243);
-            groupBox1.TabIndex = 21;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "MODIFICAR EDIFICIOS";
+            buttonEliminar_FormRegistrarEdificioA.Anchor = AnchorStyles.None;
+            buttonEliminar_FormRegistrarEdificioA.BackColor = Color.FromArgb(0, 187, 118);
+            buttonEliminar_FormRegistrarEdificioA.FlatAppearance.BorderSize = 0;
+            buttonEliminar_FormRegistrarEdificioA.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
+            buttonEliminar_FormRegistrarEdificioA.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
+            buttonEliminar_FormRegistrarEdificioA.FlatStyle = FlatStyle.Flat;
+            buttonEliminar_FormRegistrarEdificioA.ForeColor = SystemColors.ControlLight;
+            buttonEliminar_FormRegistrarEdificioA.Location = new Point(270, 29);
+            buttonEliminar_FormRegistrarEdificioA.Name = "buttonEliminar_FormRegistrarEdificioA";
+            buttonEliminar_FormRegistrarEdificioA.Size = new Size(290, 36);
+            buttonEliminar_FormRegistrarEdificioA.TabIndex = 20;
+            buttonEliminar_FormRegistrarEdificioA.Text = "Eliminar Edificio";
+            buttonEliminar_FormRegistrarEdificioA.UseVisualStyleBackColor = false;
+            buttonEliminar_FormRegistrarEdificioA.Click += buttonDarBaja_Click;
+            // 
+            // comboBoxEdificioEliminar
+            // 
+            comboBoxEdificioEliminar.BackColor = Color.FromArgb(13, 22, 40);
+            comboBoxEdificioEliminar.ForeColor = SystemColors.ControlLight;
+            comboBoxEdificioEliminar.FormattingEnabled = true;
+            comboBoxEdificioEliminar.Location = new Point(20, 37);
+            comboBoxEdificioEliminar.Name = "comboBoxEdificioEliminar";
+            comboBoxEdificioEliminar.Size = new Size(209, 22);
+            comboBoxEdificioEliminar.TabIndex = 12;
+            // 
+            // labelEEdificio_FormRegistrarEdificioA
+            // 
+            labelEEdificio_FormRegistrarEdificioA.AutoSize = true;
+            labelEEdificio_FormRegistrarEdificioA.Location = new Point(20, 20);
+            labelEEdificio_FormRegistrarEdificioA.Name = "labelEEdificio_FormRegistrarEdificioA";
+            labelEEdificio_FormRegistrarEdificioA.Size = new Size(70, 14);
+            labelEEdificio_FormRegistrarEdificioA.TabIndex = 0;
+            labelEEdificio_FormRegistrarEdificioA.Text = "Edificio:";
+            // 
+            // groupBoxModificar_FormRegistrarEdificioA
+            // 
+            groupBoxModificar_FormRegistrarEdificioA.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxModificar_FormRegistrarEdificioA.Controls.Add(comboBoxGestorModificar);
+            groupBoxModificar_FormRegistrarEdificioA.Controls.Add(labelMGestor_FormRegistrarEdificioA);
+            groupBoxModificar_FormRegistrarEdificioA.Controls.Add(textBoxCodigoModificar);
+            groupBoxModificar_FormRegistrarEdificioA.Controls.Add(labelMCodigo_FormRegistrarEdificioA);
+            groupBoxModificar_FormRegistrarEdificioA.Controls.Add(textBoxDireccionModificar);
+            groupBoxModificar_FormRegistrarEdificioA.Controls.Add(labelMDireccion_FormRegistrarEdificioA);
+            groupBoxModificar_FormRegistrarEdificioA.Controls.Add(buttonGuardarCambios_FormRegistrarEdificioA);
+            groupBoxModificar_FormRegistrarEdificioA.Controls.Add(textBoxNombreModificar);
+            groupBoxModificar_FormRegistrarEdificioA.Controls.Add(textBoxCantModificar);
+            groupBoxModificar_FormRegistrarEdificioA.Controls.Add(labelMCantUnid_FormRegistrarEdificioA);
+            groupBoxModificar_FormRegistrarEdificioA.Controls.Add(labelMNombre_FormRegistrarEdificioA);
+            groupBoxModificar_FormRegistrarEdificioA.Controls.Add(comboBoxEdificioModificar);
+            groupBoxModificar_FormRegistrarEdificioA.Controls.Add(labelMEdificio_FormRegistrarEdificioA);
+            groupBoxModificar_FormRegistrarEdificioA.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxModificar_FormRegistrarEdificioA.ForeColor = SystemColors.ControlLight;
+            groupBoxModificar_FormRegistrarEdificioA.Location = new Point(48, 257);
+            groupBoxModificar_FormRegistrarEdificioA.Name = "groupBoxModificar_FormRegistrarEdificioA";
+            groupBoxModificar_FormRegistrarEdificioA.Size = new Size(601, 243);
+            groupBoxModificar_FormRegistrarEdificioA.TabIndex = 21;
+            groupBoxModificar_FormRegistrarEdificioA.TabStop = false;
+            groupBoxModificar_FormRegistrarEdificioA.Text = "MODIFICAR EDIFICIOS";
             // 
             // comboBoxGestorModificar
             // 
@@ -116,14 +149,14 @@
             comboBoxGestorModificar.Size = new Size(209, 22);
             comboBoxGestorModificar.TabIndex = 27;
             // 
-            // label13
+            // labelMGestor_FormRegistrarEdificioA
             // 
-            label13.AutoSize = true;
-            label13.Location = new Point(319, 154);
-            label13.Name = "label13";
-            label13.Size = new Size(112, 14);
-            label13.TabIndex = 26;
-            label13.Text = "Gestor a Cargo:";
+            labelMGestor_FormRegistrarEdificioA.AutoSize = true;
+            labelMGestor_FormRegistrarEdificioA.Location = new Point(319, 154);
+            labelMGestor_FormRegistrarEdificioA.Name = "labelMGestor_FormRegistrarEdificioA";
+            labelMGestor_FormRegistrarEdificioA.Size = new Size(112, 14);
+            labelMGestor_FormRegistrarEdificioA.TabIndex = 26;
+            labelMGestor_FormRegistrarEdificioA.Text = "Gestor a Cargo:";
             // 
             // textBoxCodigoModificar
             // 
@@ -134,14 +167,14 @@
             textBoxCodigoModificar.Size = new Size(208, 22);
             textBoxCodigoModificar.TabIndex = 25;
             // 
-            // label11
+            // labelMCodigo_FormRegistrarEdificioA
             // 
-            label11.AutoSize = true;
-            label11.Location = new Point(319, 91);
-            label11.Name = "label11";
-            label11.Size = new Size(56, 14);
-            label11.TabIndex = 24;
-            label11.Text = "Codigo:";
+            labelMCodigo_FormRegistrarEdificioA.AutoSize = true;
+            labelMCodigo_FormRegistrarEdificioA.Location = new Point(319, 91);
+            labelMCodigo_FormRegistrarEdificioA.Name = "labelMCodigo_FormRegistrarEdificioA";
+            labelMCodigo_FormRegistrarEdificioA.Size = new Size(56, 14);
+            labelMCodigo_FormRegistrarEdificioA.TabIndex = 24;
+            labelMCodigo_FormRegistrarEdificioA.Text = "Codigo:";
             // 
             // textBoxDireccionModificar
             // 
@@ -152,31 +185,31 @@
             textBoxDireccionModificar.Size = new Size(208, 22);
             textBoxDireccionModificar.TabIndex = 23;
             // 
-            // label10
+            // labelMDireccion_FormRegistrarEdificioA
             // 
-            label10.AutoSize = true;
-            label10.Location = new Point(25, 91);
-            label10.Name = "label10";
-            label10.Size = new Size(77, 14);
-            label10.TabIndex = 22;
-            label10.Text = "Direccion:";
+            labelMDireccion_FormRegistrarEdificioA.AutoSize = true;
+            labelMDireccion_FormRegistrarEdificioA.Location = new Point(25, 91);
+            labelMDireccion_FormRegistrarEdificioA.Name = "labelMDireccion_FormRegistrarEdificioA";
+            labelMDireccion_FormRegistrarEdificioA.Size = new Size(77, 14);
+            labelMDireccion_FormRegistrarEdificioA.TabIndex = 22;
+            labelMDireccion_FormRegistrarEdificioA.Text = "Direccion:";
             // 
-            // buttonGuardarCambios
+            // buttonGuardarCambios_FormRegistrarEdificioA
             // 
-            buttonGuardarCambios.Anchor = AnchorStyles.None;
-            buttonGuardarCambios.BackColor = Color.FromArgb(0, 187, 118);
-            buttonGuardarCambios.FlatAppearance.BorderSize = 0;
-            buttonGuardarCambios.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
-            buttonGuardarCambios.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
-            buttonGuardarCambios.FlatStyle = FlatStyle.Flat;
-            buttonGuardarCambios.ForeColor = SystemColors.ControlLight;
-            buttonGuardarCambios.Location = new Point(126, 199);
-            buttonGuardarCambios.Name = "buttonGuardarCambios";
-            buttonGuardarCambios.Size = new Size(338, 36);
-            buttonGuardarCambios.TabIndex = 20;
-            buttonGuardarCambios.Text = "Guardar Cambios";
-            buttonGuardarCambios.UseVisualStyleBackColor = false;
-            buttonGuardarCambios.Click += buttonGuardarCambios_Click;
+            buttonGuardarCambios_FormRegistrarEdificioA.Anchor = AnchorStyles.None;
+            buttonGuardarCambios_FormRegistrarEdificioA.BackColor = Color.FromArgb(0, 187, 118);
+            buttonGuardarCambios_FormRegistrarEdificioA.FlatAppearance.BorderSize = 0;
+            buttonGuardarCambios_FormRegistrarEdificioA.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
+            buttonGuardarCambios_FormRegistrarEdificioA.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
+            buttonGuardarCambios_FormRegistrarEdificioA.FlatStyle = FlatStyle.Flat;
+            buttonGuardarCambios_FormRegistrarEdificioA.ForeColor = SystemColors.ControlLight;
+            buttonGuardarCambios_FormRegistrarEdificioA.Location = new Point(126, 199);
+            buttonGuardarCambios_FormRegistrarEdificioA.Name = "buttonGuardarCambios_FormRegistrarEdificioA";
+            buttonGuardarCambios_FormRegistrarEdificioA.Size = new Size(338, 36);
+            buttonGuardarCambios_FormRegistrarEdificioA.TabIndex = 20;
+            buttonGuardarCambios_FormRegistrarEdificioA.Text = "Guardar Cambios";
+            buttonGuardarCambios_FormRegistrarEdificioA.UseVisualStyleBackColor = false;
+            buttonGuardarCambios_FormRegistrarEdificioA.Click += buttonGuardarCambios_Click;
             // 
             // textBoxNombreModificar
             // 
@@ -196,23 +229,23 @@
             textBoxCantModificar.Size = new Size(208, 22);
             textBoxCantModificar.TabIndex = 18;
             // 
-            // label5
+            // labelMCantUnid_FormRegistrarEdificioA
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(25, 154);
-            label5.Name = "label5";
-            label5.Size = new Size(154, 14);
-            label5.TabIndex = 16;
-            label5.Text = "Cantidad de Unidades:";
+            labelMCantUnid_FormRegistrarEdificioA.AutoSize = true;
+            labelMCantUnid_FormRegistrarEdificioA.Location = new Point(25, 154);
+            labelMCantUnid_FormRegistrarEdificioA.Name = "labelMCantUnid_FormRegistrarEdificioA";
+            labelMCantUnid_FormRegistrarEdificioA.Size = new Size(154, 14);
+            labelMCantUnid_FormRegistrarEdificioA.TabIndex = 16;
+            labelMCantUnid_FormRegistrarEdificioA.Text = "Cantidad de Unidades:";
             // 
-            // label6
+            // labelMNombre_FormRegistrarEdificioA
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(319, 32);
-            label6.Name = "label6";
-            label6.Size = new Size(56, 14);
-            label6.TabIndex = 15;
-            label6.Text = "Nombre:";
+            labelMNombre_FormRegistrarEdificioA.AutoSize = true;
+            labelMNombre_FormRegistrarEdificioA.Location = new Point(319, 32);
+            labelMNombre_FormRegistrarEdificioA.Name = "labelMNombre_FormRegistrarEdificioA";
+            labelMNombre_FormRegistrarEdificioA.Size = new Size(56, 14);
+            labelMNombre_FormRegistrarEdificioA.TabIndex = 15;
+            labelMNombre_FormRegistrarEdificioA.Text = "Nombre:";
             // 
             // comboBoxEdificioModificar
             // 
@@ -225,47 +258,46 @@
             comboBoxEdificioModificar.TabIndex = 12;
             comboBoxEdificioModificar.SelectedIndexChanged += comboBoxEdificioModificar_SelectedIndexChanged;
             // 
-            // label8
+            // labelMEdificio_FormRegistrarEdificioA
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(24, 32);
-            label8.Name = "label8";
-            label8.Size = new Size(70, 14);
-            label8.TabIndex = 0;
-            label8.Text = "Edificio:";
+            labelMEdificio_FormRegistrarEdificioA.AutoSize = true;
+            labelMEdificio_FormRegistrarEdificioA.Location = new Point(24, 32);
+            labelMEdificio_FormRegistrarEdificioA.Name = "labelMEdificio_FormRegistrarEdificioA";
+            labelMEdificio_FormRegistrarEdificioA.Size = new Size(70, 14);
+            labelMEdificio_FormRegistrarEdificioA.TabIndex = 0;
+            labelMEdificio_FormRegistrarEdificioA.Text = "Edificio:";
             // 
-            // groupBoxEstado
+            // groupBoxEstado_FormRegistrarEdificioA
             // 
-            groupBoxEstado.Anchor = AnchorStyles.None;
-            groupBoxEstado.BackColor = Color.FromArgb(17, 30, 53);
-            groupBoxEstado.Controls.Add(label12);
-            groupBoxEstado.Controls.Add(comboBoxGestor);
-            groupBoxEstado.Controls.Add(textBoxCodigo);
-            groupBoxEstado.Controls.Add(textBoxDireccion);
-            groupBoxEstado.Controls.Add(buttonGuardar);
-            groupBoxEstado.Controls.Add(textBoxNombre);
-            groupBoxEstado.Controls.Add(textBoxCant);
-            groupBoxEstado.Controls.Add(label3);
-            groupBoxEstado.Controls.Add(label4);
-            groupBoxEstado.Controls.Add(label2);
-            groupBoxEstado.Controls.Add(label1);
-            groupBoxEstado.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBoxEstado.ForeColor = SystemColors.ControlLight;
-            groupBoxEstado.Location = new Point(36, 10);
-            groupBoxEstado.Name = "groupBoxEstado";
-            groupBoxEstado.Size = new Size(601, 229);
-            groupBoxEstado.TabIndex = 3;
-            groupBoxEstado.TabStop = false;
-            groupBoxEstado.Text = "REGISTRAR EDIFICIOS";
+            groupBoxEstado_FormRegistrarEdificioA.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxEstado_FormRegistrarEdificioA.Controls.Add(labelRGestor_FormRegistrarEdificioA);
+            groupBoxEstado_FormRegistrarEdificioA.Controls.Add(comboBoxGestor);
+            groupBoxEstado_FormRegistrarEdificioA.Controls.Add(textBoxCodigo);
+            groupBoxEstado_FormRegistrarEdificioA.Controls.Add(textBoxDireccion);
+            groupBoxEstado_FormRegistrarEdificioA.Controls.Add(buttonRegistrar_FormRegistrarEdificioA);
+            groupBoxEstado_FormRegistrarEdificioA.Controls.Add(textBoxNombre);
+            groupBoxEstado_FormRegistrarEdificioA.Controls.Add(textBoxCant);
+            groupBoxEstado_FormRegistrarEdificioA.Controls.Add(labelRCantUnid_FormRegistrarEdificioA);
+            groupBoxEstado_FormRegistrarEdificioA.Controls.Add(labelRNombre_FormRegistrarEdificioA);
+            groupBoxEstado_FormRegistrarEdificioA.Controls.Add(labelRDireccion_FormRegistrarEdificioA);
+            groupBoxEstado_FormRegistrarEdificioA.Controls.Add(labelCodEdificio_FormRegistrarEdificioA);
+            groupBoxEstado_FormRegistrarEdificioA.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxEstado_FormRegistrarEdificioA.ForeColor = SystemColors.ControlLight;
+            groupBoxEstado_FormRegistrarEdificioA.Location = new Point(48, 17);
+            groupBoxEstado_FormRegistrarEdificioA.Name = "groupBoxEstado_FormRegistrarEdificioA";
+            groupBoxEstado_FormRegistrarEdificioA.Size = new Size(601, 229);
+            groupBoxEstado_FormRegistrarEdificioA.TabIndex = 3;
+            groupBoxEstado_FormRegistrarEdificioA.TabStop = false;
+            groupBoxEstado_FormRegistrarEdificioA.Text = "REGISTRAR EDIFICIOS";
             // 
-            // label12
+            // labelRGestor_FormRegistrarEdificioA
             // 
-            label12.AutoSize = true;
-            label12.Location = new Point(319, 84);
-            label12.Name = "label12";
-            label12.Size = new Size(112, 14);
-            label12.TabIndex = 24;
-            label12.Text = "Gestor a Cargo:";
+            labelRGestor_FormRegistrarEdificioA.AutoSize = true;
+            labelRGestor_FormRegistrarEdificioA.Location = new Point(319, 84);
+            labelRGestor_FormRegistrarEdificioA.Name = "labelRGestor_FormRegistrarEdificioA";
+            labelRGestor_FormRegistrarEdificioA.Size = new Size(112, 14);
+            labelRGestor_FormRegistrarEdificioA.TabIndex = 24;
+            labelRGestor_FormRegistrarEdificioA.Text = "Gestor a Cargo:";
             // 
             // comboBoxGestor
             // 
@@ -295,22 +327,22 @@
             textBoxDireccion.Size = new Size(208, 22);
             textBoxDireccion.TabIndex = 21;
             // 
-            // buttonGuardar
+            // buttonRegistrar_FormRegistrarEdificioA
             // 
-            buttonGuardar.Anchor = AnchorStyles.None;
-            buttonGuardar.BackColor = Color.FromArgb(0, 187, 118);
-            buttonGuardar.FlatAppearance.BorderSize = 0;
-            buttonGuardar.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
-            buttonGuardar.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
-            buttonGuardar.FlatStyle = FlatStyle.Flat;
-            buttonGuardar.ForeColor = SystemColors.ControlLight;
-            buttonGuardar.Location = new Point(25, 187);
-            buttonGuardar.Name = "buttonGuardar";
-            buttonGuardar.Size = new Size(502, 36);
-            buttonGuardar.TabIndex = 20;
-            buttonGuardar.Text = "Registrar Edificio";
-            buttonGuardar.UseVisualStyleBackColor = false;
-            buttonGuardar.Click += buttonGuardar_Click;
+            buttonRegistrar_FormRegistrarEdificioA.Anchor = AnchorStyles.None;
+            buttonRegistrar_FormRegistrarEdificioA.BackColor = Color.FromArgb(0, 187, 118);
+            buttonRegistrar_FormRegistrarEdificioA.FlatAppearance.BorderSize = 0;
+            buttonRegistrar_FormRegistrarEdificioA.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
+            buttonRegistrar_FormRegistrarEdificioA.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
+            buttonRegistrar_FormRegistrarEdificioA.FlatStyle = FlatStyle.Flat;
+            buttonRegistrar_FormRegistrarEdificioA.ForeColor = SystemColors.ControlLight;
+            buttonRegistrar_FormRegistrarEdificioA.Location = new Point(25, 187);
+            buttonRegistrar_FormRegistrarEdificioA.Name = "buttonRegistrar_FormRegistrarEdificioA";
+            buttonRegistrar_FormRegistrarEdificioA.Size = new Size(502, 36);
+            buttonRegistrar_FormRegistrarEdificioA.TabIndex = 20;
+            buttonRegistrar_FormRegistrarEdificioA.Text = "Registrar Edificio";
+            buttonRegistrar_FormRegistrarEdificioA.UseVisualStyleBackColor = false;
+            buttonRegistrar_FormRegistrarEdificioA.Click += buttonGuardar_Click;
             // 
             // textBoxNombre
             // 
@@ -330,93 +362,41 @@
             textBoxCant.Size = new Size(208, 22);
             textBoxCant.TabIndex = 18;
             // 
-            // label3
+            // labelRCantUnid_FormRegistrarEdificioA
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(25, 135);
-            label3.Name = "label3";
-            label3.Size = new Size(154, 14);
-            label3.TabIndex = 16;
-            label3.Text = "Cantidad de Unidades:";
+            labelRCantUnid_FormRegistrarEdificioA.AutoSize = true;
+            labelRCantUnid_FormRegistrarEdificioA.Location = new Point(25, 135);
+            labelRCantUnid_FormRegistrarEdificioA.Name = "labelRCantUnid_FormRegistrarEdificioA";
+            labelRCantUnid_FormRegistrarEdificioA.Size = new Size(154, 14);
+            labelRCantUnid_FormRegistrarEdificioA.TabIndex = 16;
+            labelRCantUnid_FormRegistrarEdificioA.Text = "Cantidad de Unidades:";
             // 
-            // label4
+            // labelRNombre_FormRegistrarEdificioA
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(319, 32);
-            label4.Name = "label4";
-            label4.Size = new Size(56, 14);
-            label4.TabIndex = 15;
-            label4.Text = "Nombre:";
+            labelRNombre_FormRegistrarEdificioA.AutoSize = true;
+            labelRNombre_FormRegistrarEdificioA.Location = new Point(319, 32);
+            labelRNombre_FormRegistrarEdificioA.Name = "labelRNombre_FormRegistrarEdificioA";
+            labelRNombre_FormRegistrarEdificioA.Size = new Size(56, 14);
+            labelRNombre_FormRegistrarEdificioA.TabIndex = 15;
+            labelRNombre_FormRegistrarEdificioA.Text = "Nombre:";
             // 
-            // label2
+            // labelRDireccion_FormRegistrarEdificioA
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(25, 84);
-            label2.Name = "label2";
-            label2.Size = new Size(77, 14);
-            label2.TabIndex = 13;
-            label2.Text = "Direccion:";
+            labelRDireccion_FormRegistrarEdificioA.AutoSize = true;
+            labelRDireccion_FormRegistrarEdificioA.Location = new Point(25, 84);
+            labelRDireccion_FormRegistrarEdificioA.Name = "labelRDireccion_FormRegistrarEdificioA";
+            labelRDireccion_FormRegistrarEdificioA.Size = new Size(77, 14);
+            labelRDireccion_FormRegistrarEdificioA.TabIndex = 13;
+            labelRDireccion_FormRegistrarEdificioA.Text = "Direccion:";
             // 
-            // label1
+            // labelCodEdificio_FormRegistrarEdificioA
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(24, 32);
-            label1.Name = "label1";
-            label1.Size = new Size(119, 14);
-            label1.TabIndex = 0;
-            label1.Text = "Codigo Edificio:";
-            // 
-            // groupBox3
-            // 
-            groupBox3.Anchor = AnchorStyles.None;
-            groupBox3.BackColor = Color.FromArgb(17, 30, 53);
-            groupBox3.Controls.Add(buttonDarBaja);
-            groupBox3.Controls.Add(comboBoxEdificioEliminar);
-            groupBox3.Controls.Add(label17);
-            groupBox3.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBox3.ForeColor = SystemColors.ControlLight;
-            groupBox3.Location = new Point(36, 503);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(601, 82);
-            groupBox3.TabIndex = 22;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "ELIMINAR EDIFICIOS";
-            // 
-            // buttonDarBaja
-            // 
-            buttonDarBaja.Anchor = AnchorStyles.None;
-            buttonDarBaja.BackColor = Color.FromArgb(0, 187, 118);
-            buttonDarBaja.FlatAppearance.BorderSize = 0;
-            buttonDarBaja.FlatAppearance.MouseDownBackColor = Color.FromArgb(2, 146, 95);
-            buttonDarBaja.FlatAppearance.MouseOverBackColor = Color.FromArgb(2, 146, 95);
-            buttonDarBaja.FlatStyle = FlatStyle.Flat;
-            buttonDarBaja.ForeColor = SystemColors.ControlLight;
-            buttonDarBaja.Location = new Point(270, 29);
-            buttonDarBaja.Name = "buttonDarBaja";
-            buttonDarBaja.Size = new Size(290, 36);
-            buttonDarBaja.TabIndex = 20;
-            buttonDarBaja.Text = "Eliminar Edificio";
-            buttonDarBaja.UseVisualStyleBackColor = false;
-            buttonDarBaja.Click += buttonDarBaja_Click;
-            // 
-            // comboBoxEdificioEliminar
-            // 
-            comboBoxEdificioEliminar.BackColor = Color.FromArgb(13, 22, 40);
-            comboBoxEdificioEliminar.ForeColor = SystemColors.ControlLight;
-            comboBoxEdificioEliminar.FormattingEnabled = true;
-            comboBoxEdificioEliminar.Location = new Point(20, 37);
-            comboBoxEdificioEliminar.Name = "comboBoxEdificioEliminar";
-            comboBoxEdificioEliminar.Size = new Size(209, 22);
-            comboBoxEdificioEliminar.TabIndex = 12;
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Location = new Point(20, 20);
-            label17.Name = "label17";
-            label17.Size = new Size(70, 14);
-            label17.TabIndex = 0;
-            label17.Text = "Edificio:";
+            labelCodEdificio_FormRegistrarEdificioA.AutoSize = true;
+            labelCodEdificio_FormRegistrarEdificioA.Location = new Point(24, 32);
+            labelCodEdificio_FormRegistrarEdificioA.Name = "labelCodEdificio_FormRegistrarEdificioA";
+            labelCodEdificio_FormRegistrarEdificioA.Size = new Size(119, 14);
+            labelCodEdificio_FormRegistrarEdificioA.TabIndex = 0;
+            labelCodEdificio_FormRegistrarEdificioA.Text = "Codigo Edificio:";
             // 
             // formRegistrarEdificioA
             // 
@@ -424,53 +404,53 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(8, 14, 26);
             ClientSize = new Size(682, 597);
-            Controls.Add(groupBox2);
+            Controls.Add(groupBoxEliminar_FormRegistrarEdificioA);
+            Controls.Add(groupBoxModificar_FormRegistrarEdificioA);
+            Controls.Add(groupBoxEstado_FormRegistrarEdificioA);
             ForeColor = SystemColors.ControlText;
             Name = "formRegistrarEdificioA";
             Text = "formRegistrarEdificioA";
+            FormClosing += formRegistrarEdificioA_FormClosing;
             Load += formRegistrarEdificioA_Load;
-            groupBox2.ResumeLayout(false);
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            groupBoxEstado.ResumeLayout(false);
-            groupBoxEstado.PerformLayout();
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
+            groupBoxEliminar_FormRegistrarEdificioA.ResumeLayout(false);
+            groupBoxEliminar_FormRegistrarEdificioA.PerformLayout();
+            groupBoxModificar_FormRegistrarEdificioA.ResumeLayout(false);
+            groupBoxModificar_FormRegistrarEdificioA.PerformLayout();
+            groupBoxEstado_FormRegistrarEdificioA.ResumeLayout(false);
+            groupBoxEstado_FormRegistrarEdificioA.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private GroupBox groupBox2;
-        private GroupBox groupBox1;
-        private Button buttonGuardarCambios;
+        private GroupBox groupBoxModificar_FormRegistrarEdificioA;
+        private Button buttonGuardarCambios_FormRegistrarEdificioA;
         private TextBox textBoxNombreModificar;
         private TextBox textBoxCantModificar;
-        private Label label5;
-        private Label label6;
+        private Label labelMCantUnid_FormRegistrarEdificioA;
+        private Label labelMNombre_FormRegistrarEdificioA;
         private ComboBox comboBoxEdificioModificar;
-        private Label label8;
-        private GroupBox groupBoxEstado;
-        private Button buttonGuardar;
+        private Label labelMEdificio_FormRegistrarEdificioA;
+        private GroupBox groupBoxEstado_FormRegistrarEdificioA;
+        private Button buttonRegistrar_FormRegistrarEdificioA;
         private TextBox textBoxNombre;
         private TextBox textBoxCant;
-        private Label label3;
-        private Label label4;
-        private Label label1;
+        private Label labelRCantUnid_FormRegistrarEdificioA;
+        private Label labelRNombre_FormRegistrarEdificioA;
+        private Label labelCodEdificio_FormRegistrarEdificioA;
         private TextBox textBoxCodigo;
         private TextBox textBoxDireccionModificar;
-        private Label label10;
+        private Label labelMDireccion_FormRegistrarEdificioA;
         private TextBox textBoxDireccion;
-        private Label label2;
+        private Label labelRDireccion_FormRegistrarEdificioA;
         private TextBox textBoxCodigoModificar;
-        private Label label11;
+        private Label labelMCodigo_FormRegistrarEdificioA;
         private ComboBox comboBoxGestorModificar;
-        private Label label13;
-        private Label label12;
+        private Label labelMGestor_FormRegistrarEdificioA;
+        private Label labelRGestor_FormRegistrarEdificioA;
         private ComboBox comboBoxGestor;
-        private GroupBox groupBox3;
-        private Button buttonDarBaja;
+        private GroupBox groupBoxEliminar_FormRegistrarEdificioA;
+        private Button buttonEliminar_FormRegistrarEdificioA;
         private ComboBox comboBoxEdificioEliminar;
-        private Label label17;
+        private Label labelEEdificio_FormRegistrarEdificioA;
     }
 }

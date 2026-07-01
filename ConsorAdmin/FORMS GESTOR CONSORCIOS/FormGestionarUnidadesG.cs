@@ -1,5 +1,6 @@
 using BE;
 using BLL;
+using SERV;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,9 @@ using System.Windows.Forms;
 
 namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
 {
-    public partial class FormGestionarUnidadesG : Form
+    public partial class FormGestionarUnidadesG : Form, IIdiomaObserver
     {
+        private readonly TraductorBLL _traductorBLL = new TraductorBLL();
         private readonly ConsorcioBLL _consorcioBLL = new ConsorcioBLL();
         private readonly UnidadBLL _unidadBLL = new UnidadBLL();
         private readonly ConsorcistaBLL _consorcistaBLL = new ConsorcistaBLL();
@@ -22,6 +24,10 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
 
         private void FormGestionarUnidadesG_Load(object sender, EventArgs e)
         {
+            AsignarTags();
+            SessionManager.SuscribirObservador(this);
+            Traducir();
+
             try
             {
                 CargarCombos();
@@ -31,6 +37,58 @@ namespace ConsorAdmin.FORMS_GESTOR_CONSORCIOS
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void FormGestionarUnidadesG_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SessionManager.DesuscribirObservador(this);
+        }
+
+        public void ActualizarIdioma(IdiomaBE idioma)
+        {
+            if (this.InvokeRequired) this.Invoke(() => Traducir(idioma));
+            else Traducir(idioma);
+        }
+
+        private void Traducir(IdiomaBE idioma = null)
+        {
+            idioma ??= SessionManager.IdiomaActual ?? _traductorBLL.ObtenerIdiomaDefault();
+            var t = _traductorBLL.ObtenerTraducciones(idioma);
+            TraducirControles(this.Controls, t);
+        }
+
+        private void TraducirControles(Control.ControlCollection controles, Dictionary<string, string> t)
+        {
+            foreach (Control ctrl in controles)
+            {
+                if (ctrl.Tag is string clave && t.ContainsKey(clave))
+                    ctrl.Text = t[clave];
+                if (ctrl.Controls.Count > 0)
+                    TraducirControles(ctrl.Controls, t);
+            }
+        }
+
+        private void AsignarTags()
+        {
+            buttonEliminar_FormGestionarUnidadesG.Tag = "buttonEliminar_FormGestionarUnidadesG";
+            labelEUnidad_FormGestionarUnidadesG.Tag = "labelEUnidad_FormGestionarUnidadesG";
+            labelEliminarUnidad_FormGestionarUnidadesG.Tag = "labelEliminarUnidad_FormGestionarUnidadesG";
+            groupBoxAgregarUnidades_FormGestionarUnidadesG.Tag = "groupBoxAgregarUnidades_FormGestionarUnidadesG";
+            labelATipo_FormGestionarUnidadesG.Tag = "labelATipo_FormGestionarUnidadesG";
+            buttonGuardarUnidad_FormGestionarUnidadesG.Tag = "buttonGuardarUnidad_FormGestionarUnidadesG";
+            labelAEdificio_FormGestionarUnidadesG.Tag = "labelAEdificio_FormGestionarUnidadesG";
+            labelAPiso_FormGestionarUnidadesG.Tag = "labelAPiso_FormGestionarUnidadesG";
+            labelADpto_FormGestionarUnidadesG.Tag = "labelADpto_FormGestionarUnidadesG";
+            labelASuperficie_FormGestionarUnidadesG.Tag = "labelASuperficie_FormGestionarUnidadesG";
+            groupBoxEstado_FormGestionarUnidadesG.Tag = "groupBoxEstado_FormGestionarUnidadesG";
+            labelETipo_FormGestionarUnidadesG.Tag = "labelETipo_FormGestionarUnidadesG";
+            labelEditarUnidad_FormGestionarUnidadesG.Tag = "labelEditarUnidad_FormGestionarUnidadesG";
+            buttonActualizar_FormGestionarUnidadesG.Tag = "buttonActualizar_FormGestionarUnidadesG";
+            labelESuperficie_FormGestionarUnidadesG.Tag = "labelESuperficie_FormGestionarUnidadesG";
+            labelEDpto_FormGestionarUnidadesG.Tag = "labelEDpto_FormGestionarUnidadesG";
+            labelEPiso_FormGestionarUnidadesG.Tag = "labelEPiso_FormGestionarUnidadesG";
+            labelEEdificio_FormGestionarUnidadesG.Tag = "labelEEdificio_FormGestionarUnidadesG";
+            labelUnidades_FormGestionarUnidadesG.Tag = "labelUnidades_FormGestionarUnidadesG";
         }
 
         // ── AGREGAR UNIDAD ───────────────────────────────────────────────────

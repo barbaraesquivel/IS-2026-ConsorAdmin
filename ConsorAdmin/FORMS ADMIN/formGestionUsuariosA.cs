@@ -1,5 +1,6 @@
 using BE;
 using BLL;
+using SERV;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +8,12 @@ using System.Windows.Forms;
 
 namespace ConsorAdmin.FORMS_ADMIN
 {
-    public partial class formGestionUsuariosA : Form
+    public partial class formGestionUsuariosA : Form, IIdiomaObserver
     {
+        private readonly TraductorBLL _traductorBLL = new TraductorBLL();
         private readonly UsuarioBLL _bll = new UsuarioBLL();
         private readonly IPermisoBLL _permisoBLL = new PermisoBLL();
+        private readonly HistorialUsuarioBLL _histBLL = new HistorialUsuarioBLL();
 
         // Lista completa de permisos como árbol Composite
         private List<ComponentePermisoBE> _arbolPermisos = new();
@@ -24,11 +27,69 @@ namespace ConsorAdmin.FORMS_ADMIN
 
             // Eventos
             comboBoxUsuarios.SelectedIndexChanged += ComboBoxUsuarios_SelectedIndexChanged;
-            buttonRMUsuario.Click += BtnRegistrarModificar_Click;
-            buttonLimpiarCampos.Click += BtnLimpiar_Click;
-            buttonEliminar.Click += BtnEliminar_Click;
+            buttonRMUsuario_FormGestionUsuariosA.Click += BtnRegistrarModificar_Click;
+            buttonLimpiarCampos_FormGestionUsuariosA.Click += BtnLimpiar_Click;
+            buttonEliminar_FormGestionUsuariosA.Click += BtnEliminar_Click;
+            btnRestaurarEstado_FormGestionUsuariosA.Click += btnRestaurarEstado_Click;
+            this.Load += formGestionUsuariosA_Load;
+            this.FormClosing += formGestionUsuariosA_FormClosing;
+        }
 
+        private void formGestionUsuariosA_Load(object sender, EventArgs e)
+        {
+            AsignarTags();
+            SessionManager.SuscribirObservador(this);
+            Traducir();
             CargarDatos();
+        }
+
+        private void formGestionUsuariosA_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SessionManager.DesuscribirObservador(this);
+        }
+
+        public void ActualizarIdioma(IdiomaBE idioma)
+        {
+            if (this.InvokeRequired) this.Invoke(() => Traducir(idioma));
+            else Traducir(idioma);
+        }
+
+        private void Traducir(IdiomaBE idioma = null)
+        {
+            idioma ??= SessionManager.IdiomaActual ?? _traductorBLL.ObtenerIdiomaDefault();
+            var t = _traductorBLL.ObtenerTraducciones(idioma);
+            TraducirControles(this.Controls, t);
+        }
+
+        private void TraducirControles(Control.ControlCollection controles, Dictionary<string, string> t)
+        {
+            foreach (Control ctrl in controles)
+            {
+                if (ctrl.Tag is string clave && t.ContainsKey(clave))
+                    ctrl.Text = t[clave];
+                if (ctrl.Controls.Count > 0)
+                    TraducirControles(ctrl.Controls, t);
+            }
+        }
+
+        private void AsignarTags()
+        {
+            groupBoxUsuarios_FormGestionUsuariosA.Tag = "groupBoxUsuarios_FormGestionUsuariosA";
+            groupBoxModificar_FormGestionUsuariosA.Tag = "groupBoxModificar_FormGestionUsuariosA";
+            buttonLimpiarCampos_FormGestionUsuariosA.Tag = "buttonLimpiarCampos_FormGestionUsuariosA";
+            buttonRMUsuario_FormGestionUsuariosA.Tag = "buttonRMUsuario_FormGestionUsuariosA";
+            labelUsuario_FormGestionUsuariosA.Tag = "labelUsuario_FormGestionUsuariosA";
+            labelPermisos_FormGestionUsuariosA.Tag = "labelPermisos_FormGestionUsuariosA";
+            labelBloqueado_FormGestionUsuariosA.Tag = "labelBloqueado_FormGestionUsuariosA";
+            labelActivo_FormGestionUsuariosA.Tag = "labelActivo_FormGestionUsuariosA";
+            labelContraseña_FormGestionUsuariosA.Tag = "labelContraseña_FormGestionUsuariosA";
+            labelNombre_FormGestionUsuariosA.Tag = "labelNombre_FormGestionUsuariosA";
+            groupBoxEliminar_FormGestionUsuariosA.Tag = "groupBoxEliminar_FormGestionUsuariosA";
+            buttonEliminar_FormGestionUsuariosA.Tag = "buttonEliminar_FormGestionUsuariosA";
+            labelUsuarioEliminar_FormGestionUsuariosA.Tag = "labelUsuarioEliminar_FormGestionUsuariosA";
+            grpHistorial_FormGestionUsuariosA.Tag = "grpHistorial_FormGestionUsuariosA";
+            lblInfoRestaurar_FormGestionUsuariosA.Tag = "lblInfoRestaurar_FormGestionUsuariosA";
+            btnRestaurarEstado_FormGestionUsuariosA.Tag = "btnRestaurarEstado_FormGestionUsuariosA";
         }
 
         // ── Carga inicial ─────────────────────────────────────────────────────
@@ -169,14 +230,15 @@ namespace ConsorAdmin.FORMS_ADMIN
             {
                 // Alta: limpiar campos
                 LimpiarCamposRM();
+                dgvHistorial.DataSource = null;
                 return;
             }
 
             // Modificación: poblar campos
             textBoxNombreModificar.Text = _usuarioSeleccionado.Usuario;
             textBoxContraseñaModificar.Text = string.Empty; // no mostrar hash
-            checkBoxActivoModificar.Checked = !_usuarioSeleccionado.Baja;
-            checkBoxBloqueadoModificar.Checked = _usuarioSeleccionado.Bloqueado;
+            checkBoxActivoModificar_FormGestionUsuariosA.Checked = !_usuarioSeleccionado.Baja;
+            checkBoxBloqueadoModificar_FormGestionUsuariosA.Checked = _usuarioSeleccionado.Bloqueado;
 
             // Marcar permisos que ya tiene (cargados via BLL, no desde el objeto en memoria)
             var permisosActivos = _permisoBLL
@@ -184,6 +246,106 @@ namespace ConsorAdmin.FORMS_ADMIN
                 .Select(c => c.Id_Permiso)
                 .ToHashSet();
             PopularTreeView(permisosActivos);
+
+            CargarHistorial(_usuarioSeleccionado.Id);
+        }
+
+        // ── Historial (Memento) ───────────────────────────────────────────────
+
+        private void CargarHistorial(Guid idUsuario)
+        {
+            try
+            {
+                var historial = _histBLL.ObtenerHistorial(idUsuario);
+                dgvHistorial.DataSource = historial.Select(m => new
+                {
+                    m.IdHistorial,
+                    Fecha = m.FechaCambio.ToString("dd/MM/yyyy HH:mm:ss"),
+                    m.Accion,
+                    Username = m.UsernameSnap,
+                    Activo = m.ActivoSnap,
+                    Bloqueado = m.BloqueadoSnap,
+                    Permisos = m.PermisosSnap ?? "(ninguno)"
+                }).ToList();
+
+                dgvHistorial.Columns["IdHistorial"].Visible = false; // ocultar la PK
+                dgvHistorial.AutoResizeColumns();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar historial: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnRestaurarEstado_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_usuarioSeleccionado == null)
+                {
+                    MessageBox.Show("Seleccioná un usuario primero.", "Atención",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (dgvHistorial.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Seleccioná una fila del historial para restaurar.", "Atención",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Leer los datos del snapshot seleccionado
+                var fila = dgvHistorial.SelectedRows[0];
+                string usernameSnap = fila.Cells["Username"].Value?.ToString() ?? "";
+                bool activoSnap = (bool)(fila.Cells["Activo"].Value ?? true);
+                bool bloqueadoSnap = (bool)(fila.Cells["Bloqueado"].Value ?? false);
+                string permisosStr = fila.Cells["Permisos"].Value?.ToString() ?? "";
+
+                // Parsear permisos
+                List<int> permisosIds = new();
+                if (!string.IsNullOrWhiteSpace(permisosStr) && permisosStr != "(ninguno)")
+                {
+                    permisosIds = permisosStr.Split(',')
+                        .Select(p => int.TryParse(p.Trim(), out int id) ? id : -1)
+                        .Where(id => id > 0)
+                        .ToList();
+                }
+
+                var confirm = MessageBox.Show(
+                    $"¿Restaurar el usuario '{_usuarioSeleccionado.Usuario}' al estado:\n" +
+                    $"Username: {usernameSnap}\nActivo: {activoSnap}\nBloqueado: {bloqueadoSnap}\nPermisos: {permisosStr}\n\n" +
+                    "NOTA: la contraseña actual NO se modifica.",
+                    "Confirmar restauración",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (confirm != DialogResult.Yes) return;
+
+                // Armar el UsuarioBE con el estado a restaurar
+                var usuarioRestaurado = new UsuarioBE
+                {
+                    Id = _usuarioSeleccionado.Id,
+                    Usuario = usernameSnap,
+                    Contraseña = string.Empty,   // vacío = mantener contraseña actual
+                    Baja = !activoSnap,
+                    Bloqueado = bloqueadoSnap
+                };
+
+                _bll.Modificar(usuarioRestaurado, permisosIds);
+
+                MessageBox.Show("Estado restaurado correctamente. Se generó un nuevo registro en el historial con acción 'MODIFICACION'.",
+                    "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                LimpiarCamposRM();
+                CargarDatos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al restaurar: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         // ── Registrar / Modificar ─────────────────────────────────────────────
@@ -194,8 +356,8 @@ namespace ConsorAdmin.FORMS_ADMIN
             {
                 string nombre = textBoxNombreModificar.Text.Trim();
                 string contraseña = textBoxContraseñaModificar.Text;
-                bool activo = !checkBoxActivoModificar.Checked;
-                bool bloqueado = checkBoxBloqueadoModificar.Checked;
+                bool activo = !checkBoxActivoModificar_FormGestionUsuariosA.Checked;
+                bool bloqueado = checkBoxBloqueadoModificar_FormGestionUsuariosA.Checked;
                 var permisos = ObtenerPermisosCheckeados();
 
                 var usuario = new UsuarioBE
@@ -278,8 +440,8 @@ namespace ConsorAdmin.FORMS_ADMIN
             _usuarioSeleccionado = null;
             textBoxNombreModificar.Clear();
             textBoxContraseñaModificar.Clear();
-            checkBoxActivoModificar.Checked = true;
-            checkBoxBloqueadoModificar.Checked = false;
+            checkBoxActivoModificar_FormGestionUsuariosA.Checked = true;
+            checkBoxBloqueadoModificar_FormGestionUsuariosA.Checked = false;
             PopularTreeView(new HashSet<int>());
         }
 

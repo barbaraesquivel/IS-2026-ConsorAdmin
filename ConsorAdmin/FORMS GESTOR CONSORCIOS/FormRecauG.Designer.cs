@@ -28,56 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            groupBox3 = new GroupBox();
-            labelSinAsig = new Label();
+            groupBoxSinAsignar_FormRecauG = new GroupBox();
+            labelSinAsig_FormRecauG = new Label();
             panel4 = new Panel();
-            groupBoxPagado = new GroupBox();
-            labelFondo = new Label();
+            groupBoxFondo_FormRecauG = new GroupBox();
+            labelFondo_FormRecauG = new Label();
             panelGreen = new Panel();
-            groupBoxEstado = new GroupBox();
-            groupBoxProxexp = new GroupBox();
-            labelAsignado = new Label();
+            groupBoxAsignarFondos_FormRecauG = new GroupBox();
+            textBoxMonto = new TextBox();
+            richTextBox1 = new RichTextBox();
+            labelMonto_FormRecauG = new Label();
+            labelDescripcion_FormRecauG = new Label();
+            comboBoxCategoria = new ComboBox();
+            labelCategoria_FormRecauG = new Label();
+            comboBoxEdificios = new ComboBox();
+            labelEdificio_FormRecauG = new Label();
+            groupBoxAsignado_FormRecauG = new GroupBox();
+            labelAsignado_FormRecauG = new Label();
             panel2 = new Panel();
             groupBox2 = new GroupBox();
-            label1 = new Label();
-            comboBoxEdificios = new ComboBox();
-            comboBoxCategoria = new ComboBox();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            richTextBox1 = new RichTextBox();
-            textBoxMonto = new TextBox();
-            groupBox3.SuspendLayout();
-            groupBoxPagado.SuspendLayout();
-            groupBoxEstado.SuspendLayout();
-            groupBoxProxexp.SuspendLayout();
+            groupBoxSinAsignar_FormRecauG.SuspendLayout();
+            groupBoxFondo_FormRecauG.SuspendLayout();
+            groupBoxAsignarFondos_FormRecauG.SuspendLayout();
+            groupBoxAsignado_FormRecauG.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
-            // groupBox3
+            // groupBoxSinAsignar_FormRecauG
             // 
-            groupBox3.Anchor = AnchorStyles.None;
-            groupBox3.BackColor = Color.FromArgb(17, 30, 53);
-            groupBox3.Controls.Add(labelSinAsig);
-            groupBox3.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBox3.ForeColor = SystemColors.ControlLight;
-            groupBox3.Location = new Point(440, 105);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(159, 63);
-            groupBox3.TabIndex = 8;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "SIN ASIGNAR";
+            groupBoxSinAsignar_FormRecauG.Anchor = AnchorStyles.None;
+            groupBoxSinAsignar_FormRecauG.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxSinAsignar_FormRecauG.Controls.Add(labelSinAsig_FormRecauG);
+            groupBoxSinAsignar_FormRecauG.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxSinAsignar_FormRecauG.ForeColor = SystemColors.ControlLight;
+            groupBoxSinAsignar_FormRecauG.Location = new Point(440, 105);
+            groupBoxSinAsignar_FormRecauG.Name = "groupBoxSinAsignar_FormRecauG";
+            groupBoxSinAsignar_FormRecauG.Size = new Size(159, 63);
+            groupBoxSinAsignar_FormRecauG.TabIndex = 8;
+            groupBoxSinAsignar_FormRecauG.TabStop = false;
+            groupBoxSinAsignar_FormRecauG.Text = "SIN ASIGNAR";
             // 
-            // labelSinAsig
+            // labelSinAsig_FormRecauG
             // 
-            labelSinAsig.Anchor = AnchorStyles.None;
-            labelSinAsig.AutoSize = true;
-            labelSinAsig.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelSinAsig.Location = new Point(2, 16);
-            labelSinAsig.Name = "labelSinAsig";
-            labelSinAsig.Size = new Size(139, 19);
-            labelSinAsig.TabIndex = 4;
-            labelSinAsig.Text = "$000000000.00";
+            labelSinAsig_FormRecauG.Anchor = AnchorStyles.None;
+            labelSinAsig_FormRecauG.AutoSize = true;
+            labelSinAsig_FormRecauG.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelSinAsig_FormRecauG.Location = new Point(2, 16);
+            labelSinAsig_FormRecauG.Name = "labelSinAsig_FormRecauG";
+            labelSinAsig_FormRecauG.Size = new Size(139, 19);
+            labelSinAsig_FormRecauG.TabIndex = 4;
+            labelSinAsig_FormRecauG.Text = "$000000000.00";
             // 
             // panel4
             // 
@@ -88,30 +88,30 @@
             panel4.Size = new Size(167, 72);
             panel4.TabIndex = 9;
             // 
-            // groupBoxPagado
+            // groupBoxFondo_FormRecauG
             // 
-            groupBoxPagado.Anchor = AnchorStyles.None;
-            groupBoxPagado.BackColor = Color.FromArgb(17, 30, 53);
-            groupBoxPagado.Controls.Add(labelFondo);
-            groupBoxPagado.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBoxPagado.ForeColor = SystemColors.ControlLight;
-            groupBoxPagado.Location = new Point(92, 105);
-            groupBoxPagado.Name = "groupBoxPagado";
-            groupBoxPagado.Size = new Size(159, 63);
-            groupBoxPagado.TabIndex = 0;
-            groupBoxPagado.TabStop = false;
-            groupBoxPagado.Text = "FONDO DISPONIBLE";
+            groupBoxFondo_FormRecauG.Anchor = AnchorStyles.None;
+            groupBoxFondo_FormRecauG.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxFondo_FormRecauG.Controls.Add(labelFondo_FormRecauG);
+            groupBoxFondo_FormRecauG.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxFondo_FormRecauG.ForeColor = SystemColors.ControlLight;
+            groupBoxFondo_FormRecauG.Location = new Point(92, 105);
+            groupBoxFondo_FormRecauG.Name = "groupBoxFondo_FormRecauG";
+            groupBoxFondo_FormRecauG.Size = new Size(159, 63);
+            groupBoxFondo_FormRecauG.TabIndex = 0;
+            groupBoxFondo_FormRecauG.TabStop = false;
+            groupBoxFondo_FormRecauG.Text = "FONDO DISPONIBLE";
             // 
-            // labelFondo
+            // labelFondo_FormRecauG
             // 
-            labelFondo.Anchor = AnchorStyles.None;
-            labelFondo.AutoSize = true;
-            labelFondo.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelFondo.Location = new Point(2, 16);
-            labelFondo.Name = "labelFondo";
-            labelFondo.Size = new Size(139, 19);
-            labelFondo.TabIndex = 0;
-            labelFondo.Text = "$000000000.00";
+            labelFondo_FormRecauG.Anchor = AnchorStyles.None;
+            labelFondo_FormRecauG.AutoSize = true;
+            labelFondo_FormRecauG.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelFondo_FormRecauG.Location = new Point(2, 16);
+            labelFondo_FormRecauG.Name = "labelFondo_FormRecauG";
+            labelFondo_FormRecauG.Size = new Size(139, 19);
+            labelFondo_FormRecauG.TabIndex = 0;
+            labelFondo_FormRecauG.Text = "$000000000.00";
             // 
             // panelGreen
             // 
@@ -122,51 +122,124 @@
             panelGreen.Size = new Size(167, 72);
             panelGreen.TabIndex = 5;
             // 
-            // groupBoxEstado
+            // groupBoxAsignarFondos_FormRecauG
             // 
-            groupBoxEstado.Anchor = AnchorStyles.None;
-            groupBoxEstado.BackColor = Color.FromArgb(17, 30, 53);
-            groupBoxEstado.Controls.Add(textBoxMonto);
-            groupBoxEstado.Controls.Add(richTextBox1);
-            groupBoxEstado.Controls.Add(label3);
-            groupBoxEstado.Controls.Add(label4);
-            groupBoxEstado.Controls.Add(comboBoxCategoria);
-            groupBoxEstado.Controls.Add(label2);
-            groupBoxEstado.Controls.Add(comboBoxEdificios);
-            groupBoxEstado.Controls.Add(label1);
-            groupBoxEstado.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBoxEstado.ForeColor = SystemColors.ControlLight;
-            groupBoxEstado.Location = new Point(87, 217);
-            groupBoxEstado.Name = "groupBoxEstado";
-            groupBoxEstado.Size = new Size(515, 324);
-            groupBoxEstado.TabIndex = 3;
-            groupBoxEstado.TabStop = false;
-            groupBoxEstado.Text = "ASIGNAR FONDOS";
+            groupBoxAsignarFondos_FormRecauG.Anchor = AnchorStyles.None;
+            groupBoxAsignarFondos_FormRecauG.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxAsignarFondos_FormRecauG.Controls.Add(textBoxMonto);
+            groupBoxAsignarFondos_FormRecauG.Controls.Add(richTextBox1);
+            groupBoxAsignarFondos_FormRecauG.Controls.Add(labelMonto_FormRecauG);
+            groupBoxAsignarFondos_FormRecauG.Controls.Add(labelDescripcion_FormRecauG);
+            groupBoxAsignarFondos_FormRecauG.Controls.Add(comboBoxCategoria);
+            groupBoxAsignarFondos_FormRecauG.Controls.Add(labelCategoria_FormRecauG);
+            groupBoxAsignarFondos_FormRecauG.Controls.Add(comboBoxEdificios);
+            groupBoxAsignarFondos_FormRecauG.Controls.Add(labelEdificio_FormRecauG);
+            groupBoxAsignarFondos_FormRecauG.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxAsignarFondos_FormRecauG.ForeColor = SystemColors.ControlLight;
+            groupBoxAsignarFondos_FormRecauG.Location = new Point(87, 217);
+            groupBoxAsignarFondos_FormRecauG.Name = "groupBoxAsignarFondos_FormRecauG";
+            groupBoxAsignarFondos_FormRecauG.Size = new Size(515, 324);
+            groupBoxAsignarFondos_FormRecauG.TabIndex = 3;
+            groupBoxAsignarFondos_FormRecauG.TabStop = false;
+            groupBoxAsignarFondos_FormRecauG.Text = "ASIGNAR FONDOS";
             // 
-            // groupBoxProxexp
+            // textBoxMonto
             // 
-            groupBoxProxexp.Anchor = AnchorStyles.None;
-            groupBoxProxexp.BackColor = Color.FromArgb(17, 30, 53);
-            groupBoxProxexp.Controls.Add(labelAsignado);
-            groupBoxProxexp.Font = new Font("Unispace", 9F, FontStyle.Bold);
-            groupBoxProxexp.ForeColor = SystemColors.ControlLight;
-            groupBoxProxexp.Location = new Point(265, 105);
-            groupBoxProxexp.Name = "groupBoxProxexp";
-            groupBoxProxexp.Size = new Size(159, 63);
-            groupBoxProxexp.TabIndex = 2;
-            groupBoxProxexp.TabStop = false;
-            groupBoxProxexp.Text = "ASIGNADO";
+            textBoxMonto.BackColor = Color.FromArgb(13, 22, 40);
+            textBoxMonto.ForeColor = SystemColors.ControlLight;
+            textBoxMonto.Location = new Point(272, 112);
+            textBoxMonto.Name = "textBoxMonto";
+            textBoxMonto.Size = new Size(208, 22);
+            textBoxMonto.TabIndex = 18;
             // 
-            // labelAsignado
+            // richTextBox1
             // 
-            labelAsignado.Anchor = AnchorStyles.None;
-            labelAsignado.AutoSize = true;
-            labelAsignado.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelAsignado.Location = new Point(2, 16);
-            labelAsignado.Name = "labelAsignado";
-            labelAsignado.Size = new Size(139, 19);
-            labelAsignado.TabIndex = 4;
-            labelAsignado.Text = "$000000000.00";
+            richTextBox1.Location = new Point(7, 112);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(209, 166);
+            richTextBox1.TabIndex = 17;
+            richTextBox1.Text = "";
+            // 
+            // labelMonto_FormRecauG
+            // 
+            labelMonto_FormRecauG.AutoSize = true;
+            labelMonto_FormRecauG.Location = new Point(272, 95);
+            labelMonto_FormRecauG.Name = "labelMonto_FormRecauG";
+            labelMonto_FormRecauG.Size = new Size(49, 14);
+            labelMonto_FormRecauG.TabIndex = 16;
+            labelMonto_FormRecauG.Text = "Monto:";
+            // 
+            // labelDescripcion_FormRecauG
+            // 
+            labelDescripcion_FormRecauG.AutoSize = true;
+            labelDescripcion_FormRecauG.Location = new Point(7, 95);
+            labelDescripcion_FormRecauG.Name = "labelDescripcion_FormRecauG";
+            labelDescripcion_FormRecauG.Size = new Size(91, 14);
+            labelDescripcion_FormRecauG.TabIndex = 15;
+            labelDescripcion_FormRecauG.Text = "Descripcion:";
+            // 
+            // comboBoxCategoria
+            // 
+            comboBoxCategoria.BackColor = Color.FromArgb(13, 22, 40);
+            comboBoxCategoria.ForeColor = SystemColors.ControlLight;
+            comboBoxCategoria.FormattingEnabled = true;
+            comboBoxCategoria.Location = new Point(272, 49);
+            comboBoxCategoria.Name = "comboBoxCategoria";
+            comboBoxCategoria.Size = new Size(209, 22);
+            comboBoxCategoria.TabIndex = 14;
+            // 
+            // labelCategoria_FormRecauG
+            // 
+            labelCategoria_FormRecauG.AutoSize = true;
+            labelCategoria_FormRecauG.Location = new Point(272, 32);
+            labelCategoria_FormRecauG.Name = "labelCategoria_FormRecauG";
+            labelCategoria_FormRecauG.Size = new Size(77, 14);
+            labelCategoria_FormRecauG.TabIndex = 13;
+            labelCategoria_FormRecauG.Text = "Categoria:";
+            // 
+            // comboBoxEdificios
+            // 
+            comboBoxEdificios.BackColor = Color.FromArgb(13, 22, 40);
+            comboBoxEdificios.ForeColor = SystemColors.ControlLight;
+            comboBoxEdificios.FormattingEnabled = true;
+            comboBoxEdificios.Location = new Point(7, 49);
+            comboBoxEdificios.Name = "comboBoxEdificios";
+            comboBoxEdificios.Size = new Size(209, 22);
+            comboBoxEdificios.TabIndex = 12;
+            // 
+            // labelEdificio_FormRecauG
+            // 
+            labelEdificio_FormRecauG.AutoSize = true;
+            labelEdificio_FormRecauG.Location = new Point(7, 32);
+            labelEdificio_FormRecauG.Name = "labelEdificio_FormRecauG";
+            labelEdificio_FormRecauG.Size = new Size(70, 14);
+            labelEdificio_FormRecauG.TabIndex = 0;
+            labelEdificio_FormRecauG.Text = "Edificio:";
+            // 
+            // groupBoxAsignado_FormRecauG
+            // 
+            groupBoxAsignado_FormRecauG.Anchor = AnchorStyles.None;
+            groupBoxAsignado_FormRecauG.BackColor = Color.FromArgb(17, 30, 53);
+            groupBoxAsignado_FormRecauG.Controls.Add(labelAsignado_FormRecauG);
+            groupBoxAsignado_FormRecauG.Font = new Font("Unispace", 9F, FontStyle.Bold);
+            groupBoxAsignado_FormRecauG.ForeColor = SystemColors.ControlLight;
+            groupBoxAsignado_FormRecauG.Location = new Point(265, 105);
+            groupBoxAsignado_FormRecauG.Name = "groupBoxAsignado_FormRecauG";
+            groupBoxAsignado_FormRecauG.Size = new Size(159, 63);
+            groupBoxAsignado_FormRecauG.TabIndex = 2;
+            groupBoxAsignado_FormRecauG.TabStop = false;
+            groupBoxAsignado_FormRecauG.Text = "ASIGNADO";
+            // 
+            // labelAsignado_FormRecauG
+            // 
+            labelAsignado_FormRecauG.Anchor = AnchorStyles.None;
+            labelAsignado_FormRecauG.AutoSize = true;
+            labelAsignado_FormRecauG.Font = new Font("Unispace", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelAsignado_FormRecauG.Location = new Point(2, 16);
+            labelAsignado_FormRecauG.Name = "labelAsignado_FormRecauG";
+            labelAsignado_FormRecauG.Size = new Size(139, 19);
+            labelAsignado_FormRecauG.TabIndex = 4;
+            labelAsignado_FormRecauG.Text = "$000000000.00";
             // 
             // panel2
             // 
@@ -180,12 +253,12 @@
             // groupBox2
             // 
             groupBox2.BackColor = Color.FromArgb(8, 14, 26);
-            groupBox2.Controls.Add(groupBox3);
+            groupBox2.Controls.Add(groupBoxSinAsignar_FormRecauG);
             groupBox2.Controls.Add(panel4);
-            groupBox2.Controls.Add(groupBoxPagado);
+            groupBox2.Controls.Add(groupBoxFondo_FormRecauG);
             groupBox2.Controls.Add(panelGreen);
-            groupBox2.Controls.Add(groupBoxEstado);
-            groupBox2.Controls.Add(groupBoxProxexp);
+            groupBox2.Controls.Add(groupBoxAsignarFondos_FormRecauG);
+            groupBox2.Controls.Add(groupBoxAsignado_FormRecauG);
             groupBox2.Controls.Add(panel2);
             groupBox2.Dock = DockStyle.Fill;
             groupBox2.Font = new Font("Unispace", 9F, FontStyle.Bold);
@@ -195,79 +268,6 @@
             groupBox2.Size = new Size(682, 597);
             groupBox2.TabIndex = 6;
             groupBox2.TabStop = false;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(7, 32);
-            label1.Name = "label1";
-            label1.Size = new Size(70, 14);
-            label1.TabIndex = 0;
-            label1.Text = "Edificio:";
-            // 
-            // comboBoxEdificios
-            // 
-            comboBoxEdificios.BackColor = Color.FromArgb(13, 22, 40);
-            comboBoxEdificios.ForeColor = SystemColors.ControlLight;
-            comboBoxEdificios.FormattingEnabled = true;
-            comboBoxEdificios.Location = new Point(7, 49);
-            comboBoxEdificios.Name = "comboBoxEdificios";
-            comboBoxEdificios.Size = new Size(209, 22);
-            comboBoxEdificios.TabIndex = 12;
-            // 
-            // comboBoxCategoria
-            // 
-            comboBoxCategoria.BackColor = Color.FromArgb(13, 22, 40);
-            comboBoxCategoria.ForeColor = SystemColors.ControlLight;
-            comboBoxCategoria.FormattingEnabled = true;
-            comboBoxCategoria.Location = new Point(272, 49);
-            comboBoxCategoria.Name = "comboBoxCategoria";
-            comboBoxCategoria.Size = new Size(209, 22);
-            comboBoxCategoria.TabIndex = 14;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(272, 32);
-            label2.Name = "label2";
-            label2.Size = new Size(77, 14);
-            label2.TabIndex = 13;
-            label2.Text = "Categoria:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(272, 95);
-            label3.Name = "label3";
-            label3.Size = new Size(49, 14);
-            label3.TabIndex = 16;
-            label3.Text = "Monto:";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(7, 95);
-            label4.Name = "label4";
-            label4.Size = new Size(91, 14);
-            label4.TabIndex = 15;
-            label4.Text = "Descripcion:";
-            // 
-            // richTextBox1
-            // 
-            richTextBox1.Location = new Point(7, 112);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(209, 166);
-            richTextBox1.TabIndex = 17;
-            richTextBox1.Text = "";
-            // 
-            // textBoxMonto
-            // 
-            textBoxMonto.BackColor = Color.FromArgb(13, 22, 40);
-            textBoxMonto.ForeColor = SystemColors.ControlLight;
-            textBoxMonto.Location = new Point(272, 112);
-            textBoxMonto.Name = "textBoxMonto";
-            textBoxMonto.Size = new Size(208, 22);
-            textBoxMonto.TabIndex = 18;
             // 
             // FormRecauG
             // 
@@ -279,14 +279,16 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormRecauG";
             Text = "FormRecauG";
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
-            groupBoxPagado.ResumeLayout(false);
-            groupBoxPagado.PerformLayout();
-            groupBoxEstado.ResumeLayout(false);
-            groupBoxEstado.PerformLayout();
-            groupBoxProxexp.ResumeLayout(false);
-            groupBoxProxexp.PerformLayout();
+            Load += FormRecauG_Load;
+            FormClosing += FormRecauG_FormClosing;
+            groupBoxSinAsignar_FormRecauG.ResumeLayout(false);
+            groupBoxSinAsignar_FormRecauG.PerformLayout();
+            groupBoxFondo_FormRecauG.ResumeLayout(false);
+            groupBoxFondo_FormRecauG.PerformLayout();
+            groupBoxAsignarFondos_FormRecauG.ResumeLayout(false);
+            groupBoxAsignarFondos_FormRecauG.PerformLayout();
+            groupBoxAsignado_FormRecauG.ResumeLayout(false);
+            groupBoxAsignado_FormRecauG.PerformLayout();
             groupBox2.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -294,7 +296,7 @@
         #endregion
 
         private GroupBox groupBox2;
-        private GroupBox groupBoxPagado;
+        private GroupBox groupBoxFondo_FormRecauG;
         private Label labelExpAbon;
         private Label labelTotal;
         private Panel panelGreen;
@@ -305,26 +307,26 @@
         private Label labelVenAtencion;
         private Label labelTotAtencion;
         private Panel panel3;
-        private GroupBox groupBoxEstado;
+        private GroupBox groupBoxAsignarFondos_FormRecauG;
         private GroupBox groupBoxDeuda;
         private Label labelExpVen;
         private Label labelDeuda;
-        private GroupBox groupBoxProxexp;
+        private GroupBox groupBoxAsignado_FormRecauG;
         private Label labelVenProx;
         private Label labelProx;
         private Panel panel1;
         private Panel panel2;
-        private GroupBox groupBox3;
-        private Label labelSinAsig;
+        private GroupBox groupBoxSinAsignar_FormRecauG;
+        private Label labelSinAsig_FormRecauG;
         private Panel panel4;
-        private Label labelFondo;
-        private Label labelAsignado;
-        private Label label1;
+        private Label labelFondo_FormRecauG;
+        private Label labelAsignado_FormRecauG;
+        private Label labelEdificio_FormRecauG;
         private RichTextBox richTextBox1;
-        private Label label3;
-        private Label label4;
+        private Label labelMonto_FormRecauG;
+        private Label labelDescripcion_FormRecauG;
         private ComboBox comboBoxCategoria;
-        private Label label2;
+        private Label labelCategoria_FormRecauG;
         private ComboBox comboBoxEdificios;
         private TextBox textBoxMonto;
     }
